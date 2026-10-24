@@ -69,6 +69,36 @@ a{color:#111111}
   .rv-pics img:nth-child(n+2){display:none}
   .rv-text{font-size:13px;line-height:1.6}
 }
+.why-box{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.why-img{position:relative;overflow:hidden;min-height:520px;border-radius:18px;background:#EEEEEE;box-shadow:0 18px 45px rgba(17,17,17,0.08)}
+@keyframes why-breath{from{transform:scale(1)}to{transform:scale(1.06)}}
+.why-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s ease;animation:why-breath 8s ease-in-out infinite alternate}
+.why-panel{background:#FFFFFF;border:1px solid rgba(17,17,17,0.06);border-radius:18px;box-shadow:0 18px 45px rgba(17,17,17,0.06);padding:8px 22px 18px}
+.why-it{position:relative;width:100%;display:grid;grid-template-columns:40px 46px minmax(0,1fr);gap:14px;align-items:center;padding:16px 14px;border:0;border-bottom:1px solid rgba(17,17,17,0.07);background:transparent;cursor:pointer;font-family:inherit;color:#111111;text-align:right;transition:background .35s}
+.why-it:last-of-type{border-bottom:0}
+.why-it:hover{background:rgba(194,48,75,0.03)}
+.why-line{position:absolute;right:-22px;top:12px;bottom:12px;width:4px;border-radius:10px;background:#C2304B;opacity:0;transform:scaleY(.3);transition:opacity .45s,transform .45s}
+.why-num{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:rgba(17,17,17,0.18);transition:color .35s}
+.why-ic{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:#FDEEF1;color:#C2304B;transition:all .4s}
+.why-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.why-txt strong{font-size:16px;font-weight:800;transition:color .35s}
+.why-txt span{font-size:13px;color:#555555;line-height:1.7}
+.why-on{background:linear-gradient(90deg,rgba(194,48,75,0.02),rgba(194,48,75,0.07))}
+.why-on .why-line{opacity:1;transform:scaleY(1)}
+.why-on .why-num{color:#C2304B}
+.why-on .why-ic{background:#C2304B;color:#FFFFFF;transform:translateY(-2px) scale(1.06);box-shadow:0 8px 22px rgba(194,48,75,0.25)}
+.why-on .why-txt strong{color:#C2304B}
+@media (max-width: 860px){
+  .why-box{grid-template-columns:minmax(0,1fr);gap:16px}
+  .why-img{min-height:320px}
+  .why-panel{padding:4px 12px 14px}
+  .why-it{grid-template-columns:30px 40px minmax(0,1fr);gap:10px;padding:13px 8px}
+  .why-line{right:-12px}
+  .why-ic{width:38px;height:38px}
+  .why-txt strong{font-size:14px}
+  .why-txt span{font-size:12px}
+}
+@media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
 details summary{cursor:pointer;list-style:none}
 details summary::-webkit-details-marker{display:none}
@@ -282,26 +312,40 @@ details summary::-webkit-details-marker{display:none}
     </div>
   </section>
 
-  <!-- ================= FEATURES (each with CTA) ================= -->
-  <section style="max-width: 1180px; margin: 0 auto; padding: 64px 20px 8px; display: flex; flex-direction: column; gap: 64px">
-    <div style="text-align: center; display: flex; flex-direction: column; gap: 6px; align-items: center">
-      <span class="lat" style="font-size: 10px; color: #666666">Why Dodoliza</span>
-      <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">ليش شراب دودليزا مختلف؟</h2>
-    </div>
-    <sc-for list="{{features}}" as="f" hint-placeholder-count="5">
-      <div class="{{f.cls}}">
-        <div class="feat-img" style="aspect-ratio: 1 / 1; background: #F3F3F3; overflow: hidden"><img data-dc-src="{{f.img}}" alt="{{f.title}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="display: flex; flex-direction: column; gap: 12px">
-          <span class="lat" style="font-size: 11px; color: #C2304B">{{f.n}}</span>
-          <h3 style="margin: 0; font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; line-height: 1.4">{{f.title}}</h3>
-          <p style="margin: 0; font-size: 15px; color: #444444">{{f.text}}</p>
-          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px">
-            <a href="#buy" style="background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</a>
-            <span style="font-size: 12px; color: {{f.noteColor}}; font-weight: 700">{{f.note}}</span>
+  <!-- ================= WHY DODOLIZA (auto-rotating) ================= -->
+  <section style="background: #FAF7F8; margin-top: 64px; padding: 56px 0 60px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 20px">
+      <div style="text-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 30px">
+        <span class="lat" style="font-size: 10px; color: #666666">Why Dodoliza</span>
+        <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">ليش شراب دودليزا مختلف؟</h2>
+        <p style="margin: 0; font-size: 14px; color: #555555">مصمّم بتفاصيل تفرق معك من أول لبسة لآخر اليوم.</p>
+      </div>
+      <div class="why-box">
+        <div class="why-img">
+          <sc-for list="{{why}}" as="w" hint-placeholder-count="5">
+            <img data-dc-src="{{w.img}}" alt="{{w.title}}" style="{{w.imgStyle}}">
+          </sc-for>
+          <div style="position: absolute; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(255,255,255,0.9); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.1)">
+            <strong style="color: #C2304B; font-size: 18px; font-weight: 800">{{p1}} ر.س</strong>
+            <span style="font-size: 12px; font-weight: 700">علبة + علبة · 10 أزواج</span>
+          </div>
+        </div>
+        <div class="why-panel">
+          <sc-for list="{{why}}" as="w" hint-placeholder-count="5">
+            <button type="button" onClick="{{w.pick}}" aria-pressed="{{w.pressed}}" class="{{w.cls}}">
+              <span class="why-line" aria-hidden="true"></span>
+              <span class="why-num">{{w.n}}</span>
+              <span class="why-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-d="{{w.d}}"></path></svg></span>
+              <span class="why-txt"><strong>{{w.title}}</strong><span>{{w.text}}</span></span>
+            </button>
+          </sc-for>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 0 4px">
+            <a href="#buy" style="background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
+            <span style="font-size: 12px; color: #C2304B; font-weight: 700">العرض ينتهي خلال {{dd}} يوم</span>
           </div>
         </div>
       </div>
-    </sc-for>
+    </div>
   </section>
 
   <!-- ================= COMPARISON ================= -->
@@ -430,7 +474,7 @@ details summary::-webkit-details-marker{display:none}
 <script>
 
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { slide: 0, gender: 'm', color: 1, bundle: 0, cart: 0, cross: false, drawer: false, left: this.secsLeft(), paused: false }; }
+  constructor(props) { super(props); this.state = { slide: 0, gender: 'm', color: 1, bundle: 0, cart: 0, cross: false, drawer: false, left: this.secsLeft(), paused: false, feat: 0 }; }
   secsLeft() { var n = new Date(); var e = new Date(n.getFullYear(), n.getMonth() + 1, 1); return Math.max(0, Math.floor((e - n) / 1000)); }
   componentDidMount() {
     var self = this, t = 0;
@@ -438,6 +482,7 @@ class Component extends DCLogic {
       t++;
       var s = { left: self.secsLeft() };
       if (t % 4 === 0 && !self.state.paused) s.slide = (self.state.slide + 1) % 8;
+      if (t % 3 === 0) s.feat = (self.state.feat + 1) % 5;
       self.setState(s);
     }, 1000);
   }
@@ -485,7 +530,7 @@ class Component extends DCLogic {
       { n: '01', title: 'حافة واسعة… ما تضغط على الساق', text: 'حافة مرنة تمسك الرجل بدون ما تشد، فما يترك أثر حتى بعد يوم كامل.', img: 'img/stretch_black.webp', note: 'العرض: علبة + علبة مجانًا', nc: '#555555' },
       { n: '02', title: 'ألياف بامبو… أنعم من القطن وتتنفس', text: 'ألياف من نبات البامبو، أخف وأنعم، وفيها مسام تخلّي الهوا يدخل لرجلك طول اليوم.', img: 'img/feet_white.webp', note: 'سعر الزوج يبدأ من ' + bund[2].per + ' ر.س', nc: '#555555' },
       { n: '03', title: 'نانو الفضة… ريحة أقل', text: 'تقنية نانو الفضة مع البامبو تمتص العرق وتحدّ من الروائح، فتلبسه بثقة من الصبح لآخر اليوم.', img: 'img/fabric.webp', note: 'الكمية محدودة', nc: '#C2304B' },
-      { n: '04', title: 'خياطة ناعمة… بدون حواف', text: 'مقدمة الشراب بدون خياطة بارزة، فما يحتك بالأصابع ولا يضايقك.', img: 'img/infographic.webp', note: 'ينتهي خلال ' + dd + ' يوم', nc: '#C2304B' },
+      { n: '04', title: 'خياطة ناعمة… بدون حواف', text: 'مقدمة الشراب بدون خياطة بارزة، فما يحتك بالأصابع ولا يضايقك.', img: 'img/foot.webp', note: 'ينتهي خلال ' + dd + ' يوم', nc: '#C2304B' },
       { n: '05', title: 'يعيش معك… غسلة ورا غسلة', text: 'يحافظ على شكله ونعومته بعد الغسيل، وكل علبة فيها 5 أزواج بأربع ألوان.', img: 'img/box_open.webp', note: 'آخر أيام العرض — لا تفوّته', nc: '#C2304B' }
     ];
     var I = {
@@ -574,7 +619,10 @@ class Component extends DCLogic {
         var all = a.concat(b);
         return [{ cls: 'lp-track', items: all.concat(all) }];
       })(),
-      features: feats.map(function (f, i) { return { n: f.n, title: f.title, text: f.text, img: f.img, note: f.note, noteColor: f.nc, cls: 'feat' + (i % 2 ? ' feat-rev' : '') }; }),
+      why: feats.map(function (f, i) { var on = st.feat === i; return { n: f.n, title: f.title, text: f.text, img: f.img,
+        d: [I.ring, I.leaf, I.shield, I.wave, I.swap][i], pressed: on ? 'true' : 'false', cls: 'why-it' + (on ? ' why-on' : ''),
+        imgStyle: 'opacity: ' + (on ? '1' : '0') + ';',
+        pick: function () { self.setState({ feat: i }); } }; }),
       compare: [
         { k: 'الخامة', a: 'بامبو + نانو الفضة', b: 'قطن عادي' },
         { k: 'الحافة', a: 'واسعة وما تضغط', b: 'أستك يشد ويعلّم' },
