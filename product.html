@@ -236,9 +236,10 @@ details summary::-webkit-details-marker{display:none}
 
         <!-- CTAs -->
         <div style="display: flex; flex-direction: column; gap: 8px">
-          <div style="display: flex; gap: 8px">
-            <a href="#buy" style="flex: 1.7 1 0; text-align: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; padding: 14px 8px; font-size: 14px; font-weight: 800">اشترِ الآن · {{b.price}} ر.س</a>
-            <button type="button" onClick="{{add}}" style="flex: 1 1 0; cursor: pointer; font-family: inherit; background: #FFFFFF; color: #2B1B22; border: 1px solid #C2304B; border-radius: 3px; padding: 12px 6px; font-size: 13px; font-weight: 700">أضف للسلة</button>
+          <div style="display: flex; gap: 8px; align-items: center">
+            <a href="#buy" style="flex: 1 1 auto; min-width: 0; height: 48px; display: flex; align-items: center; justify-content: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800; white-space: nowrap">اشترِ الآن · {{b.price}} ر.س</a>
+            <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" style="flex: 0 0 48px; height: 48px; cursor: pointer; display: flex; align-items: center; justify-content: center; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; padding: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
+            <a href="#buy" aria-label="الدفع عبر Apple Pay" style="flex: 0 0 auto; height: 48px; padding: 0 12px; display: flex; align-items: center; justify-content: center; background: #000000; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.2px" dir="ltr">Apple&#160;Pay</a>
           </div>
           <span style="text-align: center; font-size: 12px; color: #6B5A61">أو 4 دفعات <strong style="color: #2B1B22">{{b.inst}} ر.س</strong> مع تابي وتمارا · بدون فوائد</span>
         </div>
@@ -490,9 +491,15 @@ details summary::-webkit-details-marker{display:none}
         </div>
         <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0"><span class="was" style="font-size: 13px">{{b.old}}</span><strong style="font-size: 18px; color: #C2304B">{{b.price}} ر.س</strong></div>
       </div>
-      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 8px">
-        <button type="button" onClick="{{add}}" style="cursor: pointer; font-family: inherit; height: 48px; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; font-size: 14px; font-weight: 800">أضف إلى السلة</button>
-        <a href="#buy" style="height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800">اشترِ الآن <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <div role="group" aria-label="اختر الباقة" style="flex: 0 0 auto; height: 48px; display: flex; align-items: center; border: 1.5px solid #E9D3D9; border-radius: 3px">
+          <button type="button" onClick="{{bUp}}" aria-label="باقة أكبر" style="width: 32px; height: 100%; border: 0; background: transparent; cursor: pointer; font-size: 18px; color: #2B1B22; font-family: inherit">+</button>
+          <strong dir="ltr" style="min-width: 34px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px">{{b.short}}</strong>
+          <button type="button" onClick="{{bDown}}" aria-label="باقة أصغر" style="width: 32px; height: 100%; border: 0; background: transparent; cursor: pointer; font-size: 18px; color: #2B1B22; font-family: inherit">−</button>
+        </div>
+        <a href="#buy" style="flex: 1 1 auto; min-width: 0; height: 48px; display: flex; align-items: center; justify-content: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800; white-space: nowrap">اشترِ الآن</a>
+        <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" style="flex: 0 0 48px; height: 48px; cursor: pointer; display: flex; align-items: center; justify-content: center; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; padding: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
+        <a href="#buy" aria-label="الدفع عبر Apple Pay" style="flex: 0 0 auto; height: 48px; padding: 0 12px; display: flex; align-items: center; justify-content: center; background: #000000; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.2px" dir="ltr">Apple&#160;Pay</a>
       </div>
     </div>
   </div>
@@ -658,6 +665,8 @@ class Component extends DCLogic {
       genders: [{ id: 'm', l: 'رجالي' }, { id: 'f', l: 'نسائي' }].map(function (g) { var on = st.gender === g.id; return { label: g.l, pressed: on ? 'true' : 'false', pick: function () { self.setState({ gender: g.id }); },
         style: 'flex: 1 1 0; cursor: pointer; font-family: inherit; height: 40px; font-size: 13px; padding: 0 10px; border-radius: 3px; ' + (on ? 'background: #C2304B; color: #FFFFFF; border: 1px solid #C2304B; font-weight: 800;' : 'background: #FFFFFF; color: #6B5A61; border: 1px solid #E9D3D9;') }; }),
       genderLabel: st.gender === 'm' ? 'رجالي' : 'نسائي',
+      bUp: function () { self.setState({ bundle: Math.min(2, self.state.bundle + 1) }); },
+      bDown: function () { self.setState({ bundle: Math.max(0, self.state.bundle - 1) }); },
       add: function () { self.setState({ cart: 1, drawer: true }); },
       openCart: function () { self.setState({ drawer: true }); },
       closeCart: function () { self.setState({ drawer: false }); },
