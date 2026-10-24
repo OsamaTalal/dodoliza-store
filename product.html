@@ -15,7 +15,7 @@ a{color:#111111}
 @keyframes lp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes lp-fade{from{opacity:.35}to{opacity:1}}
 @keyframes lp-in{from{transform:translateX(-100%)}to{transform:translateX(0)}}
-.lp-track{animation:lp-marquee 45s linear infinite}
+.lp-track{animation:lp-marquee 70s linear infinite}
 .lp-track:hover,.lp-track-rev:hover{animation-play-state:paused}
 @keyframes lp-marquee-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .lp-track-rev{animation:lp-marquee-rev 50s linear infinite}
@@ -571,7 +571,8 @@ class Component extends DCLogic {
           avatar: 'width: 40px; height: 40px; border-radius: 999px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; background: ' + bg[i % 5] + '; color: ' + fg[i % 5] + ';' }; };
         var a = [mk(0, [P.box, P.feet], '1+1 · رجالي · أسود'), mk(1, [P.boxes], '2+2 · نسائي · أبيض'), mk(2, [P.foot, P.box], '1+1 · نسائي · أسود'), mk(3, [P.black], '3+3 · رجالي · مشكّل'), mk(4, [P.boxes, P.fabric], '1+1 · رجالي · رمادي')];
         var b = [mk(5, [P.feet], '2+2 · رجالي · أبيض'), mk(6, [P.box, P.black], '1+1 · رجالي · أسود'), mk(7, [P.foot], '1+1 · نسائي · كحلي'), mk(8, [P.boxes, P.feet], '3+3 · مشكّل'), mk(9, [P.fabric], '2+2 · رجالي · أسود')];
-        return [{ cls: 'lp-track', items: a.concat(a) }, { cls: 'lp-track-rev', items: b.concat(b) }];
+        var all = a.concat(b);
+        return [{ cls: 'lp-track', items: all.concat(all) }];
       })(),
       features: feats.map(function (f, i) { return { n: f.n, title: f.title, text: f.text, img: f.img, note: f.note, noteColor: f.nc, cls: 'feat' + (i % 2 ? ' feat-rev' : '') }; }),
       compare: [
