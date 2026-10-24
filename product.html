@@ -41,7 +41,7 @@ a{color:#111111}
   .pdp-media{position:static}
   .pdp-head-m{display:flex}
   .pdp-head-d{display:none}
-  .main-img{aspect-ratio:auto !important;height:36vh;max-height:none;min-height:0;width:auto;margin:0 -20px}
+  .main-img{aspect-ratio:auto !important;height:32vh;max-height:none;min-height:0;width:auto;margin:0 -20px}
   .thumbs{display:none !important}
   .feat{grid-template-columns:minmax(0,1fr);gap:18px}
   .feat-rev .feat-img{order:0}
@@ -115,6 +115,8 @@ a{color:#111111}
   .rv-wide .rv-h2{font-size:28px}
   .rv-wide .rv-text{font-size:14px}
 }
+.opts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px;align-items:start}
+@media (max-width: 860px){.perpair{display:none !important}.opts{gap:10px}.opts button[aria-label]{width:34px !important;height:34px !important}}
 @media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
 details summary{cursor:pointer;list-style:none}
@@ -201,10 +203,30 @@ details summary::-webkit-details-marker{display:none}
               </button>
             </sc-for>
           </div>
-          <div style="display: flex; justify-content: center; gap: 6px; font-size: 12px; color: #444444; background: #F7F7F7; border-radius: 8px; padding: 7px 10px">
-            <span>سعر الزوج <strong>{{b.per}} ر.س</strong></span><span aria-hidden="true">·</span><span style="color: #C2304B; font-weight: 700">توفّر {{b.save}} ر.س</span><span aria-hidden="true">·</span><span>{{b.ship}}</span>
+          <div class="perpair" style="display: flex; justify-content: center; gap: 6px; font-size: 12px; color: #444444; background: #F7F7F7; border-radius: 8px; padding: 7px 10px">
+            <span>سعر الزوج <strong>{{b.per}} ر.س</strong></span><span aria-hidden="true">·</span><span style="color: #C2304B; font-weight: 700">توفّر {{b.save}} ر.س</span><span aria-hidden="true">·</span><span>{{b.ship}}</span><span aria-hidden="true">·</span><span>Free Size</span>
           </div>
         </fieldset>
+
+        <!-- OPTIONS (asked as questions, above CTA) -->
+        <div class="opts">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <span style="font-size: 13px; font-weight: 800">رجالي ولا نسائي؟</span>
+            <div style="display: flex; gap: 6px">
+              <sc-for list="{{genders}}" as="g" hint-placeholder-count="2">
+                <button type="button" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}" style="{{g.style}}">{{g.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <span style="font-size: 13px; font-weight: 800">وش اللون؟ <span style="font-weight: 500; color: #555555">{{colorName}}</span></span>
+            <div style="display: flex; gap: 6px">
+              <sc-for list="{{colors}}" as="c" hint-placeholder-count="4">
+                <button type="button" onClick="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" style="{{c.style}}"><span style="{{c.sw}}"></span></button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
 
         <!-- CTAs -->
         <div style="display: flex; flex-direction: column; gap: 8px">
@@ -223,25 +245,6 @@ details summary::-webkit-details-marker{display:none}
               <span style="font-size: 11px; font-weight: 700; line-height: 1.35">{{tr.t}}</span>
             </div>
           </sc-for>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 8px">
-          <span style="font-size: 12px; color: #555555">اللون: <strong style="color: #111111">{{colorName}}</strong></span>
-          <div style="display: flex; gap: 8px">
-            <sc-for list="{{colors}}" as="c" hint-placeholder-count="4">
-              <button type="button" onClick="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" style="{{c.style}}"><span style="{{c.sw}}"></span></button>
-            </sc-for>
-          </div>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 8px">
-          <span style="font-size: 12px; color: #555555">النوع</span>
-          <div style="display: flex; gap: 8px">
-            <sc-for list="{{genders}}" as="g" hint-placeholder-count="2">
-              <button type="button" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}" style="{{g.style}}">{{g.label}}</button>
-            </sc-for>
-          </div>
-          <span style="font-size: 12px; color: #555555">المقاس: موحّد (Free Size)</span>
         </div>
 
         <!-- ================= TESTIMONIALS STRIP ================= -->
@@ -631,11 +634,11 @@ class Component extends DCLogic {
         dot: 'height: 4px; ' + (s === i ? 'width: 16px; background: #111111;' : 'width: 4px; background: rgba(17,17,17,0.35);') }; }),
       colors: C.map(function (c, i) { var on = st.color === i; return { name: c.n, pressed: on ? 'true' : 'false',
         pick: function () { self.setState({ color: i, slide: c.img, paused: true }); },
-        style: 'cursor: pointer; width: 44px; height: 44px; padding: 4px; background: #FFFFFF; border-radius: 999px; ' + (on ? 'border: 1px solid #111111;' : 'border: 1px solid #DDDDDD;'),
+        style: 'cursor: pointer; width: 40px; height: 40px; padding: 3px; background: #FFFFFF; border-radius: 999px; flex-shrink: 0; ' + (on ? 'border: 1px solid #111111;' : 'border: 1px solid #DDDDDD;'),
         sw: 'display: block; width: 100%; height: 100%; border-radius: 999px; border: 1px solid #DDDDDD; background: ' + c.h + ';' }; }),
       colorName: C[st.color].n,
       genders: [{ id: 'm', l: 'رجالي' }, { id: 'f', l: 'نسائي' }].map(function (g) { var on = st.gender === g.id; return { label: g.l, pressed: on ? 'true' : 'false', pick: function () { self.setState({ gender: g.id }); },
-        style: 'cursor: pointer; font-family: inherit; min-width: 80px; min-height: 44px; font-size: 13px; padding: 6px 16px; background: #FFFFFF; color: #111111; ' + (on ? 'border: 1px solid #111111; font-weight: 700;' : 'border: 1px solid #DDDDDD; color: #555555;') }; }),
+        style: 'flex: 1 1 0; cursor: pointer; font-family: inherit; height: 40px; font-size: 13px; padding: 0 10px; border-radius: 999px; ' + (on ? 'background: #111111; color: #FFFFFF; border: 1px solid #111111; font-weight: 800;' : 'background: #FFFFFF; color: #555555; border: 1px solid #DDDDDD;') }; }),
       genderLabel: st.gender === 'm' ? 'رجالي' : 'نسائي',
       add: function () { self.setState({ cart: 1, drawer: true }); },
       openCart: function () { self.setState({ drawer: true }); },
