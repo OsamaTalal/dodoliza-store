@@ -31,7 +31,7 @@ a{color:#111111}
 .feat-rev .feat-img{order:2}
 .rel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .hl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-.trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:4px 0}
 @media (max-width: 860px){
   .pdp{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "info";gap:14px}
   .pdp-info{position:static}
@@ -184,9 +184,9 @@ details summary::-webkit-details-marker{display:none}
         <!-- Trust row -->
         <div class="trust">
           <sc-for list="{{trust}}" as="tr" hint-placeholder-count="4">
-            <div style="display: flex; gap: 8px; align-items: center; background: #F7F7F7; padding: 9px 10px; font-size: 12px; line-height: 1.4">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path data-dc-d="{{tr.d}}"></path></svg>
-              <span>{{tr.t}}</span>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+              <span style="width: 44px; height: 44px; border-radius: 999px; background: #F5F5F5; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-d="{{tr.d}}"></path></svg></span>
+              <span style="font-size: 11px; font-weight: 700; line-height: 1.35">{{tr.t}}</span>
             </div>
           </sc-for>
         </div>
@@ -587,10 +587,10 @@ class Component extends DCLogic {
       addCross: function () { self.setState({ cross: !self.state.cross }); },
       crossLabel: st.cross ? 'تمت ✓' : '+ ' + crossPrice + ' ر.س',
       trust: [
-        { t: 'دفع آمن: مدى · Apple Pay · فيزا', d: I.card },
-        { t: 'قسّمها على 4 مع تابي وتمارا', d: I.split },
-        { t: 'توصيل لكل المملكة [المدة]', d: I.truck },
-        { t: 'استبدال سهل [حسب السياسة]', d: I.swap }
+        { t: 'دفع آمن', d: I.card },
+        { t: 'تقسيط 4 دفعات', d: I.split },
+        { t: 'توصيل لكل المملكة', d: I.truck },
+        { t: 'استبدال سهل', d: I.swap }
       ],
       highlights: [
         { t: 'حافة لا تضغط', s: 'ما تعلّم على الساق', d: I.ring },
