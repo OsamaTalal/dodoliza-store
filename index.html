@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دودليزا — شرابات البامبو بنانو الفضة</title>
+<meta name="description" content="شرابات دودليزا من ألياف البامبو بتقنية نانو الفضة — علبة + علبة مجانًا">
+<link rel="icon" href="img/logo.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}
+.card .img2{opacity:0;transition:opacity .35s ease}
+.card:hover .img2{opacity:1}
+.card:hover .name{text-decoration:underline}
+.lp-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width: 860px){.lp-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.lat{font-family:'Montserrat',sans-serif;letter-spacing:2px;text-transform:uppercase}
+</style>
+
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div dir="rtl" style="font-family: 'Cairo', sans-serif; color: #111111; background: #FFFFFF; line-height: 1.7">
+
+  <div style="background: #111111; color: #FFFFFF; text-align: center; font-size: 12px; padding: 8px 12px; letter-spacing: 0.5px">
+    علبة + علبة مجانًا بـ 145 ريال · لفترة محدودة · توصيل لكل المملكة
+  </div>
+
+  <header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.97); border-bottom: 1px solid #EEEEEE">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center">
+      <div style="display: flex; gap: 18px; align-items: center">
+        <button type="button" aria-label="القائمة" style="border: 0; background: transparent; padding: 6px; cursor: pointer; display: flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"></path></svg></button>
+      </div>
+      <a href="index.html" aria-label="دودليزا — الرئيسية" style="display: flex"><img src="img/logo.webp" alt="دودليزا" style="height: 38px; width: auto; display: block"></a>
+      <div style="display: flex; gap: 18px; align-items: center; justify-content: flex-end">
+        <button type="button" aria-label="بحث" style="border: 0; background: transparent; padding: 6px; cursor: pointer; display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></button>
+        <a href="product.html" style="text-decoration: none; font-size: 13px; font-weight: 700">السلة (0)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="position: relative; height: 82vh; min-height: 520px; overflow: hidden; background: #1A1A1A">
+    <img src="img/hero.webp" alt="شراب دودليزا بحافة واسعة" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.45) 100%)"></div>
+    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; color: #FFFFFF; padding: 20px">
+      <span class="lat" style="font-size: 11px">Bamboo · Nano Silver</span>
+      <h1 style="margin: 0; font-weight: 700; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.25">راحة تحسها من أول لبسة</h1>
+      <a href="product.html" style="color: #FFFFFF; text-decoration: none; border: 1px solid #FFFFFF; border-radius: 999px; padding: 10px 26px; font-size: 13px; font-weight: 700; letter-spacing: 1px">تسوّق الآن</a>
+    </div>
+    <span style="position: absolute; bottom: 12px; left: 16px; font-size: 11px; color: rgba(255,255,255,0.7)">[هنا يُفضّل فيديو لايف ستايل بعرض الشاشة]</span>
+  </section>
+
+  <!-- Collections -->
+  <sc-for list="{{collections}}" as="col" hint-placeholder-count="2">
+    <section style="max-width: 1280px; margin: 0 auto; padding: 56px 24px 8px">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; margin-bottom: 22px">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 1px">{{col.title}}</h2>
+        <a href="product.html" style="font-size: 12px; color: #111111">عرض الكل</a>
+      </div>
+      <div class="lp-row">
+        <sc-for list="{{col.items}}" as="p" hint-placeholder-count="4">
+          <a href="product.html" class="card" style="text-decoration: none; color: #111111; display: flex; flex-direction: column; gap: 10px">
+            <div style="position: relative; aspect-ratio: 3 / 4; background: #F3F3F3; overflow: hidden">
+              <img data-dc-src="{{p.img}}" alt="{{p.name}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+              <img class="img2" data-dc-src="{{p.img2}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+              <sc-if value="{{p.sale}}" hint-placeholder-val="{{true}}"><span style="position: absolute; top: 10px; right: 10px; background: #FFFFFF; font-size: 11px; font-weight: 700; padding: 2px 8px">تخفيض</span></sc-if>
+            </div>
+            <div style="text-align: center; display: flex; flex-direction: column; gap: 2px">
+              <span class="name" style="font-size: 14px; font-weight: 600; line-height: 1.5">{{p.name}}</span>
+              <span style="font-size: 13px">
+                <sc-if value="{{p.sale}}" hint-placeholder-val="{{true}}"><span style="color: #999999; text-decoration: line-through; margin-left: 6px">{{p.old}} ر.س</span></sc-if>
+                <span>{{p.price}} ر.س</span>
+                <sc-if value="{{p.sale}}" hint-placeholder-val="{{true}}"><span style="color: #E15169; margin-right: 6px">وفّر {{p.pct}}%</span></sc-if>
+              </span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </sc-for>
+
+  <!-- Brand line -->
+  <section style="max-width: 900px; margin: 64px auto 0; padding: 0 24px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center">
+    <span class="lat" style="font-size: 11px; color: #777777">Dodoliza</span>
+    <p style="margin: 0; font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; line-height: 1.7">شرابات من ألياف البامبو بتقنية نانو الفضة — ناعمة، تتنفس، وتعيش معك.</p>
+    <a href="product.html" style="margin-top: 6px; color: #111111; text-decoration: none; border: 1px solid #111111; border-radius: 999px; padding: 9px 24px; font-size: 13px; font-weight: 700">اكتشف المجموعة</a>
+  </section>
+
+  <footer style="margin-top: 72px; border-top: 1px solid #EEEEEE">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
+      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 10px; max-width: 340px">
+        <span style="font-size: 13px; font-weight: 700">النشرة البريدية</span>
+        <div style="display: flex; border-bottom: 1px solid #111111">
+          <label for="nl" style="position: absolute; width: 1px; height: 1px; overflow: hidden">بريدك الإلكتروني</label>
+          <input id="nl" type="email" placeholder="بريدك الإلكتروني" style="flex: 1 1 auto; border: 0; outline: none; font-family: inherit; font-size: 14px; padding: 8px 0; background: transparent">
+          <button type="button" aria-label="اشترك" style="border: 0; background: transparent; cursor: pointer; padding: 6px">←</button>
+        </div>
+      </div>
+      <nav aria-label="روابط المتجر" style="display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+        <a href="#buy" style="text-decoration: none">الأسئلة الشائعة</a>
+        <a href="#buy" style="text-decoration: none">الاستبدال والاسترجاع</a>
+        <a href="#buy" style="text-decoration: none">دليل الاستخدام والغسيل</a>
+        <a href="#buy" style="text-decoration: none">تواصل معنا</a>
+      </nav>
+    </div>
+    <div style="text-align: center; font-size: 11px; color: #999999; padding: 0 0 24px">© 2026 دودليزا</div>
+  </footer>
+</div>
+</template>
+<script src="morphdom.min.js"></script>
+<script src="dc-lite.js"></script>
+<script>
+
+class Component extends DCLogic {
+  renderVals() {
+    var P = '[صورة]';
+    return {
+      collections: [
+        { title: 'مجموعة مرضى السكري', items: [
+          { name: 'شراب نانو الفضة لمرضى السكري — رجالي · 5 أزواج', img: 'img/hero.webp', img2: 'img/stretch_black.webp', price: 96, old: 149, pct: 36, sale: true },
+          { name: 'شراب نانو الفضة لمرضى السكري — نسائي · 5 أزواج', img: 'img/foot.webp', img2: 'img/stretch_white.webp', price: 96, old: 149, pct: 36, sale: true },
+          { name: 'شراب السكري — أبيض · 5 أزواج', img: 'img/feet_white.webp', img2: 'img/box_open.webp', price: 96, old: 149, pct: 36, sale: true },
+          { name: 'عرض علبة + علبة — 10 أزواج', img: 'img/box_white.webp', img2: 'img/box_open.webp', price: 145, old: 298, pct: 51, sale: true }
+        ] },
+        { title: 'المجموعة الكلاسيكية', items: [
+          { name: 'شراب نانو الفضة كلاسيك — رجالي · 5 أزواج', img: 'img/fabric.webp', img2: 'img/infographic.webp', price: 96, old: 130, pct: 26, sale: true },
+          { name: 'شراب نانو الفضة كلاسيك — نسائي · 5 أزواج', img: 'img/infographic.webp', img2: 'img/fabric.webp', price: 96, old: 130, pct: 26, sale: true },
+          { name: 'شراب رياضي — رجالي · 5 أزواج', img: 'img/stretch_black.webp', img2: 'img/box_white.webp', price: 96, old: 130, pct: 26, sale: true },
+          { name: 'شراب رياضي — نسائي · 5 أزواج', img: 'img/stretch_white.webp', img2: 'img/feet_white.webp', price: 96, old: 130, pct: 26, sale: true }
+        ] }
+      ]
+    };
+  }
+}
+
+DC.mount(Component);
+</script>
+</body>
+</html>

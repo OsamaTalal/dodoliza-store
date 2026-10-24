@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>شراب نانو الفضة لمرضى السكري — دودليزا</title>
+<meta name="description" content="حافة واسعة لا تضغط، بامبو يتنفس، نانو الفضة — علبة + علبة مجانًا بـ 145 ر.س">
+<link rel="icon" href="img/logo.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}
+@keyframes lp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes lp-fade{from{opacity:.35}to{opacity:1}}
+@keyframes lp-in{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+.lp-track{animation:lp-marquee 60s linear infinite}
+.lp-track:hover{animation-play-state:paused}
+.lp-fade{animation:lp-fade .6s ease}
+.lp-drawer{animation:lp-in .3s ease}
+.lat{font-family:'Montserrat',sans-serif;letter-spacing:2px;text-transform:uppercase}
+.pdp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);grid-template-areas:"media info";gap:40px;align-items:start}
+.pdp-media{grid-area:media}.pdp-info{grid-area:info;position:sticky;top:84px}
+.pdp-head-m{display:none;flex-direction:column;gap:2px}
+.pdp-head-d{display:flex;flex-direction:column;gap:6px}
+.feat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.feat-rev .feat-img{order:2}
+.rel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.hl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (max-width: 860px){
+  .pdp{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "info";gap:14px}
+  .pdp-info{position:static}
+  .pdp-head-m{display:flex}
+  .pdp-head-d{display:none}
+  .main-img{aspect-ratio:1/1 !important;max-height:40vh}
+  .thumbs{display:none !important}
+  .feat{grid-template-columns:minmax(0,1fr);gap:18px}
+  .feat-rev .feat-img{order:0}
+  .rel{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .hl{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 8px}
+}
+@media (prefers-reduced-motion: reduce){.lp-track,.lp-fade,.lp-drawer{animation:none}}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+</style>
+
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div dir="rtl" style="font-family: 'Cairo', sans-serif; color: #111111; background: #FFFFFF; line-height: 1.7">
+
+  <div style="background: #111111; color: #FFFFFF; text-align: center; font-size: 12px; padding: 8px 12px">علبة + علبة مجانًا بـ {{p1}} ريال · ينتهي خلال <span dir="ltr">{{dd}}d {{hh}}:{{mm}}:{{ss}}</span></div>
+
+  <header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.97); border-bottom: 1px solid #EEEEEE">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 12px 20px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center">
+      <button type="button" aria-label="القائمة" style="justify-self: start; border: 0; background: transparent; padding: 6px; cursor: pointer; display: flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"></path></svg></button>
+      <a href="index.html" aria-label="دودليزا — الرئيسية" style="display: flex"><img src="img/logo.webp" alt="دودليزا" style="height: 34px; width: auto; display: block"></a>
+      <button type="button" onClick="{{openCart}}" style="justify-self: end; border: 0; background: transparent; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 700; padding: 6px">السلة ({{cart}})</button>
+    </div>
+  </header>
+
+  <!-- ================= PDP TOP ================= -->
+  <section id="buy" style="max-width: 1280px; margin: 0 auto; padding: 14px 20px 36px; scroll-margin-top: 70px">
+    <div class="pdp">
+
+      <div class="pdp-media" style="display: flex; flex-direction: column; gap: 10px">
+        <div class="pdp-head-m">
+          <h1 style="margin: 0; font-size: 18px; font-weight: 800; line-height: 1.45">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
+          <div style="display: flex; gap: 8px; align-items: baseline; font-size: 14px; flex-wrap: wrap"><span style="color: #999999; text-decoration: line-through">{{b.old}} ر.س</span><strong style="font-size: 18px">{{b.price}} ر.س</strong><span style="color: #C2304B; font-weight: 700">وفّر {{b.pct}}%</span><span style="color: #555555; font-size: 12px">· {{b.pairs}} زوج</span></div>
+        </div>
+
+        <div class="main-img" style="position: relative; aspect-ratio: 4 / 5; background: #F3F3F3; overflow: hidden">
+          <img class="lp-fade" data-dc-src="{{cur.src}}" alt="{{cur.alt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+          <span style="position: absolute; top: 10px; right: 10px; background: #111111; color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 3px 10px">1 + 1 مجانًا</span>
+          <button type="button" onClick="{{prev}}" aria-label="الصورة السابقة" style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 999px; border: 0; background: rgba(255,255,255,0.9); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+          <button type="button" onClick="{{next}}" aria-label="الصورة التالية" style="position: absolute; top: 50%; left: 8px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 999px; border: 0; background: rgba(255,255,255,0.9); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+          <div style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px">
+            <sc-for list="{{thumbs}}" as="d" hint-placeholder-count="8"><span style="{{d.dot}}"></span></sc-for>
+          </div>
+        </div>
+        <div class="thumbs" style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px">
+          <sc-for list="{{thumbs}}" as="t" hint-placeholder-count="8">
+            <button type="button" onClick="{{t.pick}}" aria-label="{{t.alt}}" style="{{t.style}}"><img data-dc-src="{{t.src}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div class="pdp-info" style="display: flex; flex-direction: column; gap: 14px">
+        <div class="pdp-head-d">
+          <span class="lat" style="font-size: 10px; color: #666666">Bamboo · Nano Silver</span>
+          <h1 style="margin: 0; font-size: 26px; font-weight: 800; line-height: 1.45">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
+          <div style="display: flex; gap: 10px; align-items: baseline; font-size: 15px"><span style="color: #999999; text-decoration: line-through">{{b.old}} ر.س</span><strong style="font-size: 22px">{{b.price}} ر.س</strong><span style="color: #C2304B; font-weight: 700">وفّر {{b.pct}}%</span></div>
+          <span style="font-size: 13px; color: #555555"><span style="color: #B7791F">★★★★★</span> [التقييم] · [عدد] تقييم</span>
+        </div>
+
+        <!-- BUNDLE PICKER -->
+        <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+          <legend style="font-size: 13px; font-weight: 800; padding: 0 0 6px">اختر العرض — كل علبة 5 أزواج</legend>
+          <sc-for list="{{bundles}}" as="x" hint-placeholder-count="3">
+            <button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="{{x.style}}">
+              <span style="{{x.radio}}"><span style="{{x.dot}}"></span></span>
+              <span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 1px; text-align: right">
+                <span style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><strong style="font-size: 15px">{{x.title}}</strong><sc-if value="{{x.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{x.tagStyle}}">{{x.tag}}</span></sc-if></span>
+                <span style="font-size: 12px; color: #555555">{{x.sub}}</span>
+              </span>
+              <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; white-space: nowrap; flex-shrink: 0">
+                <strong style="font-size: 16px">{{x.price}} ر.س</strong>
+                <span style="font-size: 12px; color: #999999; text-decoration: line-through">{{x.old}} ر.س</span>
+              </span>
+            </button>
+          </sc-for>
+        </fieldset>
+
+        <!-- CTAs -->
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <a href="#buy" style="text-align: center; background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px; font-size: 14px; font-weight: 800; letter-spacing: 0.5px">اشترِ الآن — {{b.short}} بـ {{b.price}} ر.س</a>
+          <button type="button" onClick="{{add}}" style="cursor: pointer; font-family: inherit; background: #FFFFFF; color: #111111; border: 1px solid #111111; border-radius: 999px; padding: 12px; font-size: 13px; font-weight: 700">أضف إلى السلة</button>
+          <span style="text-align: center; font-size: 12px; color: #555555">أو قسّمها على 4 دفعات <strong style="color: #111111">{{b.inst}} ر.س</strong> مع تابي وتمارا · بدون فوائد</span>
+        </div>
+
+        <!-- Trust row -->
+        <div class="trust">
+          <sc-for list="{{trust}}" as="tr" hint-placeholder-count="4">
+            <div style="display: flex; gap: 8px; align-items: center; background: #F7F7F7; padding: 9px 10px; font-size: 12px; line-height: 1.4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path data-dc-d="{{tr.d}}"></path></svg>
+              <span>{{tr.t}}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; color: #555555">اللون: <strong style="color: #111111">{{colorName}}</strong></span>
+          <div style="display: flex; gap: 8px">
+            <sc-for list="{{colors}}" as="c" hint-placeholder-count="4">
+              <button type="button" onClick="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" style="{{c.style}}"><span style="{{c.sw}}"></span></button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; color: #555555">النوع</span>
+          <div style="display: flex; gap: 8px">
+            <sc-for list="{{genders}}" as="g" hint-placeholder-count="2">
+              <button type="button" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}" style="{{g.style}}">{{g.label}}</button>
+            </sc-for>
+          </div>
+          <span style="font-size: 12px; color: #555555">المقاس: موحّد (Free Size)</span>
+        </div>
+
+        <div style="border-top: 1px solid #EEEEEE">
+          <sc-for list="{{acc}}" as="a" hint-placeholder-count="3">
+            <details style="border-bottom: 1px solid #EEEEEE; padding: 11px 0">
+              <summary style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700"><span>{{a.t}}</span><span aria-hidden="true">+</span></summary>
+              <p style="margin: 8px 0 0; font-size: 13px; color: #555555">{{a.d}}</p>
+            </details>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURE HIGHLIGHTS STRIP ================= -->
+  <section style="border-top: 1px solid #EEEEEE; border-bottom: 1px solid #EEEEEE; background: #FFFFFF">
+    <div class="hl" style="max-width: 1180px; margin: 0 auto; padding: 26px 20px">
+      <sc-for list="{{highlights}}" as="h" hint-placeholder-count="6">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+          <span style="width: 52px; height: 52px; border-radius: 999px; background: #FDEEF1; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C2304B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-d="{{h.d}}"></path></svg></span>
+          <strong style="font-size: 13px; line-height: 1.4">{{h.t}}</strong>
+          <span style="font-size: 11px; color: #666666; line-height: 1.5">{{h.s}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS STRIP ================= -->
+  <section style="border-bottom: 1px solid #EEEEEE; padding: 22px 0; overflow: hidden; background: #FAFAFA">
+    <div class="lp-track" dir="ltr" style="display: flex; gap: 14px; width: max-content">
+      <sc-for list="{{reviews}}" as="r" hint-placeholder-count="10">
+        <figure dir="rtl" style="margin: 0; width: 290px; flex-shrink: 0; background: #FFFFFF; border: 1px solid #EEEEEE; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start">
+          <img data-dc-src="{{r.img}}" alt="" style="width: 56px; height: 56px; object-fit: cover; flex-shrink: 0">
+          <figcaption style="display: flex; flex-direction: column; gap: 2px">
+            <span style="color: #B7791F; font-size: 12px; letter-spacing: 1px" aria-label="5 نجوم">★★★★★</span>
+            <span style="font-size: 13px; line-height: 1.6">{{r.t}}</span>
+            <span style="font-size: 11px; color: #666666">{{r.n}} · مشترٍ موثّق</span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ================= PRICE-PER-PAIR VALUE BLOCK ================= -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: 56px 20px 0">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; margin-bottom: 22px">
+      <span class="lat" style="font-size: 10px; color: #666666">Best Value</span>
+      <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">كل ما زادت العلب… قلّ سعر الزوج</h2>
+      <p style="margin: 0; font-size: 14px; color: #555555">كل العروض علبة + علبة مجانًا · كل علبة 5 أزواج</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+      <sc-for list="{{bundles}}" as="v" hint-placeholder-count="3">
+        <div style="{{v.cardStyle}}">
+          <sc-if value="{{v.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{v.tagStyle}}">{{v.tag}}</span></sc-if>
+          <strong style="font-size: 20px">{{v.title}}</strong>
+          <span style="font-size: 13px; color: #555555">{{v.pairs}} زوج</span>
+          <div style="display: flex; gap: 8px; align-items: baseline"><span style="color: #999999; text-decoration: line-through; font-size: 14px">{{v.old}}</span><strong style="font-size: 30px; font-family: 'Montserrat', sans-serif">{{v.price}}</strong><span style="font-size: 13px">ر.س</span></div>
+          <span style="font-size: 13px; font-weight: 700; color: #C2304B">سعر الزوج {{v.per}} ر.س فقط</span>
+          <span style="font-size: 12px; color: #555555">{{v.perk}}</span>
+          <button type="button" onClick="{{v.pickBuy}}" style="margin-top: 6px; cursor: pointer; font-family: inherit; background: #111111; color: #FFFFFF; border: 0; border-radius: 999px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</button>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES (each with CTA) ================= -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: 64px 20px 8px; display: flex; flex-direction: column; gap: 64px">
+    <div style="text-align: center; display: flex; flex-direction: column; gap: 6px; align-items: center">
+      <span class="lat" style="font-size: 10px; color: #666666">Why Dodoliza</span>
+      <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">ليش شراب دودليزا مختلف؟</h2>
+    </div>
+    <sc-for list="{{features}}" as="f" hint-placeholder-count="5">
+      <div class="{{f.cls}}">
+        <div class="feat-img" style="aspect-ratio: 1 / 1; background: #F3F3F3; overflow: hidden"><img data-dc-src="{{f.img}}" alt="{{f.title}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span class="lat" style="font-size: 11px; color: #C2304B">{{f.n}}</span>
+          <h3 style="margin: 0; font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; line-height: 1.4">{{f.title}}</h3>
+          <p style="margin: 0; font-size: 15px; color: #444444">{{f.text}}</p>
+          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px">
+            <a href="#buy" style="background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</a>
+            <span style="font-size: 12px; color: {{f.noteColor}}; font-weight: 700">{{f.note}}</span>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- ================= COMPARISON ================= -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 72px 20px 0">
+    <h2 style="margin: 0 0 18px; text-align: center; font-size: clamp(22px, 2.8vw, 30px); font-weight: 800">دودليزا مقابل الشراب القطن العادي</h2>
+    <div style="overflow-x: auto; border: 1px solid #EEEEEE">
+      <div role="table" style="min-width: 460px; font-size: 14px">
+        <div role="row" style="display: grid; grid-template-columns: 1.1fr 1fr 1fr; background: #111111; color: #FFFFFF; font-weight: 700"><span role="columnheader" style="padding: 12px"></span><span role="columnheader" style="padding: 12px; text-align: center">دودليزا</span><span role="columnheader" style="padding: 12px; text-align: center; color: #CCCCCC">قطن عادي</span></div>
+        <sc-for list="{{compare}}" as="cm">
+          <div role="row" style="display: grid; grid-template-columns: 1.1fr 1fr 1fr; border-top: 1px solid #EEEEEE">
+            <span role="rowheader" style="padding: 12px; font-weight: 700">{{cm.k}}</span>
+            <span role="cell" style="padding: 12px; text-align: center; font-weight: 700">✓ {{cm.a}}</span>
+            <span role="cell" style="padding: 12px; text-align: center; color: #666666">{{cm.b}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 18px"><a href="#buy" style="display: inline-block; background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 12px 34px; font-size: 13px; font-weight: 800">جرّب الفرق — اطلب الآن</a></div>
+  </section>
+
+  <!-- ================= URGENCY BLOCK ================= -->
+  <section style="max-width: 1180px; margin: 72px auto 0; padding: 0 20px">
+    <div style="background: #111111; color: #FFFFFF; padding: 40px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+      <span class="lat" style="font-size: 10px; color: #FF8FA3">Limited Offer</span>
+      <h2 style="margin: 0; font-size: clamp(24px, 3.2vw, 36px); font-weight: 800">آخر فرصة لعرض علبة + علبة</h2>
+      <div dir="ltr" style="display: flex; gap: 8px">
+        <sc-for list="{{clock}}" as="k" hint-placeholder-count="4">
+          <div style="width: 66px; padding: 8px 0; border: 1px solid rgba(255,255,255,0.25)"><div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 24px">{{k.v}}</div><div style="font-size: 11px; color: #BBBBBB">{{k.l}}</div></div>
+        </sc-for>
+      </div>
+      <div style="width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; justify-content: space-between; font-size: 12px"><span style="color: #FF8FA3">الكمية محدودة</span><span style="color: #BBBBBB">متبقٍ [العدد الحقيقي] علبة</span></div>
+        <div style="height: 3px; background: rgba(255,255,255,0.18)"><div style="width: 30%; height: 100%; background: #E15169"></div></div>
+      </div>
+      <a href="#buy" style="background: #FFFFFF; color: #111111; text-decoration: none; border-radius: 999px; padding: 14px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width: 760px; margin: 0 auto; padding: 56px 20px 8px">
+    <h2 style="margin: 0 0 14px; text-align: center; font-size: 18px; font-weight: 800">أسئلة شائعة</h2>
+    <sc-for list="{{faq}}" as="q" hint-placeholder-count="6">
+      <details style="border-top: 1px solid #EEEEEE; padding: 13px 2px">
+        <summary style="display: flex; justify-content: space-between; font-weight: 700; font-size: 14px"><span>{{q.q}}</span><span aria-hidden="true">+</span></summary>
+        <p style="margin: 6px 0 0; font-size: 13px; color: #555555">{{q.a}}</p>
+      </details>
+    </sc-for>
+  </section>
+
+  <!-- Related -->
+  <section style="max-width: 1280px; margin: 0 auto; padding: 48px 20px 40px">
+    <h2 style="margin: 0 0 18px; text-align: center; font-size: 15px; font-weight: 800">قد يعجبك أيضًا</h2>
+    <div class="rel">
+      <sc-for list="{{related}}" as="p" hint-placeholder-count="4">
+        <a href="product.html" style="text-decoration: none; color: #111111; display: flex; flex-direction: column; gap: 6px">
+          <div style="aspect-ratio: 3 / 4; background: #F3F3F3; overflow: hidden"><img data-dc-src="{{p.img}}" alt="{{p.name}}" style="width: 100%; height: 100%; object-fit: cover"></div>
+          <span style="text-align: center; font-size: 13px; font-weight: 600">{{p.name}}</span>
+          <span style="text-align: center; font-size: 13px">{{p.price}}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid #EEEEEE; text-align: center; font-size: 11px; color: #666666; padding: 22px 20px 96px">© 2026 دودليزا</footer>
+
+  <!-- Fixed bottom bar -->
+  <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: #FFFFFF; border-top: 1px solid #EEEEEE; box-shadow: 0 -8px 24px rgba(0,0,0,0.08); padding: 10px 14px calc(10px + env(safe-area-inset-bottom))">
+    <div style="max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 12px">
+      <div style="display: flex; flex-direction: column; line-height: 1.25; flex: 1 1 auto; min-width: 0">
+        <span style="font-size: 13px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{b.short}} · {{b.price}} ر.س</span>
+        <span style="font-size: 11px; color: #C2304B; font-weight: 700">ينتهي خلال <span dir="ltr">{{dd}}d {{hh}}:{{mm}}</span></span>
+      </div>
+      <a href="#buy" style="flex: 0 0 auto; background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 12px 26px; font-size: 14px; font-weight: 800">اشترِ الآن</a>
+    </div>
+  </div>
+
+  <!-- ================= CART DRAWER with UPSELL ================= -->
+  <sc-if value="{{drawer}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,0.4); display: flex; justify-content: flex-end">
+      <div class="lp-drawer" role="dialog" aria-label="السلة" style="width: 100%; max-width: 400px; height: 100%; background: #FFFFFF; display: flex; flex-direction: column; box-sizing: border-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; border-bottom: 1px solid #EEEEEE">
+          <strong style="font-size: 15px">السلة</strong>
+          <button type="button" onClick="{{closeCart}}" aria-label="إغلاق" style="border: 0; background: transparent; cursor: pointer; padding: 8px; display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        </div>
+        <div style="padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; background: #F7F7F7">
+          <span style="font-size: 12px; font-weight: 700">{{ship.msg}}</span>
+          <div style="height: 6px; background: #E5E5E5; border-radius: 999px; overflow: hidden"><div style="{{ship.bar}}"></div></div>
+        </div>
+        <div style="flex: 1 1 auto; overflow-y: auto; padding: 16px 18px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; gap: 12px">
+            <img src="img/box_white.webp" alt="" style="width: 72px; height: 72px; object-fit: cover; background: #F3F3F3">
+            <div style="display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto">
+              <strong style="font-size: 13px">شراب السكري — {{genderLabel}} · {{colorName}}</strong>
+              <span style="font-size: 12px; color: #555555">{{b.title}} · {{b.pairs}} زوج</span>
+              <span style="font-size: 13px"><span style="color: #999999; text-decoration: line-through">{{b.old}}</span> <strong>{{b.price}} ر.س</strong></span>
+            </div>
+          </div>
+          <sc-if value="{{up.show}}" hint-placeholder-val="{{true}}">
+            <div style="border: 1px dashed #C2304B; background: #FDEEF1; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+              <strong style="font-size: 14px">{{up.title}}</strong>
+              <span style="font-size: 12px; color: #444444">{{up.text}}</span>
+              <button type="button" onClick="{{up.go}}" style="cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 999px; padding: 10px; font-size: 13px; font-weight: 800">{{up.btn}}</button>
+            </div>
+          </sc-if>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-size: 12px; font-weight: 700">يكمّل طلبك</span>
+            <div style="display: flex; gap: 12px; align-items: center; border: 1px solid #EEEEEE; padding: 10px">
+              <img src="img/fabric.webp" alt="" style="width: 54px; height: 54px; object-fit: cover">
+              <span style="flex: 1 1 auto; font-size: 12px; line-height: 1.5"><strong>شراب كلاسيك للعائلة</strong><br>علبة + علبة بنفس العرض</span>
+              <button type="button" onClick="{{addCross}}" style="cursor: pointer; font-family: inherit; background: #FFFFFF; border: 1px solid #111111; border-radius: 999px; padding: 7px 14px; font-size: 12px; font-weight: 700">{{crossLabel}}</button>
+            </div>
+          </div>
+        </div>
+        <div style="border-top: 1px solid #EEEEEE; padding: 14px 18px calc(14px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; justify-content: space-between; font-size: 14px"><span>الإجمالي</span><strong>{{total}} ر.س</strong></div>
+          <a href="#buy" style="text-align: center; background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px; font-size: 14px; font-weight: 800">إتمام الطلب</a>
+          <span style="text-align: center; font-size: 11px; color: #666666">مدى · Apple Pay · فيزا · تابي · تمارا</span>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</template>
+<script src="morphdom.min.js"></script>
+<script src="dc-lite.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { slide: 0, gender: 'm', color: 1, bundle: 0, cart: 0, cross: false, drawer: false, left: this.secsLeft(), paused: false }; }
+  secsLeft() { var n = new Date(); var e = new Date(n.getFullYear(), n.getMonth() + 1, 1); return Math.max(0, Math.floor((e - n) / 1000)); }
+  componentDidMount() {
+    var self = this, t = 0;
+    this.timer = setInterval(function () {
+      t++;
+      var s = { left: self.secsLeft() };
+      if (t % 4 === 0 && !self.state.paused) s.slide = (self.state.slide + 1) % 8;
+      self.setState(s);
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.timer); }
+  renderVals() {
+    var self = this, st = this.state;
+    var pad = function (x) { return (x < 10 ? '0' : '') + x; };
+    /* ===== الأسعار — غيّرها من هنا ===== */
+    var BOX_OLD = 149;          /* سعر العلبة الواحدة قبل العرض */
+    var FREE_SHIP = 200;        /* حد الشحن المجاني */
+    var B = [
+      { title: 'علبة + علبة مجانًا', short: '1+1', boxes: 2, price: 145, tag: 'الأكثر طلبًا', perk: 'العرض الأساسي' },
+      { title: '2 + 2 مجانًا', short: '2+2', boxes: 4, price: 249, tag: 'أفضل قيمة', perk: 'شحن مجاني' },
+      { title: '3 + 3 مجانًا', short: '3+3', boxes: 6, price: 339, tag: 'للعائلة', perk: 'شحن مجاني · يكفي 3 أشخاص' }
+    ];
+    var imgs = [
+      { src: 'img/hero.webp', alt: 'حافة واسعة لا تضغط — أسود' },
+      { src: 'img/stretch_black.webp', alt: 'مرونة الحافة — أسود' },
+      { src: 'img/stretch_white.webp', alt: 'مرونة الحافة — أبيض' },
+      { src: 'img/feet_white.webp', alt: 'الشراب الأبيض على القدم' },
+      { src: 'img/foot.webp', alt: 'نسائي — أسود على القدم' },
+      { src: 'img/box_open.webp', alt: 'العلبة — 5 أزواج' },
+      { src: 'img/box_white.webp', alt: 'علب دودليزا' },
+      { src: 'img/fabric.webp', alt: 'خامة نانو الفضة' }
+    ];
+    var s = st.slide % imgs.length;
+    var C = [{ n: 'أبيض', h: '#FFFFFF', img: 2 }, { n: 'أسود', h: '#1E1E22', img: 0 }, { n: 'رمادي', h: '#9A9AA0', img: 7 }, { n: 'كحلي', h: '#1F2A44', img: 1 }];
+    var left = st.left;
+    var dd = pad(Math.floor(left / 86400)), hh = pad(Math.floor((left % 86400) / 3600)), mm = pad(Math.floor((left % 3600) / 60)), ss = pad(left % 60);
+
+    var fmt = function (n) { var r = Math.round(n * 100) / 100; return (r % 1 === 0) ? String(r) : r.toFixed(2).replace(/0$/, ''); };
+    var bund = B.map(function (x, i) {
+      var old = x.boxes * BOX_OLD;
+      return { i: i, title: x.title, short: x.short, price: x.price, old: old, pairs: x.boxes * 5,
+        pct: Math.round((1 - x.price / old) * 100), per: fmt(x.price / (x.boxes * 5)), inst: fmt(x.price / 4),
+        tag: x.tag, perk: x.perk, sub: (x.boxes * 5) + ' زوج · سعر الزوج ' + fmt(x.price / (x.boxes * 5)) + ' ر.س' + (i > 0 ? ' · شحن مجاني' : '') };
+    });
+    var b = bund[st.bundle];
+    var crossPrice = B[0].price;
+    var total = b.price + (st.cross ? crossPrice : 0);
+    var shipPct = Math.min(100, Math.round(total / FREE_SHIP * 100));
+    var nextB = bund[st.bundle + 1];
+
+    var feats = [
+      { n: '01', title: 'حافة واسعة… ما تضغط على الساق', text: 'حافة مرنة تمسك الرجل بدون ما تشد، فما يترك أثر حتى بعد يوم كامل.', img: 'img/stretch_black.webp', note: 'العرض: علبة + علبة مجانًا', nc: '#555555' },
+      { n: '02', title: 'ألياف بامبو… أنعم من القطن وتتنفس', text: 'ألياف من نبات البامبو، أخف وأنعم، وفيها مسام تخلّي الهوا يدخل لرجلك طول اليوم.', img: 'img/feet_white.webp', note: 'سعر الزوج يبدأ من ' + bund[2].per + ' ر.س', nc: '#555555' },
+      { n: '03', title: 'نانو الفضة… ريحة أقل', text: 'تقنية نانو الفضة مع البامبو تمتص العرق وتحدّ من الروائح، فتلبسه بثقة من الصبح لآخر اليوم.', img: 'img/fabric.webp', note: 'الكمية محدودة', nc: '#C2304B' },
+      { n: '04', title: 'خياطة ناعمة… بدون حواف', text: 'مقدمة الشراب بدون خياطة بارزة، فما يحتك بالأصابع ولا يضايقك.', img: 'img/infographic.webp', note: 'ينتهي خلال ' + dd + ' يوم', nc: '#C2304B' },
+      { n: '05', title: 'يعيش معك… غسلة ورا غسلة', text: 'يحافظ على شكله ونعومته بعد الغسيل، وكل علبة فيها 5 أزواج بأربع ألوان.', img: 'img/box_open.webp', note: 'آخر أيام العرض — لا تفوّته', nc: '#C2304B' }
+    ];
+    var I = {
+      ring: 'M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM8 12h8',
+      leaf: 'M5 19c0-8 6-14 14-14c0 8-6 14-14 14zM5 19l7-7',
+      shield: 'M12 3l8 3v6c0 5-3.5 8-8 9c-4.5-1-8-4-8-9V6l8-3zM9 12l2 2l4-4',
+      wave: 'M3 9c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0',
+      drop: 'M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z',
+      size: 'M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4',
+      card: 'M3 6h18v12H3zM3 10h18',
+      truck: 'M3 7h11v9H3zM14 10h4l3 3v3h-7M7 19a2 2 0 1 0 0-4a2 2 0 1 0 0 4zM17 19a2 2 0 1 0 0-4a2 2 0 1 0 0 4z',
+      split: 'M4 6h16M4 12h10M4 18h6',
+      swap: 'M7 7h13l-3-3M17 17H4l3 3'
+    };
+    return {
+      p1: B[0].price,
+      b: b,
+      bundles: bund.map(function (x) { var on = st.bundle === x.i;
+        return { title: x.title, sub: x.sub, price: x.price, old: x.old, pairs: x.pairs, per: x.per, perk: x.perk, tag: x.tag, hasTag: !!x.tag, pressed: on ? 'true' : 'false',
+          pick: function () { self.setState({ bundle: x.i }); },
+          pickBuy: function () { self.setState({ bundle: x.i, cart: 1, drawer: true }); },
+          style: 'cursor: pointer; font-family: inherit; color: #111111; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; min-height: 64px; ' + (on ? 'background: #FFF7F8; border: 2px solid #111111;' : 'background: #FFFFFF; border: 1px solid #DDDDDD; margin: 1px;'),
+          radio: 'flex-shrink: 0; width: 18px; height: 18px; border-radius: 999px; border: 1.5px solid #111111; display: flex; align-items: center; justify-content: center',
+          dot: 'width: 10px; height: 10px; border-radius: 999px; background: ' + (on ? '#111111' : 'transparent') + ';',
+          tagStyle: 'font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px; ' + (x.i === 1 ? 'background: #C2304B; color: #FFFFFF;' : 'background: #111111; color: #FFFFFF;'),
+          cardStyle: 'position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 26px 18px 22px; ' + (x.i === 1 ? 'border: 2px solid #C2304B; background: #FFF7F8;' : 'border: 1px solid #DDDDDD; background: #FFFFFF;')
+        }; }),
+      cur: imgs[s],
+      prev: function () { self.setState({ slide: (s + imgs.length - 1) % imgs.length, paused: true }); },
+      next: function () { self.setState({ slide: (s + 1) % imgs.length, paused: true }); },
+      thumbs: imgs.map(function (im, i) { return { src: im.src, alt: im.alt,
+        pick: function () { self.setState({ slide: i, paused: true }); },
+        style: 'padding: 0; cursor: pointer; aspect-ratio: 1 / 1; background: #F3F3F3; overflow: hidden; ' + (s === i ? 'border: 1px solid #111111;' : 'border: 1px solid transparent; opacity: 0.55;'),
+        dot: 'height: 4px; ' + (s === i ? 'width: 16px; background: #111111;' : 'width: 4px; background: rgba(17,17,17,0.35);') }; }),
+      colors: C.map(function (c, i) { var on = st.color === i; return { name: c.n, pressed: on ? 'true' : 'false',
+        pick: function () { self.setState({ color: i, slide: c.img, paused: true }); },
+        style: 'cursor: pointer; width: 44px; height: 44px; padding: 4px; background: #FFFFFF; border-radius: 999px; ' + (on ? 'border: 1px solid #111111;' : 'border: 1px solid #DDDDDD;'),
+        sw: 'display: block; width: 100%; height: 100%; border-radius: 999px; border: 1px solid #DDDDDD; background: ' + c.h + ';' }; }),
+      colorName: C[st.color].n,
+      genders: [{ id: 'm', l: 'رجالي' }, { id: 'f', l: 'نسائي' }].map(function (g) { var on = st.gender === g.id; return { label: g.l, pressed: on ? 'true' : 'false', pick: function () { self.setState({ gender: g.id }); },
+        style: 'cursor: pointer; font-family: inherit; min-width: 80px; min-height: 44px; font-size: 13px; padding: 6px 16px; background: #FFFFFF; color: #111111; ' + (on ? 'border: 1px solid #111111; font-weight: 700;' : 'border: 1px solid #DDDDDD; color: #555555;') }; }),
+      genderLabel: st.gender === 'm' ? 'رجالي' : 'نسائي',
+      add: function () { self.setState({ cart: 1, drawer: true }); },
+      openCart: function () { self.setState({ drawer: true }); },
+      closeCart: function () { self.setState({ drawer: false }); },
+      drawer: st.drawer,
+      cart: st.cart + (st.cross ? 1 : 0),
+      total: total,
+      ship: { msg: shipPct >= 100 ? 'مبروك! طلبك عليه شحن مجاني ✓' : 'باقي ' + (FREE_SHIP - total) + ' ر.س وتاخذ شحن مجاني',
+        bar: 'height: 100%; background: #C2304B; width: ' + shipPct + '%;' },
+      up: nextB ? { show: true,
+          title: 'خلّها ' + nextB.short + ' ووفّر أكثر',
+          text: 'بس ' + (nextB.price - b.price) + ' ر.س زيادة وتاخذ ' + (nextB.pairs - b.pairs) + ' زوج إضافي + شحن مجاني · سعر الزوج ينزل لـ ' + nextB.per + ' ر.س',
+          btn: 'رقّ طلبي لـ ' + nextB.short + ' (+' + (nextB.price - b.price) + ' ر.س)',
+          go: function () { self.setState({ bundle: st.bundle + 1 }); } }
+        : { show: false, title: '', text: '', btn: '', go: function () {} },
+      addCross: function () { self.setState({ cross: !self.state.cross }); },
+      crossLabel: st.cross ? 'تمت ✓' : '+ ' + crossPrice + ' ر.س',
+      trust: [
+        { t: 'دفع آمن: مدى · Apple Pay · فيزا', d: I.card },
+        { t: 'قسّمها على 4 مع تابي وتمارا', d: I.split },
+        { t: 'توصيل لكل المملكة [المدة]', d: I.truck },
+        { t: 'استبدال سهل [حسب السياسة]', d: I.swap }
+      ],
+      highlights: [
+        { t: 'حافة لا تضغط', s: 'ما تعلّم على الساق', d: I.ring },
+        { t: 'ألياف بامبو', s: 'أنعم من القطن', d: I.leaf },
+        { t: 'نانو الفضة', s: 'ريحة أقل', d: I.shield },
+        { t: 'يتنفس', s: 'هوا طول اليوم', d: I.wave },
+        { t: 'يمتص الرطوبة', s: 'رجل ناشفة', d: I.drop },
+        { t: 'مقاس موحّد', s: 'Free Size', d: I.size }
+      ],
+      acc: [
+        { t: 'طريقة الغسيل', d: '[طريقة الغسيل والعناية]' },
+        { t: 'الشحن والتوصيل', d: '[مدة التوصيل حسب المدينة]' },
+        { t: 'الاستبدال والاسترجاع', d: '[سياسة الاستبدال]' }
+      ],
+      reviews: (function () {
+        var r = [
+          { n: '[اسم العميل]', t: '[تقييم حقيقي قصير من العميل]', img: 'img/box_open.webp' },
+          { n: '[اسم العميل]', t: '[تقييم حقيقي قصير من العميل]', img: 'img/feet_white.webp' },
+          { n: '[اسم العميل]', t: '[تقييم حقيقي قصير من العميل]', img: 'img/foot.webp' },
+          { n: '[اسم العميل]', t: '[تقييم حقيقي قصير من العميل]', img: 'img/box_white.webp' },
+          { n: '[اسم العميل]', t: '[تقييم حقيقي قصير من العميل]', img: 'img/hero.webp' }
+        ];
+        return r.concat(r);
+      })(),
+      features: feats.map(function (f, i) { return { n: f.n, title: f.title, text: f.text, img: f.img, note: f.note, noteColor: f.nc, cls: 'feat' + (i % 2 ? ' feat-rev' : '') }; }),
+      compare: [
+        { k: 'الخامة', a: 'بامبو + نانو الفضة', b: 'قطن عادي' },
+        { k: 'الحافة', a: 'واسعة وما تضغط', b: 'أستك يشد ويعلّم' },
+        { k: 'الريحة', a: 'أقل طول اليوم', b: 'تبان مع العرق' },
+        { k: 'التهوية', a: 'يتنفس', b: 'يحبس الحرارة' },
+        { k: 'الخياطة', a: 'ناعمة بدون حواف', b: 'بارزة عند الأصابع' },
+        { k: 'سعر الزوج', a: 'من ' + bund[2].per + ' ر.س', b: '—' }
+      ],
+      clock: [{ v: dd, l: 'يوم' }, { v: hh, l: 'ساعة' }, { v: mm, l: 'دقيقة' }, { v: ss, l: 'ثانية' }],
+      faq: [
+        { q: 'وش الفرق بين العروض؟', a: 'كلها علبة + علبة مجانًا: 1+1 = 10 أزواج بـ ' + bund[0].price + ' ر.س، 2+2 = 20 زوج بـ ' + bund[1].price + ' ر.س، 3+3 = 30 زوج بـ ' + bund[2].price + ' ر.س مع شحن مجاني.' },
+        { q: 'كم زوج في العلبة؟', a: '5 أزواج في كل علبة.' },
+        { q: 'هل هو مناسب لمرضى السكري؟', a: 'مصمّم بحافة واسعة لا تضغط وخياطة ناعمة ونسيج يمتص الرطوبة. منتج للراحة اليومية ولا يغني عن متابعة الطبيب.' },
+        { q: 'وش المقاس؟', a: 'مقاس موحّد (Free Size) يناسب أغلب المقاسات.' },
+        { q: 'أقدر أقسّط؟', a: 'إيه، على 4 دفعات بدون فوائد مع تابي وتمارا.' },
+        { q: 'كم يستغرق التوصيل؟', a: '[مدة التوصيل حسب المدينة]' }
+      ],
+      related: [
+        { name: 'شراب كلاسيك — رجالي', img: 'img/fabric.webp', price: '1+1 بـ ' + B[0].price + ' ر.س' },
+        { name: 'شراب السكري — نسائي', img: 'img/foot.webp', price: '1+1 بـ ' + B[0].price + ' ر.س' },
+        { name: 'عرض العائلة 3+3', img: 'img/box_white.webp', price: B[2].price + ' ر.س' },
+        { name: 'شراب رياضي', img: 'img/stretch_white.webp', price: '1+1 بـ ' + B[0].price + ' ر.س' }
+      ],
+      dd: dd, hh: hh, mm: mm, ss: ss
+    };
+  }
+}
+
+DC.mount(Component);
+</script>
+</body>
+</html>
