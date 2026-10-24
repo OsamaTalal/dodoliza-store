@@ -41,8 +41,9 @@ a{color:#2B1B22}
   .pdp-media{position:static}
   .pdp-head-m{display:flex}
   .pdp-head-d{display:none}
-  .main-img{aspect-ratio:auto !important;height:32vh;max-height:none;min-height:0;width:auto;margin:0 -20px}
-  .thumbs{display:none !important}
+  .main-img{aspect-ratio:auto !important;height:29vh;max-height:none;min-height:0;width:auto;margin:0 -20px}
+  .thumbs{gap:6px !important}
+  .crumb{display:none !important}
   .feat{grid-template-columns:minmax(0,1fr);gap:18px}
   .feat-rev .feat-img{order:0}
   .rel{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -159,6 +160,7 @@ details summary::-webkit-details-marker{display:none}
 
   <!-- ================= PDP TOP ================= -->
   <section id="buy" style="max-width: 1280px; margin: 0 auto; padding: 14px 20px 36px; scroll-margin-top: 70px">
+    <nav aria-label="مسار الصفحة" class="crumb" style="max-width: 1120px; margin: 0 auto 12px; display: flex; gap: 8px; align-items: center; font-size: 13px; color: #7A6870"><a href="index.html" style="color: #7A6870; text-decoration: none">الرئيسية</a><span aria-hidden="true">›</span><span style="color: #2B1B22; font-weight: 700">شراب مرضى السكري</span></nav>
     <div class="pdp">
 
       <div class="pdp-media" style="display: flex; flex-direction: column; gap: 10px">
@@ -181,7 +183,7 @@ details summary::-webkit-details-marker{display:none}
         </div>
         <div class="thumbs" style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px">
           <sc-for list="{{thumbs}}" as="t" hint-placeholder-count="8">
-            <button type="button" onClick="{{t.pick}}" aria-label="{{t.alt}}" style="{{t.style}}"><img data-dc-src="{{t.src}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></button>
+            <button type="button" onClick="{{t.pick}}" aria-label="{{t.alt}}" style="{{t.style}}"><img data-dc-src="{{t.src}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 7px"></button>
           </sc-for>
         </div>
       </div>
@@ -235,8 +237,8 @@ details summary::-webkit-details-marker{display:none}
         <!-- CTAs -->
         <div style="display: flex; flex-direction: column; gap: 8px">
           <div style="display: flex; gap: 8px">
-            <a href="#buy" style="flex: 1.7 1 0; text-align: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 8px; font-size: 14px; font-weight: 800">اشترِ الآن · {{b.price}} ر.س</a>
-            <button type="button" onClick="{{add}}" style="flex: 1 1 0; cursor: pointer; font-family: inherit; background: #FFFFFF; color: #2B1B22; border: 1px solid #C2304B; border-radius: 999px; padding: 12px 6px; font-size: 13px; font-weight: 700">أضف للسلة</button>
+            <a href="#buy" style="flex: 1.7 1 0; text-align: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; padding: 14px 8px; font-size: 14px; font-weight: 800">اشترِ الآن · {{b.price}} ر.س</a>
+            <button type="button" onClick="{{add}}" style="flex: 1 1 0; cursor: pointer; font-family: inherit; background: #FFFFFF; color: #2B1B22; border: 1px solid #C2304B; border-radius: 3px; padding: 12px 6px; font-size: 13px; font-weight: 700">أضف للسلة</button>
           </div>
           <span style="text-align: center; font-size: 12px; color: #6B5A61">أو 4 دفعات <strong style="color: #2B1B22">{{b.inst}} ر.س</strong> مع تابي وتمارا · بدون فوائد</span>
         </div>
@@ -379,7 +381,7 @@ details summary::-webkit-details-marker{display:none}
             </button>
           </sc-for>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 0 4px">
-            <a href="#buy" style="background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
+            <a href="#buy" style="background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
             <span style="font-size: 12px; color: #C2304B; font-weight: 700">العرض ينتهي خلال {{dd}} يوم</span>
           </div>
         </div>
@@ -403,7 +405,7 @@ details summary::-webkit-details-marker{display:none}
           <div style="display: flex; gap: 8px; align-items: baseline"><span class="was-wrap" style="font-size: 14px">بدل <span class="was">{{v.old}}</span></span><strong style="font-size: 30px; font-family: 'Montserrat', sans-serif">{{v.price}}</strong><span style="font-size: 13px">ر.س</span></div>
           <span style="font-size: 13px; font-weight: 700; color: #C2304B">سعر الزوج {{v.per}} ر.س فقط</span>
           <span style="font-size: 12px; color: #6B5A61">{{v.perk}}</span>
-          <button type="button" onClick="{{v.pickBuy}}" style="margin-top: 6px; cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 999px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</button>
+          <button type="button" onClick="{{v.pickBuy}}" style="margin-top: 6px; cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 3px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</button>
         </div>
       </sc-for>
     </div>
@@ -424,7 +426,7 @@ details summary::-webkit-details-marker{display:none}
         </sc-for>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 18px"><a href="#buy" style="display: inline-block; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 12px 34px; font-size: 13px; font-weight: 800">جرّب الفرق — اطلب الآن</a></div>
+    <div style="text-align: center; margin-top: 18px"><a href="#buy" style="display: inline-block; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; padding: 12px 34px; font-size: 13px; font-weight: 800">جرّب الفرق — اطلب الآن</a></div>
   </section>
 
   <!-- ================= URGENCY BLOCK ================= -->
@@ -441,7 +443,7 @@ details summary::-webkit-details-marker{display:none}
         <div style="display: flex; justify-content: space-between; font-size: 12px"><span style="color: #FFE3E9">الكمية محدودة</span><span style="color: #FFE3E9">متبقٍ [العدد الحقيقي] علبة</span></div>
         <div style="height: 3px; background: rgba(255,255,255,0.18)"><div style="width: 30%; height: 100%; background: #FFFFFF"></div></div>
       </div>
-      <a href="#buy" style="background: #FFFFFF; color: #2B1B22; text-decoration: none; border-radius: 999px; padding: 14px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
+      <a href="#buy" style="background: #FFFFFF; color: #2B1B22; text-decoration: none; border-radius: 3px; padding: 14px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
     </div>
   </section>
 
@@ -473,19 +475,25 @@ details summary::-webkit-details-marker{display:none}
         </details>
       </sc-for>
     </div>
-    <div style="text-align: center; margin-top: 22px"><a href="#buy" style="display: inline-block; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a></div>
+    <div style="text-align: center; margin-top: 22px"><a href="#buy" style="display: inline-block; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a></div>
   </section>
 
-  <footer style="border-top: 1px solid #F3E3E7; text-align: center; font-size: 11px; color: #7A6870; padding: 22px 20px 96px">© 2026 دودليزا</footer>
+  <footer style="border-top: 1px solid #F3E3E7; text-align: center; font-size: 11px; color: #7A6870; padding: 22px 20px 150px">© 2026 دودليزا</footer>
 
-  <!-- Fixed bottom bar -->
-  <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: #FFFFFF; border-top: 1px solid #F3E3E7; box-shadow: 0 -8px 24px rgba(0,0,0,0.08); padding: 10px 14px calc(10px + env(safe-area-inset-bottom))">
-    <div style="max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 12px">
-      <div style="display: flex; flex-direction: column; line-height: 1.25; flex: 1 1 auto; min-width: 0">
-        <span style="font-size: 13px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{b.short}} · {{b.price}} ر.س</span>
-        <span style="font-size: 11px; color: #C2304B; font-weight: 700">ينتهي خلال <span dir="ltr">{{dd}}d {{hh}}:{{mm}}</span></span>
+  <!-- Fixed bottom bar (IBRAQ-style product bar) -->
+  <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 -10px 30px rgba(43,27,34,0.12); padding: 12px 14px calc(12px + env(safe-area-inset-bottom))">
+    <div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px">
+        <div style="display: flex; flex-direction: column; line-height: 1.3; min-width: 0">
+          <strong style="font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{b.title}} · {{b.pairs}} زوج</strong>
+          <span style="font-size: 11px; color: #C2304B; font-weight: 700">العرض ينتهي خلال <span dir="ltr">{{dd}}d {{hh}}:{{mm}}</span></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0"><span class="was" style="font-size: 13px">{{b.old}}</span><strong style="font-size: 18px; color: #C2304B">{{b.price}} ر.س</strong></div>
       </div>
-      <a href="#buy" style="flex: 0 0 auto; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 12px 26px; font-size: 14px; font-weight: 800">اشترِ الآن</a>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 8px">
+        <button type="button" onClick="{{add}}" style="cursor: pointer; font-family: inherit; height: 48px; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; font-size: 14px; font-weight: 800">أضف إلى السلة</button>
+        <a href="#buy" style="height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800">اشترِ الآن <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+      </div>
     </div>
   </div>
 
@@ -514,7 +522,7 @@ details summary::-webkit-details-marker{display:none}
             <div style="border: 1px dashed #C2304B; background: #FDEEF1; padding: 14px; display: flex; flex-direction: column; gap: 8px">
               <strong style="font-size: 14px">{{up.title}}</strong>
               <span style="font-size: 12px; color: #4A3A41">{{up.text}}</span>
-              <button type="button" onClick="{{up.go}}" style="cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 999px; padding: 10px; font-size: 13px; font-weight: 800">{{up.btn}}</button>
+              <button type="button" onClick="{{up.go}}" style="cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 3px; padding: 10px; font-size: 13px; font-weight: 800">{{up.btn}}</button>
             </div>
           </sc-if>
           <div style="display: flex; flex-direction: column; gap: 8px">
@@ -522,14 +530,20 @@ details summary::-webkit-details-marker{display:none}
             <div style="display: flex; gap: 12px; align-items: center; border: 1px solid #F3E3E7; padding: 10px">
               <img src="img/fabric.webp" alt="" style="width: 54px; height: 54px; object-fit: cover">
               <span style="flex: 1 1 auto; font-size: 12px; line-height: 1.5"><strong>شراب كلاسيك للعائلة</strong><br>علبة + علبة بنفس العرض</span>
-              <button type="button" onClick="{{addCross}}" style="cursor: pointer; font-family: inherit; background: #FFFFFF; border: 1px solid #C2304B; border-radius: 999px; padding: 7px 14px; font-size: 12px; font-weight: 700">{{crossLabel}}</button>
+              <button type="button" onClick="{{addCross}}" style="cursor: pointer; font-family: inherit; background: #FFFFFF; border: 1px solid #C2304B; border-radius: 3px; padding: 7px 14px; font-size: 12px; font-weight: 700">{{crossLabel}}</button>
             </div>
           </div>
         </div>
         <div style="border-top: 1px solid #F3E3E7; padding: 14px 18px calc(14px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 8px">
-          <div style="display: flex; justify-content: space-between; font-size: 14px"><span>الإجمالي</span><strong>{{total}} ر.س</strong></div>
-          <a href="#buy" style="text-align: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px; font-size: 14px; font-weight: 800">إتمام الطلب</a>
-          <span style="text-align: center; font-size: 11px; color: #7A6870">مدى · Apple Pay · فيزا · تابي · تمارا</span>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 14px"><span style="color: #6B5A61">الإجمالي <span style="font-size: 11px">(شامل الضريبة)</span></span><strong style="font-size: 20px">{{total}} ر.س</strong></div>
+          <a href="#buy" style="height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; box-shadow: 0 10px 24px rgba(194,48,75,0.28)">
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 800"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12v9H6zM8 11V8a4 4 0 0 1 8 0v3"></path></svg>إتمام الطلب</span>
+            <span style="font-size: 15px; font-weight: 800; border-right: 1px solid rgba(255,255,255,0.35); padding-right: 14px">{{total}} ر.س</span>
+          </a>
+          <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap">
+            <sc-for list="{{pays}}" as="py" hint-placeholder-count="5"><span style="font-size: 10px; font-weight: 800; color: #4A3A41; border: 1px solid #E9D3D9; border-radius: 3px; padding: 3px 8px">{{py}}</span></sc-for>
+          </div>
+          <span style="text-align: center; font-size: 11px; color: #7A6870">دفع آمن ومشفّر 100%</span>
         </div>
       </div>
     </div>
@@ -634,7 +648,7 @@ class Component extends DCLogic {
       next: function () { self.setState({ slide: (s + 1) % imgs.length, paused: true }); },
       thumbs: imgs.map(function (im, i) { return { src: im.src, alt: im.alt,
         pick: function () { self.setState({ slide: i, paused: true }); },
-        style: 'padding: 0; cursor: pointer; aspect-ratio: 1 / 1; background: #FBF1F3; overflow: hidden; ' + (s === i ? 'border: 1px solid #C2304B;' : 'border: 1px solid transparent; opacity: 0.55;'),
+        style: 'padding: 2px; cursor: pointer; aspect-ratio: 1 / 1; background: #FFFFFF; overflow: hidden; border-radius: 9px; ' + (s === i ? 'border: 1.5px solid #C2304B;' : 'border: 1px solid #F1DDE2; opacity: 0.7;'),
         dot: 'height: 4px; ' + (s === i ? 'width: 16px; background: #C2304B;' : 'width: 4px; background: rgba(43,27,34,0.35);') }; }),
       colors: C.map(function (c, i) { var on = st.color === i; return { name: c.n, pressed: on ? 'true' : 'false',
         pick: function () { self.setState({ color: i, slide: c.img, paused: true }); },
@@ -642,7 +656,7 @@ class Component extends DCLogic {
         sw: 'display: block; width: 100%; height: 100%; border-radius: 999px; border: 1px solid #E9D3D9; background: ' + c.h + ';' }; }),
       colorName: C[st.color].n,
       genders: [{ id: 'm', l: 'رجالي' }, { id: 'f', l: 'نسائي' }].map(function (g) { var on = st.gender === g.id; return { label: g.l, pressed: on ? 'true' : 'false', pick: function () { self.setState({ gender: g.id }); },
-        style: 'flex: 1 1 0; cursor: pointer; font-family: inherit; height: 40px; font-size: 13px; padding: 0 10px; border-radius: 999px; ' + (on ? 'background: #C2304B; color: #FFFFFF; border: 1px solid #C2304B; font-weight: 800;' : 'background: #FFFFFF; color: #6B5A61; border: 1px solid #E9D3D9;') }; }),
+        style: 'flex: 1 1 0; cursor: pointer; font-family: inherit; height: 40px; font-size: 13px; padding: 0 10px; border-radius: 3px; ' + (on ? 'background: #C2304B; color: #FFFFFF; border: 1px solid #C2304B; font-weight: 800;' : 'background: #FFFFFF; color: #6B5A61; border: 1px solid #E9D3D9;') }; }),
       genderLabel: st.gender === 'm' ? 'رجالي' : 'نسائي',
       add: function () { self.setState({ cart: 1, drawer: true }); },
       openCart: function () { self.setState({ drawer: true }); },
@@ -660,6 +674,7 @@ class Component extends DCLogic {
         : { show: false, title: '', text: '', btn: '', go: function () {} },
       addCross: function () { self.setState({ cross: !self.state.cross }); },
       crossLabel: st.cross ? 'تمت ✓' : '+ ' + crossPrice + ' ر.س',
+      pays: ['مدى', 'Apple Pay', 'VISA', 'تابي', 'تمارا'],
       trust: [
         { t: 'دفع آمن', d: I.card },
         { t: 'تقسيط 4 دفعات', d: I.split },
