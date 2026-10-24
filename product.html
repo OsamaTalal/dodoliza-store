@@ -146,6 +146,7 @@ button[aria-pressed="true"] .now-s{background:#C2304B;color:#FFFFFF}
 .ak-rate{font-size:13px;color:#6B5A61;display:flex;align-items:center;gap:6px}
 .ak-stars{color:#F2A93B;letter-spacing:1px}
 .ak-note{font-size:12px;color:#7A6870}
+.ak-desc{margin:0;font-size:14px;line-height:1.85;color:#4A3A41}
 .ak-opt{display:flex;flex-direction:column;gap:10px}
 .ak-lbl{font-size:14px;font-weight:800}
 .ak-chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -232,6 +233,7 @@ details summary::-webkit-details-marker{display:none}
       <div class="pdp-info" style="display: flex; flex-direction: column; gap: 18px">
         <div class="ak-head">
           <h1 class="ak-title">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
+          <p class="ak-desc">ألياف بامبو بتقنية نانو الفضة: حافة واسعة ما تضغط على الساق، خياطة ناعمة بدون حواف، ونسيج يتنفس ويقلل الروائح طول اليوم.</p>
           <div class="ak-price-row">
             <div class="ak-price"><strong>{{b.price}} ر.س</strong><s>{{b.old}} ر.س</s><span class="ak-save">وفّر {{b.pct}}%</span></div>
             <span class="ak-rate"><span class="ak-stars" aria-hidden="true">★★★★★</span>[عدد] تقييم</span>
@@ -239,14 +241,24 @@ details summary::-webkit-details-marker{display:none}
           <span class="ak-note">{{b.pairs}} زوج · كل علبة 5 أزواج · مقاس موحّد (Free Size)</span>
         </div>
 
-        <div class="ak-opt">
-          <span class="ak-lbl">العرض</span>
-          <div class="ak-chips">
+        <!-- BUNDLE PICKER -->
+        <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-size: 13px; font-weight: 800; padding: 0 0 12px">اختر العرض <span style="font-weight: 500; color: #7A6870">· كل علبة 5 أزواج</span></legend>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
             <sc-for list="{{bundles}}" as="x" hint-placeholder-count="3">
-              <button type="button" class="ak-chip" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}"><span dir="ltr">{{x.short}}</span> · {{x.price}} ر.س</button>
+              <button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="{{x.tile}}">
+                <sc-if value="{{x.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{x.tagStyle}}">{{x.tag}}</span></sc-if>
+                <strong style="font-family: 'Montserrat', sans-serif; font-size: 20px; line-height: 1.1" dir="ltr">{{x.short}}</strong>
+                <span style="font-size: 11px; color: #7A6870">{{x.pairs}} زوج</span>
+                <span class="was-wrap" style="font-size: 12px; margin-top: 6px">بدل <span class="was">{{x.old}}</span></span>
+                <strong class="now-s" style="font-size: 16px; margin-top: 4px">{{x.price}} ر.س</strong>
+              </button>
             </sc-for>
           </div>
-        </div>
+          <div class="perpair" style="display: flex; justify-content: center; gap: 6px; font-size: 12px; color: #4A3A41; background: #FDF4F6; border-radius: 8px; padding: 7px 10px">
+            <span>سعر الزوج <strong>{{b.per}} ر.س</strong></span><span aria-hidden="true">·</span><span style="color: #C2304B; font-weight: 700">توفّر {{b.save}} ر.س</span><span aria-hidden="true">·</span><span>{{b.ship}}</span><span aria-hidden="true">·</span><span>Free Size</span>
+          </div>
+        </fieldset>
 
         <div class="ak-opt">
           <span class="ak-lbl">النوع</span>
@@ -258,10 +270,10 @@ details summary::-webkit-details-marker{display:none}
         </div>
 
         <div class="ak-opt">
-          <span class="ak-lbl">اللون</span>
-          <div class="ak-chips">
+          <span class="ak-lbl">اللون: <span style="font-weight: 600; color: #6B5A61">{{colorName}}</span></span>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
             <sc-for list="{{colors}}" as="c" hint-placeholder-count="4">
-              <button type="button" class="ak-chip" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}">{{c.name}}</button>
+              <button type="button" onClick="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" style="{{c.style}}"><span style="{{c.sw}}"></span></button>
             </sc-for>
           </div>
         </div>
@@ -274,10 +286,6 @@ details summary::-webkit-details-marker{display:none}
           <sc-for list="{{pays}}" as="py" hint-placeholder-count="6"><img data-dc-src="{{py.src}}" alt="{{py.alt}}"></sc-for>
         </div>
 
-        <details class="ak-acc" open="">
-          <summary><span>وصف المنتج</span><span class="ak-pm" aria-hidden="true"></span></summary>
-          <p>شراب دودليزا مصنوع من ألياف البامبو بتقنية نانو الفضة: حافة واسعة ما تضغط على الساق، خياطة ناعمة بدون حواف، ونسيج يتنفس ويمتص الرطوبة ويقلل الروائح. كل علبة فيها 5 أزواج، ومع العرض تاخذ علبة + علبة مجانًا.</p>
-        </details>
 
         <!-- ================= TESTIMONIALS STRIP ================= -->
         <section class="rv-sec rv-narrow" aria-label="تقييمات العملاء" style="background: #FDF4F6; border-radius: 14px; padding: 16px 0 12px; overflow: hidden">
@@ -368,7 +376,10 @@ details summary::-webkit-details-marker{display:none}
 
   <!-- ================= FEATURE HIGHLIGHTS STRIP ================= -->
   <section style="border-top: 1px solid #F3E3E7; border-bottom: 1px solid #F3E3E7; background: #FFFFFF">
-    <div class="hl" style="max-width: 1180px; margin: 0 auto; padding: 26px 20px">
+    <div style="text-align: center; padding: 34px 20px 0">
+      <h2 style="margin: 0; font-size: clamp(22px, 2.8vw, 30px); font-weight: 800">ليش شراب دودليزا مختلف؟</h2>
+    </div>
+    <div class="hl" style="max-width: 1180px; margin: 0 auto; padding: 24px 20px">
       <sc-for list="{{highlights}}" as="h" hint-placeholder-count="6">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
           <span style="width: 52px; height: 52px; border-radius: 999px; background: #FDEEF1; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C2304B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-d="{{h.d}}"></path></svg></span>
@@ -377,41 +388,8 @@ details summary::-webkit-details-marker{display:none}
         </div>
       </sc-for>
     </div>
-  </section>
-
-  <!-- ================= WHY DODOLIZA (auto-rotating) ================= -->
-  <section style="background: #FDF4F6; padding: 56px 0 60px">
-    <div style="max-width: 1180px; margin: 0 auto; padding: 0 20px">
-      <div style="text-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 30px">
-        <span class="lat" style="font-size: 10px; color: #7A6870">Why Dodoliza</span>
-        <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">ليش شراب دودليزا مختلف؟</h2>
-        <p style="margin: 0; font-size: 14px; color: #6B5A61">مصمّم بتفاصيل تفرق معك من أول لبسة لآخر اليوم.</p>
-      </div>
-      <div class="why-box">
-        <div class="why-img">
-          <sc-for list="{{why}}" as="w" hint-placeholder-count="5">
-            <img data-dc-src="{{w.img}}" alt="{{w.title}}" style="{{w.imgStyle}}">
-          </sc-for>
-          <div style="position: absolute; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(255,255,255,0.9); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.1)">
-            <strong style="color: #C2304B; font-size: 18px; font-weight: 800">{{p1}} ر.س</strong>
-            <span style="font-size: 12px; font-weight: 700">علبة + علبة · 10 أزواج</span>
-          </div>
-        </div>
-        <div class="why-panel">
-          <sc-for list="{{why}}" as="w" hint-placeholder-count="5">
-            <button type="button" onClick="{{w.pick}}" aria-pressed="{{w.pressed}}" class="{{w.cls}}">
-              <span class="why-line" aria-hidden="true"></span>
-              <span class="why-num">{{w.n}}</span>
-              <span class="why-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-d="{{w.d}}"></path></svg></span>
-              <span class="why-txt"><strong>{{w.title}}</strong><span>{{w.text}}</span></span>
-            </button>
-          </sc-for>
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 0 4px">
-            <a href="#buy" style="background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
-            <span style="font-size: 12px; color: #C2304B; font-weight: 700">العرض ينتهي خلال {{dd}} يوم</span>
-          </div>
-        </div>
-      </div>
+    <div style="display: flex; justify-content: center; padding: 0 20px 32px">
+      <a href="#buy" style="width: min(360px, 100%); height: 52px; display: flex; align-items: center; justify-content: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 999px; font-size: 16px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a>
     </div>
   </section>
 
