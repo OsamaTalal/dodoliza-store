@@ -136,6 +136,7 @@ button[aria-pressed="true"] .now-s{background:#C2304B;color:#FFFFFF}
   .ib-ap{-webkit-appearance:-apple-pay-button;-apple-pay-button-type:plain;-apple-pay-button-style:black;font-size:0 !important;color:transparent !important;border-radius:0}
 }
 @media (max-width: 860px){.ib-inline{display:none !important}}
+@media (min-width: 861px){.m-cta{display:none !important}}
 @media (min-width: 861px){.ib-sticky{display:none !important}}
 @media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
@@ -249,6 +250,10 @@ details summary::-webkit-details-marker{display:none}
 
         <!-- CTAs -->
         <div style="display: flex; flex-direction: column; gap: 8px">
+          <div class="m-cta" style="display: flex; gap: 8px">
+            <a href="#buy" style="flex: 1.7 1 0; display: flex; align-items: center; justify-content: center; height: 50px; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800">اطلب الآن · {{b.price}} ر.س</a>
+            <button type="button" onClick="{{add}}" style="flex: 1 1 0; height: 50px; cursor: pointer; font-family: inherit; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; font-size: 14px; font-weight: 800">أضف للسلة</button>
+          </div>
           <div class="ib-inline">
       <div class="ib-btns">
         <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" class="ib-cart"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
