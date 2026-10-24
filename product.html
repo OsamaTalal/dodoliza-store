@@ -15,15 +15,16 @@ a{color:#111111}
 @keyframes lp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes lp-fade{from{opacity:.35}to{opacity:1}}
 @keyframes lp-in{from{transform:translateX(-100%)}to{transform:translateX(0)}}
-.lp-track{animation:lp-marquee 60s linear infinite}
+.lp-track{animation:lp-marquee 45s linear infinite}
 .lp-track:hover,.lp-track-rev:hover{animation-play-state:paused}
 @keyframes lp-marquee-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.lp-track-rev{animation:lp-marquee-rev 70s linear infinite}
+.lp-track-rev{animation:lp-marquee-rev 50s linear infinite}
 .lp-fade{animation:lp-fade .6s ease}
 .lp-drawer{animation:lp-in .3s ease}
 .lat{font-family:'Montserrat',sans-serif;letter-spacing:2px;text-transform:uppercase}
 .pdp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);grid-template-areas:"media info";gap:40px;align-items:start}
-.pdp-media{grid-area:media}.pdp-info{grid-area:info;position:sticky;top:84px}
+.pdp-media{grid-area:media}.pdp-info{grid-area:info}
+.pdp-media{position:sticky;top:70px}
 .pdp-head-m{display:none;flex-direction:column;gap:2px}
 .pdp-head-d{display:flex;flex-direction:column;gap:6px}
 .feat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
@@ -34,6 +35,7 @@ a{color:#111111}
 @media (max-width: 860px){
   .pdp{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "info";gap:14px}
   .pdp-info{position:static}
+  .pdp-media{position:static}
   .pdp-head-m{display:flex}
   .pdp-head-d{display:none}
   .main-img{aspect-ratio:1/1 !important;max-height:40vh}
@@ -42,6 +44,30 @@ a{color:#111111}
   .feat-rev .feat-img{order:0}
   .rel{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .hl{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 8px}
+}
+.rv-avg{font-size:22px}
+.rv-h2{font-size:18px}
+.rv-card{width:280px;padding:12px;flex-direction:column;gap:8px}
+.rv-body{display:flex;gap:12px;align-items:flex-start}
+.rv-pics{display:flex;gap:6px;flex-shrink:0}
+.rv-pics img{width:56px;height:56px}
+.rv-pics img:nth-child(n+2){display:none}
+.rv-bars{display:none !important}
+.rv-head{flex-wrap:nowrap !important;gap:10px !important}
+.rv-sum{padding:8px 12px !important;gap:10px !important;border-radius:10px !important}
+.rv-text{font-size:13px;line-height:1.6}
+@media (max-width: 860px){
+  .cmp{font-size:12px !important}
+  .cmp th,.cmp td,.cmp span{padding:9px 6px !important;line-height:1.45}
+  .rv-sum{padding:8px 12px !important;gap:10px !important;border-radius:10px !important}
+  .rv-bars{display:none !important}
+  .rv-head{flex-wrap:nowrap !important;gap:10px !important;margin-bottom:14px !important}
+  .rv-avg{font-size:22px}
+  .rv-h2{font-size:20px}
+  .rv-card{width:280px;padding:12px;gap:8px}
+  .rv-pics img{width:56px;height:56px}
+  .rv-pics img:nth-child(n+2){display:none}
+  .rv-text{font-size:13px;line-height:1.6}
 }
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
 details summary{cursor:pointer;list-style:none}
@@ -154,6 +180,61 @@ details summary::-webkit-details-marker{display:none}
           <span style="font-size: 12px; color: #555555">المقاس: موحّد (Free Size)</span>
         </div>
 
+        <!-- ================= TESTIMONIALS STRIP ================= -->
+        <section class="rv-sec" aria-label="تقييمات العملاء" style="background: #F7F7F8; border-radius: 14px; padding: 16px 0 12px; overflow: hidden">
+          <div class="rv-head" style="margin: 0 0 12px; padding: 0 14px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <span class="lat" style="font-size: 10px; color: #666666">Customer Reviews</span>
+              <h2 class="rv-h2" style="margin: 0; font-weight: 800">وش قالوا عملاء دودليزا</h2>
+            </div>
+            <div class="rv-sum" style="display: flex; gap: 18px; align-items: center; background: #FFFFFF; border: 1px solid #EEEEEE; border-radius: 14px; padding: 14px 18px">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
+                <strong class="rv-avg" dir="ltr" style="font-family: 'Montserrat', sans-serif; line-height: 1">[4.x]</strong>
+                <span style="color: #B7791F; font-size: 14px; letter-spacing: 1px" aria-hidden="true">★★★★★</span>
+                <span style="font-size: 11px; color: #666666">[عدد] تقييم</span>
+              </div>
+              <div class="rv-bars" style="display: flex; flex-direction: column; gap: 4px; min-width: 150px">
+                <sc-for list="{{rateBars}}" as="rb" hint-placeholder-count="5">
+                  <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; color: #555555"><span style="width: 10px">{{rb.s}}</span><span style="flex: 1 1 auto; height: 6px; background: #EEEEEE; border-radius: 999px"></span><span>[%]</span></div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <sc-for list="{{reviewRows}}" as="row" hint-placeholder-count="2">
+            <div dir="ltr" style="overflow: hidden; padding: 6px 0">
+              <div class="{{row.cls}}" dir="ltr" style="display: flex; gap: 16px; width: max-content">
+                <sc-for list="{{row.items}}" as="r" hint-placeholder-count="10">
+                  <figure class="rv-card" dir="rtl" style="margin: 0; flex-shrink: 0; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 14px; display: flex; box-sizing: border-box">
+                    <div style="display: flex; gap: 10px; align-items: center">
+                      <span style="{{r.avatar}}">{{r.ini}}</span>
+                      <div style="display: flex; flex-direction: column; line-height: 1.35; flex: 1 1 auto; min-width: 0">
+                        <strong style="font-size: 14px">{{r.n}}</strong>
+                        <span style="font-size: 11px; color: #1E7A46; font-weight: 700">✓ تم الشراء · {{r.city}}</span>
+                      </div>
+                      <span style="font-size: 11px; color: #777777">{{r.date}}</span>
+                    </div>
+                    <div class="rv-body">
+                      <div class="rv-pics">
+                        <sc-for list="{{r.pics}}" as="pc" hint-placeholder-count="2">
+                          <img data-dc-src="{{pc}}" alt="صورة من العميل" style="object-fit: cover; border-radius: 10px; background: #F3F3F3">
+                        </sc-for>
+                      </div>
+                      <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+                        <span style="color: #B7791F; font-size: 14px; letter-spacing: 2px" aria-label="5 نجوم">★★★★★</span>
+                        <p class="rv-text" style="margin: 0; color: #222222">{{r.t}}</p>
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #F0F0F0; padding-top: 10px; font-size: 11px; color: #666666">
+                      <span>{{r.variant}}</span>
+                      <span>مفيد؟ ([عدد])</span>
+                    </div>
+                  </figure>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </section>
+
         <div style="border-top: 1px solid #EEEEEE">
           <sc-for list="{{acc}}" as="a" hint-placeholder-count="3">
             <details style="border-bottom: 1px solid #EEEEEE; padding: 11px 0">
@@ -177,57 +258,6 @@ details summary::-webkit-details-marker{display:none}
         </div>
       </sc-for>
     </div>
-  </section>
-
-  <!-- ================= TESTIMONIALS STRIP ================= -->
-  <section style="border-bottom: 1px solid #EEEEEE; padding: 48px 0 40px; overflow: hidden; background: #F7F7F8">
-    <div style="max-width: 1180px; margin: 0 auto 26px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
-      <div style="display: flex; flex-direction: column; gap: 4px">
-        <span class="lat" style="font-size: 10px; color: #666666">Customer Reviews</span>
-        <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">وش قالوا عملاء دودليزا</h2>
-      </div>
-      <div style="display: flex; gap: 18px; align-items: center; background: #FFFFFF; border: 1px solid #EEEEEE; border-radius: 14px; padding: 14px 18px">
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
-          <strong dir="ltr" style="font-family: 'Montserrat', sans-serif; font-size: 34px; line-height: 1">[4.x]</strong>
-          <span style="color: #B7791F; font-size: 14px; letter-spacing: 1px" aria-hidden="true">★★★★★</span>
-          <span style="font-size: 11px; color: #666666">[عدد] تقييم</span>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 4px; min-width: 150px">
-          <sc-for list="{{rateBars}}" as="rb" hint-placeholder-count="5">
-            <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; color: #555555"><span style="width: 10px">{{rb.s}}</span><span style="flex: 1 1 auto; height: 6px; background: #EEEEEE; border-radius: 999px"></span><span>[%]</span></div>
-          </sc-for>
-        </div>
-      </div>
-    </div>
-    <sc-for list="{{reviewRows}}" as="row" hint-placeholder-count="2">
-      <div style="overflow: hidden; padding: 6px 0">
-        <div class="{{row.cls}}" dir="ltr" style="display: flex; gap: 16px; width: max-content">
-          <sc-for list="{{row.items}}" as="r" hint-placeholder-count="10">
-            <figure dir="rtl" style="margin: 0; width: 340px; flex-shrink: 0; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box">
-              <div style="display: flex; gap: 10px; align-items: center">
-                <span style="{{r.avatar}}">{{r.ini}}</span>
-                <div style="display: flex; flex-direction: column; line-height: 1.35; flex: 1 1 auto; min-width: 0">
-                  <strong style="font-size: 14px">{{r.n}}</strong>
-                  <span style="font-size: 11px; color: #1E7A46; font-weight: 700">✓ تم الشراء · {{r.city}}</span>
-                </div>
-                <span style="font-size: 11px; color: #777777">{{r.date}}</span>
-              </div>
-              <span style="color: #B7791F; font-size: 15px; letter-spacing: 2px" aria-label="5 نجوم">★★★★★</span>
-              <p style="margin: 0; font-size: 14px; line-height: 1.75; color: #222222; min-height: 48px">{{r.t}}</p>
-              <div style="display: flex; gap: 8px">
-                <sc-for list="{{r.pics}}" as="pc" hint-placeholder-count="2">
-                  <img data-dc-src="{{pc}}" alt="صورة من العميل" style="width: 84px; height: 84px; object-fit: cover; border-radius: 10px; background: #F3F3F3">
-                </sc-for>
-              </div>
-              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #F0F0F0; padding-top: 10px; font-size: 11px; color: #666666">
-                <span>{{r.variant}}</span>
-                <span>مفيد؟ ([عدد])</span>
-              </div>
-            </figure>
-          </sc-for>
-        </div>
-      </div>
-    </sc-for>
   </section>
 
   <!-- ================= PRICE-PER-PAIR VALUE BLOCK ================= -->
@@ -277,11 +307,11 @@ details summary::-webkit-details-marker{display:none}
   <!-- ================= COMPARISON ================= -->
   <section style="max-width: 860px; margin: 0 auto; padding: 72px 20px 0">
     <h2 style="margin: 0 0 18px; text-align: center; font-size: clamp(22px, 2.8vw, 30px); font-weight: 800">دودليزا مقابل الشراب القطن العادي</h2>
-    <div style="overflow-x: auto; border: 1px solid #EEEEEE">
-      <div role="table" style="min-width: 460px; font-size: 14px">
-        <div role="row" style="display: grid; grid-template-columns: 1.1fr 1fr 1fr; background: #111111; color: #FFFFFF; font-weight: 700"><span role="columnheader" style="padding: 12px"></span><span role="columnheader" style="padding: 12px; text-align: center">دودليزا</span><span role="columnheader" style="padding: 12px; text-align: center; color: #CCCCCC">قطن عادي</span></div>
+    <div style="border: 1px solid #EEEEEE">
+      <div role="table" class="cmp" style="font-size: 14px">
+        <div role="row" style="display: grid; grid-template-columns: 0.8fr 1fr 1fr; background: #111111; color: #FFFFFF; font-weight: 700"><span role="columnheader" style="padding: 12px"></span><span role="columnheader" style="padding: 12px; text-align: center">دودليزا</span><span role="columnheader" style="padding: 12px; text-align: center; color: #CCCCCC">قطن عادي</span></div>
         <sc-for list="{{compare}}" as="cm">
-          <div role="row" style="display: grid; grid-template-columns: 1.1fr 1fr 1fr; border-top: 1px solid #EEEEEE">
+          <div role="row" style="display: grid; grid-template-columns: 0.8fr 1fr 1fr; border-top: 1px solid #EEEEEE">
             <span role="rowheader" style="padding: 12px; font-weight: 700">{{cm.k}}</span>
             <span role="cell" style="padding: 12px; text-align: center; font-weight: 700">✓ {{cm.a}}</span>
             <span role="cell" style="padding: 12px; text-align: center; color: #666666">{{cm.b}}</span>
