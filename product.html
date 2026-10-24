@@ -41,7 +41,7 @@ a{color:#111111}
   .pdp-media{position:static}
   .pdp-head-m{display:flex}
   .pdp-head-d{display:none}
-  .main-img{aspect-ratio:1/1 !important;max-height:31vh;min-height:0}
+  .main-img{aspect-ratio:auto !important;height:36vh;max-height:none;min-height:0;width:auto;margin:0 -20px}
   .thumbs{display:none !important}
   .feat{grid-template-columns:minmax(0,1fr);gap:18px}
   .feat-rev .feat-img{order:0}
@@ -248,20 +248,7 @@ details summary::-webkit-details-marker{display:none}
         <section class="rv-sec rv-narrow" aria-label="تقييمات العملاء" style="background: #F7F7F8; border-radius: 14px; padding: 16px 0 12px; overflow: hidden">
           <div class="rv-head" style="margin: 0 0 12px; padding: 0 14px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
             <div style="display: flex; flex-direction: column; gap: 4px">
-              <span class="lat" style="font-size: 10px; color: #666666">Customer Reviews</span>
-              <h2 class="rv-h2" style="margin: 0; font-weight: 800">وش قالوا عملاء دودليزا</h2>
-            </div>
-            <div class="rv-sum" style="display: flex; gap: 18px; align-items: center; background: #FFFFFF; border: 1px solid #EEEEEE; border-radius: 14px; padding: 14px 18px">
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
-                <strong class="rv-avg" dir="ltr" style="font-family: 'Montserrat', sans-serif; line-height: 1">[4.x]</strong>
-                <span style="color: #B7791F; font-size: 14px; letter-spacing: 1px" aria-hidden="true">★★★★★</span>
-                <span style="font-size: 11px; color: #666666">[عدد] تقييم</span>
-              </div>
-              <div class="rv-bars" style="display: flex; flex-direction: column; gap: 4px; min-width: 150px">
-                <sc-for list="{{rateBars}}" as="rb" hint-placeholder-count="5">
-                  <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; color: #555555"><span style="width: 10px">{{rb.s}}</span><span style="flex: 1 1 auto; height: 6px; background: #EEEEEE; border-radius: 999px"></span><span>[%]</span></div>
-                </sc-for>
-              </div>
+                    <h2 class="rv-h2" style="margin: 0; font-weight: 800">وش قالوا عملاء دودليزا</h2>
             </div>
           </div>
           <sc-for list="{{reviewRows}}" as="row" hint-placeholder-count="2">
@@ -306,20 +293,7 @@ details summary::-webkit-details-marker{display:none}
   <section class="rv-sec rv-wide" aria-label="تقييمات العملاء" style="background: #F7F7F8; padding: 40px 0 34px; overflow: hidden">
           <div class="rv-head" style="max-width: 1120px; margin: 0 auto 22px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
             <div style="display: flex; flex-direction: column; gap: 4px">
-              <span class="lat" style="font-size: 10px; color: #666666">Customer Reviews</span>
-              <h2 class="rv-h2" style="margin: 0; font-weight: 800">وش قالوا عملاء دودليزا</h2>
-            </div>
-            <div class="rv-sum" style="display: flex; gap: 18px; align-items: center; background: #FFFFFF; border: 1px solid #EEEEEE; border-radius: 14px; padding: 14px 18px">
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
-                <strong class="rv-avg" dir="ltr" style="font-family: 'Montserrat', sans-serif; line-height: 1">[4.x]</strong>
-                <span style="color: #B7791F; font-size: 14px; letter-spacing: 1px" aria-hidden="true">★★★★★</span>
-                <span style="font-size: 11px; color: #666666">[عدد] تقييم</span>
-              </div>
-              <div class="rv-bars" style="display: flex; flex-direction: column; gap: 4px; min-width: 150px">
-                <sc-for list="{{rateBars}}" as="rb" hint-placeholder-count="5">
-                  <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; color: #555555"><span style="width: 10px">{{rb.s}}</span><span style="flex: 1 1 auto; height: 6px; background: #EEEEEE; border-radius: 999px"></span><span>[%]</span></div>
-                </sc-for>
-              </div>
+                    <h2 class="rv-h2" style="margin: 0; font-weight: 800">وش قالوا عملاء دودليزا</h2>
             </div>
           </div>
           <sc-for list="{{reviewRows}}" as="row" hint-placeholder-count="2">
