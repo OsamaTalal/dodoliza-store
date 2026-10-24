@@ -117,7 +117,12 @@ a{color:#2B1B22}
 }
 .opts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px;align-items:start}
 @media (max-width: 860px){.perpair{display:none !important}.opts{gap:10px}.opts button[aria-label]{width:34px !important;height:34px !important}}
-.was{line-height:1.5;color:#5E4C54;font-weight:700;text-decoration:line-through;text-decoration-color:#E15169;text-decoration-thickness:2px;white-space:nowrap}
+.was-wrap{color:#7A6870;font-weight:600;white-space:nowrap;line-height:1.5}
+.was{position:relative;display:inline-block;color:#4A3A41;font-weight:800;padding:0 2px}
+.was::after{content:"";position:absolute;left:-3px;right:-3px;top:50%;height:2px;background:#E15169;border-radius:2px;transform:rotate(-14deg)}
+.now{display:inline-block;background:#C2304B;color:#FFFFFF;font-weight:800;border-radius:10px;padding:2px 12px;line-height:1.5}
+.now-s{display:inline-block;background:#FDEEF1;color:#C2304B;font-weight:800;border-radius:8px;padding:1px 10px;line-height:1.5}
+button[aria-pressed="true"] .now-s{background:#C2304B;color:#FFFFFF}
 @media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
 details summary{cursor:pointer;list-style:none}
@@ -159,7 +164,7 @@ details summary::-webkit-details-marker{display:none}
       <div class="pdp-media" style="display: flex; flex-direction: column; gap: 10px">
         <div class="pdp-head-m">
           <h1 style="margin: 0; font-size: 18px; font-weight: 800; line-height: 1.45">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
-          <div style="display: flex; gap: 8px; align-items: baseline; font-size: 14px; flex-wrap: wrap"><span class="was" style="font-size: 15px">{{b.old}} ر.س</span><strong style="font-size: 20px; color: #C2304B">{{b.price}} ر.س</strong><span style="background: #FDEEF1; color: #C2304B; font-weight: 800; font-size: 12px; padding: 2px 8px; border-radius: 999px">وفّر {{b.pct}}%</span><span style="color: #6B5A61; font-size: 12px">· {{b.pairs}} زوج</span></div>
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 14px; flex-wrap: wrap; margin-top: 4px"><strong class="now" style="font-size: 20px">{{b.price}} ر.س</strong><span class="was-wrap" style="font-size: 14px">بدل <span class="was">{{b.old}}</span> ر.س</span><span style="background: #FDEEF1; color: #C2304B; font-weight: 800; font-size: 12px; padding: 2px 8px; border-radius: 999px">وفّر {{b.pct}}%</span><span style="color: #6B5A61; font-size: 12px">· {{b.pairs}} زوج</span></div>
         </div>
 
         <div class="main-img" style="position: relative; aspect-ratio: 4 / 5; background: #FBF1F3; overflow: hidden">
@@ -186,7 +191,7 @@ details summary::-webkit-details-marker{display:none}
         <div class="pdp-head-d">
           <span class="lat" style="font-size: 10px; color: #7A6870">Bamboo · Nano Silver</span>
           <h1 style="margin: 0; font-size: 26px; font-weight: 800; line-height: 1.45">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
-          <div style="display: flex; gap: 10px; align-items: baseline; font-size: 15px"><span class="was" style="font-size: 17px">{{b.old}} ر.س</span><strong style="font-size: 26px; color: #C2304B">{{b.price}} ر.س</strong><span style="background: #FDEEF1; color: #C2304B; font-weight: 800; font-size: 12px; padding: 2px 8px; border-radius: 999px">وفّر {{b.pct}}%</span></div>
+          <div style="display: flex; gap: 12px; align-items: center; font-size: 15px"><strong class="now" style="font-size: 26px">{{b.price}} ر.س</strong><span class="was-wrap" style="font-size: 16px">بدل <span class="was">{{b.old}}</span> ر.س</span><span style="background: #FDEEF1; color: #C2304B; font-weight: 800; font-size: 12px; padding: 2px 8px; border-radius: 999px">وفّر {{b.pct}}%</span></div>
           <span style="font-size: 13px; color: #6B5A61"><span style="color: #E15169">★★★★★</span> [التقييم] · [عدد] تقييم</span>
         </div>
 
@@ -199,8 +204,8 @@ details summary::-webkit-details-marker{display:none}
                 <sc-if value="{{x.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{x.tagStyle}}">{{x.tag}}</span></sc-if>
                 <strong style="font-family: 'Montserrat', sans-serif; font-size: 20px; line-height: 1.1" dir="ltr">{{x.short}}</strong>
                 <span style="font-size: 11px; color: #7A6870">{{x.pairs}} زوج</span>
-                <span class="was" style="font-size: 14px; margin-top: 6px; line-height: 1.4">{{x.old}}</span>
-                <strong style="font-size: 17px; color: #C2304B; line-height: 1.5">{{x.price}} ر.س</strong>
+                <span class="was-wrap" style="font-size: 12px; margin-top: 6px">بدل <span class="was">{{x.old}}</span></span>
+                <strong class="now-s" style="font-size: 16px; margin-top: 4px">{{x.price}} ر.س</strong>
               </button>
             </sc-for>
           </div>
@@ -361,7 +366,7 @@ details summary::-webkit-details-marker{display:none}
           <sc-if value="{{v.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{v.tagStyle}}">{{v.tag}}</span></sc-if>
           <strong style="font-size: 20px">{{v.title}}</strong>
           <span style="font-size: 13px; color: #6B5A61">{{v.pairs}} زوج</span>
-          <div style="display: flex; gap: 8px; align-items: baseline"><span class="was" style="font-size: 16px">{{v.old}}</span><strong style="font-size: 30px; font-family: 'Montserrat', sans-serif">{{v.price}}</strong><span style="font-size: 13px">ر.س</span></div>
+          <div style="display: flex; gap: 8px; align-items: baseline"><span class="was-wrap" style="font-size: 14px">بدل <span class="was">{{v.old}}</span></span><strong style="font-size: 30px; font-family: 'Montserrat', sans-serif">{{v.price}}</strong><span style="font-size: 13px">ر.س</span></div>
           <span style="font-size: 13px; font-weight: 700; color: #C2304B">سعر الزوج {{v.per}} ر.س فقط</span>
           <span style="font-size: 12px; color: #6B5A61">{{v.perk}}</span>
           <button type="button" onClick="{{v.pickBuy}}" style="margin-top: 6px; cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 999px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</button>
