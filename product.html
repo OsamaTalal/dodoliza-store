@@ -164,8 +164,13 @@ button[aria-pressed="true"] .now-s{background:#C2304B;color:#FFFFFF}
 .ak-pm::after{transform:rotate(90deg)}
 .ak-acc[open] .ak-pm::after{display:none}
 .ak-acc p{margin:0;padding:12px 14px;font-size:14px;line-height:1.9;color:#4A3A41}
-.vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:900px;margin:0 auto}
-@media (max-width: 860px){.vids{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}.vids .vid-box{flex:0 0 70%;scroll-snap-align:center}}
+.vids-wrap{overflow:hidden;max-width:1000px;margin:0 auto;--w:280px;--g:16px}
+.vids{display:flex;gap:var(--g);width:max-content;animation:vid-step 9s ease-in-out infinite}
+.vids .vid-box{flex:0 0 var(--w);width:var(--w)}
+.vids-wrap:hover .vids{animation-play-state:paused}
+@keyframes vid-step{0%,22%{transform:translateX(0)}33%,55%{transform:translateX(calc(-1 * (var(--w) + var(--g))))}66%,88%{transform:translateX(calc(-2 * (var(--w) + var(--g))))}100%{transform:translateX(calc(-3 * (var(--w) + var(--g))))}}
+@media (max-width: 860px){.vids-wrap{--w:62vw;--g:12px}}
+@media (prefers-reduced-motion: reduce){.vids{animation:none}}
 .vid-box{position:relative;width:100%;margin:0;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#2B1B22}
 .vid-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
 .vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:999px;background:#C2304B;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
@@ -441,14 +446,16 @@ details summary::-webkit-details-marker{display:none}
       <h2 style="margin: 0; font-size: clamp(22px, 2.8vw, 30px); font-weight: 800">تجارب عملائنا</h2>
       <p style="margin: 0; font-size: 14px; color: #6B5A61">شوف رأيهم بعد ما جرّبوا شراب دودليزا</p>
     </div>
+    <div class="vids-wrap" dir="ltr">
     <div class="vids">
-      <sc-for list="{{vids}}" as="v" hint-placeholder-count="3">
+      <sc-for list="{{vidLoop}}" as="v" hint-placeholder-count="6">
         <div class="vid-box">
           <img data-dc-src="{{v.img}}" alt="">
           <span class="vid-play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
           <span class="vid-note">[فيديو تجربة عميل {{v.n}}]</span>
         </div>
       </sc-for>
+    </div>
     </div>
   </section>
 
@@ -698,6 +705,7 @@ class Component extends DCLogic {
         : { show: false, title: '', text: '', btn: '', go: function () {} },
       addCross: function () { self.setState({ cross: !self.state.cross }); },
       crossLabel: st.cross ? 'تمت ✓' : '+ ' + crossPrice + ' ر.س',
+      vidLoop: [{ n: 1, img: 'img/hero.webp' }, { n: 2, img: 'img/foot.webp' }, { n: 3, img: 'img/feet_white.webp' }, { n: 1, img: 'img/hero.webp' }, { n: 2, img: 'img/foot.webp' }, { n: 3, img: 'img/feet_white.webp' }, { n: 1, img: 'img/hero.webp' }, { n: 2, img: 'img/foot.webp' }, { n: 3, img: 'img/feet_white.webp' }],
       vids: [{ n: 1, img: 'img/hero.webp' }, { n: 2, img: 'img/foot.webp' }, { n: 3, img: 'img/feet_white.webp' }],
       pays: [
         { src: 'img/pay/mada.svg', alt: 'مدى' },
