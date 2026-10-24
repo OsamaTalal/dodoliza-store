@@ -136,6 +136,38 @@ button[aria-pressed="true"] .now-s{background:#C2304B;color:#FFFFFF}
   .ib-ap{display:inline-block !important;-webkit-appearance:-apple-pay-button;-apple-pay-button-type:plain;-apple-pay-button-style:black;font-size:0 !important;color:transparent !important;border:0}
 }
 @media (min-width: 861px){.ib-sticky{display:none !important}}
+.ak-head{display:flex;flex-direction:column;gap:8px}
+.ak-title{margin:0;font-size:24px;font-weight:800;line-height:1.45}
+.ak-price-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.ak-price{display:flex;align-items:baseline;gap:10px}
+.ak-price strong{font-size:24px;font-weight:800;color:#C2304B}
+.ak-price s{font-size:15px;color:#A8979E}
+.ak-save{font-size:12px;font-weight:800;color:#C2304B;background:#FDEEF1;border-radius:999px;padding:2px 9px}
+.ak-rate{font-size:13px;color:#6B5A61;display:flex;align-items:center;gap:6px}
+.ak-stars{color:#F2A93B;letter-spacing:1px}
+.ak-note{font-size:12px;color:#7A6870}
+.ak-opt{display:flex;flex-direction:column;gap:10px}
+.ak-lbl{font-size:14px;font-weight:800}
+.ak-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ak-chip{cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:#2B1B22;background:#FFFFFF;border:1px solid #DCCFD3;border-radius:999px;padding:9px 18px;min-height:42px;transition:all .15s}
+.ak-chip[aria-pressed="true"]{background:#2B1B22;border-color:#2B1B22;color:#FFFFFF}
+.ak-add{cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:10px;height:52px;border:0;border-radius:999px;background:#C2304B;color:#FFFFFF;font-size:16px;font-weight:800}
+.ak-ship{margin:0;font-size:13px;color:#4A3A41;text-align:center;line-height:1.8}
+.ak-ship u{text-decoration-color:#C2304B;text-underline-offset:3px}
+.ak-pay{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.ak-pay img{height:28px;width:auto;display:block}
+.ak-acc{border:1px solid #F1E3E7;border-radius:10px;overflow:hidden}
+.ak-acc summary{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#FDF4F6;font-weight:800;font-size:14px;cursor:pointer;list-style:none}
+.ak-pm{width:26px;height:26px;border-radius:6px;background:#2B1B22;position:relative;flex-shrink:0}
+.ak-pm::before,.ak-pm::after{content:"";position:absolute;background:#FFFFFF;left:7px;right:7px;top:12px;height:2px}
+.ak-pm::after{transform:rotate(90deg)}
+.ak-acc[open] .ak-pm::after{display:none}
+.ak-acc p{margin:0;padding:12px 14px;font-size:14px;line-height:1.9;color:#4A3A41}
+.vid-box{position:relative;width:min(340px,100%);margin:0 auto;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#2B1B22}
+.vid-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
+.vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:999px;background:#C2304B;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.vid-note{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#FFFFFF;font-size:12px;font-weight:700}
+@media (max-width: 860px){.ak-title{font-size:20px}.ak-price strong{font-size:21px}}
 @media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
 details summary{cursor:pointer;list-style:none}
@@ -176,9 +208,6 @@ details summary::-webkit-details-marker{display:none}
     <div class="pdp">
 
       <div class="pdp-media" style="display: flex; flex-direction: column; gap: 10px">
-        <div class="pdp-head-m">
-          <h1 style="margin: 0; font-size: 18px; font-weight: 800; line-height: 1.45">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
-        </div>
 
         <div class="main-img" style="position: relative; aspect-ratio: 4 / 5; background: #FBF1F3; overflow: hidden">
           <div dir="ltr" onTouchStart="{{tStart}}" onTouchEnd="{{tEnd}}" style="{{carTrack}}">
@@ -200,77 +229,55 @@ details summary::-webkit-details-marker{display:none}
         </div>
       </div>
 
-      <div class="pdp-info" style="display: flex; flex-direction: column; gap: 14px">
-        <div class="pdp-head-d">
-          <span class="lat" style="font-size: 10px; color: #7A6870">Bamboo · Nano Silver</span>
-          <h1 style="margin: 0; font-size: 26px; font-weight: 800; line-height: 1.45">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
-          <span style="font-size: 13px; color: #6B5A61"><span style="color: #E15169">★★★★★</span> [التقييم] · [عدد] تقييم</span>
+      <div class="pdp-info" style="display: flex; flex-direction: column; gap: 18px">
+        <div class="ak-head">
+          <h1 class="ak-title">شراب نانو الفضة لمرضى السكري — {{genderLabel}}</h1>
+          <div class="ak-price-row">
+            <div class="ak-price"><strong>{{b.price}} ر.س</strong><s>{{b.old}} ر.س</s><span class="ak-save">وفّر {{b.pct}}%</span></div>
+            <span class="ak-rate"><span class="ak-stars" aria-hidden="true">★★★★★</span>[عدد] تقييم</span>
+          </div>
+          <span class="ak-note">{{b.pairs}} زوج · كل علبة 5 أزواج · مقاس موحّد (Free Size)</span>
         </div>
 
-        <!-- BUNDLE PICKER -->
-        <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
-          <legend style="font-size: 13px; font-weight: 800; padding: 0 0 12px">اختر العرض <span style="font-weight: 500; color: #7A6870">· كل علبة 5 أزواج</span></legend>
-          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        <div class="ak-opt">
+          <span class="ak-lbl">العرض</span>
+          <div class="ak-chips">
             <sc-for list="{{bundles}}" as="x" hint-placeholder-count="3">
-              <button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="{{x.tile}}">
-                <sc-if value="{{x.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{x.tagStyle}}">{{x.tag}}</span></sc-if>
-                <strong style="font-family: 'Montserrat', sans-serif; font-size: 20px; line-height: 1.1" dir="ltr">{{x.short}}</strong>
-                <span style="font-size: 11px; color: #7A6870">{{x.pairs}} زوج</span>
-                <span class="was-wrap" style="font-size: 12px; margin-top: 6px">بدل <span class="was">{{x.old}}</span></span>
-                <strong class="now-s" style="font-size: 16px; margin-top: 4px">{{x.price}} ر.س</strong>
-              </button>
+              <button type="button" class="ak-chip" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}"><span dir="ltr">{{x.short}}</span> · {{x.price}} ر.س</button>
             </sc-for>
           </div>
-          <div class="perpair" style="display: flex; justify-content: center; gap: 6px; font-size: 12px; color: #4A3A41; background: #FDF4F6; border-radius: 8px; padding: 7px 10px">
-            <span>سعر الزوج <strong>{{b.per}} ر.س</strong></span><span aria-hidden="true">·</span><span style="color: #C2304B; font-weight: 700">توفّر {{b.save}} ر.س</span><span aria-hidden="true">·</span><span>{{b.ship}}</span><span aria-hidden="true">·</span><span>Free Size</span>
-          </div>
-        </fieldset>
+        </div>
 
-        <!-- OPTIONS (asked as questions, above CTA) -->
-        <div class="opts">
-          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
-            <span style="font-size: 13px; font-weight: 800">رجالي ولا نسائي؟</span>
-            <div style="display: flex; gap: 6px">
-              <sc-for list="{{genders}}" as="g" hint-placeholder-count="2">
-                <button type="button" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}" style="{{g.style}}">{{g.label}}</button>
-              </sc-for>
-            </div>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
-            <span style="font-size: 13px; font-weight: 800">وش اللون؟ <span style="font-weight: 500; color: #6B5A61">{{colorName}}</span></span>
-            <div style="display: flex; gap: 6px">
-              <sc-for list="{{colors}}" as="c" hint-placeholder-count="4">
-                <button type="button" onClick="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" style="{{c.style}}"><span style="{{c.sw}}"></span></button>
-              </sc-for>
-            </div>
+        <div class="ak-opt">
+          <span class="ak-lbl">النوع</span>
+          <div class="ak-chips">
+            <sc-for list="{{genders}}" as="g" hint-placeholder-count="2">
+              <button type="button" class="ak-chip" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}">{{g.label}}</button>
+            </sc-for>
           </div>
         </div>
 
-        <!-- CTAs -->
-        <div style="display: flex; flex-direction: column; gap: 8px">
-          <div class="m-cta" style="display: flex; gap: 8px">
-            <a href="#buy" style="flex: 1.7 1 0; display: flex; align-items: center; justify-content: center; height: 50px; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800">اطلب الآن · {{b.price}} ر.س</a>
-            <button type="button" onClick="{{add}}" style="flex: 1 1 0; height: 50px; cursor: pointer; font-family: inherit; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; font-size: 14px; font-weight: 800">أضف للسلة</button>
+        <div class="ak-opt">
+          <span class="ak-lbl">اللون</span>
+          <div class="ak-chips">
+            <sc-for list="{{colors}}" as="c" hint-placeholder-count="4">
+              <button type="button" class="ak-chip" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}">{{c.name}}</button>
+            </sc-for>
           </div>
-          <div class="ib-inline" style="margin-top: 2px">
-      <div class="ib-btns">
-        <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" class="ib-cart"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
-        <a href="#buy" class="ib-now"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4zM4 7l11-3v3M16 12.5h4v3h-4z"></path></svg>اشترِ الآن</a>
-        <button type="button" aria-label="الدفع عبر Apple Pay" class="ib-ap" lang="ar" dir="ltr">Apple Pay</button>
-      </div>
-          </div>
-          <span style="text-align: center; font-size: 12px; color: #6B5A61">أو 4 دفعات <strong style="color: #2B1B22">{{b.inst}} ر.س</strong> مع تابي وتمارا · بدون فوائد</span>
         </div>
 
-        <!-- Trust row -->
-        <div class="trust">
-          <sc-for list="{{trust}}" as="tr" hint-placeholder-count="4">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
-              <span style="width: 44px; height: 44px; border-radius: 999px; background: #FDF4F6; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B1B22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-d="{{tr.d}}"></path></svg></span>
-              <span style="font-size: 11px; font-weight: 700; line-height: 1.35">{{tr.t}}</span>
-            </div>
-          </sc-for>
+        <button type="button" class="ak-add" onClick="{{add}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg>أضف إلى السلة</button>
+
+        <p class="ak-ship">اطلب الآن ويوصلك طلبك بين <u>{{ship1}}</u> و <u>{{ship2}}</u></p>
+
+        <div class="ak-pay">
+          <sc-for list="{{pays}}" as="py" hint-placeholder-count="6"><img data-dc-src="{{py.src}}" alt="{{py.alt}}"></sc-for>
         </div>
+
+        <details class="ak-acc" open="">
+          <summary><span>وصف المنتج</span><span class="ak-pm" aria-hidden="true"></span></summary>
+          <p>شراب دودليزا مصنوع من ألياف البامبو بتقنية نانو الفضة: حافة واسعة ما تضغط على الساق، خياطة ناعمة بدون حواف، ونسيج يتنفس ويمتص الرطوبة ويقلل الروائح. كل علبة فيها 5 أزواج، ومع العرض تاخذ علبة + علبة مجانًا.</p>
+        </details>
 
         <!-- ================= TESTIMONIALS STRIP ================= -->
         <section class="rv-sec rv-narrow" aria-label="تقييمات العملاء" style="background: #FDF4F6; border-radius: 14px; padding: 16px 0 12px; overflow: hidden">
@@ -480,6 +487,19 @@ details summary::-webkit-details-marker{display:none}
     </div>
   </section>
 
+  <!-- VIDEO -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 48px 20px 8px">
+    <div style="text-align: center; display: flex; flex-direction: column; gap: 6px; align-items: center; margin-bottom: 18px">
+      <h2 style="margin: 0; font-size: clamp(22px, 2.8vw, 30px); font-weight: 800">شوف الفرق بنفسك</h2>
+      <p style="margin: 0; font-size: 14px; color: #6B5A61">فيديو قصير عن شراب دودليزا</p>
+    </div>
+    <div class="vid-box">
+      <img src="img/hero.webp" alt="">
+      <span class="vid-play" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+      <span class="vid-note">[ضع فيديو المنتج هنا — 9:16]</span>
+    </div>
+  </section>
+
   <!-- FAQ (end of page) -->
   <section style="max-width: 860px; margin: 0 auto; padding: 40px 20px 24px">
     <div style="text-align: center; display: flex; flex-direction: column; gap: 6px; align-items: center; margin-bottom: 20px">
@@ -559,7 +579,7 @@ details summary::-webkit-details-marker{display:none}
             <span style="font-size: 15px; font-weight: 800; border-right: 1px solid rgba(255,255,255,0.35); padding-right: 14px">{{total}} ر.س</span>
           </a>
           <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap">
-            <sc-for list="{{pays}}" as="py" hint-placeholder-count="5"><span style="font-size: 10px; font-weight: 800; color: #4A3A41; border: 1px solid #E9D3D9; border-radius: 3px; padding: 3px 8px">{{py}}</span></sc-for>
+            <sc-for list="{{pays}}" as="py" hint-placeholder-count="6"><img data-dc-src="{{py.src}}" alt="{{py.alt}}" style="height: 24px; width: auto"></sc-for>
           </div>
           <span style="text-align: center; font-size: 11px; color: #7A6870">دفع آمن ومشفّر 100%</span>
         </div>
@@ -694,7 +714,16 @@ class Component extends DCLogic {
         : { show: false, title: '', text: '', btn: '', go: function () {} },
       addCross: function () { self.setState({ cross: !self.state.cross }); },
       crossLabel: st.cross ? 'تمت ✓' : '+ ' + crossPrice + ' ر.س',
-      pays: ['مدى', 'Apple Pay', 'VISA', 'تابي', 'تمارا'],
+      pays: [
+        { src: 'img/pay/mada.svg', alt: 'مدى' },
+        { src: 'img/pay/apple_pay.svg', alt: 'Apple Pay' },
+        { src: 'img/pay/visa.svg', alt: 'Visa' },
+        { src: 'img/pay/master.svg', alt: 'Mastercard' },
+        { src: 'img/pay/tabby.svg', alt: 'تابي' },
+        { src: 'img/pay/tamara.svg', alt: 'تمارا' }
+      ],
+      ship1: (function () { var d = new Date(); d.setDate(d.getDate() + 2); return d.toLocaleDateString('ar-SA-u-ca-gregory-nu-latn', { weekday: 'long', day: 'numeric', month: 'long' }); })(),
+      ship2: (function () { var d = new Date(); d.setDate(d.getDate() + 5); return d.toLocaleDateString('ar-SA-u-ca-gregory-nu-latn', { weekday: 'long', day: 'numeric', month: 'long' }); })(),
       trust: [
         { t: 'دفع آمن', d: I.card },
         { t: 'تقسيط 4 دفعات', d: I.split },
