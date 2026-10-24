@@ -132,6 +132,9 @@ button[aria-pressed="true"] .now-s{background:#C2304B;color:#FFFFFF}
 .ib-cart{background:#C2304B;color:#FFFFFF;border:0}
 .ib-now{background:#FFFFFF;color:#2B1B22 !important;border:1.5px solid #2B1B22;font-size:15px;font-weight:800}
 .ib-ap{background:#000000;color:#FFFFFF !important;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif !important;font-size:18px;font-weight:600;letter-spacing:-0.3px}
+@supports (-webkit-appearance: -apple-pay-button){
+  .ib-ap{-webkit-appearance:-apple-pay-button;-apple-pay-button-type:plain;-apple-pay-button-style:black;font-size:0 !important;color:transparent !important;border-radius:0}
+}
 @media (max-width: 860px){.ib-inline{display:none !important}}
 @media (min-width: 861px){.ib-sticky{display:none !important}}
 @media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
