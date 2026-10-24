@@ -124,6 +124,14 @@ a{color:#2B1B22}
 .now{display:inline-block;background:#C2304B;color:#FFFFFF;font-weight:800;border-radius:10px;padding:2px 12px;line-height:1.5}
 .now-s{display:inline-block;background:#FDEEF1;color:#C2304B;font-weight:800;border-radius:8px;padding:1px 10px;line-height:1.5}
 button[aria-pressed="true"] .now-s{background:#C2304B;color:#FFFFFF}
+.ib-row{display:flex;align-items:center;gap:8px}
+@media (max-width: 860px){.ib-inline{display:none !important}}
+.ib-buy{flex:1 1 auto;min-width:0;height:46px;display:flex;align-items:center;justify-content:center;background:#C2304B;color:#FFFFFF !important;text-decoration:none;border-radius:8px;font-size:15px;font-weight:800;white-space:nowrap}
+.ib-ic{flex:0 0 46px;height:46px;display:flex;align-items:center;justify-content:center;background:#F7EEF1;color:#2B1B22;border:0;border-radius:8px;cursor:pointer;padding:0}
+.ib-ap{flex:0 0 auto;height:46px;padding:0 12px;display:flex;align-items:center;justify-content:center;background:#000000;color:#FFFFFF !important;text-decoration:none;border-radius:8px;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600}
+.ib-qty{flex:0 0 auto;height:46px;display:flex;align-items:center;background:#F7EEF1;border-radius:8px}
+.ib-qty button{width:30px;height:100%;border:0;background:transparent;cursor:pointer;font-size:17px;color:#2B1B22;font-family:inherit}
+.ib-qty strong{min-width:30px;text-align:center;font-family:'Montserrat',sans-serif;font-size:13px}
 @media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
 details summary{cursor:pointer;list-style:none}
@@ -236,10 +244,10 @@ details summary::-webkit-details-marker{display:none}
 
         <!-- CTAs -->
         <div style="display: flex; flex-direction: column; gap: 8px">
-          <div style="display: flex; gap: 8px; align-items: center">
-            <a href="#buy" style="flex: 1 1 auto; min-width: 0; height: 48px; display: flex; align-items: center; justify-content: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800; white-space: nowrap">اشترِ الآن · {{b.price}} ر.س</a>
-            <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" style="flex: 0 0 48px; height: 48px; cursor: pointer; display: flex; align-items: center; justify-content: center; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; padding: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
-            <a href="#buy" aria-label="الدفع عبر Apple Pay" style="flex: 0 0 auto; height: 48px; padding: 0 12px; display: flex; align-items: center; justify-content: center; background: #000000; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.2px" dir="ltr">Apple&#160;Pay</a>
+          <div class="ib-row ib-inline">
+            <a href="#buy" class="ib-buy">اشترِ الآن · {{b.price}} ر.س</a>
+            <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" class="ib-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
+            <a href="#buy" aria-label="الدفع عبر Apple Pay" class="ib-ap" dir="ltr">Apple&#160;Pay</a>
           </div>
           <span style="text-align: center; font-size: 12px; color: #6B5A61">أو 4 دفعات <strong style="color: #2B1B22">{{b.inst}} ر.س</strong> مع تابي وتمارا · بدون فوائد</span>
         </div>
@@ -479,28 +487,19 @@ details summary::-webkit-details-marker{display:none}
     <div style="text-align: center; margin-top: 22px"><a href="#buy" style="display: inline-block; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a></div>
   </section>
 
-  <footer style="border-top: 1px solid #F3E3E7; text-align: center; font-size: 11px; color: #7A6870; padding: 22px 20px 150px">© 2026 دودليزا</footer>
+  <footer style="border-top: 1px solid #F3E3E7; text-align: center; font-size: 11px; color: #7A6870; padding: 22px 20px 100px">© 2026 دودليزا</footer>
 
-  <!-- Fixed bottom bar (IBRAQ-style product bar) -->
-  <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 -10px 30px rgba(43,27,34,0.12); padding: 12px 14px calc(12px + env(safe-area-inset-bottom))">
-    <div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px">
-        <div style="display: flex; flex-direction: column; line-height: 1.3; min-width: 0">
-          <strong style="font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{b.title}} · {{b.pairs}} زوج</strong>
-          <span style="font-size: 11px; color: #C2304B; font-weight: 700">العرض ينتهي خلال <span dir="ltr">{{dd}}d {{hh}}:{{mm}}</span></span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0"><span class="was" style="font-size: 13px">{{b.old}}</span><strong style="font-size: 18px; color: #C2304B">{{b.price}} ر.س</strong></div>
+  <!-- Fixed bottom bar (IBRAQ-style, single row) -->
+  <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: #FFFFFF; border-top: 1px solid #F3E3E7; box-shadow: 0 -6px 18px rgba(43,27,34,0.06); padding: 10px 12px calc(10px + env(safe-area-inset-bottom))">
+    <div class="ib-row" style="max-width: 760px; margin: 0 auto">
+      <div role="group" aria-label="اختر الباقة" class="ib-qty">
+        <button type="button" onClick="{{bUp}}" aria-label="باقة أكبر">+</button>
+        <strong dir="ltr">{{b.short}}</strong>
+        <button type="button" onClick="{{bDown}}" aria-label="باقة أصغر">−</button>
       </div>
-      <div style="display: flex; gap: 8px; align-items: center">
-        <div role="group" aria-label="اختر الباقة" style="flex: 0 0 auto; height: 48px; display: flex; align-items: center; border: 1.5px solid #E9D3D9; border-radius: 3px">
-          <button type="button" onClick="{{bUp}}" aria-label="باقة أكبر" style="width: 32px; height: 100%; border: 0; background: transparent; cursor: pointer; font-size: 18px; color: #2B1B22; font-family: inherit">+</button>
-          <strong dir="ltr" style="min-width: 34px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px">{{b.short}}</strong>
-          <button type="button" onClick="{{bDown}}" aria-label="باقة أصغر" style="width: 32px; height: 100%; border: 0; background: transparent; cursor: pointer; font-size: 18px; color: #2B1B22; font-family: inherit">−</button>
-        </div>
-        <a href="#buy" style="flex: 1 1 auto; min-width: 0; height: 48px; display: flex; align-items: center; justify-content: center; background: #C2304B; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-size: 15px; font-weight: 800; white-space: nowrap">اشترِ الآن</a>
-        <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" style="flex: 0 0 48px; height: 48px; cursor: pointer; display: flex; align-items: center; justify-content: center; background: #FFFFFF; color: #2B1B22; border: 1.5px solid #2B1B22; border-radius: 3px; padding: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
-        <a href="#buy" aria-label="الدفع عبر Apple Pay" style="flex: 0 0 auto; height: 48px; padding: 0 12px; display: flex; align-items: center; justify-content: center; background: #000000; color: #FFFFFF; text-decoration: none; border-radius: 3px; font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.2px" dir="ltr">Apple&#160;Pay</a>
-      </div>
+      <a href="#buy" class="ib-buy">اشترِ الآن</a>
+      <button type="button" onClick="{{add}}" aria-label="أضف إلى السلة" class="ib-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6.2M9.5 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2zM17 20a1 1 0 1 0 0-2a1 1 0 1 0 0 2z"></path></svg></button>
+      <a href="#buy" aria-label="الدفع عبر Apple Pay" class="ib-ap" dir="ltr">Apple&#160;Pay</a>
     </div>
   </div>
 
