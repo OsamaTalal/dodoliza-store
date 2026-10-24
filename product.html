@@ -264,15 +264,6 @@ details summary::-webkit-details-marker{display:none}
             </div>
           </sc-for>
         </section>
-
-        <div style="border-top: 1px solid #EEEEEE">
-          <sc-for list="{{acc}}" as="a" hint-placeholder-count="3">
-            <details style="border-bottom: 1px solid #EEEEEE; padding: 11px 0">
-              <summary style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700"><span>{{a.t}}</span><span aria-hidden="true">+</span></summary>
-              <p style="margin: 8px 0 0; font-size: 13px; color: #555555">{{a.d}}</p>
-            </details>
-          </sc-for>
-        </div>
       </div>
     </div>
   </section>
@@ -384,17 +375,6 @@ details summary::-webkit-details-marker{display:none}
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section style="max-width: 760px; margin: 0 auto; padding: 56px 20px 8px">
-    <h2 style="margin: 0 0 14px; text-align: center; font-size: 18px; font-weight: 800">أسئلة شائعة</h2>
-    <sc-for list="{{faq}}" as="q" hint-placeholder-count="6">
-      <details style="border-top: 1px solid #EEEEEE; padding: 13px 2px">
-        <summary style="display: flex; justify-content: space-between; font-weight: 700; font-size: 14px"><span>{{q.q}}</span><span aria-hidden="true">+</span></summary>
-        <p style="margin: 6px 0 0; font-size: 13px; color: #555555">{{q.a}}</p>
-      </details>
-    </sc-for>
-  </section>
-
   <!-- Related -->
   <section style="max-width: 1280px; margin: 0 auto; padding: 48px 20px 40px">
     <h2 style="margin: 0 0 18px; text-align: center; font-size: 15px; font-weight: 800">قد يعجبك أيضًا</h2>
@@ -407,6 +387,23 @@ details summary::-webkit-details-marker{display:none}
         </a>
       </sc-for>
     </div>
+  </section>
+
+  <!-- FAQ (end of page) -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 40px 20px 24px">
+    <div style="text-align: center; display: flex; flex-direction: column; gap: 6px; align-items: center; margin-bottom: 20px">
+      <span class="lat" style="font-size: 10px; color: #666666">FAQ</span>
+      <h2 style="margin: 0; font-size: clamp(22px, 2.8vw, 30px); font-weight: 800">أسئلة شائعة</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <sc-for list="{{faq}}" as="q" hint-placeholder-count="9">
+        <details style="background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 14px; padding: 18px 20px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 800; font-size: 16px"><span>{{q.q}}</span><span aria-hidden="true" style="flex-shrink: 0; width: 30px; height: 30px; border-radius: 999px; background: #FDEEF1; color: #C2304B; display: flex; align-items: center; justify-content: center; font-size: 18px">+</span></summary>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.8; color: #444444">{{q.a}}</p>
+        </details>
+      </sc-for>
+    </div>
+    <div style="text-align: center; margin-top: 22px"><a href="#buy" style="display: inline-block; background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 40px; font-size: 14px; font-weight: 800">اطلب الآن — {{b.short}} بـ {{b.price}} ر.س</a></div>
   </section>
 
   <footer style="border-top: 1px solid #EEEEEE; text-align: center; font-size: 11px; color: #666666; padding: 22px 20px 96px">© 2026 دودليزا</footer>
@@ -638,7 +635,9 @@ class Component extends DCLogic {
         { q: 'هل هو مناسب لمرضى السكري؟', a: 'مصمّم بحافة واسعة لا تضغط وخياطة ناعمة ونسيج يمتص الرطوبة. منتج للراحة اليومية ولا يغني عن متابعة الطبيب.' },
         { q: 'وش المقاس؟', a: 'مقاس موحّد (Free Size) يناسب أغلب المقاسات.' },
         { q: 'أقدر أقسّط؟', a: 'إيه، على 4 دفعات بدون فوائد مع تابي وتمارا.' },
-        { q: 'كم يستغرق التوصيل؟', a: '[مدة التوصيل حسب المدينة]' }
+        { q: 'كم يستغرق التوصيل؟', a: '[مدة التوصيل حسب المدينة]' },
+        { q: 'طريقة الغسيل', a: '[طريقة الغسيل والعناية]' },
+        { q: 'الاستبدال والاسترجاع', a: '[سياسة الاستبدال]' }
       ],
       related: [
         { name: 'شراب كلاسيك — رجالي', img: 'img/fabric.webp', price: '1+1 بـ ' + B[0].price + ' ر.س' },
