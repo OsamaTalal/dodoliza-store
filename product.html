@@ -351,30 +351,8 @@ details summary::-webkit-details-marker{display:none}
     </div>
   </section>
 
-  <!-- ================= PRICE-PER-PAIR VALUE BLOCK ================= -->
-  <section style="max-width: 1180px; margin: 0 auto; padding: 56px 20px 0">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; margin-bottom: 22px">
-      <span class="lat" style="font-size: 10px; color: #7A6870">Best Value</span>
-      <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">كل ما زادت العلب… قلّ سعر الزوج</h2>
-      <p style="margin: 0; font-size: 14px; color: #6B5A61">كل العروض علبة + علبة مجانًا · كل علبة 5 أزواج</p>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
-      <sc-for list="{{bundles}}" as="v" hint-placeholder-count="3">
-        <div style="{{v.cardStyle}}">
-          <sc-if value="{{v.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{v.tagStyle}}">{{v.tag}}</span></sc-if>
-          <strong style="font-size: 20px">{{v.title}}</strong>
-          <span style="font-size: 13px; color: #6B5A61">{{v.pairs}} زوج</span>
-          <div style="display: flex; gap: 8px; align-items: baseline"><span class="was-wrap" style="font-size: 14px">بدل <span class="was">{{v.old}}</span></span><strong style="font-size: 30px; font-family: 'Montserrat', sans-serif">{{v.price}}</strong><span style="font-size: 13px">ر.س</span></div>
-          <span style="font-size: 13px; font-weight: 700; color: #C2304B">سعر الزوج {{v.per}} ر.س فقط</span>
-          <span style="font-size: 12px; color: #6B5A61">{{v.perk}}</span>
-          <button type="button" onClick="{{v.pickBuy}}" style="margin-top: 6px; cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 999px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</button>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
   <!-- ================= WHY DODOLIZA (auto-rotating) ================= -->
-  <section style="background: #FDF4F6; margin-top: 64px; padding: 56px 0 60px">
+  <section style="background: #FDF4F6; padding: 56px 0 60px">
     <div style="max-width: 1180px; margin: 0 auto; padding: 0 20px">
       <div style="text-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 30px">
         <span class="lat" style="font-size: 10px; color: #7A6870">Why Dodoliza</span>
@@ -406,6 +384,28 @@ details summary::-webkit-details-marker{display:none}
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICE-PER-PAIR VALUE BLOCK ================= -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: 56px 20px 0">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; margin-bottom: 22px">
+      <span class="lat" style="font-size: 10px; color: #7A6870">Best Value</span>
+      <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800">كل ما زادت العلب… قلّ سعر الزوج</h2>
+      <p style="margin: 0; font-size: 14px; color: #6B5A61">كل العروض علبة + علبة مجانًا · كل علبة 5 أزواج</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+      <sc-for list="{{bundles}}" as="v" hint-placeholder-count="3">
+        <div style="{{v.cardStyle}}">
+          <sc-if value="{{v.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{v.tagStyle}}">{{v.tag}}</span></sc-if>
+          <strong style="font-size: 20px">{{v.title}}</strong>
+          <span style="font-size: 13px; color: #6B5A61">{{v.pairs}} زوج</span>
+          <div style="display: flex; gap: 8px; align-items: baseline"><span class="was-wrap" style="font-size: 14px">بدل <span class="was">{{v.old}}</span></span><strong style="font-size: 30px; font-family: 'Montserrat', sans-serif">{{v.price}}</strong><span style="font-size: 13px">ر.س</span></div>
+          <span style="font-size: 13px; font-weight: 700; color: #C2304B">سعر الزوج {{v.per}} ر.س فقط</span>
+          <span style="font-size: 12px; color: #6B5A61">{{v.perk}}</span>
+          <button type="button" onClick="{{v.pickBuy}}" style="margin-top: 6px; cursor: pointer; font-family: inherit; background: #C2304B; color: #FFFFFF; border: 0; border-radius: 999px; padding: 11px 26px; font-size: 13px; font-weight: 800">اطلب الآن</button>
+        </div>
+      </sc-for>
     </div>
   </section>
 
