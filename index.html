@@ -8,16 +8,40 @@
 <link rel="icon" href="img/logo.webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#FFFFFF}
 a{color:#2B1B22}
-.card .img2{opacity:0;transition:opacity .35s ease}
-.card:hover .img2{opacity:1}
-.card:hover .name{text-decoration:underline}
-.lp-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-@media (max-width: 860px){.lp-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 .lat{font-family:'Montserrat',sans-serif;letter-spacing:2px;text-transform:uppercase}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.hero{position:relative;display:block;height:82vh;min-height:520px;overflow:hidden;background:#2B1B22}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.hero:hover img{transform:scale(1.03)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.tile{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#2B1B22}
+.tile-img{aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#FBF1F3}
+.tile-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tile:hover .tile-img img{transform:scale(1.05)}
+.prods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:#2B1B22}
+.card-img{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#FBF1F3}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .card-img img{transform:scale(1.04)}
+.wide{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:16/6;background:#2B1B22;text-decoration:none}
+.wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform 1s ease}
+.wide:hover img{transform:scale(1.03)}
+.was{position:relative;display:inline-block;color:#4A3A41;font-weight:800;padding:0 2px}
+.was::after{content:"";position:absolute;left:-3px;right:-3px;top:50%;height:2px;background:#E15169;border-radius:2px;transform:rotate(-14deg)}
+.sec-title{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;text-align:center}
+.sec-title h2{margin:0;font-size:clamp(20px,2.6vw,28px);font-weight:800}
+.sec-title span.bar{width:56px;height:3px;border-radius:3px;background:#C2304B}
+@media (max-width: 860px){
+  .hero{height:72vh;min-height:440px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .prods{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .wide{aspect-ratio:4/3;border-radius:14px}
+}
+@media (prefers-reduced-motion: reduce){.hero img,.tile-img img,.card-img img,.wide img{transition:none}}
 </style>
 
 <style>html{scroll-behavior:smooth}</style>
@@ -28,89 +52,116 @@ a{color:#2B1B22}
 
 <div dir="rtl" style="font-family: 'Cairo', sans-serif; color: #2B1B22; background: #FFFFFF; line-height: 1.7">
 
-  <div style="background: #C2304B; color: #FFFFFF; text-align: center; font-size: 12px; padding: 8px 12px; letter-spacing: 0.5px">
-    علبة + علبة مجانًا بـ 145 ريال · لفترة محدودة · توصيل لكل المملكة
-  </div>
+  <div style="background: #C2304B; color: #FFFFFF; text-align: center; font-size: 13px; font-weight: 700; padding: 9px 12px">علبة + علبة مجانًا بـ 145 ر.س · لفترة محدودة</div>
 
   <header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.97); border-bottom: 1px solid #F3E3E7">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center">
-      <div style="display: flex; gap: 18px; align-items: center">
-        <button type="button" aria-label="القائمة" style="border: 0; background: transparent; padding: 6px; cursor: pointer; display: flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B1B22" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"></path></svg></button>
-      </div>
-      <a href="index.html" aria-label="دودليزا — الرئيسية" style="display: flex"><img src="img/logo.webp" alt="دودليزا" style="height: 38px; width: auto; display: block"></a>
-      <div style="display: flex; gap: 18px; align-items: center; justify-content: flex-end">
-        <button type="button" aria-label="بحث" style="border: 0; background: transparent; padding: 6px; cursor: pointer; display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B1B22" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></button>
-        <a href="product.html" style="text-decoration: none; font-size: 13px; font-weight: 700">السلة (0)</a>
-      </div>
+    <div style="max-width: 1280px; margin: 0 auto; padding: 12px 20px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center">
+      <button type="button" aria-label="القائمة" style="justify-self: start; border: 0; background: transparent; padding: 6px; cursor: pointer; display: flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B1B22" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"></path></svg></button>
+      <a href="index.html" aria-label="دودليزا — الرئيسية" style="display: flex"><img src="img/logo.webp" alt="دودليزا" style="height: 36px; width: auto; display: block"></a>
+      <a href="product.html" style="justify-self: end; text-decoration: none; font-size: 13px; font-weight: 700">السلة (0)</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section style="position: relative; height: 82vh; min-height: 520px; overflow: hidden; background: #2B1B22">
-    <img src="img/hero.webp" alt="شراب دودليزا بحافة واسعة" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85">
-    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.45) 100%)"></div>
-    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; color: #FFFFFF; padding: 20px">
+  <!-- HERO (whole banner clickable) -->
+  <a href="product.html" class="hero" aria-label="تسوّق شراب دودليزا">
+    <img src="img/hero.webp" alt="">
+    <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(43,27,34,0.05) 35%, rgba(43,27,34,0.55) 100%)"></span>
+    <span style="position: absolute; inset: auto 0 0 0; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; color: #FFFFFF; padding: 0 20px 56px">
       <span class="lat" style="font-size: 11px">Bamboo · Nano Silver</span>
-      <h1 style="margin: 0; font-weight: 700; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.25">راحة تحسها من أول لبسة</h1>
-      <a href="product.html" style="color: #FFFFFF; text-decoration: none; border: 1px solid #FFFFFF; border-radius: 999px; padding: 10px 26px; font-size: 13px; font-weight: 700; letter-spacing: 1px">تسوّق الآن</a>
+      <span style="font-weight: 800; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.25">راحة تحسها من أول لبسة</span>
+      <span style="font-size: 15px; font-weight: 600">علبة + علبة مجانًا · 10 أزواج بـ 145 ر.س</span>
+      <span style="background: #FFFFFF; color: #C2304B; border-radius: 999px; padding: 11px 30px; font-size: 14px; font-weight: 800">تسوّق الآن</span>
+    </span>
+  </a>
+
+  <!-- SQUARE LINKS -->
+  <section class="wrap" style="padding-top: 48px">
+    <div class="sec-title"><h2>عروض دودليزا لفترة محدودة</h2><span class="bar"></span></div>
+    <div class="tiles">
+      <sc-for list="{{tiles}}" as="t" hint-placeholder-count="4">
+        <a href="product.html" class="tile">
+          <span class="tile-img"><img data-dc-src="{{t.img}}" alt="{{t.title}}"></span>
+          <strong style="text-align: center; font-size: 15px; line-height: 1.5">{{t.title}}</strong>
+        </a>
+      </sc-for>
     </div>
-    <span style="position: absolute; bottom: 12px; left: 16px; font-size: 11px; color: rgba(255,255,255,0.7)">[هنا يُفضّل فيديو لايف ستايل بعرض الشاشة]</span>
   </section>
 
-  <!-- Collections -->
-  <sc-for list="{{collections}}" as="col" hint-placeholder-count="2">
-    <section style="max-width: 1280px; margin: 0 auto; padding: 56px 24px 8px">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; margin-bottom: 22px">
-        <h2 style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 1px">{{col.title}}</h2>
-        <a href="product.html" style="font-size: 12px; color: #2B1B22">عرض الكل</a>
-      </div>
-      <div class="lp-row">
-        <sc-for list="{{col.items}}" as="p" hint-placeholder-count="4">
-          <a href="product.html" class="card" style="text-decoration: none; color: #2B1B22; display: flex; flex-direction: column; gap: 10px">
-            <div style="position: relative; aspect-ratio: 3 / 4; background: #FBF1F3; overflow: hidden">
-              <img data-dc-src="{{p.img}}" alt="{{p.name}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
-              <img class="img2" data-dc-src="{{p.img2}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
-              <sc-if value="{{p.sale}}" hint-placeholder-val="{{true}}"><span style="position: absolute; top: 10px; right: 10px; background: #FFFFFF; font-size: 11px; font-weight: 700; padding: 2px 8px">تخفيض</span></sc-if>
-            </div>
-            <div style="text-align: center; display: flex; flex-direction: column; gap: 2px">
-              <span class="name" style="font-size: 14px; font-weight: 600; line-height: 1.5">{{p.name}}</span>
-              <span style="font-size: 13px">
-                <sc-if value="{{p.sale}}" hint-placeholder-val="{{true}}"><span style="color: #A8979E; text-decoration: line-through; text-decoration-color: #E15169; text-decoration-thickness: 2px; margin-left: 6px">{{p.old}} ر.س</span></sc-if>
-                <span>{{p.price}} ر.س</span>
-                <sc-if value="{{p.sale}}" hint-placeholder-val="{{true}}"><span style="color: #E15169; margin-right: 6px">وفّر {{p.pct}}%</span></sc-if>
-              </span>
-            </div>
-          </a>
-        </sc-for>
-      </div>
-    </section>
-  </sc-for>
+  <!-- PRODUCTS 1 -->
+  <section class="wrap" style="padding-top: 56px">
+    <div class="sec-title"><h2>الأكثر طلبًا</h2><span class="bar"></span></div>
+    <div class="prods">
+      <sc-for list="{{best}}" as="p" hint-placeholder-count="4">
+        <a href="product.html" class="card">
+          <span class="card-img"><img data-dc-src="{{p.img}}" alt="{{p.name}}"><span style="position: absolute; top: 10px; right: 10px; background: #C2304B; color: #FFFFFF; font-size: 11px; font-weight: 800; padding: 2px 10px; border-radius: 999px">{{p.badge}}</span></span>
+          <strong style="text-align: center; font-size: 14px; line-height: 1.5">{{p.name}}</strong>
+          <span style="display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 14px"><strong style="color: #C2304B; font-size: 16px">{{p.price}} ر.س</strong><span class="was">{{p.old}}</span></span>
+          <span style="display: flex; justify-content: center; align-items: center; gap: 8px; background: #C2304B; color: #FFFFFF; border-radius: 10px; padding: 10px; font-size: 13px; font-weight: 800">اطلب الآن <span aria-hidden="true">+</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- WIDE BANNER 1 -->
+  <section class="wrap" style="padding-top: 56px">
+    <a href="product.html" class="wide" aria-label="عرض العائلة">
+      <img src="img/box_white.webp" alt="">
+      <span style="position: absolute; inset: 0; background: linear-gradient(270deg, rgba(43,27,34,0.85), rgba(43,27,34,0.25) 85%)"></span>
+      <span style="position: absolute; top: 0; bottom: 0; right: 0; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 0 clamp(20px, 5vw, 56px); color: #FFFFFF; max-width: 60%">
+        <span style="font-size: clamp(22px, 3.2vw, 38px); font-weight: 800; line-height: 1.3">عرض العائلة 3+3</span>
+        <span style="font-size: clamp(13px, 1.4vw, 16px)">30 زوج · سعر الزوج 11.3 ر.س بس · شحن مجاني</span>
+        <span style="align-self: flex-start; background: #FFFFFF; color: #C2304B; border-radius: 999px; padding: 9px 22px; font-size: 13px; font-weight: 800">اطلبه الآن</span>
+      </span>
+    </a>
+  </section>
+
+  <!-- PRODUCTS 2 -->
+  <section class="wrap" style="padding-top: 56px">
+    <div class="sec-title"><h2>اختر لونك المفضل</h2><span class="bar"></span></div>
+    <div class="prods">
+      <sc-for list="{{colors}}" as="p" hint-placeholder-count="4">
+        <a href="product.html" class="card">
+          <span class="card-img"><img data-dc-src="{{p.img}}" alt="{{p.name}}"></span>
+          <strong style="text-align: center; font-size: 14px; line-height: 1.5">{{p.name}}</strong>
+          <span style="display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 14px"><strong style="color: #C2304B; font-size: 16px">145 ر.س</strong><span class="was">298</span></span>
+          <span style="display: flex; justify-content: center; align-items: center; gap: 8px; background: #C2304B; color: #FFFFFF; border-radius: 10px; padding: 10px; font-size: 13px; font-weight: 800">اطلب الآن <span aria-hidden="true">+</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- WIDE BANNER 2 -->
+  <section class="wrap" style="padding-top: 56px">
+    <a href="product.html" class="wide" aria-label="تقنية نانو الفضة">
+      <img src="img/fabric.webp" alt="">
+      <span style="position: absolute; inset: 0; background: linear-gradient(270deg, rgba(43,27,34,0.7), rgba(43,27,34,0) 75%)"></span>
+      <span style="position: absolute; top: 0; bottom: 0; right: 0; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 0 clamp(20px, 5vw, 56px); color: #FFFFFF; max-width: 60%">
+        <span style="font-size: clamp(22px, 3.2vw, 38px); font-weight: 800; line-height: 1.3">بامبو + نانو الفضة</span>
+        <span style="font-size: clamp(13px, 1.4vw, 16px)">ناعم، يتنفس، وريحة أقل طول اليوم</span>
+        <span style="align-self: flex-start; background: #FFFFFF; color: #C2304B; border-radius: 999px; padding: 9px 22px; font-size: 13px; font-weight: 800">اكتشف الفرق</span>
+      </span>
+    </a>
+  </section>
 
   <!-- Brand line -->
-  <section style="max-width: 900px; margin: 64px auto 0; padding: 0 24px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center">
+  <section class="wrap" style="padding-top: 64px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center">
     <span class="lat" style="font-size: 11px; color: #7A6870">Dodoliza</span>
-    <p style="margin: 0; font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; line-height: 1.7">شرابات من ألياف البامبو بتقنية نانو الفضة — ناعمة، تتنفس، وتعيش معك.</p>
-    <a href="product.html" style="margin-top: 6px; color: #2B1B22; text-decoration: none; border: 1px solid #C2304B; border-radius: 999px; padding: 9px 24px; font-size: 13px; font-weight: 700">اكتشف المجموعة</a>
+    <p style="margin: 0; max-width: 720px; font-size: clamp(17px, 2.2vw, 22px); font-weight: 700; line-height: 1.8">شرابات من ألياف البامبو بتقنية نانو الفضة — ناعمة، تتنفس، وتعيش معك.</p>
   </section>
 
-  <footer style="margin-top: 72px; border-top: 1px solid #F3E3E7">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
-      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 10px; max-width: 340px">
-        <span style="font-size: 13px; font-weight: 700">النشرة البريدية</span>
-        <div style="display: flex; border-bottom: 1px solid #2B1B22">
-          <label for="nl" style="position: absolute; width: 1px; height: 1px; overflow: hidden">بريدك الإلكتروني</label>
-          <input id="nl" type="email" placeholder="بريدك الإلكتروني" style="flex: 1 1 auto; border: 0; outline: none; font-family: inherit; font-size: 14px; padding: 8px 0; background: transparent">
-          <button type="button" aria-label="اشترك" style="border: 0; background: transparent; cursor: pointer; padding: 6px">←</button>
-        </div>
+  <footer style="margin-top: 64px; border-top: 1px solid #F3E3E7; background: #FDF4F6">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 36px 20px; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 10px; max-width: 320px">
+        <img src="img/logo.webp" alt="دودليزا" style="height: 34px; width: auto; align-self: flex-start">
+        <span style="font-size: 13px; color: #6B5A61">شرابات بامبو بتقنية نانو الفضة، مصمّمة للراحة اليومية.</span>
       </div>
       <nav aria-label="روابط المتجر" style="display: flex; flex-direction: column; gap: 6px; font-size: 13px">
-        <a href="#buy" style="text-decoration: none">الأسئلة الشائعة</a>
+        <a href="product.html" style="text-decoration: none">الأسئلة الشائعة</a>
         <a href="#buy" style="text-decoration: none">الاستبدال والاسترجاع</a>
-        <a href="#buy" style="text-decoration: none">دليل الاستخدام والغسيل</a>
         <a href="#buy" style="text-decoration: none">تواصل معنا</a>
       </nav>
     </div>
-    <div style="text-align: center; font-size: 11px; color: #A8979E; padding: 0 0 24px">© 2026 دودليزا</div>
+    <div style="text-align: center; font-size: 11px; color: #7A6870; padding: 0 0 24px">© 2026 دودليزا</div>
   </footer>
 </div>
 </template>
@@ -120,21 +171,24 @@ a{color:#2B1B22}
 
 class Component extends DCLogic {
   renderVals() {
-    var P = '[صورة]';
     return {
-      collections: [
-        { title: 'مجموعة مرضى السكري', items: [
-          { name: 'شراب نانو الفضة لمرضى السكري — رجالي · 5 أزواج', img: 'img/hero.webp', img2: 'img/stretch_black.webp', price: 96, old: 149, pct: 36, sale: true },
-          { name: 'شراب نانو الفضة لمرضى السكري — نسائي · 5 أزواج', img: 'img/foot.webp', img2: 'img/stretch_white.webp', price: 96, old: 149, pct: 36, sale: true },
-          { name: 'شراب السكري — أبيض · 5 أزواج', img: 'img/feet_white.webp', img2: 'img/box_open.webp', price: 96, old: 149, pct: 36, sale: true },
-          { name: 'عرض علبة + علبة — 10 أزواج', img: 'img/box_white.webp', img2: 'img/box_open.webp', price: 145, old: 298, pct: 51, sale: true }
-        ] },
-        { title: 'المجموعة الكلاسيكية', items: [
-          { name: 'شراب نانو الفضة كلاسيك — رجالي · 5 أزواج', img: 'img/fabric.webp', img2: 'img/infographic.webp', price: 96, old: 130, pct: 26, sale: true },
-          { name: 'شراب نانو الفضة كلاسيك — نسائي · 5 أزواج', img: 'img/infographic.webp', img2: 'img/fabric.webp', price: 96, old: 130, pct: 26, sale: true },
-          { name: 'شراب رياضي — رجالي · 5 أزواج', img: 'img/stretch_black.webp', img2: 'img/box_white.webp', price: 96, old: 130, pct: 26, sale: true },
-          { name: 'شراب رياضي — نسائي · 5 أزواج', img: 'img/stretch_white.webp', img2: 'img/feet_white.webp', price: 96, old: 130, pct: 26, sale: true }
-        ] }
+      tiles: [
+        { title: 'شراب مرضى السكري', img: 'img/stretch_black.webp' },
+        { title: 'علبة + علبة بـ 145 ر.س', img: 'img/box_open.webp' },
+        { title: '2 + 2 بـ 249 ر.س', img: 'img/box_white.webp' },
+        { title: 'نسائي', img: 'img/foot.webp' }
+      ],
+      best: [
+        { name: 'شراب السكري — رجالي · 1+1', img: 'img/hero.webp', price: 145, old: 298, badge: '1 + 1' },
+        { name: 'شراب السكري — نسائي · 1+1', img: 'img/foot.webp', price: 145, old: 298, badge: '1 + 1' },
+        { name: 'عرض 2+2 · 20 زوج', img: 'img/box_open.webp', price: 249, old: 596, badge: 'أفضل قيمة' },
+        { name: 'عرض العائلة 3+3 · 30 زوج', img: 'img/box_white.webp', price: 339, old: 894, badge: 'شحن مجاني' }
+      ],
+      colors: [
+        { name: 'أسود · 1+1', img: 'img/stretch_black.webp' },
+        { name: 'أبيض · 1+1', img: 'img/stretch_white.webp' },
+        { name: 'أبيض على القدم · 1+1', img: 'img/feet_white.webp' },
+        { name: 'نسائي أسود · 1+1', img: 'img/foot.webp' }
       ]
     };
   }
