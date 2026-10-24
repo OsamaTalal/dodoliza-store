@@ -22,7 +22,10 @@ a{color:#111111}
 .lp-fade{animation:lp-fade .6s ease}
 .lp-drawer{animation:lp-in .3s ease}
 .lat{font-family:'Montserrat',sans-serif;letter-spacing:2px;text-transform:uppercase}
-.pdp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);grid-template-areas:"media info";gap:40px;align-items:start}
+.pdp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"media info";gap:36px;align-items:start;max-width:1120px;margin:0 auto}
+.main-img{aspect-ratio:1/1 !important;max-height:calc(100vh - 250px);min-height:420px}
+.pdp-head-d h1{font-size:24px !important}
+.pdp-info{gap:12px !important}
 .pdp-media{grid-area:media}.pdp-info{grid-area:info}
 .pdp-media{position:sticky;top:70px}
 .pdp-head-m{display:none;flex-direction:column;gap:2px}
@@ -38,7 +41,7 @@ a{color:#111111}
   .pdp-media{position:static}
   .pdp-head-m{display:flex}
   .pdp-head-d{display:none}
-  .main-img{aspect-ratio:1/1 !important;max-height:40vh}
+  .main-img{aspect-ratio:1/1 !important;max-height:31vh;min-height:0}
   .thumbs{display:none !important}
   .feat{grid-template-columns:minmax(0,1fr);gap:18px}
   .feat-rev .feat-img{order:0}
@@ -98,6 +101,20 @@ a{color:#111111}
   .why-txt strong{font-size:14px}
   .why-txt span{font-size:12px}
 }
+.ann-t{font-size:16px;font-weight:800}
+@media (max-width: 860px){.ann{gap:8px !important;padding:6px 8px !important;flex-wrap:nowrap !important}.ann-t{font-size:12px}.ann span[style*="min-width: 40px"]{min-width:30px !important}}
+.rv-wide{display:none}
+@media (min-width: 861px){
+  .rv-narrow{display:none !important}
+  .rv-wide{display:block}
+  .rv-wide .rv-card{width:340px;padding:16px;gap:10px}
+  .rv-wide .rv-pics img{width:72px;height:72px}
+  .rv-wide .rv-pics img:nth-child(n+2){display:block}
+  .rv-wide .rv-bars{display:flex !important}
+  .rv-wide .rv-avg{font-size:32px}
+  .rv-wide .rv-h2{font-size:28px}
+  .rv-wide .rv-text{font-size:14px}
+}
 @media (prefers-reduced-motion: reduce){.why-img img{animation:none}}
 @media (prefers-reduced-motion: reduce){.lp-track,.lp-track-rev,.lp-fade,.lp-drawer{animation:none}}
 details summary{cursor:pointer;list-style:none}
@@ -112,7 +129,17 @@ details summary::-webkit-details-marker{display:none}
 
 <div dir="rtl" style="font-family: 'Cairo', sans-serif; color: #111111; background: #FFFFFF; line-height: 1.7">
 
-  <div style="background: #111111; color: #FFFFFF; text-align: center; font-size: 12px; padding: 8px 12px">علبة + علبة مجانًا بـ {{p1}} ريال · ينتهي خلال <span dir="ltr">{{dd}}d {{hh}}:{{mm}}:{{ss}}</span></div>
+  <div class="ann" style="background: #C2304B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; padding: 10px 14px">
+    <div style="display: flex; flex-direction: column; line-height: 1.3; text-align: center">
+      <strong class="ann-t">علبة + علبة مجانًا · {{p1}} ر.س بس</strong>
+      <span style="font-size: 11px; opacity: 0.9">العرض ينتهي خلال</span>
+    </div>
+    <div dir="ltr" style="display: flex; gap: 5px">
+      <sc-for list="{{clock}}" as="k" hint-placeholder-count="4">
+        <span style="min-width: 40px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 3px 4px; display: flex; flex-direction: column; align-items: center; line-height: 1.15"><strong style="font-family: 'Montserrat', sans-serif; font-size: 16px">{{k.v}}</strong><span style="font-size: 9px; opacity: 0.9">{{k.l}}</span></span>
+      </sc-for>
+    </div>
+  </div>
 
   <header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.97); border-bottom: 1px solid #EEEEEE">
     <div style="max-width: 1280px; margin: 0 auto; padding: 12px 20px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center">
@@ -133,7 +160,11 @@ details summary::-webkit-details-marker{display:none}
         </div>
 
         <div class="main-img" style="position: relative; aspect-ratio: 4 / 5; background: #F3F3F3; overflow: hidden">
-          <img class="lp-fade" data-dc-src="{{cur.src}}" alt="{{cur.alt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+          <div dir="ltr" onTouchStart="{{tStart}}" onTouchEnd="{{tEnd}}" style="{{carTrack}}">
+            <sc-for list="{{thumbs}}" as="im" hint-placeholder-count="8">
+              <img data-dc-src="{{im.src}}" alt="{{im.alt}}" draggable="false" style="flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; display: block">
+            </sc-for>
+          </div>
           <span style="position: absolute; top: 10px; right: 10px; background: #111111; color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 3px 10px">1 + 1 مجانًا</span>
           <button type="button" onClick="{{prev}}" aria-label="الصورة السابقة" style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 999px; border: 0; background: rgba(255,255,255,0.9); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
           <button type="button" onClick="{{next}}" aria-label="الصورة التالية" style="position: absolute; top: 50%; left: 8px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 999px; border: 0; background: rgba(255,255,255,0.9); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
@@ -157,28 +188,31 @@ details summary::-webkit-details-marker{display:none}
         </div>
 
         <!-- BUNDLE PICKER -->
-        <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
-          <legend style="font-size: 13px; font-weight: 800; padding: 0 0 6px">اختر العرض — كل علبة 5 أزواج</legend>
-          <sc-for list="{{bundles}}" as="x" hint-placeholder-count="3">
-            <button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="{{x.style}}">
-              <span style="{{x.radio}}"><span style="{{x.dot}}"></span></span>
-              <span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 1px; text-align: right">
-                <span style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><strong style="font-size: 15px">{{x.title}}</strong><sc-if value="{{x.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{x.tagStyle}}">{{x.tag}}</span></sc-if></span>
-                <span style="font-size: 12px; color: #555555">{{x.sub}}</span>
-              </span>
-              <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; white-space: nowrap; flex-shrink: 0">
-                <strong style="font-size: 16px">{{x.price}} ر.س</strong>
-                <span style="font-size: 12px; color: #999999; text-decoration: line-through">{{x.old}} ر.س</span>
-              </span>
-            </button>
-          </sc-for>
+        <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-size: 13px; font-weight: 800; padding: 0 0 12px">اختر العرض <span style="font-weight: 500; color: #666666">· كل علبة 5 أزواج</span></legend>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+            <sc-for list="{{bundles}}" as="x" hint-placeholder-count="3">
+              <button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="{{x.tile}}">
+                <sc-if value="{{x.hasTag}}" hint-placeholder-val="{{true}}"><span style="{{x.tagStyle}}">{{x.tag}}</span></sc-if>
+                <strong style="font-family: 'Montserrat', sans-serif; font-size: 20px; line-height: 1.1" dir="ltr">{{x.short}}</strong>
+                <span style="font-size: 11px; color: #666666">{{x.pairs}} زوج</span>
+                <strong style="font-size: 15px; margin-top: 2px">{{x.price}} ر.س</strong>
+                <span style="font-size: 11px; color: #999999; text-decoration: line-through">{{x.old}}</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display: flex; justify-content: center; gap: 6px; font-size: 12px; color: #444444; background: #F7F7F7; border-radius: 8px; padding: 7px 10px">
+            <span>سعر الزوج <strong>{{b.per}} ر.س</strong></span><span aria-hidden="true">·</span><span style="color: #C2304B; font-weight: 700">توفّر {{b.save}} ر.س</span><span aria-hidden="true">·</span><span>{{b.ship}}</span>
+          </div>
         </fieldset>
 
         <!-- CTAs -->
         <div style="display: flex; flex-direction: column; gap: 8px">
-          <a href="#buy" style="text-align: center; background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px; font-size: 14px; font-weight: 800; letter-spacing: 0.5px">اشترِ الآن — {{b.short}} بـ {{b.price}} ر.س</a>
-          <button type="button" onClick="{{add}}" style="cursor: pointer; font-family: inherit; background: #FFFFFF; color: #111111; border: 1px solid #111111; border-radius: 999px; padding: 12px; font-size: 13px; font-weight: 700">أضف إلى السلة</button>
-          <span style="text-align: center; font-size: 12px; color: #555555">أو قسّمها على 4 دفعات <strong style="color: #111111">{{b.inst}} ر.س</strong> مع تابي وتمارا · بدون فوائد</span>
+          <div style="display: flex; gap: 8px">
+            <a href="#buy" style="flex: 1.7 1 0; text-align: center; background: #111111; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 8px; font-size: 14px; font-weight: 800">اشترِ الآن · {{b.price}} ر.س</a>
+            <button type="button" onClick="{{add}}" style="flex: 1 1 0; cursor: pointer; font-family: inherit; background: #FFFFFF; color: #111111; border: 1px solid #111111; border-radius: 999px; padding: 12px 6px; font-size: 13px; font-weight: 700">أضف للسلة</button>
+          </div>
+          <span style="text-align: center; font-size: 12px; color: #555555">أو 4 دفعات <strong style="color: #111111">{{b.inst}} ر.س</strong> مع تابي وتمارا · بدون فوائد</span>
         </div>
 
         <!-- Trust row -->
@@ -211,7 +245,7 @@ details summary::-webkit-details-marker{display:none}
         </div>
 
         <!-- ================= TESTIMONIALS STRIP ================= -->
-        <section class="rv-sec" aria-label="تقييمات العملاء" style="background: #F7F7F8; border-radius: 14px; padding: 16px 0 12px; overflow: hidden">
+        <section class="rv-sec rv-narrow" aria-label="تقييمات العملاء" style="background: #F7F7F8; border-radius: 14px; padding: 16px 0 12px; overflow: hidden">
           <div class="rv-head" style="margin: 0 0 12px; padding: 0 14px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
             <div style="display: flex; flex-direction: column; gap: 4px">
               <span class="lat" style="font-size: 10px; color: #666666">Customer Reviews</span>
@@ -267,6 +301,61 @@ details summary::-webkit-details-marker{display:none}
       </div>
     </div>
   </section>
+
+  <!-- ================= REVIEWS (desktop, full width) ================= -->
+  <section class="rv-sec rv-wide" aria-label="تقييمات العملاء" style="background: #F7F7F8; padding: 40px 0 34px; overflow: hidden">
+          <div class="rv-head" style="max-width: 1120px; margin: 0 auto 22px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <span class="lat" style="font-size: 10px; color: #666666">Customer Reviews</span>
+              <h2 class="rv-h2" style="margin: 0; font-weight: 800">وش قالوا عملاء دودليزا</h2>
+            </div>
+            <div class="rv-sum" style="display: flex; gap: 18px; align-items: center; background: #FFFFFF; border: 1px solid #EEEEEE; border-radius: 14px; padding: 14px 18px">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
+                <strong class="rv-avg" dir="ltr" style="font-family: 'Montserrat', sans-serif; line-height: 1">[4.x]</strong>
+                <span style="color: #B7791F; font-size: 14px; letter-spacing: 1px" aria-hidden="true">★★★★★</span>
+                <span style="font-size: 11px; color: #666666">[عدد] تقييم</span>
+              </div>
+              <div class="rv-bars" style="display: flex; flex-direction: column; gap: 4px; min-width: 150px">
+                <sc-for list="{{rateBars}}" as="rb" hint-placeholder-count="5">
+                  <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; color: #555555"><span style="width: 10px">{{rb.s}}</span><span style="flex: 1 1 auto; height: 6px; background: #EEEEEE; border-radius: 999px"></span><span>[%]</span></div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <sc-for list="{{reviewRows}}" as="row" hint-placeholder-count="2">
+            <div dir="ltr" style="overflow: hidden; padding: 6px 0">
+              <div class="{{row.cls}}" dir="ltr" style="display: flex; gap: 16px; width: max-content">
+                <sc-for list="{{row.items}}" as="r" hint-placeholder-count="10">
+                  <figure class="rv-card" dir="rtl" style="margin: 0; flex-shrink: 0; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 14px; display: flex; box-sizing: border-box">
+                    <div style="display: flex; gap: 10px; align-items: center">
+                      <span style="{{r.avatar}}">{{r.ini}}</span>
+                      <div style="display: flex; flex-direction: column; line-height: 1.35; flex: 1 1 auto; min-width: 0">
+                        <strong style="font-size: 14px">{{r.n}}</strong>
+                        <span style="font-size: 11px; color: #1E7A46; font-weight: 700">✓ تم الشراء · {{r.city}}</span>
+                      </div>
+                      <span style="font-size: 11px; color: #777777">{{r.date}}</span>
+                    </div>
+                    <div class="rv-body">
+                      <div class="rv-pics">
+                        <sc-for list="{{r.pics}}" as="pc" hint-placeholder-count="2">
+                          <img data-dc-src="{{pc}}" alt="صورة من العميل" style="object-fit: cover; border-radius: 10px; background: #F3F3F3">
+                        </sc-for>
+                      </div>
+                      <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+                        <span style="color: #B7791F; font-size: 14px; letter-spacing: 2px" aria-label="5 نجوم">★★★★★</span>
+                        <p class="rv-text" style="margin: 0; color: #222222">{{r.t}}</p>
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #F0F0F0; padding-top: 10px; font-size: 11px; color: #666666">
+                      <span>{{r.variant}}</span>
+                      <span>مفيد؟ ([عدد])</span>
+                    </div>
+                  </figure>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </section>
 
   <!-- ================= FEATURE HIGHLIGHTS STRIP ================= -->
   <section style="border-top: 1px solid #EEEEEE; border-bottom: 1px solid #EEEEEE; background: #FFFFFF">
@@ -515,7 +604,7 @@ class Component extends DCLogic {
       var old = x.boxes * BOX_OLD;
       return { i: i, title: x.title, short: x.short, price: x.price, old: old, pairs: x.boxes * 5,
         pct: Math.round((1 - x.price / old) * 100), per: fmt(x.price / (x.boxes * 5)), inst: fmt(x.price / 4),
-        tag: x.tag, perk: x.perk, sub: (x.boxes * 5) + ' زوج · سعر الزوج ' + fmt(x.price / (x.boxes * 5)) + ' ر.س' + (i > 0 ? ' · شحن مجاني' : '') };
+        tag: x.tag, perk: x.perk, save: old - x.price, ship: i > 0 ? 'شحن مجاني' : 'الأكثر طلبًا', sub: (x.boxes * 5) + ' زوج · سعر الزوج ' + fmt(x.price / (x.boxes * 5)) + ' ر.س' + (i > 0 ? ' · شحن مجاني' : '') };
     });
     var b = bund[st.bundle];
     var crossPrice = B[0].price;
@@ -546,16 +635,20 @@ class Component extends DCLogic {
       p1: B[0].price,
       b: b,
       bundles: bund.map(function (x) { var on = st.bundle === x.i;
-        return { title: x.title, sub: x.sub, price: x.price, old: x.old, pairs: x.pairs, per: x.per, perk: x.perk, tag: x.tag, hasTag: !!x.tag, pressed: on ? 'true' : 'false',
+        return { title: x.title, short: x.short, sub: x.sub, price: x.price, old: x.old, pairs: x.pairs, per: x.per, perk: x.perk, tag: x.tag, hasTag: !!x.tag, pressed: on ? 'true' : 'false',
           pick: function () { self.setState({ bundle: x.i }); },
           pickBuy: function () { self.setState({ bundle: x.i, cart: 1, drawer: true }); },
-          style: 'cursor: pointer; font-family: inherit; color: #111111; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; min-height: 64px; ' + (on ? 'background: #FFF7F8; border: 2px solid #111111;' : 'background: #FFFFFF; border: 1px solid #DDDDDD; margin: 1px;'),
+          tile: 'position: relative; cursor: pointer; font-family: inherit; color: #111111; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 14px 4px 8px; border-radius: 12px; transition: all .2s; ' + (on ? 'background: #FFF7F8; border: 2px solid #111111; box-shadow: 0 6px 16px rgba(17,17,17,0.08);' : 'background: #FFFFFF; border: 1px solid #E2E2E2; margin: 1px;'),
           radio: 'flex-shrink: 0; width: 18px; height: 18px; border-radius: 999px; border: 1.5px solid #111111; display: flex; align-items: center; justify-content: center',
           dot: 'width: 10px; height: 10px; border-radius: 999px; background: ' + (on ? '#111111' : 'transparent') + ';',
-          tagStyle: 'font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px; ' + (x.i === 1 ? 'background: #C2304B; color: #FFFFFF;' : 'background: #111111; color: #FFFFFF;'),
+          tagStyle: 'position: absolute; top: -9px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 9px; font-weight: 800; padding: 1px 8px; border-radius: 999px; ' + (x.i === 1 ? 'background: #C2304B; color: #FFFFFF;' : 'background: #111111; color: #FFFFFF;'),
           cardStyle: 'position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 26px 18px 22px; ' + (x.i === 1 ? 'border: 2px solid #C2304B; background: #FFF7F8;' : 'border: 1px solid #DDDDDD; background: #FFFFFF;')
         }; }),
       cur: imgs[s],
+      carTrack: 'display: flex; height: 100%; transition: transform .6s cubic-bezier(.22,.8,.28,1); transform: translateX(-' + (s * 100) + '%);',
+      tStart: function (e) { var p = e && e.touches && e.touches[0]; self._tx = p ? p.clientX : null; },
+      tEnd: function (e) { var p = e && e.changedTouches && e.changedTouches[0]; if (self._tx == null || !p) return; var dx = p.clientX - self._tx; self._tx = null;
+        if (Math.abs(dx) < 40) return; var n = imgs.length; self.setState({ slide: dx < 0 ? (s + 1) % n : (s + n - 1) % n, paused: true }); },
       prev: function () { self.setState({ slide: (s + imgs.length - 1) % imgs.length, paused: true }); },
       next: function () { self.setState({ slide: (s + 1) % imgs.length, paused: true }); },
       thumbs: imgs.map(function (im, i) { return { src: im.src, alt: im.alt,

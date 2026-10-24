@@ -84,11 +84,11 @@
           }
         });
       }
-      ['click', 'input', 'change'].forEach(function (ev) {
+      ['click', 'input', 'change', 'touchstart', 'touchend'].forEach(function (ev) {
         app.addEventListener(ev, function (e) {
           var t = e.target.closest('[data-ev-' + ev + ']');
           if (t) { var h = handlers[+t.getAttribute('data-ev-' + ev)]; if (h) h(e); }
-        });
+        }, { passive: true });
       });
       comp.__render = render;
       render();
