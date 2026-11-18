@@ -29,9 +29,11 @@ button{cursor:pointer}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border:2px solid var(--navy);border-radius:var(--radius);font-weight:800;font-size:19px;text-decoration:none;transition:background .2s,color .2s}
 .btn-navy{background:var(--navy);color:var(--white)}
-.btn-navy:hover{background:var(--navy-2)}
+.btn-navy:hover{background:var(--pink-ink);border-color:var(--pink-ink)}
 .btn-line{background:var(--white);color:var(--navy)}
-.btn-line:hover{background:var(--studio)}
+.btn-line:hover,.btn-line:active{background:var(--pink-ink);border-color:var(--pink-ink);color:var(--white)}
+.btn-navy:active{background:var(--pink-ink);border-color:var(--pink-ink)}
+.btn:active{transform:scale(.98)}
 .btn-white{background:var(--white);color:var(--navy);border-color:var(--white)}
 .btn-block{width:100%}
 
@@ -85,8 +87,13 @@ button{cursor:pointer}
 .card-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
 .card-media img.alt{opacity:0}
 @media (hover:hover){.card-media:hover img.alt,.card-media:focus-visible img.alt{opacity:1}}
-.tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--navy);color:var(--white);font-weight:900;font-size:15px;padding:3px 10px;border-radius:var(--radius);direction:ltr}
+.tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--navy);color:var(--white);font-weight:900;font-size:15px;padding:3px 10px;border-radius:var(--radius);unicode-bidi:plaintext}
 .tag.sale{background:var(--sale)}
+.wf{position:absolute;z-index:2;bottom:10px;right:10px;display:inline-flex;align-items:center;gap:5px;padding:4px 10px 4px 9px;border-radius:999px;
+  background:linear-gradient(135deg,#A97F35 0%,#E6CF8F 45%,#C9A251 70%,#A97F35 100%);color:var(--navy);font-weight:900;font-size:13px;line-height:1.3;
+  box-shadow:0 2px 8px rgba(122,90,30,.35),inset 0 0 0 1px rgba(255,255,255,.45);white-space:nowrap}
+.wf svg{flex:none}
+@media (min-width:900px){.wf{font-size:14px;padding:5px 12px}}
 .card-body{display:grid;gap:4px;padding-top:12px;flex:1}
 .card-name{margin:0;font-size:17px;font-weight:800;line-height:1.4;color:var(--ink)}
 .card-sub{font-size:15px;color:var(--muted)}
@@ -290,7 +297,7 @@ button{cursor:pointer}
     <div class="qv-top"><span class="kicker" style="color:var(--gold)">عرض سريع</span><button class="x" data-close aria-label="إغلاق"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
     <div class="qv-grid">
       <div>
-        <div class="gal-main"><span class="tag" id="qv-tag"></span><img id="qv-img" src="" alt=""></div>
+        <div class="gal-main"><span class="tag" id="qv-tag"></span><span class="wf"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.6L21 11l-6.8 2.4L12 20l-2.2-6.6L3 11l6.8-2.4L12 2Z"/></svg>عرض الجمعة البيضاء</span><img id="qv-img" src="" alt=""></div>
         <div class="thumbs" id="qv-thumbs"></div>
       </div>
       <div class="qv-info">
@@ -394,7 +401,8 @@ const swatch = c => `<i style="background:${COLORS[c].hex}" title="${COLORS[c].n
 $("#grid").innerHTML = PRODUCTS.map(p => `
   <article class="card">
     <button class="card-media" data-qv="${p.id}" aria-label="عرض سريع: ${esc(p.name)}">
-      <span class="tag ${p.tag==="sale"?"sale":""}">${p.tag==="sale" ? "خصم " + pct(p) + "%" : p.tag}</span>
+      <span class="tag ${p.tag==="sale"?"sale":""}">${p.tag==="sale" ? "خصم " + pct(p) + "٪" : p.tag}</span>
+      <span class="wf"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.6L21 11l-6.8 2.4L12 20l-2.2-6.6L3 11l6.8-2.4L12 2Z"/></svg>عرض الجمعة البيضاء</span>
       <img src="${img(p.imgs[0])}" alt="${esc(p.name)}" width="800" height="1000" loading="lazy">
       <img class="alt" src="${img(p.imgs[1])}" alt="" width="800" height="1000" loading="lazy">
     </button>
@@ -438,7 +446,7 @@ function openQV(id){
   const p = byId(id); Object.assign(qv, { p, color:p.colors[0], size:null, qty:1, img:0 });
   $("#qv-title").textContent = p.name; $("#qv-sub").innerHTML = esc(p.sub).replace("هدية",'<span class="hl">هدية</span>');
   $("#qv-now").textContent = money(p.price); $("#qv-was").textContent = p.was; $("#qv-off").textContent = pct(p) + "%";
-  $("#qv-tag").textContent = p.tag === "sale" ? "خصم " + pct(p) + "%" : p.tag; $("#qv-tag").className = "tag" + (p.tag==="sale" ? " sale" : "");
+  $("#qv-tag").textContent = p.tag === "sale" ? "خصم " + pct(p) + "٪" : p.tag; $("#qv-tag").className = "tag" + (p.tag==="sale" ? " sale" : "");
   $("#qv-err").hidden = true; renderQV(); openLayer($("#qv"));
 }
 function renderQV(){
