@@ -79,7 +79,7 @@ FILES["hero-desktop-1440x640"] = (1440, 640, page(1440, 640, f"""
 <div style="position:absolute;left:0;top:0;bottom:0;width:760px"><img class="cover" src="{IMG}black-lifestyle.jpg" style="object-position:50% 62%"></div>
 <div style="position:absolute;right:0;top:0;bottom:0;width:680px;background:var(--navy);color:#fff;padding:78px 90px 0 70px">
   <img src="{IMG}logo-white.png" style="height:40px;display:block;margin-bottom:46px">
-  <div class="kicker" style="font-size:22px;color:var(--gold-soft)">شرابات مصممة لمرضى السكري</div>
+  <div class="kicker" style="font-size:22px;color:var(--gold-soft)">شرابات مصممة لأصحاب السكري</div>
   <div style="display:flex;align-items:flex-end;gap:22px;margin:16px 0 8px">
     <span class="num" style="font-size:150px">1+1</span>
     <span style="font-size:44px;font-weight:900;padding-bottom:16px">مجانًا</span></div>
@@ -91,7 +91,7 @@ FILES["hero-desktop-1440x640"] = (1440, 640, page(1440, 640, f"""
 FILES["hero-mobile-750x1000"] = (750, 1000, page(750, 1000, f"""
 <div style="position:absolute;inset:0 0 430px 0"><img class="cover" src="{IMG}black-lifestyle.jpg" style="object-position:50% 62%"></div>
 <div style="position:absolute;left:0;right:0;bottom:0;height:430px;background:var(--navy);color:#fff;text-align:center;padding-top:44px">
-  <div class="kicker" style="font-size:28px;color:var(--gold-soft)">شرابات مصممة لمرضى السكري</div>
+  <div class="kicker" style="font-size:28px;color:var(--gold-soft)">شرابات مصممة لأصحاب السكري</div>
   <div style="display:flex;align-items:flex-end;justify-content:center;gap:18px;margin:6px 0">
     <span class="num" style="font-size:150px">1+1</span><span style="font-size:48px;font-weight:900;padding-bottom:14px">مجانًا</span></div>
   <div style="font-size:28px;font-weight:600;opacity:.92">10 أزواج بـ <b style="font-size:34px">149</b> ر.س بدلًا من <s style="opacity:.75">298</s></div>
@@ -143,7 +143,7 @@ FILES["offer-bundle-1200x500"] = (1200, 500, page(1200, 500, f"""
 FILES["instagram-post-1080x1080"] = (1080, 1080, page(1080, 1080, f"""
 <div style="position:absolute;inset:0 0 380px 0"><img class="cover" src="{IMG}black-lifestyle.jpg" style="object-position:50% 64%"></div>
 <div style="position:absolute;left:0;right:0;bottom:0;height:380px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 80px">
-  <div><div class="kicker" style="font-size:26px;color:var(--gold-soft)">شرابات لمرضى السكري</div>
+  <div><div class="kicker" style="font-size:26px;color:var(--gold-soft)">شرابات لأصحاب السكري</div>
   <div style="display:flex;align-items:flex-end;gap:16px"><span class="num" style="font-size:160px">1+1</span><span style="font-size:48px;font-weight:900;padding-bottom:16px">مجانًا</span></div></div>
   <div style="text-align:left"><div style="font-size:28px;font-weight:700;opacity:.9">10 أزواج</div>
   <div style="font-size:84px;font-weight:900;line-height:1">149</div><div style="font-size:26px;font-weight:700;color:var(--gold-soft)">ر.س بدلًا من <s>298</s></div></div>
@@ -154,7 +154,7 @@ FILES["instagram-story-1080x1920"] = (1080, 1920, page(1080, 1920, f"""
 <div style="position:absolute;inset:0 0 820px 0"><img class="cover" src="{IMG}black-lifestyle.jpg" style="object-position:50% 60%"></div>
 <img src="{IMG}logo-white.png" style="position:absolute;top:150px;left:50%;transform:translateX(-50%);height:58px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))">
 <div style="position:absolute;left:0;right:0;bottom:0;height:820px;background:var(--navy);color:#fff;text-align:center;padding-top:70px">
-  <div class="kicker" style="font-size:38px;color:var(--gold-soft)">شرابات مصممة لمرضى السكري</div>
+  <div class="kicker" style="font-size:38px;color:var(--gold-soft)">شرابات مصممة لأصحاب السكري</div>
   <div style="display:flex;align-items:flex-end;justify-content:center;gap:22px"><span class="num" style="font-size:230px">1+1</span>
   <span style="font-size:68px;font-weight:900;padding-bottom:26px">مجانًا</span></div>
   <div style="font-size:42px;font-weight:700;opacity:.92;margin-top:6px">10 أزواج بـ <b style="font-size:52px">149</b> ر.س بدلًا من <s style="opacity:.75">298</s></div>
@@ -165,7 +165,7 @@ FILES["facebook-ad-1200x628"] = (1200, 628, page(1200, 628, f"""
 <div style="position:absolute;left:0;top:0;bottom:0;width:640px"><img class="cover" src="{IMG}black-lifestyle.jpg" style="object-position:50% 62%"></div>
 <div style="position:absolute;right:0;top:0;bottom:0;width:560px;background:var(--navy);color:#fff;padding:60px 64px 0 50px">
   <img src="{IMG}logo-white.png" style="height:36px;display:block;margin-bottom:34px">
-  <div class="kicker" style="font-size:22px;color:var(--gold-soft)">شرابات لمرضى السكري</div>
+  <div class="kicker" style="font-size:22px;color:var(--gold-soft)">شرابات لأصحاب السكري</div>
   <div style="display:flex;align-items:flex-end;gap:14px"><span class="num" style="font-size:130px">1+1</span><span style="font-size:40px;font-weight:900;padding-bottom:12px">مجانًا</span></div>
   <div style="font-size:22px;font-weight:600;opacity:.92">10 أزواج بـ <b style="font-size:28px">149</b> ر.س بدلًا من <s style="opacity:.75">298</s></div>
   <span class="btn btn-w" style="font-size:22px;height:58px;padding:0 46px;margin-top:30px">تسوّق الآن</span>

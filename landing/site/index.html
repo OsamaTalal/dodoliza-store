@@ -1,6 +1,6 @@
 <title>متجر دودليزا</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="شرابات دودليزا المصممة لمرضى السكري. عرض 1+1: علبتين (10 أزواج) بـ 149 ر.س. الدفع عند الاستلام.">
+<meta name="description" content="شرابات دودليزا المصممة لأصحاب السكري. عرض 1+1: علبتين (10 أزواج) بـ 149 ر.س. الدفع عند الاستلام.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap">
@@ -101,6 +101,8 @@ button{cursor:pointer}
 
 /* Section heading */
 .sec{padding-block:40px 8px}
+.sec-reviews{padding-block:24px 0}
+.sec-reviews .sec-h{margin-bottom:14px}
 .sec-h{display:flex;align-items:center;gap:12px;margin:0 0 20px;font-size:24px;font-weight:900;color:var(--navy)}
 .sec-h::before{content:"";width:4px;height:28px;background:var(--navy)}
 
@@ -140,12 +142,11 @@ button{cursor:pointer}
 
 /* Testimonials (auto-scrolling) */
 .marq{overflow:hidden;direction:ltr;margin-inline:calc(-1 * var(--gutter-r));mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.marq-track{display:flex;gap:12px;width:max-content;padding-block:4px 8px;animation:marq 45s linear infinite}
-.marq:hover .marq-track,.marq:focus-within .marq-track{animation-play-state:paused}
+.marq-track{display:flex;gap:12px;width:max-content;padding-block:4px 8px;animation:marq 38s linear infinite}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marq{overflow-x:auto;mask-image:none}.marq-track{animation:none}}
-.rev{direction:rtl;width:min(300px,78vw);flex:none;border:1px solid var(--line);background:var(--white);padding:14px;display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:start;margin:0}
-.rev-img{width:72px;aspect-ratio:4/5;object-fit:cover;background:var(--studio)}
+.rev{direction:rtl;width:min(320px,80vw);flex:none;border:1px solid var(--line);background:var(--white);padding:14px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:start;margin:0}
+.rev-img{width:96px;aspect-ratio:4/5;object-fit:cover;background:var(--studio)}
 .rev-body{display:grid;gap:6px;min-width:0}
 .stars{display:flex;gap:1px;color:var(--gold)}
 .rev q{quotes:none;font-size:16px;line-height:1.6;font-weight:600}
@@ -273,10 +274,10 @@ button{cursor:pointer}
   <section class="hero" aria-label="العرض الرئيسي">
     <div class="hero-in">
       <p class="hero-eye"><span>عروض الجمعة البيضاء</span></p>
-      <h1 class="hero-t"><span class="hero-k">شرابات مصممة خصيصًا</span><span class="hl">لمرضى السكري</span></h1>
+      <h1 class="hero-t"><span class="hero-k">شرابات مصممة خصيصًا</span><span class="hl">لأصحاب السكري</span></h1>
       <div class="hero-pic"><img src="img/hero-stretch.webp" alt="شراب دودليزا الأسود بحافة واسعة" width="707" height="861"></div>
       <div class="hero-offer">
-        <p class="offer-main">اشتري <b class="hl">5 أزواج</b> وخذ <b class="hl">5 هدية</b></p>
+        <p class="offer-main"><b class="hl">5 أزواج</b> ومعها <b class="hl">5 هدية</b></p>
         <p class="offer-price"><b>10 أزواج</b> بـ <b class="hl big">149</b> ر.س <span class="was-l">بدل <s>298</s></span></p>
         <a class="btn btn-gold hero-cta" href="#products">تسوّق الآن</a>
       </div>
@@ -285,6 +286,10 @@ button{cursor:pointer}
   <div class="perks-strip"><ul class="hero-perks" aria-label="مميزات الشراء"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1.5"/><circle cx="12" cy="12" r="2.5"/></svg>دفع عند الاستلام</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>توصيل سريع</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg>استرجاع سهل</li></ul></div>
 
   <div class="wrap">
+    <section class="sec sec-reviews" id="reviews" aria-labelledby="r-h">
+      <h2 class="sec-h" id="r-h">آراء عملائنا</h2>
+      <div class="marq" tabindex="0" aria-label="آراء العملاء"><div class="marq-track" id="revs"></div></div>
+    </section>
     <div class="tiles">
       <a href="#products" aria-label="عرض 1+1 مجانًا — تسوّق الآن"><img src="img/offer-1plus1.webp" alt="1+1 مجانًا: اشترِ علبة والثانية علينا" width="1200" height="500" loading="lazy"></a>
       <a href="#products" aria-label="خصم يصل إلى 50% — اطلب الحين"><img src="img/offer-50off.webp" alt="خصم يصل إلى 50%" width="1200" height="500" loading="lazy"></a>
@@ -310,10 +315,6 @@ button{cursor:pointer}
       </div>
     </section>
 
-    <section class="sec" id="reviews" aria-labelledby="r-h">
-      <h2 class="sec-h" id="r-h">آراء عملائنا</h2>
-      <div class="marq" tabindex="0" aria-label="آراء العملاء"><div class="marq-track" id="revs"></div></div>
-    </section>
 
   </div>
 </main>
