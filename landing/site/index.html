@@ -39,7 +39,13 @@ button{cursor:pointer}
 
 /* Top offer bar */
 .topbar{position:relative;z-index:5;background:var(--navy);color:var(--white)}
-.topbar .wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding-block:8px;font-weight:700;font-size:16px;text-align:center}
+.topbar .wrap{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding-block:8px;font-weight:700;font-size:16px;text-align:center}
+.topbar{background:linear-gradient(90deg,var(--navy) 0%,var(--navy-2) 50%,var(--navy) 100%);border-bottom:1px solid rgba(216,196,154,.35)}
+.wf-bar{display:inline-flex;align-items:center;gap:10px}
+.wf-bar b{color:var(--gold-soft);font-weight:900;font-size:17px}
+.wf-en{font-size:11px;font-weight:800;letter-spacing:.28em;color:var(--white);opacity:.75;border:1px solid rgba(216,196,154,.5);padding:2px 8px}
+.wf-end{font-size:14px;opacity:.85}
+@media (max-width:480px){.wf-en,.wf-end{display:none}}
 .cd{display:inline-flex;gap:6px;font-variant-numeric:tabular-nums}
 .cd span{background:var(--gold-soft);color:var(--navy);min-width:40px;padding:2px 6px;border-radius:var(--radius);font-weight:900;text-align:center}
 .cd small{display:block;font-size:10px;font-weight:700;color:var(--navy);opacity:.75;line-height:1}
@@ -55,14 +61,16 @@ button{cursor:pointer}
 /* Hero — mobile: title → product → offer; desktop: copy right, product left, both vertically centred */
 .hero{position:relative;background:radial-gradient(120% 100% at 30% 45%,var(--navy-2) 0%,var(--navy) 62%);color:var(--white);overflow:hidden}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);opacity:.6}
-.hero-in{max-width:1120px;margin-inline:auto;padding-block:28px 26px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:grid;grid-template-areas:"t" "p" "o";justify-items:center;text-align:center;gap:6px}
+.hero-in{max-width:1120px;margin-inline:auto;padding-block:28px 26px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:grid;grid-template-areas:"e" "t" "p" "o";justify-items:center;text-align:center;gap:10px}
 .hero-t{grid-area:t;margin:0;display:grid;line-height:1.25;font-weight:900;text-wrap:balance}
 .hero-k{font-size:clamp(20px,5.6vw,32px)}
-.hero-t .hl{font-size:clamp(34px,10vw,60px);letter-spacing:-.01em}
+.hero-t .hl{font-size:clamp(30px,8.6vw,54px);letter-spacing:-.01em}
+.hero-eye{grid-area:e;margin:0;display:flex;align-items:center;gap:10px;color:var(--gold-soft);font-size:14px;font-weight:800;letter-spacing:.04em}
+.hero-eye::before,.hero-eye::after{content:"";width:28px;height:1px;background:var(--gold-soft);opacity:.7}
 .hero-pic{grid-area:p;position:relative;width:min(78vw,300px);display:grid;place-items:center}
 .hero-pic::before{content:"";position:absolute;inset:8% -6% 0;background:radial-gradient(closest-side,rgba(232,214,170,.40),rgba(232,214,170,.10) 55%,rgba(232,214,170,0))}
 .hero-pic::after{content:"";position:absolute;left:14%;right:14%;bottom:2%;height:7%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.45),rgba(0,0,0,0))}
-.hero-pic img{position:relative;z-index:1;display:block;width:100%;height:auto;max-height:34vh;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}
+.hero-pic img{position:relative;z-index:1;display:block;width:100%;height:auto;max-height:30vh;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}
 .hero-offer{grid-area:o;display:grid;justify-items:center;gap:6px;width:100%}
 .hero-offer p{margin:0}
 .offer-main{font-size:clamp(21px,5.6vw,30px);font-weight:900;line-height:1.3}
@@ -70,16 +78,17 @@ button{cursor:pointer}
 .offer-price .big{font-size:1.5em}
 .was-l{opacity:.75;font-weight:600}
 .hero-cta{width:min(100%,360px);min-height:54px;margin-top:6px;font-size:20px}
-.hero-perks{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;font-size:14px;font-weight:700;color:var(--gold-soft)}
+.perks-strip{border-bottom:1px solid var(--line);background:var(--white);padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.hero-perks{list-style:none;margin:0 auto;max-width:var(--wrap);padding:12px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;font-size:15px;font-weight:800;color:var(--navy)}
 .hero-perks li{display:inline-flex;align-items:center;gap:6px}
-.hero-perks svg{width:18px;height:18px}
+.hero-perks svg{width:20px;height:20px;color:var(--gold)}
 @media (min-width:900px){
-  .hero-in{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-areas:"t p" "o p";align-content:center;justify-items:start;text-align:right;padding-block:44px 48px;gap:14px 48px;min-height:440px}
-  .hero-t{align-self:end}
+  .hero-in{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-areas:"e p" "t p" "o p";align-content:center;justify-items:start;text-align:right;padding-block:44px 48px;gap:14px 48px;min-height:440px}
+  .hero-eye{align-self:end}
+  .hero-t{align-self:center}
   .hero-offer{align-self:start;justify-items:start}
   .hero-pic{width:100%;max-width:420px;justify-self:center;align-self:center}
   .hero-pic img{max-height:400px}
-  .hero-perks{justify-content:flex-start}
 }
 @media (min-width:900px){.card .stamp{--s:84px}}
 
@@ -241,7 +250,7 @@ button{cursor:pointer}
   <path d="M39 66.5h22" stroke="currentColor" stroke-width=".7"/></symbol></svg>
 <div class="topbar" role="region" aria-label="العرض">
   <div class="wrap">
-    <span>عرض <span class="hl" dir="ltr">1+1</span> لفترة محدودة</span>
+    <span class="wf-bar"><span class="wf-en" aria-hidden="true">WHITE FRIDAY</span><b>عروض الجمعة البيضاء</b><span class="wf-end">تنتهي خلال</span></span>
     <span class="cd" id="cd" aria-live="off">
       <span><span id="cd-h">00</span><small>ساعة</small></span>
       <span><span id="cd-m">00</span><small>دقيقة</small></span>
@@ -263,20 +272,17 @@ button{cursor:pointer}
 <main id="top">
   <section class="hero" aria-label="العرض الرئيسي">
     <div class="hero-in">
+      <p class="hero-eye"><span>عروض الجمعة البيضاء</span></p>
       <h1 class="hero-t"><span class="hero-k">شرابات مصممة خصيصًا</span><span class="hl">لمرضى السكري</span></h1>
       <div class="hero-pic"><img src="img/hero-stretch.webp" alt="شراب دودليزا الأسود بحافة واسعة" width="707" height="861"></div>
       <div class="hero-offer">
         <p class="offer-main">اشتري <b class="hl">5 أزواج</b> وخذ <b class="hl">5 هدية</b></p>
         <p class="offer-price"><b>10 أزواج</b> بـ <b class="hl big">149</b> ر.س <span class="was-l">بدل <s>298</s></span></p>
         <a class="btn btn-gold hero-cta" href="#products">تسوّق الآن</a>
-        <ul class="hero-perks" aria-label="مميزات الشراء">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1.5"/><circle cx="12" cy="12" r="2.5"/></svg>دفع عند الاستلام</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>توصيل سريع</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg>استرجاع سهل</li>
-        </ul>
       </div>
     </div>
   </section>
+  <div class="perks-strip"><ul class="hero-perks" aria-label="مميزات الشراء"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1.5"/><circle cx="12" cy="12" r="2.5"/></svg>دفع عند الاستلام</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>توصيل سريع</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg>استرجاع سهل</li></ul></div>
 
   <div class="wrap">
     <div class="tiles">
