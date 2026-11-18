@@ -16,7 +16,7 @@ BASE = f"""
 @font-face{{font-family:CairoL;font-weight:700;src:url({FONT}/cairo-latin-700-normal.woff2)}}
 @font-face{{font-family:CairoL;font-weight:900;src:url({FONT}/cairo-latin-900-normal.woff2)}}
 :root{{--navy:#1E4423;--navy-2:#2C5C32;--white:#FFFFFF;--studio:#F4F1EB;--studio-2:#E7E3DD;--line:#E5E2DC;
---ink:#1F1E1D;--muted:#5E5A55;--sale:#B42C46;--sale-tint:#FBEAED;--rose:#DF526A;--gold:#B39457;--gold-soft:#D8C49A}}
+--ink:#1F1E1D;--muted:#5E5A55;--sale:#8A6A2E;--sale-tint:#F5EEDF;--rose:#D8C49A;--gold:#B39457;--gold-soft:#D8C49A}}
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{font-family:CairoL,Cairo,sans-serif;direction:rtl;background:#fff;color:var(--ink)}}
 .c{{position:relative;overflow:hidden;background:#fff}}
