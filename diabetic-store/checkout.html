@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>إتمام الطلب | دودليزا</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="إتمام الطلب في دودليزا بدون تسجيل حساب، مع الدفع عند الاستلام.">
+<link rel="canonical" href="https://socks.dodoliza.com/checkout.html">
+<link rel="alternate" hreflang="ar-SA" href="https://socks.dodoliza.com/checkout.html"><link rel="alternate" hreflang="en" href="https://socks.dodoliza.com/checkout.html?lang=en">
+<meta property="og:type" content="website"><meta property="og:title" content="إتمام الطلب | دودليزا">
+<meta property="og:description" content="إتمام الطلب في دودليزا بدون تسجيل حساب، مع الدفع عند الاستلام."><meta property="og:url" content="https://socks.dodoliza.com/checkout.html"><meta property="og:locale" content="ar_SA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>window.tailwind&&(tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{ink:"var(--color-text)",teal:"var(--color-primary)",tint:"var(--color-tint)",cta:"var(--color-cta)"}}}})</script>
+<link rel="stylesheet" href="assets/tokens.css"><link rel="stylesheet" href="assets/app.css">
+
+</head>
+<body class="">
+<a href="#main" class="sr-only focus:not-sr-only">تخطي إلى المحتوى</a>
+<header class="site-header"><div class="wrap"><div class="bar">
+<a class="logo" href="index.html" aria-label="دودليزا"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19L14 10"/></svg><span data-l="ar">دودليزا</span><span data-l="en" class="lat">Dodoliza</span></a>
+<nav class="nav nav-desktop" aria-label="Main"><a href="index.html"><span data-l="ar">الرئيسية</span><span data-l="en" class="lat">Home</span></a><a href="shop.html"><span data-l="ar">المتجر</span><span data-l="en" class="lat">Shop</span></a><a href="about.html"><span data-l="ar">قصتنا</span><span data-l="en" class="lat">Our story</span></a><a href="contact.html"><span data-l="ar">تواصل معنا</span><span data-l="en" class="lat">Contact</span></a></nav>
+<div style="display:flex;align-items:center;gap:6px">
+<button type="button" class="tool" data-lang-toggle data-aria-ar="Switch to English" data-aria-en="التبديل إلى العربية"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span data-l="ar" class="lat">EN</span><span data-l="en">عربي</span></button>
+<a class="tool" href="cart.html" data-aria-ar="السلة" data-aria-en="Cart"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="badge" data-cart-count hidden>0</span></a>
+</div></div></div>
+<div class="subnav"><div class="wrap"><nav class="nav" aria-label="Main mobile"><a href="index.html"><span data-l="ar">الرئيسية</span><span data-l="en" class="lat">Home</span></a><a href="shop.html"><span data-l="ar">المتجر</span><span data-l="en" class="lat">Shop</span></a><a href="about.html"><span data-l="ar">قصتنا</span><span data-l="en" class="lat">Our story</span></a><a href="contact.html"><span data-l="ar">تواصل معنا</span><span data-l="en" class="lat">Contact</span></a></nav></div></div></header>
+<main id="main">
+<section class="wrap section" style="display:flex;flex-direction:column;gap:24px;max-width:960px">
+<div class="steps" aria-label="Checkout steps"><span class="step"><b>1</b><span data-l="ar">السلة</span><span data-l="en" class="lat">Cart</span></span><span class="step" aria-current="step"><b>2</b><span data-l="ar">بيانات التوصيل والدفع</span><span data-l="en" class="lat">Delivery and payment</span></span><span class="step"><b>3</b><span data-l="ar">تأكيد</span><span data-l="en" class="lat">Confirmation</span></span></div>
+<h1 style="font-size:var(--text-h1)"><span data-l="ar">إتمام الطلب</span><span data-l="en" class="lat">Checkout</span></h1>
+<div style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start">
+<form data-checkout novalidate class="card" style="padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0">
+<p class="muted"><span data-l="ar">بدون تسجيل حساب. نحتاج بس بيانات التوصيل.</span><span data-l="en" class="lat">No account needed. We just need delivery details.</span></p>
+<div class="field"><label for="name"><span data-l="ar">الاسم الكامل</span><span data-l="en" class="lat">Full name</span></label><input class="input" id="name" name="name" type="text" required autocomplete="name" data-ph-ar="مثال: محمد العتيبي" data-ph-en="e.g. Mohammed Alotaibi" placeholder="مثال: محمد العتيبي">
+<span class="err" data-err-for="name" hidden><span data-l="ar">اكتب الاسم الكامل.</span><span data-l="en" class="lat">Enter your full name.</span></span></div>
+<div class="field"><label for="phone"><span data-l="ar">رقم الجوال</span><span data-l="en" class="lat">Mobile number</span></label><input class="input" id="phone" name="phone" type="tel" required autocomplete="tel" data-ph-ar="05XXXXXXXX" data-ph-en="05XXXXXXXX" placeholder="05XXXXXXXX">
+<span class="err" data-err-for="phone" hidden><span data-l="ar">اكتب رقم جوال سعودي من 10 أرقام يبدأ بـ 05.</span><span data-l="en" class="lat">Enter a 10-digit Saudi number starting with 05.</span></span></div>
+<div class="field"><label for="region"><span data-l="ar">المنطقة</span><span data-l="en" class="lat">Region</span></label><select class="input" id="region" name="region" required><option>الرياض</option><option>مكة المكرمة</option><option>المنطقة الشرقية</option><option>المدينة المنورة</option><option>القصيم</option><option>عسير</option><option>تبوك</option><option>حائل</option><option>الحدود الشمالية</option><option>جازان</option><option>نجران</option><option>الباحة</option><option>الجوف</option></select></div>
+<div class="field"><label for="city"><span data-l="ar">المدينة والحي</span><span data-l="en" class="lat">City and district</span></label><input class="input" id="city" name="city" type="text" required autocomplete="address-level2" data-ph-ar="مثال: الرياض، حي النرجس" data-ph-en="e.g. Riyadh, Al Narjis" placeholder="مثال: الرياض، حي النرجس">
+<span class="err" data-err-for="city" hidden><span data-l="ar">اكتب المدينة والحي.</span><span data-l="en" class="lat">Enter your city and district.</span></span></div>
+<div class="field"><label for="address"><span data-l="ar">العنوان الوطني أو وصف العنوان</span><span data-l="en" class="lat">National address or directions</span></label><input class="input" id="address" name="address" type="text"  autocomplete="street-address" data-ph-ar="اختياري" data-ph-en="Optional" placeholder="اختياري">
+<span class="err" data-err-for="address" hidden><span data-l="ar"></span><span data-l="en" class="lat"></span></span></div>
+<fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:10px"><legend style="font-weight:600;margin-bottom:8px"><span data-l="ar">طريقة الدفع</span><span data-l="en" class="lat">Payment method</span></legend>
+<label class="pack-opt" style="cursor:pointer"><span style="display:flex;gap:12px;align-items:center"><input type="radio" name="pay" id="pay-cod" value="cod" checked style="width:22px;height:22px"><span data-l="ar">الدفع عند الاستلام</span><span data-l="en" class="lat">Cash on delivery</span></span><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></label>
+<label class="pack-opt" style="cursor:pointer"><span style="display:flex;gap:12px;align-items:center"><input type="radio" name="pay" id="pay-card" value="card" style="width:22px;height:22px"><span data-l="ar">مدى / فيزا / Apple Pay</span><span data-l="en" class="lat">mada / Visa / Apple Pay</span></span><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></label></fieldset>
+<button type="submit" class="btn btn-cta btn-block" style="min-height:60px;font-size:1.25rem"><span data-l="ar">تأكيد الطلب</span><span data-l="en" class="lat">Place order</span></button>
+</form>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="card" style="padding:24px;display:flex;flex-direction:column;gap:12px"><strong><span data-l="ar">ملخص الطلب</span><span data-l="en" class="lat">Order summary</span></strong>
+<div style="display:flex;justify-content:space-between"><span><span data-l="ar">المجموع</span><span data-l="en" class="lat">Subtotal</span></span><span class="num" data-sub></span></div>
+<div style="display:flex;justify-content:space-between"><span><span data-l="ar">الشحن</span><span data-l="en" class="lat">Shipping</span></span><span class="num" data-ship></span></div>
+<div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.25rem;border-top:1px solid var(--color-border);padding-top:12px"><span><span data-l="ar">الإجمالي</span><span data-l="en" class="lat">Total</span></span><span class="num" data-total></span></div>
+<a href="cart.html" class="small"><span data-l="ar">تعديل السلة</span><span data-l="en" class="lat">Edit cart</span></a></div>
+<div data-done hidden tabindex="-1" class="card" style="padding:24px;display:flex;flex-direction:column;gap:10px;border:2px solid var(--color-success)" role="status">
+<strong style="font-size:1.25rem;display:flex;gap:8px;align-items:center;color:var(--color-success)"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span data-l="ar">تم استلام طلبك</span><span data-l="en" class="lat">Order placed</span></strong>
+<p><span data-l="ar">بنتواصل معك على الجوال لتأكيد الطلب خلال ساعات.</span><span data-l="en" class="lat">We will call your mobile to confirm the order within a few hours.</span></p>
+<a class="btn btn-ghost" href="shop.html"><span data-l="ar">رجوع للمتجر</span><span data-l="en" class="lat">Back to shop</span></a></div>
+</div></div></section></main>
+<footer class="site-footer"><div class="wrap section" style="display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+<div style="display:flex;flex-direction:column;gap:10px"><div class="logo" style="color:#fff"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19L14 10"/></svg><span data-l="ar">دودليزا</span><span data-l="en" class="lat">Dodoliza</span></div>
+<p><span data-l="ar">شراب مصمّم لراحة مرضى السكري، من الصبح لآخر اليوم.</span><span data-l="en" class="lat">Socks designed for comfort for people with diabetes, morning to night.</span></p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong><span data-l="ar">المتجر</span><span data-l="en" class="lat">Shop</span></strong>
+<a href="shop.html"><span data-l="ar">كل الشرابات</span><span data-l="en" class="lat">All socks</span></a><a href="product.html"><span data-l="ar">شراب الراحة اليومية</span><span data-l="en" class="lat">Everyday Comfort Crew</span></a><a href="cart.html"><span data-l="ar">السلة</span><span data-l="en" class="lat">Cart</span></a></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong><span data-l="ar">الشركة</span><span data-l="en" class="lat">Company</span></strong>
+<a href="about.html"><span data-l="ar">قصتنا</span><span data-l="en" class="lat">Our story</span></a><a href="contact.html"><span data-l="ar">تواصل معنا</span><span data-l="en" class="lat">Contact</span></a></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong><span data-l="ar">الدفع</span><span data-l="en" class="lat">Payment</span></strong>
+<span><span data-l="ar">الدفع عند الاستلام، مدى، فيزا، Apple Pay</span><span data-l="en" class="lat">Cash on delivery, mada, Visa, Apple Pay</span></span></div>
+</div><div class="wrap" style="padding-block:18px;border-top:1px solid rgba(255,255,255,.15)"><span class="small">© 2026 <span data-l="ar">دودليزا</span><span data-l="en" class="lat">Dodoliza</span></span></div></footer>
+<a class="wa" href="https://wa.me/966500000000" target="_blank" rel="noopener" data-aria-ar="تواصل معنا على واتساب" data-aria-en="Chat with us on WhatsApp"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1.2-1.2 2 1-.6 1.6c-3.5 0-7-3.5-7-7l1.6-.6 1 2z"/></svg></a>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

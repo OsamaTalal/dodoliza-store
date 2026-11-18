@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>السلة | دودليزا</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="سلة مشترياتك في دودليزا.">
+<link rel="canonical" href="https://socks.dodoliza.com/cart.html">
+<link rel="alternate" hreflang="ar-SA" href="https://socks.dodoliza.com/cart.html"><link rel="alternate" hreflang="en" href="https://socks.dodoliza.com/cart.html?lang=en">
+<meta property="og:type" content="website"><meta property="og:title" content="السلة | دودليزا">
+<meta property="og:description" content="سلة مشترياتك في دودليزا."><meta property="og:url" content="https://socks.dodoliza.com/cart.html"><meta property="og:locale" content="ar_SA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>window.tailwind&&(tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{ink:"var(--color-text)",teal:"var(--color-primary)",tint:"var(--color-tint)",cta:"var(--color-cta)"}}}})</script>
+<link rel="stylesheet" href="assets/tokens.css"><link rel="stylesheet" href="assets/app.css">
+
+</head>
+<body class="">
+<a href="#main" class="sr-only focus:not-sr-only">تخطي إلى المحتوى</a>
+<header class="site-header"><div class="wrap"><div class="bar">
+<a class="logo" href="index.html" aria-label="دودليزا"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19L14 10"/></svg><span data-l="ar">دودليزا</span><span data-l="en" class="lat">Dodoliza</span></a>
+<nav class="nav nav-desktop" aria-label="Main"><a href="index.html"><span data-l="ar">الرئيسية</span><span data-l="en" class="lat">Home</span></a><a href="shop.html"><span data-l="ar">المتجر</span><span data-l="en" class="lat">Shop</span></a><a href="about.html"><span data-l="ar">قصتنا</span><span data-l="en" class="lat">Our story</span></a><a href="contact.html"><span data-l="ar">تواصل معنا</span><span data-l="en" class="lat">Contact</span></a></nav>
+<div style="display:flex;align-items:center;gap:6px">
+<button type="button" class="tool" data-lang-toggle data-aria-ar="Switch to English" data-aria-en="التبديل إلى العربية"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span data-l="ar" class="lat">EN</span><span data-l="en">عربي</span></button>
+<a class="tool" href="cart.html" data-aria-ar="السلة" data-aria-en="Cart"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="badge" data-cart-count hidden>0</span></a>
+</div></div></div>
+<div class="subnav"><div class="wrap"><nav class="nav" aria-label="Main mobile"><a href="index.html"><span data-l="ar">الرئيسية</span><span data-l="en" class="lat">Home</span></a><a href="shop.html"><span data-l="ar">المتجر</span><span data-l="en" class="lat">Shop</span></a><a href="about.html"><span data-l="ar">قصتنا</span><span data-l="en" class="lat">Our story</span></a><a href="contact.html"><span data-l="ar">تواصل معنا</span><span data-l="en" class="lat">Contact</span></a></nav></div></div></header>
+<main id="main">
+<section class="wrap section" style="display:flex;flex-direction:column;gap:24px;max-width:960px">
+<h1 style="font-size:var(--text-h1)"><span data-l="ar">السلة</span><span data-l="en" class="lat">Your cart</span></h1>
+<div data-cart-empty class="card" style="padding:32px;display:flex;flex-direction:column;gap:14px;align-items:flex-start" hidden>
+<strong style="font-size:1.25rem"><span data-l="ar">سلتك فاضية</span><span data-l="en" class="lat">Your cart is empty</span></strong><p class="muted"><span data-l="ar">اختر الشراب والمقاس وعدد الأزواج، وبيظهر هنا.</span><span data-l="en" class="lat">Pick a sock, size and pack, and it will show here.</span></p>
+<a class="btn btn-cta" href="shop.html"><span data-l="ar">تسوّق الآن</span><span data-l="en" class="lat">Shop now</span></a></div>
+<div data-cart-full style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start">
+<ul data-cart-list style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;min-width:0"></ul>
+<div class="card" style="padding:24px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between"><span><span data-l="ar">المجموع</span><span data-l="en" class="lat">Subtotal</span></span><span class="num" data-sub></span></div>
+<div style="display:flex;justify-content:space-between"><span><span data-l="ar">الشحن</span><span data-l="en" class="lat">Shipping</span></span><span class="num" data-ship></span></div>
+<p class="small" style="color:var(--color-success)" data-free-left></p>
+<div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.25rem;border-top:1px solid var(--color-border);padding-top:12px"><span><span data-l="ar">الإجمالي</span><span data-l="en" class="lat">Total</span></span><span class="num" data-total></span></div>
+<a class="btn btn-cta btn-block" href="checkout.html"><span data-l="ar">إتمام الطلب</span><span data-l="en" class="lat">Checkout</span></a>
+<p class="small muted" style="text-align:center"><span data-l="ar">بدون تسجيل حساب، والدفع عند الاستلام متاح</span><span data-l="en" class="lat">No account needed, cash on delivery available</span></p></div></div>
+</section></main>
+<footer class="site-footer"><div class="wrap section" style="display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+<div style="display:flex;flex-direction:column;gap:10px"><div class="logo" style="color:#fff"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19L14 10"/></svg><span data-l="ar">دودليزا</span><span data-l="en" class="lat">Dodoliza</span></div>
+<p><span data-l="ar">شراب مصمّم لراحة مرضى السكري، من الصبح لآخر اليوم.</span><span data-l="en" class="lat">Socks designed for comfort for people with diabetes, morning to night.</span></p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong><span data-l="ar">المتجر</span><span data-l="en" class="lat">Shop</span></strong>
+<a href="shop.html"><span data-l="ar">كل الشرابات</span><span data-l="en" class="lat">All socks</span></a><a href="product.html"><span data-l="ar">شراب الراحة اليومية</span><span data-l="en" class="lat">Everyday Comfort Crew</span></a><a href="cart.html"><span data-l="ar">السلة</span><span data-l="en" class="lat">Cart</span></a></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong><span data-l="ar">الشركة</span><span data-l="en" class="lat">Company</span></strong>
+<a href="about.html"><span data-l="ar">قصتنا</span><span data-l="en" class="lat">Our story</span></a><a href="contact.html"><span data-l="ar">تواصل معنا</span><span data-l="en" class="lat">Contact</span></a></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong><span data-l="ar">الدفع</span><span data-l="en" class="lat">Payment</span></strong>
+<span><span data-l="ar">الدفع عند الاستلام، مدى، فيزا، Apple Pay</span><span data-l="en" class="lat">Cash on delivery, mada, Visa, Apple Pay</span></span></div>
+</div><div class="wrap" style="padding-block:18px;border-top:1px solid rgba(255,255,255,.15)"><span class="small">© 2026 <span data-l="ar">دودليزا</span><span data-l="en" class="lat">Dodoliza</span></span></div></footer>
+<a class="wa" href="https://wa.me/966500000000" target="_blank" rel="noopener" data-aria-ar="تواصل معنا على واتساب" data-aria-en="Chat with us on WhatsApp"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1.2-1.2 2 1-.6 1.6c-3.5 0-7-3.5-7-7l1.6-.6 1 2z"/></svg></a>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
