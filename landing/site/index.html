@@ -172,18 +172,20 @@ button{cursor:pointer}
 /* Quick view */
 .qv{position:fixed;z-index:80;inset:6vh 0 0 0;border-radius:14px 14px 0 0;background:var(--white);display:flex;flex-direction:column;overflow:hidden}
 .qv-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;padding-top:env(safe-area-inset-top,0px)}
-.qv-top{display:flex;justify-content:space-between;align-items:center;padding:8px var(--gutter-r) 8px var(--gutter-l);border-bottom:1px solid var(--line)}
+.qv-top{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;padding:2px var(--gutter-r) 2px var(--gutter-l);background:var(--white);border-bottom:1px solid var(--line)}
+.qv-top::before{content:"";position:absolute;top:6px;left:50%;width:40px;height:4px;border-radius:2px;background:var(--line);transform:translateX(-50%)}
 .x{width:48px;height:48px;border:0;background:none;display:grid;place-items:center;color:var(--navy)}
 .qv-grid{display:grid}
-.gal-main{position:relative;aspect-ratio:4/5;background:var(--studio);max-width:100%}
-.gal-main img{width:100%;height:100%;object-fit:cover}
-.thumbs{display:flex;gap:8px;padding:10px var(--gutter-r) 0 var(--gutter-l)}
-.thumbs button{width:72px;aspect-ratio:4/5;padding:0;border:2px solid transparent;background:var(--studio)}
+.gal-main{position:relative;height:min(40vh,340px);background:#F3F1ED;max-width:100%}
+.gal-main img{width:100%;height:100%;object-fit:contain}
+.gal-main .stamp{--s:56px}
+.thumbs{display:flex;gap:8px;padding:8px var(--gutter-r) 0 var(--gutter-l);overflow-x:auto}
+.thumbs button{flex:none;width:56px;aspect-ratio:1;padding:0;border:2px solid transparent;background:var(--studio)}
 .thumbs button[aria-current="true"]{border-color:var(--navy)}
 .thumbs img{width:100%;height:100%;object-fit:cover}
-.qv-info{padding:18px var(--gutter-r) 24px var(--gutter-l);display:grid;gap:18px;align-content:start}
-.qv-info h2{margin:0;font-size:24px;font-weight:900;color:var(--navy);line-height:1.35}
-.qv-info .now{font-size:28px}
+.qv-info{padding:14px var(--gutter-r) 20px var(--gutter-l);display:grid;gap:14px;align-content:start}
+.qv-info h2{margin:0;font-size:21px;font-weight:900;color:var(--navy);line-height:1.35}
+.qv-info .now{font-size:24px}
 .opt-label{font-weight:800;font-size:17px;margin-bottom:8px;color:var(--navy)}
 .opts{display:flex;gap:10px;flex-wrap:wrap}
 .opt{min-height:56px;min-width:84px;padding:0 16px;border:2px solid var(--line);background:var(--white);border-radius:var(--radius);font-weight:800;font-size:18px;display:inline-flex;align-items:center;gap:8px}
@@ -200,12 +202,15 @@ button{cursor:pointer}
   .qv-grid{grid-template-columns:1fr 1fr}
   .qv-bar{grid-template-columns:1fr 1fr;padding-inline:32px}
   .qv-info{padding:28px 32px}
+  .gal-main{height:auto;aspect-ratio:4/5}
+  .gal-main img{object-fit:cover;padding:0}
+  .thumbs button{width:72px;aspect-ratio:4/5}
 }
 
 /* Product sheet (Zyros-style) */
 .qv-head{display:grid;gap:4px}
 .qv-note{font-size:14px;color:var(--muted)}
-.qv-cd{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--gold-soft);background:var(--gold-tint);padding:10px 12px;border-radius:var(--radius)}
+.qv-cd{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px dashed var(--gold-soft);padding:8px 10px;border-radius:6px}
 .qv-cd p{margin:0;font-weight:800;color:var(--navy);font-size:15px;display:flex;align-items:center;gap:6px}
 .qv-cd .cd span{background:var(--white);border:1px solid var(--line)}
 .sec-label{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:900;font-size:17px;color:var(--navy);margin-bottom:8px}
@@ -218,17 +223,24 @@ button{cursor:pointer}
 .offer strong{font-size:17px;font-weight:900;color:var(--gold)}
 .offer[aria-checked="true"]{border-color:var(--navy);background:var(--gold-tint)}
 .offer[aria-checked="true"]::after{content:"";position:absolute;top:-9px;left:-9px;width:22px;height:22px;border-radius:50%;background:var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D8C49A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat}
-.pick{display:grid;gap:12px;padding:14px;border:2px solid var(--navy);border-radius:6px;background:var(--gold-tint)}
+.pick{display:grid;gap:10px;padding:12px;border:1.5px solid var(--gold-soft);border-radius:6px;background:var(--gold-tint)}
 .pick-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .pick-h h3{margin:0;font-size:22px;font-weight:900;color:var(--navy)}
 .pick-h span{font-size:14px;font-weight:700;color:var(--gold)}
 .boxes{display:grid;gap:10px}
-.box{border:1px solid var(--line);padding:0 0 12px;display:grid;gap:8px;border-radius:6px;background:var(--white);overflow:hidden;box-shadow:0 2px 8px rgba(20,46,22,.06)}
-.box .seg{padding-inline:12px}
-.box-h{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900;color:var(--white);background:var(--navy);padding:8px 12px}
-.box-h .bt{display:flex;align-items:center;gap:10px;font-size:17px}
-.box-h img{width:40px;height:40px;border-radius:50%;object-fit:cover;background:var(--studio);border:2px solid var(--gold-soft)}
-.box-sum{font-size:13px;font-weight:700;color:var(--gold-soft)}
+.pick-hint{margin:-6px 0 0;font-size:14px;color:var(--muted);font-weight:600}
+.box{border:1px solid var(--line);padding:10px;display:grid;gap:10px;border-radius:6px;background:var(--white)}
+.box-top{display:flex;align-items:center;gap:10px;font-size:17px;color:var(--navy)}
+.box-top>img{width:38px;height:38px;border-radius:50%;object-fit:cover;background:var(--studio);border:1.5px solid var(--gold-soft);flex:none}
+.sws{display:flex;gap:6px;margin-inline-start:auto}
+.sw-b{width:44px;height:44px;padding:0;border:0;background:none;display:grid;place-items:center;border-radius:50%}
+.sw-b i{width:30px;height:30px;border-radius:50%;border:1px solid #bbb;box-shadow:inset 0 0 0 2px var(--white)}
+.sw-b[aria-pressed="true"] i{outline:2.5px solid var(--navy);outline-offset:2px}
+.box-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg2{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--line);border-radius:6px;overflow:hidden}
+.seg2 button{min-height:44px;border:0;background:var(--white);font-weight:800;font-size:15px;color:var(--ink);transition:background .15s,color .15s}
+.seg2 button+button{border-inline-start:1.5px solid var(--line)}
+.seg2 button[aria-pressed="true"]{background:var(--navy);color:var(--white)}
 .gift-tag{flex:none;background:var(--gold-soft);color:var(--navy);font-size:12px;font-weight:900;padding:2px 10px;border-radius:999px}
 .seg{display:flex;gap:6px;flex-wrap:wrap}
 .chip{min-height:44px;padding:0 14px;border:1.5px solid var(--line);background:var(--white);border-radius:var(--radius);font-weight:800;font-size:16px;display:inline-flex;align-items:center;gap:6px;transition:background .15s,border-color .15s}
@@ -418,7 +430,7 @@ button{cursor:pointer}
         <div class="qv-head"><h2 id="qv-title"></h2>
           <div class="prices"><span class="now" id="qv-now"></span><span class="was" id="qv-was"></span><span class="off" id="qv-off"></span></div>
           <div class="qv-note">كل علبة 5 أزواج · مقاس موحّد (Free Size)</div></div>
-        <div class="pick"><div class="pick-h"><h3>اختار علبك</h3><span id="qv-pick-sub"></span></div><div class="boxes" id="qv-boxes"></div></div>
+        <div class="pick"><div class="pick-h"><h3>اختار علبك</h3><span id="qv-pick-sub"></span></div><p class="pick-hint">جاهزة باختيار افتراضي، غيّر اللي تحبه أو اضغط «أضف للسلة» على طول</p><div class="boxes" id="qv-boxes"></div></div>
         <div class="qv-cd"><p><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>خصم خاص لفترة محدودة</p>
           <span class="cd" data-cd><span><span data-h>00</span><small>ساعة</small></span><span><span data-m>00</span><small>دقيقة</small></span><span><span data-s>00</span><small>ثانية</small></span></span></div>
       </div>
@@ -611,11 +623,16 @@ function renderQV(){
   $("#qv-thumbs").innerHTML = p.imgs.map((n,i) => `<button type="button" data-img="${i}" aria-label="صورة ${i+1}" aria-current="${i===qv.img}"><img src="${img(n)}" alt=""></button>`).join("");
   $("#qv-pick-sub").textContent = `عرض ${o.id} · ${qv.boxes.length} علب · ${o.pairs} زوج`;
   const half = o.paid;
+  const seg = (i,k,b) => `<div class="seg2" role="group">${BOX_OPTS[k].map(([v,t]) => `<button type="button" data-box="${i}" data-k="${k}" data-v="${v}" aria-pressed="${b[k]===v}">${t}</button>`).join("")}</div>`;
   $("#qv-boxes").innerHTML = qv.boxes.map((b,i) => `
     <div class="box">
-      <div class="box-h"><span class="bt"><img src="${img(b.c === "white" ? "card-white-1" : "card-black-1")}" alt=""><span>علبة ${i+1}<br><span class="box-sum">${optName("g",b.g)} · ${optName("c",b.c)} · ${optName("l",b.l)}</span></span></span>${i >= half ? '<span class="gift-tag">هدية</span>' : ""}</div>
-      ${Object.keys(BOX_OPTS).map(k => `<div class="seg" role="group" aria-label="علبة ${i+1}">${BOX_OPTS[k].map(([v,t]) => `<button type="button" class="chip" data-box="${i}" data-k="${k}" data-v="${v}" aria-pressed="${b[k]===v}">${k==="c" ? `<i style="background:${COLORS[v].hex}"></i>` : ""}${t}</button>`).join("")}</div>`).join("")}
-    </div>`).join("") + (qv.boxes.length > 1 ? `<button type="button" class="same-all" id="same-all">نفس اختيار العلبة 1 لكل العلب</button>` : "");
+      <div class="box-top">
+        <img src="${img(b.c === "white" ? "card-white-1" : "card-black-1")}" alt="">
+        <b>علبة ${i+1}</b>${i >= half ? '<span class="gift-tag">هدية</span>' : ""}
+        <div class="sws" role="group" aria-label="لون علبة ${i+1}">${BOX_OPTS.c.map(([v,t]) => `<button type="button" class="sw-b" data-box="${i}" data-k="c" data-v="${v}" aria-pressed="${b.c===v}" aria-label="${t}"><i style="background:${COLORS[v].hex}"></i></button>`).join("")}</div>
+      </div>
+      <div class="box-row">${seg(i,"g",b)}${seg(i,"l",b)}</div>
+    </div>`).join("") + (qv.boxes.length > 2 ? `<button type="button" class="same-all" id="same-all">نفس اختيار العلبة 1 لكل العلب</button>` : "");
 }
 $("#qv").addEventListener("click", e => {
   const t = e.target.closest("[data-img],[data-offer],[data-box],#same-all"); if (!t) return;
