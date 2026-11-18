@@ -97,6 +97,23 @@ button{cursor:pointer}
 .hero-perks li{display:inline-flex;align-items:center;gap:6px}
 .hero-perks svg{width:20px;height:20px;color:var(--gold)}
 
+/* Nano silver tech section */
+.tech{display:grid;gap:18px;margin-top:32px;padding:18px;background:var(--studio);border:1px solid var(--line)}
+.tech-media{position:relative;max-width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:4px;background:#222}
+.tech-media img{width:100%;height:100%;object-fit:cover}
+.tech-badge{position:absolute;bottom:10px;right:10px;direction:ltr;background:rgba(27,48,25,.9);color:var(--gold-soft);border:1px solid var(--gold-soft);font-size:12px;font-weight:800;letter-spacing:.12em;padding:3px 10px;border-radius:999px}
+.tech-copy{display:grid;gap:8px;min-width:0}
+.tech-eye{margin:0;color:var(--gold);font-weight:800;font-size:15px}
+.tech h2{margin:0;font-size:clamp(28px,7.4vw,42px);font-weight:900;color:var(--navy);line-height:1.2}
+.tech-lead{margin:0;color:var(--muted);font-size:17px;font-weight:600}
+.tech-list{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tech-list li{display:grid;justify-items:start;gap:8px;background:var(--white);border:1px solid var(--line);padding:14px 12px;min-width:0}
+.tech-list b{display:block;color:var(--navy);font-size:16px;font-weight:900;line-height:1.35}
+.tech-list li div span{display:block;font-size:14px;color:var(--muted);font-weight:600;line-height:1.5}
+.tech-list .tech-ic{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--gold-soft);box-shadow:0 0 0 4px var(--gold-tint),0 0 0 5px var(--gold-soft)}
+.tech-list .tech-ic svg{width:30px;height:30px}
+@media (min-width:900px){.tech{grid-template-columns:1fr 1.15fr;align-items:center;gap:40px;padding:32px;margin-top:48px}.tech-media{aspect-ratio:1}.tech-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+
 /* Offer tiles */
 .tiles{display:grid;gap:12px;padding-block:20px 0}
 .tiles a{position:relative;display:block;border:1px solid var(--line);overflow:hidden}
@@ -364,10 +381,10 @@ button{cursor:pointer}
       <div class="hero-pic"><div class="pic-wrap">
         <img src="img/hero-gen.webp" alt="شراب دودليزا الأسود مع العلبة" width="900" height="1125">
         <svg class="co-lines" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M79 44 L79 21" /><path d="M47 82 L28 106" />
+          <path d="M79 44 L79 21" /><path d="M58 69 L30 106" />
         </svg>
         <span class="co-dot" style="left:79%;top:35.2%"></span>
-        <span class="co-dot" style="left:47%;top:65.6%"></span>
+        <span class="co-dot" style="left:58%;top:55.2%"></span>
         <span class="co-lbl" style="left:79%;top:14%">حافة واسعة ما تضغط</span>
         <span class="co-lbl" style="left:28%;top:88%">خيوط نانو الفضة</span>
       </div></div>
@@ -384,6 +401,21 @@ button{cursor:pointer}
     <section class="sec sec-reviews" id="reviews" aria-labelledby="r-h">
       <h2 class="sec-h" id="r-h">آراء عملائنا</h2>
       <div class="marq" tabindex="0" aria-label="آراء العملاء"><div class="marq-track" id="revs"></div></div>
+    </section>
+
+    <section class="tech" id="tech" aria-labelledby="t-h">
+      <div class="tech-media"><img src="img/fabric.webp" alt="نسيج شراب دودليزا بخيوط نانو الفضة عن قرب" width="440" height="440" loading="lazy"><span class="tech-badge">Nano Silver · Bamboo</span></div>
+      <div class="tech-copy">
+        <p class="tech-eye">التقنية اللي في كل زوج</p>
+        <h2 id="t-h">خيوط <span class="hl">نانو الفضة</span></h2>
+        <p class="tech-lead">خيوط فضة دقيقة منسوجة مع ألياف البامبو، عشان رجلك تبقى منتعشة وجافة طول اليوم.</p>
+        <ul class="tech-list">
+          <li><span class="tech-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="3"/><circle cx="16" cy="5" r="2"/><circle cx="26" cy="21.5" r="2"/><circle cx="6" cy="21.5" r="2"/><path d="M16 13V7M18.6 17.5l5.6 3.1M13.4 17.5l-5.6 3.1"/><path d="M8 9.5a11 11 0 0 1 4-3.3M24 9.5a11 11 0 0 0-4-3.3M12 27.3a11 11 0 0 0 8 0" opacity=".6"/></svg></span><div><b>خيوط نانو الفضة</b><span>تقلّل الروائح وتخلّي الرجل منتعشة</span></div></li>
+          <li><span class="tech-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 29V3M13 9h0M13 16h0M13 23h0"/><path d="M11 9h4M11 16h4M11 23h4"/><path d="M13 12c4-1 8-4 10-8-4 0-8 2-10 6"/><path d="M13 20c3 0 7-2 9-5-3-1-7 0-9 3"/></svg></span><div><b>ألياف بامبو تتنفس</b><span>ناعمة على البشرة وتمتص الرطوبة</span></div></li>
+          <li><span class="tech-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4h10v10l2 9a4 4 0 0 1-4 5h-6a4 4 0 0 1-3.9-3.1L11 14z"/><path d="M11 8h10"/><path d="M5 6l3 0M27 6l-3 0M6.5 4.5 5 6l1.5 1.5M25.5 4.5 27 6l-1.5 1.5"/></svg></span><div><b>حافة واسعة ما تضغط</b><span>ما تترك علامة على الساق</span></div></li>
+          <li><span class="tech-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20c0-6 4-10 10-10s10 4 10 10v2a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4z"/><path d="M8 18h16" stroke-dasharray="1.5 2.5"/></svg></span><div><b>خياطة ناعمة بدون حواف</b><span>ما تحتك بالأصابع</span></div></li>
+        </ul>
+      </div>
     </section>
     <div class="tiles">
       <a href="#products" aria-label="عرض 1+1 مجانًا — تسوّق الآن"><img src="img/offer-1plus1.webp" alt="1+1 مجانًا: اشترِ علبة والثانية علينا" width="1200" height="500" loading="lazy"></a>
