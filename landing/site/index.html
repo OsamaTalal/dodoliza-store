@@ -170,7 +170,7 @@ button{cursor:pointer}
 .scrim{position:fixed;inset:0;z-index:70;background:rgba(20,46,22,.55)}
 
 /* Quick view */
-.qv{position:fixed;z-index:80;inset:0;background:var(--white);display:flex;flex-direction:column;overflow:hidden}
+.qv{position:fixed;z-index:80;inset:6vh 0 0 0;border-radius:14px 14px 0 0;background:var(--white);display:flex;flex-direction:column;overflow:hidden}
 .qv-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;padding-top:env(safe-area-inset-top,0px)}
 .qv-top{display:flex;justify-content:space-between;align-items:center;padding:8px var(--gutter-r) 8px var(--gutter-l);border-bottom:1px solid var(--line)}
 .x{width:48px;height:48px;border:0;background:none;display:grid;place-items:center;color:var(--navy)}
@@ -196,11 +196,72 @@ button{cursor:pointer}
 .qv-bar .btn{padding:0 10px}
 .err{color:var(--danger);font-weight:700;font-size:16px;margin:0}
 @media (min-width:900px){
-  .qv{inset:4vh auto 4vh 50%;transform:translateX(-50%);width:min(1040px,94vw);border-radius:var(--radius)}
+  .qv{inset:4vh auto 4vh 50%;transform:translateX(-50%);width:min(1040px,94vw);border-radius:6px}
   .qv-grid{grid-template-columns:1fr 1fr}
   .qv-bar{grid-template-columns:1fr 1fr;padding-inline:32px}
   .qv-info{padding:28px 32px}
 }
+
+/* Product sheet (Zyros-style) */
+.qv-head{display:grid;gap:4px}
+.qv-note{font-size:14px;color:var(--muted)}
+.qv-cd{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--gold-soft);background:var(--gold-tint);padding:10px 12px;border-radius:var(--radius)}
+.qv-cd p{margin:0;font-weight:800;color:var(--navy);font-size:15px;display:flex;align-items:center;gap:6px}
+.qv-cd .cd span{background:var(--white);border:1px solid var(--line)}
+.sec-label{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:900;font-size:17px;color:var(--navy);margin-bottom:8px}
+.sec-label small{font-weight:700;font-size:13px;color:var(--muted)}
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.offer{position:relative;display:grid;justify-items:center;gap:1px;padding:12px 4px 10px;border:2px solid var(--line);background:var(--white);border-radius:var(--radius);color:var(--ink);transition:border-color .15s,background .15s}
+.offer b{font-size:22px;font-weight:900;color:var(--navy);direction:ltr}
+.offer span{font-size:13px;color:var(--muted);font-weight:700}
+.offer s{font-size:12px;color:var(--muted)}
+.offer strong{font-size:17px;font-weight:900;color:var(--gold)}
+.offer[aria-checked="true"]{border-color:var(--navy);background:var(--gold-tint)}
+.offer[aria-checked="true"]::after{content:"";position:absolute;top:-9px;left:-9px;width:22px;height:22px;border-radius:50%;background:var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D8C49A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat}
+.boxes{display:grid;gap:10px}
+.box{border:1px solid var(--line);padding:12px;display:grid;gap:10px;border-radius:var(--radius);background:var(--white)}
+.box-h{display:flex;justify-content:space-between;align-items:center;font-weight:900;color:var(--navy)}
+.gift-tag{background:var(--gold-soft);color:var(--navy);font-size:12px;font-weight:900;padding:2px 10px;border-radius:999px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.chip{min-height:44px;padding:0 14px;border:1.5px solid var(--line);background:var(--white);border-radius:var(--radius);font-weight:800;font-size:16px;display:inline-flex;align-items:center;gap:6px;transition:background .15s,border-color .15s}
+.chip i{width:16px;height:16px;border-radius:50%;border:1px solid #bbb}
+.chip[aria-pressed="true"]{border-color:var(--navy);background:var(--navy);color:var(--white)}
+.same-all{justify-self:start;border:0;background:none;color:var(--navy);font-weight:800;text-decoration:underline;min-height:44px;padding:0}
+.qv-total{display:flex;justify-content:space-between;align-items:baseline;font-weight:900;color:var(--navy);font-size:18px;grid-column:1/-1}
+.qv-total .now{font-size:22px}
+.btn .spin{width:18px;height:18px;border:2.5px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Motion */
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+@keyframes popIn{from{opacity:0;transform:translateX(-50%) scale(.96)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}
+.qv:not([hidden]){animation:sheetUp .34s cubic-bezier(.2,.8,.2,1)}
+.drawer:not([hidden]){animation:slideIn .32s cubic-bezier(.2,.8,.2,1)}
+.scrim:not([hidden]){animation:fadeIn .25s ease}
+.cart-btn b.bump{animation:bump .45s ease}
+.toast{position:fixed;z-index:120;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:var(--navy);color:var(--white);padding:12px 18px;border-radius:var(--radius);font-weight:800;font-size:16px;box-shadow:0 10px 30px rgba(0,0,0,.25);animation:toastIn .3s ease;max-width:calc(100vw - 32px)}
+.toast svg{color:var(--gold-soft);flex:none}
+.fly{position:fixed;z-index:130;pointer-events:none;border-radius:4px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+@media (min-width:900px){.qv:not([hidden]){animation:popIn .28s ease}}
+
+/* Coupon */
+.coupon{display:flex;gap:8px;margin-top:12px}
+.coupon input{flex:1;min-width:0;min-height:48px;border:2px solid var(--line);border-radius:var(--radius);padding:0 12px;font-size:16px}
+.coupon button{min-height:48px;padding:0 18px;border:2px solid var(--navy);background:var(--white);color:var(--navy);font-weight:800;border-radius:var(--radius)}
+.coupon-msg{margin:6px 0 0;font-size:14px;font-weight:700}
+.li-boxes{margin:4px 0 0;padding:0;list-style:none;font-size:14px;color:var(--muted);display:grid;gap:2px}
+.li-boxes b{color:var(--navy);font-weight:800}
+.rm-x{position:absolute;top:10px;left:0;width:44px;height:44px;border:0;background:none;display:grid;place-items:center;color:var(--muted)}
+.rm-x span{width:26px;height:26px;border-radius:50%;background:var(--studio);display:grid;place-items:center}
+.line-item{position:relative}
+.co-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;background:var(--gold-tint);border:1px solid var(--gold-soft);margin-bottom:14px}
+.co-thumbs{display:flex}
+.co-thumbs img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--white);margin-inline-start:-10px;background:var(--studio)}
+.co-thumbs img:first-child{margin-inline-start:0}
 
 /* Drawer */
 .drawer{position:fixed;z-index:90;top:0;bottom:0;right:0;width:min(440px,100%);background:var(--white);display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.18);padding-top:env(safe-area-inset-top,0px);padding-right:env(safe-area-inset-right,0px)}
@@ -279,7 +340,7 @@ button{cursor:pointer}
       <div class="hero-offer">
         <p class="offer-main"><b class="hl">5 أزواج</b> ومعها <b class="hl">5 هدية</b></p>
         <p class="offer-price"><b>10 أزواج</b> بـ <b class="hl big">149</b> ر.س <span class="was-l">بدل <s>298</s></span></p>
-        <a class="btn btn-gold hero-cta" href="#products">تسوّق الآن</a>
+        <a class="btn btn-gold hero-cta" href="#products" data-qv="black">اطلب الآن</a>
       </div>
     </div>
   </section>
@@ -307,11 +368,11 @@ button{cursor:pointer}
         <img src="img/box-open.webp" alt="علب شراب دودليزا" style="left:50%;bottom:6%;width:68%;transform:translateX(-50%)">
       </div>
       <div class="bundle-copy">
-        <div class="kicker">باكدج العائلة</div>
-        <h2 id="b-h">3 علب <span class="hl">بسعر 2</span></h2>
-        <div class="card-sub">15 زوج</div>
+        <div class="kicker">عرض العائلة</div>
+        <h2 id="b-h">3 علب <span class="hl">+ 3 هدية</span></h2>
+        <div class="card-sub">30 زوج · اختار كل علبة على مزاجك</div>
         <div class="prices"><span class="now" id="b-now"></span><span class="was" id="b-was"></span><span class="off" id="b-off"></span></div>
-        <button class="btn btn-navy" id="add-bundle">أضف الباكدج</button>
+        <button class="btn btn-navy" id="add-bundle">اختر علبك</button>
       </div>
     </section>
 
@@ -346,16 +407,18 @@ button{cursor:pointer}
         <div class="thumbs" id="qv-thumbs"></div>
       </div>
       <div class="qv-info">
-        <div><h2 id="qv-title"></h2><div class="card-sub" id="qv-sub"></div></div>
-        <div class="prices"><span class="now" id="qv-now"></span><span class="was" id="qv-was"></span><span class="off" id="qv-off"></span></div>
-        <div><div class="opt-label">اللون</div><div class="opts" id="qv-colors"></div></div>
-        <div><div class="opt-label">المقاس</div><div class="opts" id="qv-sizes"></div></div>
-        <div><div class="opt-label">الكمية</div><div class="qty"><button type="button" id="qv-plus" aria-label="زيادة">+</button><output id="qv-qty">1</output><button type="button" id="qv-minus" aria-label="نقص">−</button></div></div>
-        <p class="err" id="qv-err" hidden>اختر المقاس</p>
+        <div class="qv-head"><h2 id="qv-title"></h2>
+          <div class="prices"><span class="now" id="qv-now"></span><span class="was" id="qv-was"></span><span class="off" id="qv-off"></span></div>
+          <div class="qv-note">كل علبة 5 أزواج · مقاس موحّد (Free Size)</div></div>
+        <div class="qv-cd"><p><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>خصم خاص لفترة محدودة</p>
+          <span class="cd" data-cd><span><span data-h>00</span><small>ساعة</small></span><span><span data-m>00</span><small>دقيقة</small></span><span><span data-s>00</span><small>ثانية</small></span></span></div>
+        <div><div class="sec-label">اختر العرض <small>كل علبة معها علبة هدية</small></div><div class="offers" id="qv-offers" role="radiogroup" aria-label="العرض"></div></div>
+        <div><div class="sec-label">حدد علبك <small>اختار كل علبة على مزاجك</small></div><div class="boxes" id="qv-boxes"></div></div>
       </div>
     </div>
   </div>
   <div class="qv-bar">
+    <div class="qv-total"><span>الإجمالي</span><span class="now" id="qv-total"></span></div>
     <button class="btn btn-line" id="qv-add">أضف للسلة</button>
     <button class="btn btn-navy" id="qv-buy">اشتري الآن</button>
   </div>
@@ -367,11 +430,14 @@ button{cursor:pointer}
   <div class="dr-body" id="view-cart"><div id="lines"></div></div>
   <div class="dr-foot" id="foot-cart">
     <div class="sum" id="sum-cart"></div>
+    <form class="coupon" id="coupon" novalidate><label class="sr" for="f-coupon">كود الخصم</label><input id="f-coupon" placeholder="لديك كوبون خصم؟" autocomplete="off"><button type="submit">تطبيق</button></form>
+    <p class="coupon-msg" id="coupon-msg" hidden></p>
     <button class="btn btn-navy btn-block" id="to-checkout">إتمام الطلب</button>
   </div>
 
   <div class="dr-body" id="view-checkout" hidden>
     <button class="back" id="back-cart">رجوع للسلة</button>
+    <div class="co-head"><div><div style="font-weight:900;color:var(--navy)">إجمالي الطلب</div><div class="now" id="co-total" style="font-size:22px"></div></div><div class="co-thumbs" id="co-thumbs"></div></div>
     <form class="form" id="co" novalidate>
       <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required></div>
       <div class="field"><label for="f-phone">رقم الجوال</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" required></div>
@@ -403,7 +469,7 @@ const CONFIG = {
   offerHours: 48,                              // مدة العداد بالساعات (يبدأ من أول زيارة للعميل)
   offerEnd: "",                                // أو تاريخ نهاية ثابت مثل "2026-11-30T23:59:59+03:00" (له الأولوية)
   orderEndpoint: "",                           // رابط API لاستقبال الطلبات (يحطه المبرمج)
-  sizes: ["36–39", "40–43", "44–46"],
+  coupons: {},                                 // أكواد الخصم: { "WF10": 10 } = خصم 10 ر.س
   cities: ["الرياض","جدة","مكة المكرمة","المدينة المنورة","الدمام","الخبر","الطائف","تبوك","بريدة","أبها","خميس مشيط","حائل","جازان","نجران","أخرى"]
 };
 /* آراء العملاء: حط آراء حقيقية فقط. كل رأي: {text, name, city} أو {img:"img/review-1.webp", name, city} لسكرين شوت */
@@ -416,21 +482,37 @@ const TESTIMONIALS = [
   { text:"", name:"", city:"", product:"white" }
 ];
 const COLORS = { black:{name:"أسود",hex:"#141414"}, white:{name:"أبيض",hex:"#FFFFFF"}, mix:{name:"مشكّل",hex:"linear-gradient(90deg,#141414 50%,#fff 50%)"} };
+/* العروض: كل علبة 5 أزواج، وكل علبة معها علبة هدية */
+const OFFERS = [
+  { id:"1+1", paid:1, pairs:10, price:149, was:298 },
+  { id:"2+2", paid:2, pairs:20, price:298, was:596 },
+  { id:"3+3", paid:3, pairs:30, price:447, was:894 }
+];
+const BOX_OPTS = {
+  g: [["men","رجالي"],["women","حريمي"]],
+  c: [["black","أسود"],["white","أبيض"]],
+  l: [["long","طويل"],["mid","متوسط"]]
+};
+const optName = (k,v) => (BOX_OPTS[k].find(o => o[0]===v) || [,""])[1];
+/* الكروت: كل كارت بيفتح نفس الاختيار بإعدادات مختلفة */
 const PRODUCTS = [
-  { id:"black",  name:"شراب دودليزا · أسود",          sub:"علبة 5 أزواج + علبة هدية", price:149, was:298, tag:"1+1", colors:["black"],              imgs:["card-black-1","card-black-2"] },
-  { id:"white",  name:"شراب دودليزا · أبيض",          sub:"علبة 5 أزواج + علبة هدية", price:149, was:298, tag:"1+1", colors:["white"],              imgs:["card-white-1","card-white-2"] },
-  { id:"mix",    name:"علبة دودليزا المشكّلة",        sub:"أسود وأبيض · 10 أزواج",    price:149, was:298, tag:"1+1", colors:["mix","black","white"], imgs:["card-box-1","card-box-2"] },
-  { id:"family", name:"باكدج العائلة · 3 علب",        sub:"15 زوج",                    price:219, was:447, tag:"sale", colors:["mix","black","white"], imgs:["card-family-1","card-white-2"] }
+  { id:"black",  name:"شراب دودليزا · أسود",   sub:"علبة 5 أزواج + علبة هدية", offer:"1+1", colors:["black"],               preset:["black"],          imgs:["card-black-1","card-black-2","card-box-2","card-box-1"] },
+  { id:"white",  name:"شراب دودليزا · أبيض",   sub:"علبة 5 أزواج + علبة هدية", offer:"1+1", colors:["white"],               preset:["white"],          imgs:["card-white-1","card-white-2","card-box-1","card-box-2"] },
+  { id:"mix",    name:"علبة دودليزا المشكّلة", sub:"علبة أسود + علبة أبيض هدية", offer:"1+1", colors:["black","white"],       preset:["black","white"],  imgs:["card-box-1","card-box-2","card-black-1","card-white-1"] },
+  { id:"family", name:"عرض العائلة · 3+3",     sub:"30 زوج · 6 علب",            offer:"3+3", colors:["black","white"],       preset:["black","white"],  imgs:["card-family-1","card-white-2","card-black-1","card-box-2"] }
 ];
 
 /* ===== Helpers ===== */
 const $ = s => document.querySelector(s);
 const img = n => `img/${n}.webp`;
 const money = n => `${n} ${CONFIG.currency}`;
-const pct = p => Math.round((1 - p.price / p.was) * 100);
+const offerById = id => OFFERS.find(o => o.id === id);
+const pct = p => { const o = p.price ? p : offerById(p.offer); return Math.round((1 - o.price / o.was) * 100); };
+const priceOf = p => offerById(p.offer).price, wasOf = p => offerById(p.offer).was;
 const byId = id => PRODUCTS.find(p => p.id === id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const swatch = c => `<i style="background:${COLORS[c].hex}" title="${COLORS[c].name}"></i>`;
+const reduceMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ===== Countdown ===== */
 (function(){
@@ -446,6 +528,7 @@ const swatch = c => `<i style="background:${COLORS[c].hex}" title="${COLORS[c].n
     const h = Math.floor(t/3600); t -= h*3600;
     const m = Math.floor(t/60); const s = Math.floor(t - m*60);
     $("#cd-h").textContent = pad(h); $("#cd-m").textContent = pad(m); $("#cd-s").textContent = pad(s);
+    document.querySelectorAll("[data-cd]").forEach(c => { c.querySelector("[data-h]").textContent = pad(h); c.querySelector("[data-m]").textContent = pad(m); c.querySelector("[data-s]").textContent = pad(s); });
   }
   tick(); setInterval(tick, 1000);
 })();
@@ -454,7 +537,7 @@ const swatch = c => `<i style="background:${COLORS[c].hex}" title="${COLORS[c].n
 $("#grid").innerHTML = PRODUCTS.map(p => `
   <article class="card">
     <button class="card-media" data-qv="${p.id}" aria-label="عرض سريع: ${esc(p.name)}">
-      <span class="tag ${p.tag==="sale"?"sale":""}">${p.tag==="sale" ? "خصم " + pct(p) + "٪" : p.tag}</span>
+      <span class="tag">${p.offer}</span>
       <svg class="stamp" style="left:8px;top:8px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg>
       <img src="${img(p.imgs[0])}" alt="${esc(p.name)}" width="800" height="1000" loading="lazy">
       <img class="alt" src="${img(p.imgs[1])}" alt="" width="800" height="1000" loading="lazy">
@@ -462,7 +545,7 @@ $("#grid").innerHTML = PRODUCTS.map(p => `
     <div class="card-body">
       <h3 class="card-name">${esc(p.name)}</h3>
       <div class="card-sub">${esc(p.sub).replace("هدية",'<span class="hl">هدية</span>')}</div>
-      <div class="prices"><span class="now">${money(p.price)}</span><span class="was">${p.was}</span><span class="off">${pct(p)}%</span></div>
+      <div class="prices"><span class="now">${money(priceOf(p))}</span><span class="was">${wasOf(p)}</span><span class="off">${pct(p)}%</span></div>
       <div class="sw" aria-label="الألوان">${p.colors.map(swatch).join("")}</div>
     </div>
     <button class="btn btn-line" data-qv="${p.id}">إضافة +</button>
@@ -485,74 +568,114 @@ const revHTML = TESTIMONIALS.map(t => {
 $("#revs").innerHTML = revHTML + revHTML.replace(/<figure /g, '<figure aria-hidden="true" ');
 
 const fam = byId("family");
-$("#b-now").textContent = money(fam.price); $("#b-was").textContent = fam.was; $("#b-off").textContent = pct(fam) + "%";
+$("#b-now").textContent = money(priceOf(fam)); $("#b-was").textContent = wasOf(fam); $("#b-off").textContent = pct(fam) + "%";
 
 /* ===== Overlays ===== */
 let lastFocus = null;
 function openLayer(el){ lastFocus = document.activeElement; $("#scrim").hidden = false; el.hidden = false; document.body.style.overflow = "hidden"; const f = el.querySelector("button,[href],input"); f && f.focus(); }
 function closeLayer(el){ el.hidden = true; if ($("#qv").hidden && $("#drawer").hidden){ $("#scrim").hidden = true; document.body.style.overflow = ""; } lastFocus && lastFocus.focus && lastFocus.focus(); }
 document.addEventListener("click", e => {
-  const q = e.target.closest("[data-qv]"); if (q) openQV(q.dataset.qv);
+  const q = e.target.closest("[data-qv]"); if (q) { e.preventDefault(); openQV(q.dataset.qv); }
   const c = e.target.closest("[data-close]"); if (c) closeLayer(c.closest(".qv,.drawer"));
 });
 $("#scrim").addEventListener("click", () => { [$("#qv"), $("#drawer")].forEach(el => { if (!el.hidden) closeLayer(el); }); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") { if (!$("#qv").hidden) closeLayer($("#qv")); else if (!$("#drawer").hidden) closeLayer($("#drawer")); } });
 
-/* ===== Quick view ===== */
-const qv = { p:null, color:null, size:null, qty:1, img:0 };
-function openQV(id){
-  const p = byId(id); Object.assign(qv, { p, color:p.colors[0], size:null, qty:1, img:0 });
-  $("#qv-title").textContent = p.name; $("#qv-sub").innerHTML = esc(p.sub).replace("هدية",'<span class="hl">هدية</span>');
-  $("#qv-now").textContent = money(p.price); $("#qv-was").textContent = p.was; $("#qv-off").textContent = pct(p) + "%";
-  $("#qv-tag").textContent = p.tag === "sale" ? "خصم " + pct(p) + "٪" : p.tag; $("#qv-tag").className = "tag" + (p.tag==="sale" ? " sale" : "");
-  $("#qv-err").hidden = true; renderQV(); openLayer($("#qv"));
+/* ===== Product sheet ===== */
+const qv = { p:null, offer:"1+1", boxes:[], img:0 };
+const boxCount = o => offerById(o).paid * 2;
+function makeBoxes(p, n, keep){
+  const out = [];
+  for (let i = 0; i < n; i++) out.push((keep && keep[i]) || { g:"men", c:p.preset[i % p.preset.length], l:"long" });
+  return out;
+}
+function openQV(id, offer){
+  const p = byId(id);
+  qv.p = p; qv.offer = offer || p.offer; qv.img = 0; qv.boxes = makeBoxes(p, boxCount(qv.offer));
+  $("#qv-title").textContent = p.name;
+  renderQV(); openLayer($("#qv")); $("#qv .qv-scroll").scrollTop = 0;
 }
 function renderQV(){
-  const p = qv.p;
+  const p = qv.p, o = offerById(qv.offer);
   $("#qv-img").src = img(p.imgs[qv.img]); $("#qv-img").alt = p.name;
+  $("#qv-tag").textContent = o.id; $("#qv-tag").className = "tag";
+  $("#qv-now").textContent = money(o.price); $("#qv-was").textContent = o.was; $("#qv-off").textContent = pct(o) + "%";
+  $("#qv-total").textContent = money(o.price);
   $("#qv-thumbs").innerHTML = p.imgs.map((n,i) => `<button type="button" data-img="${i}" aria-label="صورة ${i+1}" aria-current="${i===qv.img}"><img src="${img(n)}" alt=""></button>`).join("");
-  $("#qv-colors").innerHTML = p.colors.map(c => `<button type="button" class="opt" data-color="${c}" aria-pressed="${c===qv.color}"><i style="background:${COLORS[c].hex}"></i>${COLORS[c].name}</button>`).join("");
-  $("#qv-sizes").innerHTML = CONFIG.sizes.map(s => `<button type="button" class="opt" data-size="${s}" aria-pressed="${s===qv.size}" dir="ltr">${s}</button>`).join("");
-  $("#qv-qty").textContent = qv.qty;
+  $("#qv-offers").innerHTML = OFFERS.map(x => `<button type="button" class="offer" role="radio" data-offer="${x.id}" aria-checked="${x.id===qv.offer}"><b>${x.id}</b><span>${x.pairs} زوج</span><s>بدل ${x.was}</s><strong>${money(x.price)}</strong></button>`).join("");
+  const half = o.paid;
+  $("#qv-boxes").innerHTML = qv.boxes.map((b,i) => `
+    <div class="box">
+      <div class="box-h"><span>علبة ${i+1}</span>${i >= half ? '<span class="gift-tag">هدية</span>' : ""}</div>
+      ${Object.keys(BOX_OPTS).map(k => `<div class="seg" role="group" aria-label="علبة ${i+1}">${BOX_OPTS[k].map(([v,t]) => `<button type="button" class="chip" data-box="${i}" data-k="${k}" data-v="${v}" aria-pressed="${b[k]===v}">${k==="c" ? `<i style="background:${COLORS[v].hex}"></i>` : ""}${t}</button>`).join("")}</div>`).join("")}
+    </div>`).join("") + (qv.boxes.length > 1 ? `<button type="button" class="same-all" id="same-all">نفس اختيار العلبة 1 لكل العلب</button>` : "");
 }
 $("#qv").addEventListener("click", e => {
-  const t = e.target.closest("[data-img],[data-color],[data-size]"); if (!t) return;
+  const t = e.target.closest("[data-img],[data-offer],[data-box],#same-all"); if (!t) return;
   if (t.dataset.img) qv.img = +t.dataset.img;
-  if (t.dataset.color) qv.color = t.dataset.color;
-  if (t.dataset.size) { qv.size = t.dataset.size; $("#qv-err").hidden = true; }
-  renderQV();
+  else if (t.dataset.offer) { qv.offer = t.dataset.offer; qv.boxes = makeBoxes(qv.p, boxCount(qv.offer), qv.boxes); }
+  else if (t.dataset.box) qv.boxes[+t.dataset.box][t.dataset.k] = t.dataset.v;
+  else if (t.id === "same-all") qv.boxes = qv.boxes.map(() => ({ ...qv.boxes[0] }));
+  const y = $("#qv .qv-scroll").scrollTop; renderQV(); $("#qv .qv-scroll").scrollTop = y;
 });
-$("#qv-plus").onclick = () => { qv.qty = Math.min(20, qv.qty + 1); renderQV(); };
-$("#qv-minus").onclick = () => { qv.qty = Math.max(1, qv.qty - 1); renderQV(); };
-function addFromQV(){
-  if (!qv.size) { $("#qv-err").hidden = false; $("#qv-sizes").scrollIntoView({block:"center", behavior:"smooth"}); return false; }
-  addToCart(qv.p.id, qv.color, qv.size, qv.qty); return true;
+function toast(msg){
+  document.querySelectorAll(".toast").forEach(t => t.remove());
+  const t = document.createElement("div"); t.className = "toast"; t.setAttribute("role","status");
+  t.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>${esc(msg)}`;
+  document.body.appendChild(t); setTimeout(() => t.remove(), 2200);
 }
-$("#qv-add").onclick = () => { if (addFromQV()) { closeLayer($("#qv")); openCart(); } };
-$("#qv-buy").onclick = () => { if (addFromQV()) { closeLayer($("#qv")); openCart(true); } };
-$("#add-bundle").onclick = () => openQV("family");
+function flyToCart(fromImg){
+  const badge = $("#cart-count");
+  const bump = () => { badge.classList.remove("bump"); void badge.offsetWidth; badge.classList.add("bump"); };
+  if (reduceMotion() || !fromImg) { bump(); return Promise.resolve(); }
+  const a = fromImg.getBoundingClientRect(), b = $("#open-cart").getBoundingClientRect();
+  const f = fromImg.cloneNode(); f.className = "fly"; f.removeAttribute("id");
+  Object.assign(f.style, { left:a.left+"px", top:a.top+"px", width:a.width+"px", height:a.height+"px" });
+  document.body.appendChild(f);
+  const dx = b.left + b.width/2 - (a.left + a.width/2), dy = b.top + b.height/2 - (a.top + a.height/2);
+  const anim = f.animate([{ transform:"translate(0,0) scale(1)", opacity:1 }, { transform:`translate(${dx}px,${dy}px) scale(.08)`, opacity:.6 }], { duration:650, easing:"cubic-bezier(.5,0,.75,0)" });
+  return anim.finished.then(() => { f.remove(); bump(); });
+}
+async function addFromQV(btn, then){
+  const label = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spin" aria-hidden="true"></span>';
+  addToCart(qv.offer, qv.boxes, qv.p.id);
+  await new Promise(r => setTimeout(r, 350));
+  btn.innerHTML = "تمت الإضافة ✓";
+  await flyToCart($("#qv-img"));
+  btn.innerHTML = label; btn.disabled = false;
+  closeLayer($("#qv")); toast(`تمت إضافة عرض ${qv.offer} للسلة`);
+  then();
+}
+$("#qv-add").onclick = e => addFromQV(e.currentTarget, () => openCart());
+$("#qv-buy").onclick = e => addFromQV(e.currentTarget, () => openCart(true));
+$("#add-bundle").onclick = () => openQV("family", "3+3");
 
 /* ===== Cart ===== */
-let cart = [];
-try { cart = JSON.parse(localStorage.getItem("dodo-cart") || "[]").filter(l => byId(l.id)); } catch(e) { cart = []; }
-const save = () => { try { localStorage.setItem("dodo-cart", JSON.stringify(cart)); } catch(e) {} };
-function addToCart(id, color, size, qty){
-  const l = cart.find(x => x.id===id && x.color===color && x.size===size);
-  if (l) l.qty = Math.min(20, l.qty + qty); else cart.push({ id, color, size, qty });
+let cart = [], couponOff = 0;
+try { cart = JSON.parse(localStorage.getItem("dodo-cart2") || "[]").filter(l => offerById(l.offer) && Array.isArray(l.boxes)); } catch(e) { cart = []; }
+const save = () => { try { localStorage.setItem("dodo-cart2", JSON.stringify(cart)); } catch(e) {} };
+const sig = (offer, boxes) => offer + "|" + boxes.map(b => b.g + b.c + b.l).join(",");
+function addToCart(offer, boxes, pid){
+  const key = sig(offer, boxes), l = cart.find(x => sig(x.offer, x.boxes) === key);
+  if (l) l.qty = Math.min(10, l.qty + 1); else cart.push({ offer, boxes: boxes.map(b => ({ ...b })), qty:1, pid });
   save(); renderCart();
 }
+const lineImg = l => { const c = l.boxes[0].c, p = byId(l.pid) || PRODUCTS[0]; return img(l.pid === "mix" || l.pid === "family" ? p.imgs[0] : (c === "white" ? "card-white-1" : "card-black-1")); };
 const totals = () => {
-  const sub = cart.reduce((a,l) => a + byId(l.id).price * l.qty, 0);
-  const was = cart.reduce((a,l) => a + byId(l.id).was * l.qty, 0);
-  return { sub, saving: was - sub, count: cart.reduce((a,l) => a + l.qty, 0) };
+  const sub = cart.reduce((a,l) => a + offerById(l.offer).price * l.qty, 0);
+  const was = cart.reduce((a,l) => a + offerById(l.offer).was * l.qty, 0);
+  const off = Math.min(couponOff, sub);
+  return { sub, off, saving: was - sub + off, count: cart.reduce((a,l) => a + l.qty, 0) };
 };
 function sumHTML(withFee){
   const t = totals(); const fee = withFee ? CONFIG.codFee : 0;
-  return `<div><span>المجموع</span><span>${money(t.sub)}</span></div>
+  return `<div><span>مجموع المنتجات</span><span>${money(t.sub)}</span></div>
+    ${t.off ? `<div><span>كوبون الخصم</span><span>−${money(t.off)}</span></div>` : ""}
     <div class="save"><span>وفّرت</span><span>${money(t.saving)}</span></div>
     ${withFee ? `<div><span>رسوم الدفع عند الاستلام</span><span>${money(fee)}</span></div>` : ""}
-    <div class="tot"><span>الإجمالي</span><span>${money(t.sub + fee)}</span></div>`;
+    <div class="tot"><span>الإجمالي</span><span>${money(t.sub - t.off + fee)}</span></div>`;
 }
+const boxLine = (b,i,paid) => `<li><b>علبة ${i+1}${i >= paid ? " (هدية)" : ""}:</b> ${optName("g",b.g)} · ${optName("c",b.c)} · ${optName("l",b.l)}</li>`;
 function renderCart(){
   const t = totals(); $("#cart-count").textContent = t.count;
   if (!cart.length) {
@@ -560,28 +683,40 @@ function renderCart(){
     $("#foot-cart").hidden = true; return;
   }
   $("#foot-cart").hidden = false;
-  $("#lines").innerHTML = cart.map((l,i) => { const p = byId(l.id); return `
+  $("#lines").innerHTML = cart.map((l,i) => { const o = offerById(l.offer); return `
     <div class="line-item">
-      <img src="${img(p.imgs[0])}" alt="">
+      <img src="${lineImg(l)}" alt="">
       <div>
-        <div class="li-name">${esc(p.name)}</div>
-        <div class="li-meta">${COLORS[l.color].name} · <span dir="ltr">${l.size}</span></div>
+        <div class="li-name">شراب دودليزا · عرض ${o.id}</div>
+        <div class="prices"><span class="was">${o.was}</span><span class="now" style="font-size:17px">${money(o.price)}</span></div>
+        <ul class="li-boxes">${l.boxes.map((b,j) => boxLine(b,j,o.paid)).join("")}</ul>
         <div class="li-row">
           <div class="qty"><button type="button" data-inc="${i}" aria-label="زيادة">+</button><output>${l.qty}</output><button type="button" data-dec="${i}" aria-label="نقص">−</button></div>
-          <span class="now" style="font-size:18px">${money(p.price * l.qty)}</span>
+          <span style="font-weight:800">المجموع: ${money(o.price * l.qty)}</span>
         </div>
-        <button class="rm" data-rm="${i}">حذف</button>
       </div>
+      <button class="rm-x" data-rm="${i}" aria-label="حذف"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span></button>
     </div>`; }).join("");
   $("#sum-cart").innerHTML = sumHTML(false);
   $("#sum-co").innerHTML = sumHTML(true);
+  $("#co-total").textContent = money(t.sub - t.off + CONFIG.codFee);
+  $("#co-thumbs").innerHTML = cart.slice(0,4).map(l => `<img src="${lineImg(l)}" alt="">`).join("");
 }
 $("#lines").addEventListener("click", e => {
   const b = e.target.closest("[data-inc],[data-dec],[data-rm]"); if (!b) return;
-  if (b.dataset.inc) cart[+b.dataset.inc].qty = Math.min(20, cart[+b.dataset.inc].qty + 1);
+  if (b.dataset.inc) cart[+b.dataset.inc].qty = Math.min(10, cart[+b.dataset.inc].qty + 1);
   if (b.dataset.dec) { const l = cart[+b.dataset.dec]; l.qty > 1 ? l.qty-- : cart.splice(+b.dataset.dec, 1); }
   if (b.dataset.rm) cart.splice(+b.dataset.rm, 1);
   save(); renderCart();
+});
+$("#coupon").addEventListener("submit", e => {
+  e.preventDefault();
+  const code = $("#f-coupon").value.trim().toUpperCase(), msg = $("#coupon-msg");
+  const v = CONFIG.coupons[code];
+  couponOff = v || 0; msg.hidden = !code;
+  msg.textContent = v ? `تم تطبيق الكوبون: خصم ${money(v)}` : "الكوبون غير صالح";
+  msg.style.color = v ? "var(--navy)" : "var(--danger)";
+  renderCart();
 });
 function showView(v){ ["cart","checkout","ok"].forEach(n => $("#view-"+n).hidden = n !== v); $("#foot-cart").hidden = v !== "cart" || !cart.length; $("#dr-title").textContent = v === "checkout" ? "إتمام الطلب" : v === "ok" ? "شكرًا لك" : "السلة"; }
 function openCart(checkout){ renderCart(); showView(checkout && cart.length ? "checkout" : "cart"); if ($("#drawer").hidden) openLayer($("#drawer")); }
@@ -603,12 +738,12 @@ $("#co").addEventListener("submit", async e => {
   if (!cart.length) { showView("cart"); return; }
   const t = totals(); const id = "DZ" + Date.now().toString().slice(-6);
   const order = { id, name:f.name.value.trim(), phone, city:f.city.value, address:f.address.value.trim(), payment:"COD",
-    items: cart.map(l => ({ product:byId(l.id).name, color:COLORS[l.color].name, size:l.size, qty:l.qty, price:byId(l.id).price })),
-    subtotal:t.sub, codFee:CONFIG.codFee, total:t.sub + CONFIG.codFee };
+    items: cart.map(l => ({ offer:l.offer, qty:l.qty, price:offerById(l.offer).price, boxes:l.boxes.map((b,j) => ({ box:j+1, gift:j >= offerById(l.offer).paid, gender:optName("g",b.g), color:optName("c",b.c), length:optName("l",b.l) })) })),
+    subtotal:t.sub, coupon:$("#f-coupon").value.trim() || null, discount:t.off, codFee:CONFIG.codFee, total:t.sub - t.off + CONFIG.codFee };
   $("#confirm").disabled = true;
   if (CONFIG.orderEndpoint) { try { await fetch(CONFIG.orderEndpoint, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(order) }); } catch(e) {} }
   $("#ok-id").textContent = id;
-  cart = []; save(); renderCart(); f.reset(); $("#confirm").disabled = false; showView("ok");
+  cart = []; couponOff = 0; save(); renderCart(); f.reset(); $("#confirm").disabled = false; showView("ok");
 });
 
 renderCart();
