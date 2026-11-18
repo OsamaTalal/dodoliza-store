@@ -1,0 +1,534 @@
+<title>متجر دودليزا</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="شرابات دودليزا المصممة لمرضى السكري. عرض 1+1: علبتين (10 أزواج) بـ 149 ر.س. الدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap">
+<style>
+/* Layout: Zyros-style single sales page — offer bar → split hero → product grid (heart of page) → bundle → trust → drawer cart + checkout */
+:root{
+  color-scheme:light;
+  --navy:#0B1F37; --navy-2:#16304F; --white:#FFFFFF; --studio:#F3F1EE; --line:#E5E2DC;
+  --ink:#1F1E1D; --muted:#5E5A55; --sale:#B42C46; --sale-tint:#FBEAED; --gold:#9A7B3F; --gold-soft:#D8C49A;
+  --wa:#1F8F4E; --pink:#F48FA5; --pink-ink:#C2365A;
+  --font:"Cairo",system-ui,"Segoe UI",Tahoma,sans-serif;
+  --gutter-l:max(16px,env(safe-area-inset-left,0px)); --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --radius:2px; --wrap:1240px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;font-family:var(--font);font-size:18px;line-height:1.6;color:var(--ink);background:var(--white);direction:rtl}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border:2px solid var(--navy);border-radius:var(--radius);font-weight:800;font-size:19px;text-decoration:none;transition:background .2s,color .2s}
+.btn-navy{background:var(--navy);color:var(--white)}
+.btn-navy:hover{background:var(--navy-2)}
+.btn-line{background:var(--white);color:var(--navy)}
+.btn-line:hover{background:var(--studio)}
+.btn-white{background:var(--white);color:var(--navy);border-color:var(--white)}
+.btn-block{width:100%}
+
+/* Top offer bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);color:var(--white)}
+.topbar .wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding-block:8px;font-weight:700;font-size:16px;text-align:center}
+.cd{display:inline-flex;gap:6px;direction:ltr;font-variant-numeric:tabular-nums}
+.cd span{background:var(--white);color:var(--navy);min-width:38px;padding:2px 6px;border-radius:var(--radius);font-weight:900;text-align:center}
+.cd small{display:block;font-size:10px;font-weight:700;color:var(--muted);line-height:1}
+
+/* Header */
+.head{border-bottom:1px solid var(--line);background:var(--white)}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px}
+.logo img{height:34px;width:auto}
+.cart-btn{position:relative;display:grid;place-items:center;width:52px;height:52px;border:0;background:none;color:var(--navy)}
+.cart-btn b{position:absolute;top:4px;left:2px;min-width:22px;height:22px;border-radius:11px;background:var(--sale);color:var(--white);font-size:13px;display:grid;place-items:center;padding:0 5px}
+
+/* Hero */
+.hero{display:grid;background:var(--navy);color:var(--white)}
+.hero-img{aspect-ratio:4/3;overflow:hidden;max-width:100%}
+.hero-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.hero-copy{padding-block:30px 36px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);text-align:center;display:grid;justify-items:center;gap:6px}
+.kicker{color:var(--gold-soft);font-weight:700;font-size:18px}
+.bogo{display:flex;align-items:flex-end;gap:12px;line-height:.9}
+.bogo .n{font-size:clamp(84px,22vw,150px);font-weight:900;letter-spacing:-.02em;direction:ltr}
+.bogo .w{font-size:clamp(30px,7vw,46px);font-weight:900;padding-bottom:.25em}
+.hero-logo{display:none;height:34px;width:auto;margin-bottom:10px}
+.hero-price{font-size:19px;font-weight:600}
+.hero-price b{font-size:26px}
+.hero-price s{opacity:.75}
+.hero .btn{margin-top:16px;min-width:min(100%,340px)}
+@media (min-width:900px){
+  .hero{grid-template-columns:1fr 1fr;min-height:540px}
+  .hero-img{aspect-ratio:auto;order:2}
+  .hero-logo{display:block}
+  .hero-copy{text-align:right;justify-items:start;align-content:center;padding-right:max(64px,env(safe-area-inset-right,0px));padding-left:48px}
+}
+
+/* Offer tiles */
+.tiles{display:grid;gap:12px;padding-block:20px 0}
+.tiles a{display:block;border:1px solid var(--line);overflow:hidden}
+.tiles img{width:100%;height:auto;aspect-ratio:12/5;object-fit:cover;transition:transform .4s}
+.tiles a:hover img{transform:scale(1.02)}
+@media (min-width:760px){.tiles{grid-template-columns:1fr 1fr}}
+
+/* Section heading */
+.sec{padding-block:40px 8px}
+.sec-h{display:flex;align-items:center;gap:12px;margin:0 0 20px;font-size:24px;font-weight:900;color:var(--navy)}
+.sec-h::before{content:"";width:4px;height:28px;background:var(--navy)}
+
+/* Product grid */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}
+@media (min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 20px}}
+.card{display:flex;flex-direction:column;min-width:0}
+.card-media{position:relative;display:block;width:100%;aspect-ratio:4/5;padding:0;border:0;background:var(--studio);overflow:hidden}
+.card-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.card-media img.alt{opacity:0}
+@media (hover:hover){.card-media:hover img.alt,.card-media:focus-visible img.alt{opacity:1}}
+.tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--navy);color:var(--white);font-weight:900;font-size:15px;padding:3px 10px;border-radius:var(--radius);direction:ltr}
+.tag.sale{background:var(--sale)}
+.card-body{display:grid;gap:4px;padding-top:12px;flex:1}
+.card-name{margin:0;font-size:17px;font-weight:800;line-height:1.4;color:var(--ink)}
+.card-sub{font-size:15px;color:var(--muted)}
+.prices{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.now{font-size:20px;font-weight:900;color:var(--sale);font-variant-numeric:tabular-nums}
+.was{font-size:16px;color:var(--muted);text-decoration:line-through;font-variant-numeric:tabular-nums}
+.off{background:var(--sale-tint);color:var(--sale);font-weight:800;font-size:14px;padding:1px 8px}
+.sw{display:flex;gap:8px;margin-top:4px}
+.sw i{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);box-shadow:inset 0 0 0 2px var(--white)}
+.card .btn{margin-top:12px;min-height:50px;font-size:17px;padding:0 12px}
+
+/* Bundle banner */
+.bundle{margin-top:40px;display:grid;background:var(--studio);border:1px solid var(--line)}
+.bundle-img{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden}
+.bundle-img img{position:absolute;filter:drop-shadow(0 16px 20px rgba(11,31,55,.22))}
+.bundle-copy{padding:28px var(--gutter-r) 32px var(--gutter-l);display:grid;gap:6px;justify-items:start;background:var(--white)}
+.bundle-copy .kicker{color:var(--gold)}
+.bundle-copy h2{margin:0;font-size:clamp(34px,7vw,52px);font-weight:900;color:var(--navy);line-height:1.15}
+.bundle-copy .btn{margin-top:12px}
+@media (min-width:900px){.bundle{grid-template-columns:1fr 1fr}.bundle-img{aspect-ratio:16/10;align-self:center}.bundle-copy{align-content:center;padding:40px 64px}}
+
+/* Trust */
+.trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-block:40px}
+.trust div{background:var(--white);display:grid;justify-items:center;gap:8px;padding:22px 8px;text-align:center;font-weight:800;color:var(--navy);font-size:17px}
+@media (min-width:760px){.trust{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* Footer */
+.foot{background:var(--navy);color:var(--white)}
+.foot .wrap{display:grid;gap:10px;justify-items:center;text-align:center;padding-block:32px 96px;font-size:16px}
+.foot img{height:30px;width:auto}
+.foot p{margin:0;opacity:.85}
+
+/* WhatsApp float */
+.wa{position:fixed;z-index:40;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:var(--wa);color:var(--white);display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+/* Overlay shared */
+.scrim{position:fixed;inset:0;z-index:70;background:rgba(11,31,55,.55)}
+
+/* Quick view */
+.qv{position:fixed;z-index:80;inset:0;background:var(--white);display:flex;flex-direction:column;overflow:hidden}
+.qv-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;padding-top:env(safe-area-inset-top,0px)}
+.qv-top{display:flex;justify-content:space-between;align-items:center;padding:8px var(--gutter-r) 8px var(--gutter-l);border-bottom:1px solid var(--line)}
+.x{width:48px;height:48px;border:0;background:none;display:grid;place-items:center;color:var(--navy)}
+.qv-grid{display:grid}
+.gal-main{position:relative;aspect-ratio:4/5;background:var(--studio);max-width:100%}
+.gal-main img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:8px;padding:10px var(--gutter-r) 0 var(--gutter-l)}
+.thumbs button{width:72px;aspect-ratio:4/5;padding:0;border:2px solid transparent;background:var(--studio)}
+.thumbs button[aria-current="true"]{border-color:var(--navy)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.qv-info{padding:18px var(--gutter-r) 24px var(--gutter-l);display:grid;gap:18px;align-content:start}
+.qv-info h2{margin:0;font-size:24px;font-weight:900;color:var(--navy);line-height:1.35}
+.qv-info .now{font-size:28px}
+.opt-label{font-weight:800;font-size:17px;margin-bottom:8px;color:var(--navy)}
+.opts{display:flex;gap:10px;flex-wrap:wrap}
+.opt{min-height:56px;min-width:84px;padding:0 16px;border:2px solid var(--line);background:var(--white);border-radius:var(--radius);font-weight:800;font-size:18px;display:inline-flex;align-items:center;gap:8px}
+.opt[aria-pressed="true"]{border-color:var(--navy);background:var(--navy);color:var(--white)}
+.opt i{width:20px;height:20px;border-radius:50%;border:1px solid var(--line)}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--line);border-radius:var(--radius)}
+.qty button{width:56px;height:52px;border:0;background:none;font-size:24px;font-weight:800;color:var(--navy)}
+.qty output{min-width:44px;text-align:center;font-weight:900;font-size:20px;font-variant-numeric:tabular-nums}
+.qv-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px var(--gutter-r) calc(12px + env(safe-area-inset-bottom,0px)) var(--gutter-l);border-top:1px solid var(--line);background:var(--white)}
+.qv-bar .btn{padding:0 10px}
+.err{color:var(--sale);font-weight:700;font-size:16px;margin:0}
+@media (min-width:900px){
+  .qv{inset:4vh auto 4vh 50%;transform:translateX(-50%);width:min(1040px,94vw);border-radius:var(--radius)}
+  .qv-grid{grid-template-columns:1fr 1fr}
+  .qv-bar{grid-template-columns:1fr 1fr;padding-inline:32px}
+  .qv-info{padding:28px 32px}
+}
+
+/* Drawer */
+.drawer{position:fixed;z-index:90;top:0;bottom:0;right:0;width:min(440px,100%);background:var(--white);display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.18);padding-top:env(safe-area-inset-top,0px);padding-right:env(safe-area-inset-right,0px)}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:8px 16px;border-bottom:1px solid var(--line)}
+.dr-head h2{margin:0;font-size:21px;font-weight:900;color:var(--navy)}
+.dr-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:16px}
+.dr-foot{border-top:1px solid var(--line);padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));display:grid;gap:10px}
+.line-item{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;padding-block:12px;border-bottom:1px solid var(--line)}
+.line-item img{width:84px;aspect-ratio:4/5;object-fit:cover;background:var(--studio)}
+.li-name{font-weight:800;font-size:16px;line-height:1.4}
+.li-meta{font-size:15px;color:var(--muted)}
+.li-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px}
+.li-row .qty button{width:42px;height:42px;font-size:20px}
+.rm{border:0;background:none;color:var(--muted);text-decoration:underline;font-size:15px;min-height:44px}
+.sum{display:grid;gap:4px;font-size:17px}
+.sum div{display:flex;justify-content:space-between}
+.sum .save{color:var(--sale);font-weight:800}
+.sum .tot{font-size:21px;font-weight:900;color:var(--navy);border-top:1px solid var(--line);padding-top:8px;margin-top:4px}
+.empty{text-align:center;color:var(--muted);padding-block:40px;display:grid;gap:14px;justify-items:center}
+.form{display:grid;gap:14px}
+.field{display:grid;gap:6px}
+.field label{font-weight:800;font-size:16px;color:var(--navy)}
+.field input,.field select,.field textarea{min-height:54px;border:2px solid var(--line);border-radius:var(--radius);padding:10px 14px;font-size:18px;background:var(--white)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy);outline:none}
+.field [aria-invalid="true"]{border-color:var(--sale)}
+.pay{display:flex;align-items:center;gap:12px;border:2px solid var(--navy);padding:12px 14px;font-weight:800;border-radius:var(--radius)}
+.pay input{width:22px;height:22px;accent-color:var(--navy)}
+.ok{text-align:center;display:grid;gap:12px;justify-items:center;padding-top:20px}
+.ok h3{margin:0;font-size:24px;color:var(--navy)}
+.ok .num-txt{font-weight:900;direction:ltr}
+.hl{color:var(--pink-ink);font-weight:900}
+.hero .hl,.topbar .hl{color:var(--pink)}
+.back{border:0;background:none;color:var(--navy);font-weight:800;min-height:44px;text-decoration:underline}
+</style>
+
+<div class="topbar" role="region" aria-label="العرض">
+  <div class="wrap">
+    <span>عرض <span class="hl" dir="ltr">1+1</span> لفترة محدودة</span>
+    <span class="cd" id="cd" aria-live="off">
+      <span><span id="cd-d">00</span><small>يوم</small></span>
+      <span><span id="cd-h">00</span><small>ساعة</small></span>
+      <span><span id="cd-m">00</span><small>دقيقة</small></span>
+      <span><span id="cd-s">00</span><small>ثانية</small></span>
+    </span>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="دودليزا"><img src="img/logo-rose.webp" alt="DODOLIZA" width="160" height="65"></a>
+    <button class="cart-btn" id="open-cart" aria-label="السلة">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <b id="cart-count">0</b>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="العرض الرئيسي">
+    <div class="hero-img"><img src="img/black-lifestyle.webp" alt="شراب دودليزا الأسود على القدم" width="720" height="720"></div>
+    <div class="hero-copy">
+      <img class="hero-logo" src="img/logo-white.webp" alt="" width="140" height="56">
+      <div class="kicker">شرابات مصممة خصيصًا <span class="hl">لمرضى السكري</span></div>
+      <div class="bogo"><span class="n">1+1</span><span class="w hl">مجانًا</span></div>
+      <div class="hero-price"><b class="hl">10 أزواج</b> بـ <b class="hl">149</b> ر.س<br>بدلًا من <s>298</s> ر.س</div>
+      <a class="btn btn-white" href="#products">تسوّق الآن</a>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="tiles">
+      <a href="#products" aria-label="عرض 1+1 مجانًا — تسوّق الآن"><img src="img/offer-1plus1.webp" alt="1+1 مجانًا: اشترِ علبة والثانية علينا" width="1200" height="500" loading="lazy"></a>
+      <a href="#products" aria-label="خصم يصل إلى 50% — اطلب الحين"><img src="img/offer-50off.webp" alt="خصم يصل إلى 50%" width="1200" height="500" loading="lazy"></a>
+    </div>
+
+    <section class="sec" id="products" aria-labelledby="p-h">
+      <h2 class="sec-h" id="p-h">الأكثر طلبًا</h2>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="bundle" aria-labelledby="b-h">
+      <div class="bundle-img">
+        <img src="img/box-white.webp" alt="" style="right:6%;top:10%;width:48%">
+        <img src="img/box-white.webp" alt="" style="left:6%;top:16%;width:48%">
+        <img src="img/box-open.webp" alt="علب شراب دودليزا" style="left:50%;bottom:6%;width:68%;transform:translateX(-50%)">
+      </div>
+      <div class="bundle-copy">
+        <div class="kicker">باكدج العائلة</div>
+        <h2 id="b-h">3 علب <span class="hl">بسعر 2</span></h2>
+        <div class="card-sub">15 زوج</div>
+        <div class="prices"><span class="now" id="b-now"></span><span class="was" id="b-was"></span><span class="off" id="b-off"></span></div>
+        <button class="btn btn-navy" id="add-bundle">أضف الباكدج</button>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="مميزات الشراء">
+      <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>توصيل سريع</div>
+      <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1.5"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9h.01M18 15h.01"/></svg>الدفع عند الاستلام</div>
+      <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg>استرجاع سهل</div>
+      <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>دفع آمن</div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="img/logo-white.webp" alt="DODOLIZA" width="140" height="56">
+    <p>واتساب: <span id="wa-num-text"></span></p>
+    <p>© دودليزا 2026</p>
+  </div>
+</footer>
+
+<a class="wa" id="wa-float" href="#" target="_blank" rel="noopener" aria-label="تواصل معنا على واتساب">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
+</a>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<div class="qv" id="qv" role="dialog" aria-modal="true" aria-labelledby="qv-title" hidden>
+  <div class="qv-scroll">
+    <div class="qv-top"><span class="kicker" style="color:var(--gold)">عرض سريع</span><button class="x" data-close aria-label="إغلاق"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="qv-grid">
+      <div>
+        <div class="gal-main"><span class="tag" id="qv-tag"></span><img id="qv-img" src="" alt=""></div>
+        <div class="thumbs" id="qv-thumbs"></div>
+      </div>
+      <div class="qv-info">
+        <div><h2 id="qv-title"></h2><div class="card-sub" id="qv-sub"></div></div>
+        <div class="prices"><span class="now" id="qv-now"></span><span class="was" id="qv-was"></span><span class="off" id="qv-off"></span></div>
+        <div><div class="opt-label">اللون</div><div class="opts" id="qv-colors"></div></div>
+        <div><div class="opt-label">المقاس</div><div class="opts" id="qv-sizes"></div></div>
+        <div><div class="opt-label">الكمية</div><div class="qty"><button type="button" id="qv-plus" aria-label="زيادة">+</button><output id="qv-qty">1</output><button type="button" id="qv-minus" aria-label="نقص">−</button></div></div>
+        <p class="err" id="qv-err" hidden>اختر المقاس</p>
+      </div>
+    </div>
+  </div>
+  <div class="qv-bar">
+    <button class="btn btn-line" id="qv-add">أضف للسلة</button>
+    <button class="btn btn-navy" id="qv-buy">اشتري الآن</button>
+  </div>
+</div>
+
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" hidden>
+  <div class="dr-head"><h2 id="dr-title">السلة</h2><button class="x" data-close aria-label="إغلاق"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+
+  <div class="dr-body" id="view-cart"><div id="lines"></div></div>
+  <div class="dr-foot" id="foot-cart">
+    <div class="sum" id="sum-cart"></div>
+    <button class="btn btn-navy btn-block" id="to-checkout">إتمام الطلب</button>
+  </div>
+
+  <div class="dr-body" id="view-checkout" hidden>
+    <button class="back" id="back-cart">رجوع للسلة</button>
+    <form class="form" id="co" novalidate>
+      <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-phone">رقم الجوال</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" required></div>
+      <div class="field"><label for="f-city">المدينة</label>
+        <select id="f-city" name="city" required><option value="">اختر المدينة</option></select></div>
+      <div class="field"><label for="f-addr">العنوان</label><textarea id="f-addr" name="address" rows="2" autocomplete="street-address" placeholder="الحي، الشارع" required></textarea></div>
+      <label class="pay"><input type="radio" name="pay" value="cod" checked> الدفع عند الاستلام</label>
+      <div class="sum" id="sum-co"></div>
+      <p class="err" id="co-err" hidden></p>
+      <button class="btn btn-navy btn-block" type="submit" id="confirm">تأكيد الطلب</button>
+    </form>
+  </div>
+
+  <div class="dr-body" id="view-ok" hidden>
+    <div class="ok">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+      <h3>تم استلام طلبك</h3>
+      <p>رقم الطلب <span class="num-txt" id="ok-id"></span>. بنتواصل معك على جوالك لتأكيد التوصيل.</p>
+      <a class="btn btn-line" id="ok-wa" href="#" target="_blank" rel="noopener">أرسل الطلب على واتساب</a>
+      <button class="back" id="ok-close">رجوع للمتجر</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+/* ===== Editable placeholders ===== */
+const CONFIG = {
+  currency: "ر.س",
+  codFee: 10,                                  // رسوم الدفع عند الاستلام
+  offerEnd: "2026-11-30T23:59:59+03:00",       // نهاية العرض للعداد
+  whatsapp: "966500000000",                    // رقم الواتساب
+  orderEndpoint: "",                           // رابط API لاستقبال الطلبات (يحطه المبرمج)
+  sizes: ["36–39", "40–43", "44–46"],
+  cities: ["الرياض","جدة","مكة المكرمة","المدينة المنورة","الدمام","الخبر","الطائف","تبوك","بريدة","أبها","خميس مشيط","حائل","جازان","نجران","أخرى"]
+};
+const COLORS = { black:{name:"أسود",hex:"#141414"}, white:{name:"أبيض",hex:"#FFFFFF"}, mix:{name:"مشكّل",hex:"linear-gradient(90deg,#141414 50%,#fff 50%)"} };
+const PRODUCTS = [
+  { id:"black",  name:"شراب دودليزا · أسود",          sub:"علبة 5 أزواج + علبة هدية", price:149, was:298, tag:"1+1", colors:["black"],              imgs:["card-black-1","card-black-2"] },
+  { id:"white",  name:"شراب دودليزا · أبيض",          sub:"علبة 5 أزواج + علبة هدية", price:149, was:298, tag:"1+1", colors:["white"],              imgs:["card-white-1","card-white-2"] },
+  { id:"mix",    name:"علبة دودليزا المشكّلة",        sub:"أسود وأبيض · 10 أزواج",    price:149, was:298, tag:"1+1", colors:["mix","black","white"], imgs:["card-box-1","card-box-2"] },
+  { id:"family", name:"باكدج العائلة · 3 علب",        sub:"15 زوج",                    price:219, was:447, tag:"sale", colors:["mix","black","white"], imgs:["card-family-1","card-white-2"] }
+];
+
+/* ===== Helpers ===== */
+const $ = s => document.querySelector(s);
+const img = n => `img/${n}.webp`;
+const money = n => `${n} ${CONFIG.currency}`;
+const pct = p => Math.round((1 - p.price / p.was) * 100);
+const byId = id => PRODUCTS.find(p => p.id === id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const swatch = c => `<i style="background:${COLORS[c].hex}" title="${COLORS[c].name}"></i>`;
+
+/* ===== Countdown ===== */
+(function(){
+  const end = new Date(CONFIG.offerEnd).getTime();
+  const pad = n => String(n).padStart(2,"0");
+  function tick(){
+    let t = Math.max(0, end - Date.now()) / 1000;
+    const d = Math.floor(t/86400); t -= d*86400;
+    const h = Math.floor(t/3600); t -= h*3600;
+    const m = Math.floor(t/60); const s = Math.floor(t - m*60);
+    $("#cd-d").textContent = pad(d); $("#cd-h").textContent = pad(h); $("#cd-m").textContent = pad(m); $("#cd-s").textContent = pad(s);
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ===== Grid ===== */
+$("#grid").innerHTML = PRODUCTS.map(p => `
+  <article class="card">
+    <button class="card-media" data-qv="${p.id}" aria-label="عرض سريع: ${esc(p.name)}">
+      <span class="tag ${p.tag==="sale"?"sale":""}">${p.tag==="sale" ? "خصم " + pct(p) + "%" : p.tag}</span>
+      <img src="${img(p.imgs[0])}" alt="${esc(p.name)}" width="800" height="1000" loading="lazy">
+      <img class="alt" src="${img(p.imgs[1])}" alt="" width="800" height="1000" loading="lazy">
+    </button>
+    <div class="card-body">
+      <h3 class="card-name">${esc(p.name)}</h3>
+      <div class="card-sub">${esc(p.sub).replace("هدية",'<span class="hl">هدية</span>')}</div>
+      <div class="prices"><span class="now">${money(p.price)}</span><span class="was">${p.was}</span><span class="off">${pct(p)}%</span></div>
+      <div class="sw" aria-label="الألوان">${p.colors.map(swatch).join("")}</div>
+    </div>
+    <button class="btn btn-line" data-qv="${p.id}">إضافة +</button>
+  </article>`).join("");
+
+const fam = byId("family");
+$("#b-now").textContent = money(fam.price); $("#b-was").textContent = fam.was; $("#b-off").textContent = pct(fam) + "%";
+
+/* ===== Overlays ===== */
+let lastFocus = null;
+function openLayer(el){ lastFocus = document.activeElement; $("#scrim").hidden = false; el.hidden = false; document.body.style.overflow = "hidden"; const f = el.querySelector("button,[href],input"); f && f.focus(); }
+function closeLayer(el){ el.hidden = true; if ($("#qv").hidden && $("#drawer").hidden){ $("#scrim").hidden = true; document.body.style.overflow = ""; } lastFocus && lastFocus.focus && lastFocus.focus(); }
+document.addEventListener("click", e => {
+  const q = e.target.closest("[data-qv]"); if (q) openQV(q.dataset.qv);
+  const c = e.target.closest("[data-close]"); if (c) closeLayer(c.closest(".qv,.drawer"));
+});
+$("#scrim").addEventListener("click", () => { [$("#qv"), $("#drawer")].forEach(el => { if (!el.hidden) closeLayer(el); }); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") { if (!$("#qv").hidden) closeLayer($("#qv")); else if (!$("#drawer").hidden) closeLayer($("#drawer")); } });
+
+/* ===== Quick view ===== */
+const qv = { p:null, color:null, size:null, qty:1, img:0 };
+function openQV(id){
+  const p = byId(id); Object.assign(qv, { p, color:p.colors[0], size:null, qty:1, img:0 });
+  $("#qv-title").textContent = p.name; $("#qv-sub").innerHTML = esc(p.sub).replace("هدية",'<span class="hl">هدية</span>');
+  $("#qv-now").textContent = money(p.price); $("#qv-was").textContent = p.was; $("#qv-off").textContent = pct(p) + "%";
+  $("#qv-tag").textContent = p.tag === "sale" ? "خصم " + pct(p) + "%" : p.tag; $("#qv-tag").className = "tag" + (p.tag==="sale" ? " sale" : "");
+  $("#qv-err").hidden = true; renderQV(); openLayer($("#qv"));
+}
+function renderQV(){
+  const p = qv.p;
+  $("#qv-img").src = img(p.imgs[qv.img]); $("#qv-img").alt = p.name;
+  $("#qv-thumbs").innerHTML = p.imgs.map((n,i) => `<button type="button" data-img="${i}" aria-label="صورة ${i+1}" aria-current="${i===qv.img}"><img src="${img(n)}" alt=""></button>`).join("");
+  $("#qv-colors").innerHTML = p.colors.map(c => `<button type="button" class="opt" data-color="${c}" aria-pressed="${c===qv.color}"><i style="background:${COLORS[c].hex}"></i>${COLORS[c].name}</button>`).join("");
+  $("#qv-sizes").innerHTML = CONFIG.sizes.map(s => `<button type="button" class="opt" data-size="${s}" aria-pressed="${s===qv.size}" dir="ltr">${s}</button>`).join("");
+  $("#qv-qty").textContent = qv.qty;
+}
+$("#qv").addEventListener("click", e => {
+  const t = e.target.closest("[data-img],[data-color],[data-size]"); if (!t) return;
+  if (t.dataset.img) qv.img = +t.dataset.img;
+  if (t.dataset.color) qv.color = t.dataset.color;
+  if (t.dataset.size) { qv.size = t.dataset.size; $("#qv-err").hidden = true; }
+  renderQV();
+});
+$("#qv-plus").onclick = () => { qv.qty = Math.min(20, qv.qty + 1); renderQV(); };
+$("#qv-minus").onclick = () => { qv.qty = Math.max(1, qv.qty - 1); renderQV(); };
+function addFromQV(){
+  if (!qv.size) { $("#qv-err").hidden = false; $("#qv-sizes").scrollIntoView({block:"center", behavior:"smooth"}); return false; }
+  addToCart(qv.p.id, qv.color, qv.size, qv.qty); return true;
+}
+$("#qv-add").onclick = () => { if (addFromQV()) { closeLayer($("#qv")); openCart(); } };
+$("#qv-buy").onclick = () => { if (addFromQV()) { closeLayer($("#qv")); openCart(true); } };
+$("#add-bundle").onclick = () => openQV("family");
+
+/* ===== Cart ===== */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("dodo-cart") || "[]").filter(l => byId(l.id)); } catch(e) { cart = []; }
+const save = () => { try { localStorage.setItem("dodo-cart", JSON.stringify(cart)); } catch(e) {} };
+function addToCart(id, color, size, qty){
+  const l = cart.find(x => x.id===id && x.color===color && x.size===size);
+  if (l) l.qty = Math.min(20, l.qty + qty); else cart.push({ id, color, size, qty });
+  save(); renderCart();
+}
+const totals = () => {
+  const sub = cart.reduce((a,l) => a + byId(l.id).price * l.qty, 0);
+  const was = cart.reduce((a,l) => a + byId(l.id).was * l.qty, 0);
+  return { sub, saving: was - sub, count: cart.reduce((a,l) => a + l.qty, 0) };
+};
+function sumHTML(withFee){
+  const t = totals(); const fee = withFee ? CONFIG.codFee : 0;
+  return `<div><span>المجموع</span><span>${money(t.sub)}</span></div>
+    <div class="save"><span>وفّرت</span><span>${money(t.saving)}</span></div>
+    ${withFee ? `<div><span>رسوم الدفع عند الاستلام</span><span>${money(fee)}</span></div>` : ""}
+    <div class="tot"><span>الإجمالي</span><span>${money(t.sub + fee)}</span></div>`;
+}
+function renderCart(){
+  const t = totals(); $("#cart-count").textContent = t.count;
+  if (!cart.length) {
+    $("#lines").innerHTML = `<div class="empty"><p>السلة فاضية</p><a class="btn btn-navy" href="#products" data-close>تسوّق الآن</a></div>`;
+    $("#foot-cart").hidden = true; return;
+  }
+  $("#foot-cart").hidden = false;
+  $("#lines").innerHTML = cart.map((l,i) => { const p = byId(l.id); return `
+    <div class="line-item">
+      <img src="${img(p.imgs[0])}" alt="">
+      <div>
+        <div class="li-name">${esc(p.name)}</div>
+        <div class="li-meta">${COLORS[l.color].name} · <span dir="ltr">${l.size}</span></div>
+        <div class="li-row">
+          <div class="qty"><button type="button" data-inc="${i}" aria-label="زيادة">+</button><output>${l.qty}</output><button type="button" data-dec="${i}" aria-label="نقص">−</button></div>
+          <span class="now" style="font-size:18px">${money(p.price * l.qty)}</span>
+        </div>
+        <button class="rm" data-rm="${i}">حذف</button>
+      </div>
+    </div>`; }).join("");
+  $("#sum-cart").innerHTML = sumHTML(false);
+  $("#sum-co").innerHTML = sumHTML(true);
+}
+$("#lines").addEventListener("click", e => {
+  const b = e.target.closest("[data-inc],[data-dec],[data-rm]"); if (!b) return;
+  if (b.dataset.inc) cart[+b.dataset.inc].qty = Math.min(20, cart[+b.dataset.inc].qty + 1);
+  if (b.dataset.dec) { const l = cart[+b.dataset.dec]; l.qty > 1 ? l.qty-- : cart.splice(+b.dataset.dec, 1); }
+  if (b.dataset.rm) cart.splice(+b.dataset.rm, 1);
+  save(); renderCart();
+});
+function showView(v){ ["cart","checkout","ok"].forEach(n => $("#view-"+n).hidden = n !== v); $("#foot-cart").hidden = v !== "cart" || !cart.length; $("#dr-title").textContent = v === "checkout" ? "إتمام الطلب" : v === "ok" ? "شكرًا لك" : "السلة"; }
+function openCart(checkout){ renderCart(); showView(checkout && cart.length ? "checkout" : "cart"); if ($("#drawer").hidden) openLayer($("#drawer")); }
+$("#open-cart").onclick = () => openCart();
+$("#to-checkout").onclick = () => showView("checkout");
+$("#back-cart").onclick = () => showView("cart");
+$("#ok-close").onclick = () => closeLayer($("#drawer"));
+
+/* ===== Checkout ===== */
+$("#f-city").insertAdjacentHTML("beforeend", CONFIG.cities.map(c => `<option>${c}</option>`).join(""));
+const waLink = text => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
+$("#wa-float").href = waLink("السلام عليكم، عندي استفسار عن شرابات دودليزا");
+$("#wa-num-text").textContent = "+" + CONFIG.whatsapp;
+$("#co").addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = e.target, err = $("#co-err"); err.hidden = true;
+  const phone = f.phone.value.replace(/\D/g,"").replace(/^966/,"0");
+  const checks = [[f.name, f.name.value.trim().length >= 2], [f.phone, /^05\d{8}$/.test(phone)], [f.city, !!f.city.value], [f.address, f.address.value.trim().length >= 4]];
+  checks.forEach(([el, ok]) => el.setAttribute("aria-invalid", !ok));
+  const bad = checks.find(([, ok]) => !ok);
+  if (bad) { err.textContent = bad[0] === f.phone ? "اكتب رقم جوال صحيح يبدأ بـ 05" : "كمّل البيانات المطلوبة"; err.hidden = false; bad[0].focus(); return; }
+  if (!cart.length) { showView("cart"); return; }
+  const t = totals(); const id = "DZ" + Date.now().toString().slice(-6);
+  const order = { id, name:f.name.value.trim(), phone, city:f.city.value, address:f.address.value.trim(), payment:"COD",
+    items: cart.map(l => ({ product:byId(l.id).name, color:COLORS[l.color].name, size:l.size, qty:l.qty, price:byId(l.id).price })),
+    subtotal:t.sub, codFee:CONFIG.codFee, total:t.sub + CONFIG.codFee };
+  $("#confirm").disabled = true;
+  if (CONFIG.orderEndpoint) { try { await fetch(CONFIG.orderEndpoint, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(order) }); } catch(e) {} }
+  const lines = order.items.map(i => `- ${i.product} (${i.color}، ${i.size}) × ${i.qty}`).join("\n");
+  $("#ok-wa").href = waLink(`طلب جديد ${id}\n${lines}\nالإجمالي: ${money(order.total)} (دفع عند الاستلام)\nالاسم: ${order.name}\nالجوال: ${phone}\nالمدينة: ${order.city}\nالعنوان: ${order.address}`);
+  $("#ok-id").textContent = id;
+  cart = []; save(); renderCart(); f.reset(); $("#confirm").disabled = false; showView("ok");
+});
+
+renderCart();
+</script>

@@ -1,0 +1,15 @@
+card-black-1 1000 1250
+card-black-2 1000 1250
+card-white-1 1000 1250
+card-white-2 1000 1250
+card-box-1 1000 1250
+card-box-2 1000 1250
+card-family-1 1000 1250
+hero-desktop-1440x640 1440 640
+hero-mobile-750x1000 750 1000
+offer-1plus1-1200x500 1200 500
+offer-50off-1200x500 1200 500
+offer-bundle-1200x500 1200 500
+instagram-post-1080x1080 1080 1080
+instagram-story-1080x1920 1080 1920
+facebook-ad-1200x628 1200 628
