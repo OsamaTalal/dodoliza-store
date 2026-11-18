@@ -1,0 +1,8 @@
+hero-1440x640 1440 640
+instagram-post-1080x1080 1080 1080
+instagram-story-1080x1920 1080 1920
+facebook-ad-1200x628 1200 628
+product-black-1080 1080 1080
+product-white-1080 1080 1080
+product-box-1080 1080 1080
+product-fabric-1080 1080 1080
