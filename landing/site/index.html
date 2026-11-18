@@ -8,7 +8,7 @@
 /* Layout: Zyros-style single sales page — offer bar → text hero → product grid (heart of page) → bundle → trust → drawer cart + checkout */
 :root{
   color-scheme:light;
-  --navy:#0B1F37; --navy-2:#16304F; --white:#FFFFFF; --studio:#F3F1EE; --line:#E5E2DC;
+  --navy:#1E4423; --navy-2:#2C5C32; --white:#FFFFFF; --studio:#F4F1EB; --line:#E5E2DC;
   --ink:#1F1E1D; --muted:#5E5A55; --sale:#B42C46; --sale-tint:#FBEAED; --gold:#9A7B3F; --gold-soft:#D8C49A;
   --pink:#F48FA5; --pink-ink:#C2365A;
   --font:"Cairo",system-ui,"Segoe UI",Tahoma,sans-serif;
@@ -56,18 +56,20 @@ button{cursor:pointer}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);opacity:.6}
 .hero-in{max-width:880px;margin-inline:auto;padding-block:18px 20px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:12px 8px}
 .hero-txt{display:grid;gap:8px;justify-items:start;min-width:0}
-.hero-t{margin:0;font-size:clamp(19px,5.2vw,32px);font-weight:900;line-height:1.35;text-wrap:balance}
+.hero-t{grid-column:1/-1;margin:0 0 4px;display:grid;justify-items:center;text-align:center;line-height:1.2;font-weight:900}
+.hero-k{font-size:clamp(20px,5.6vw,30px);color:var(--white)}
+.hero-t .hl{font-size:clamp(34px,10vw,56px);letter-spacing:-.01em}
+.hero-t::after{content:"";width:56px;height:2px;background:var(--gold-soft);margin-top:10px}
 .deal-a{display:flex;align-items:baseline;gap:8px}
 .deal-a .n{font-size:clamp(52px,15vw,96px);font-weight:900;line-height:.95;letter-spacing:-.02em;direction:ltr}
 .deal-a .w{font-size:clamp(22px,6vw,38px);font-weight:900}
 .deal-p{font-size:clamp(15px,4.2vw,20px);font-weight:700}
 .deal-p .big{font-size:1.45em}
 .deal-p s{opacity:.7;margin-inline-start:4px}
-.hero-pic{position:relative;align-self:stretch;display:grid;place-items:end center}
-.hero-pic::before{content:"";position:absolute;inset:12% 6% 4%;border-radius:50%;background:radial-gradient(closest-side,rgba(216,196,154,.28),rgba(216,196,154,0))}
-.hero-pic img{position:relative;width:100%;max-height:250px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 14px 18px rgba(0,0,0,.35))}
+.hero-pic{position:relative;align-self:center}
+.hero-pic img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(216,196,154,.55),0 14px 30px rgba(0,0,0,.3)}
 .hero-cta{grid-column:1/-1;width:100%;min-height:54px}
-@media (min-width:900px){.hero-in{padding-block:30px 32px;gap:16px 40px}.hero-pic img{max-height:380px}.hero-pic .stamp{--s:96px!important}.hero-cta{grid-column:1;justify-self:start;width:auto;min-width:300px}}
+@media (min-width:900px){.hero-in{padding-block:30px 32px;gap:16px 40px}.hero-pic{max-width:320px;justify-self:center}.hero-cta{grid-column:1;justify-self:start;width:auto;min-width:300px}}
 .perks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:var(--wrap);margin:16px auto 0;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
 .perk{display:grid;justify-items:center;align-content:center;gap:4px;min-height:74px;padding:8px 4px;border:1px solid var(--line);background:var(--white);text-align:center;font-weight:800;font-size:13px;line-height:1.3;color:var(--navy)}
 .perk svg{width:22px;height:22px;color:var(--gold)}
@@ -96,7 +98,7 @@ button{cursor:pointer}
 .tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--navy);color:var(--white);font-weight:900;font-size:15px;padding:3px 10px;border-radius:var(--radius);unicode-bidi:plaintext}
 .tag.sale{background:var(--sale)}
 /* White Friday stamp (one-colour line emblem) */
-.stamp{position:absolute;z-index:3;width:var(--s,64px);height:var(--s,64px);color:var(--navy);--stamp-fill:rgba(255,255,255,.92);transform:rotate(-10deg);pointer-events:none;filter:drop-shadow(0 2px 4px rgba(11,31,55,.18))}
+.stamp{position:absolute;z-index:3;width:var(--s,64px);height:var(--s,64px);color:var(--navy);--stamp-fill:rgba(255,255,255,.92);transform:rotate(-10deg);pointer-events:none;filter:drop-shadow(0 2px 4px rgba(20,46,22,.18))}
 .stamp.on-navy{color:var(--gold-soft);--stamp-fill:var(--navy)}
 .card-body{display:grid;gap:4px;padding-top:12px;flex:1}
 .card-name{margin:0;font-size:17px;font-weight:800;line-height:1.4;color:var(--ink)}
@@ -112,7 +114,7 @@ button{cursor:pointer}
 /* Bundle banner */
 .bundle{margin-top:40px;display:grid;background:var(--studio);border:1px solid var(--line)}
 .bundle-img{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden}
-.bundle-img img{position:absolute;filter:drop-shadow(0 16px 20px rgba(11,31,55,.22))}
+.bundle-img img{position:absolute;filter:drop-shadow(0 16px 20px rgba(20,46,22,.22))}
 .bundle-copy{padding:28px var(--gutter-r) 32px var(--gutter-l);display:grid;gap:6px;justify-items:start;background:var(--white)}
 .bundle-copy .kicker{color:var(--gold)}
 .bundle-copy h2{margin:0;font-size:clamp(34px,7vw,52px);font-weight:900;color:var(--navy);line-height:1.15}
@@ -147,7 +149,7 @@ button{cursor:pointer}
 
 
 /* Overlay shared */
-.scrim{position:fixed;inset:0;z-index:70;background:rgba(11,31,55,.55)}
+.scrim{position:fixed;inset:0;z-index:70;background:rgba(20,46,22,.55)}
 
 /* Quick view */
 .qv{position:fixed;z-index:80;inset:0;background:var(--white);display:flex;flex-direction:column;overflow:hidden}
@@ -254,15 +256,12 @@ button{cursor:pointer}
 <main id="top">
   <section class="hero" aria-label="العرض الرئيسي">
     <div class="hero-in">
+      <h1 class="hero-t"><span class="hero-k">شرابات مصممة خصيصًا</span><span class="hl">لمرضى السكري</span></h1>
       <div class="hero-txt">
-        <h1 class="hero-t">شرابات مصممة خصيصًا <span class="hl">لمرضى السكري</span></h1>
         <div class="deal-a"><span class="n">1+1</span><span class="w hl">مجانًا</span></div>
         <div class="deal-p"><b class="hl">10 أزواج</b> بـ <b class="hl big">149</b> ر.س <s>298</s></div>
       </div>
-      <div class="hero-pic">
-        <img src="img/hero-sock.webp" alt="شراب دودليزا الأسود" width="491" height="600">
-        <svg class="stamp on-navy" style="--s:70px;left:-6px;top:6px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg>
-      </div>
+      <div class="hero-pic"><img src="img/hero-photo.webp" alt="شراب دودليزا الأسود على القدم" width="576" height="720"></div>
       <a class="btn btn-white hero-cta" href="#products">تسوّق الآن</a>
     </div>
   </section>
@@ -275,8 +274,8 @@ button{cursor:pointer}
 
   <div class="wrap">
     <div class="tiles">
-      <a href="#products" aria-label="عرض 1+1 مجانًا — تسوّق الآن"><svg class="stamp" style="--s:60px;left:8px;top:8px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg><img src="img/offer-1plus1.webp" alt="1+1 مجانًا: اشترِ علبة والثانية علينا" width="1200" height="500" loading="lazy"></a>
-      <a href="#products" aria-label="خصم يصل إلى 50% — اطلب الحين"><svg class="stamp" style="--s:60px;left:8px;top:8px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg><img src="img/offer-50off.webp" alt="خصم يصل إلى 50%" width="1200" height="500" loading="lazy"></a>
+      <a href="#products" aria-label="عرض 1+1 مجانًا — تسوّق الآن"><img src="img/offer-1plus1.webp" alt="1+1 مجانًا: اشترِ علبة والثانية علينا" width="1200" height="500" loading="lazy"></a>
+      <a href="#products" aria-label="خصم يصل إلى 50% — اطلب الحين"><img src="img/offer-50off.webp" alt="خصم يصل إلى 50%" width="1200" height="500" loading="lazy"></a>
     </div>
 
     <section class="sec" id="products" aria-labelledby="p-h">
@@ -285,7 +284,7 @@ button{cursor:pointer}
     </section>
 
     <section class="bundle" aria-labelledby="b-h">
-      <div class="bundle-img"><svg class="stamp" style="--s:76px;left:12px;top:12px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg>
+      <div class="bundle-img">
         <img src="img/box-white.webp" alt="" style="right:6%;top:10%;width:48%">
         <img src="img/box-white.webp" alt="" style="left:6%;top:16%;width:48%">
         <img src="img/box-open.webp" alt="علب شراب دودليزا" style="left:50%;bottom:6%;width:68%;transform:translateX(-50%)">
