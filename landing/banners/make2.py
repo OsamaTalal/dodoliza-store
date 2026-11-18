@@ -34,6 +34,13 @@ h1{{font-weight:900;line-height:1.12}}
 .line{{height:1px;background:currentColor;opacity:.35}}
 .num{{font-family:CairoL,Cairo;font-weight:900;line-height:.9;letter-spacing:-.02em}}
 s{{text-decoration-thickness:2px}}
+.stamp{{position:absolute;z-index:5;width:var(--s,64px);aspect-ratio:1;transform:rotate(-14deg);filter:drop-shadow(0 6px 8px rgba(70,48,12,.35))}}
+.stamp-b{{position:absolute;inset:0;clip-path:polygon(100.00% 50.00%,95.21% 55.09%,98.75% 61.13%,92.95% 65.03%,95.05% 71.69%,88.53% 74.21%,89.09% 81.17%,82.17% 82.17%,81.17% 89.09%,74.21% 88.53%,71.69% 95.05%,65.03% 92.95%,61.13% 98.75%,55.09% 95.21%,50.00% 100.00%,44.91% 95.21%,38.87% 98.75%,34.97% 92.95%,28.31% 95.05%,25.79% 88.53%,18.83% 89.09%,17.83% 82.17%,10.91% 81.17%,11.47% 74.21%,4.95% 71.69%,7.05% 65.03%,1.25% 61.13%,4.79% 55.09%,0.00% 50.00%,4.79% 44.91%,1.25% 38.87%,7.05% 34.97%,4.95% 28.31%,11.47% 25.79%,10.91% 18.83%,17.83% 17.83%,18.83% 10.91%,25.79% 11.47%,28.31% 4.95%,34.97% 7.05%,38.87% 1.25%,44.91% 4.79%,50.00% 0.00%,55.09% 4.79%,61.13% 1.25%,65.03% 7.05%,71.69% 4.95%,74.21% 11.47%,81.17% 10.91%,82.17% 17.83%,89.09% 18.83%,88.53% 25.79%,95.05% 28.31%,92.95% 34.97%,98.75% 38.87%,95.21% 44.91%);background:radial-gradient(circle at 34% 28%,#F6E7B6 0%,#D9B867 42%,#B48C3E 72%,#93702C 100%);display:grid;place-items:center;color:#0B1F37}}
+.stamp-b::before{{content:"";position:absolute;inset:9%;border-radius:50%;border:2px dashed rgba(11,31,55,.6)}}
+.stamp-b::after{{content:"";position:absolute;inset:15%;border-radius:50%;border:1.5px solid rgba(11,31,55,.35)}}
+.stamp-t{{position:relative;display:grid;justify-items:center;line-height:1.02;text-align:center;font-family:Cairo;font-weight:900;font-size:calc(var(--s,64px) * .17)}}
+.stamp-t small{{font-size:.72em;font-weight:800}}
+.stamp-t i{{display:block;width:60%;height:1.5px;background:rgba(11,31,55,.5);margin:3px 0}}
 """
 
 
@@ -43,6 +50,12 @@ def page(w, h, body, extra=""):
 
 
 FILES = {}
+
+
+def stamp(size, left, top):
+    return (f'<span class="stamp" style="--s:{size}px;left:{left}px;top:{top}px"><span class="stamp-b"><span class="stamp-t">'
+            '<small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span>')
+
 
 # ---------------- Product images 1000x1250 (4:5 like Zyros cards) ----------------
 def studio(key, inner):
@@ -74,7 +87,7 @@ FILES["hero-desktop-1440x640"] = (1440, 640, page(1440, 640, f"""
     <span style="font-size:44px;font-weight:900;padding-bottom:16px">مجانًا</span></div>
   <div style="font-size:24px;font-weight:600;opacity:.9">علبتين = 10 أزواج بـ <b style="font-size:30px">149</b> ر.س بدلًا من <s style="opacity:.75">298</s></div>
   <span class="btn btn-w" style="font-size:22px;height:62px;padding:0 54px;margin-top:40px">تسوّق الآن</span>
-</div>"""))
+</div>{stamp(150, 40, 40)}"""))
 
 # ---------------- HERO mobile 750x1000 ----------------
 FILES["hero-mobile-750x1000"] = (750, 1000, page(750, 1000, f"""
@@ -85,7 +98,7 @@ FILES["hero-mobile-750x1000"] = (750, 1000, page(750, 1000, f"""
     <span class="num" style="font-size:150px">1+1</span><span style="font-size:48px;font-weight:900;padding-bottom:14px">مجانًا</span></div>
   <div style="font-size:28px;font-weight:600;opacity:.92">10 أزواج بـ <b style="font-size:34px">149</b> ر.س بدلًا من <s style="opacity:.75">298</s></div>
   <span class="btn btn-w" style="font-size:30px;height:84px;width:620px;margin-top:34px">تسوّق الآن</span>
-</div>"""))
+</div>{stamp(150, 30, 30)}"""))
 
 # ---------------- Offer banners (mid-page) 1200x500 ----------------
 FILES["offer-1plus1-1200x500"] = (1200, 500, page(1200, 500, f"""
@@ -99,7 +112,7 @@ FILES["offer-1plus1-1200x500"] = (1200, 500, page(1200, 500, f"""
   <span style="font-size:48px;font-weight:900;padding-bottom:18px;color:var(--sale)">مجانًا</span></div>
   <div style="font-size:24px;font-weight:700;margin-top:6px">اشترِ علبة، والثانية علينا</div>
   <span class="btn btn-n" style="font-size:20px;height:56px;padding:0 44px;margin-top:26px">تسوّق الآن</span>
-</div>"""))
+</div>{stamp(120, 30, 26)}"""))
 
 FILES["offer-50off-1200x500"] = (1200, 500, page(1200, 500, f"""
 <div style="position:absolute;inset:0;background:var(--navy)"></div>
@@ -110,7 +123,7 @@ FILES["offer-50off-1200x500"] = (1200, 500, page(1200, 500, f"""
   <div style="display:flex;align-items:flex-start;gap:6px;margin-top:-6px">
     <span class="num" style="font-size:220px">50</span><span class="num" style="font-size:90px;margin-top:30px;color:var(--rose)">%</span></div>
   <span class="btn btn-w" style="font-size:20px;height:56px;padding:0 44px;margin-top:4px">اطلب الحين</span>
-</div>"""))
+</div>{stamp(120, 30, 26)}"""))
 
 FILES["offer-bundle-1200x500"] = (1200, 500, page(1200, 500, f"""
 <div style="position:absolute;inset:0;background:#fff"></div>
@@ -126,7 +139,7 @@ FILES["offer-bundle-1200x500"] = (1200, 500, page(1200, 500, f"""
   <div style="display:flex;align-items:baseline;gap:16px;margin-top:18px">
     <span style="font-size:46px;font-weight:900;color:var(--sale)">219 ر.س</span><s style="font-size:26px;color:var(--muted)">447 ر.س</s></div>
   <span class="btn btn-n" style="font-size:20px;height:56px;padding:0 40px;margin-top:22px">أضف الباكدج</span>
-</div>"""))
+</div>{stamp(120, 30, 26)}"""))
 
 # ---------------- Social ----------------
 FILES["instagram-post-1080x1080"] = (1080, 1080, page(1080, 1080, f"""
@@ -137,7 +150,7 @@ FILES["instagram-post-1080x1080"] = (1080, 1080, page(1080, 1080, f"""
   <div style="text-align:left"><div style="font-size:28px;font-weight:700;opacity:.9">10 أزواج</div>
   <div style="font-size:84px;font-weight:900;line-height:1">149</div><div style="font-size:26px;font-weight:700;color:var(--gold-soft)">ر.س بدلًا من <s>298</s></div></div>
 </div>
-<img src="{IMG}logo-white.png" style="position:absolute;top:44px;right:56px;height:44px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))">"""))
+<img src="{IMG}logo-white.png" style="position:absolute;top:44px;right:56px;height:44px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))">{stamp(170, 40, 40)}"""))
 
 FILES["instagram-story-1080x1920"] = (1080, 1920, page(1080, 1920, f"""
 <div style="position:absolute;inset:0 0 820px 0"><img class="cover" src="{IMG}black-lifestyle.jpg" style="object-position:50% 60%"></div>
@@ -148,7 +161,7 @@ FILES["instagram-story-1080x1920"] = (1080, 1920, page(1080, 1920, f"""
   <span style="font-size:68px;font-weight:900;padding-bottom:26px">مجانًا</span></div>
   <div style="font-size:42px;font-weight:700;opacity:.92;margin-top:6px">10 أزواج بـ <b style="font-size:52px">149</b> ر.س بدلًا من <s style="opacity:.75">298</s></div>
   <span class="btn btn-w" style="font-size:44px;height:120px;width:760px;margin-top:70px">اطلب الحين</span>
-</div>"""))
+</div>{stamp(220, 50, 250)}"""))
 
 FILES["facebook-ad-1200x628"] = (1200, 628, page(1200, 628, f"""
 <div style="position:absolute;left:0;top:0;bottom:0;width:640px"><img class="cover" src="{IMG}black-lifestyle.jpg" style="object-position:50% 62%"></div>
@@ -158,7 +171,7 @@ FILES["facebook-ad-1200x628"] = (1200, 628, page(1200, 628, f"""
   <div style="display:flex;align-items:flex-end;gap:14px"><span class="num" style="font-size:130px">1+1</span><span style="font-size:40px;font-weight:900;padding-bottom:12px">مجانًا</span></div>
   <div style="font-size:22px;font-weight:600;opacity:.92">10 أزواج بـ <b style="font-size:28px">149</b> ر.س بدلًا من <s style="opacity:.75">298</s></div>
   <span class="btn btn-w" style="font-size:22px;height:58px;padding:0 46px;margin-top:30px">تسوّق الآن</span>
-</div>"""))
+</div>{stamp(130, 30, 30)}"""))
 
 for name, (w, h, html) in FILES.items():
     (HERE / f"{name}.html").write_text(html, encoding="utf-8")
