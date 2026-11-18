@@ -34,13 +34,8 @@ h1{{font-weight:900;line-height:1.12}}
 .line{{height:1px;background:currentColor;opacity:.35}}
 .num{{font-family:CairoL,Cairo;font-weight:900;line-height:.9;letter-spacing:-.02em}}
 s{{text-decoration-thickness:2px}}
-.stamp{{position:absolute;z-index:5;width:var(--s,64px);aspect-ratio:1;transform:rotate(-14deg);filter:drop-shadow(0 6px 8px rgba(70,48,12,.35))}}
-.stamp-b{{position:absolute;inset:0;clip-path:polygon(100.00% 50.00%,95.21% 55.09%,98.75% 61.13%,92.95% 65.03%,95.05% 71.69%,88.53% 74.21%,89.09% 81.17%,82.17% 82.17%,81.17% 89.09%,74.21% 88.53%,71.69% 95.05%,65.03% 92.95%,61.13% 98.75%,55.09% 95.21%,50.00% 100.00%,44.91% 95.21%,38.87% 98.75%,34.97% 92.95%,28.31% 95.05%,25.79% 88.53%,18.83% 89.09%,17.83% 82.17%,10.91% 81.17%,11.47% 74.21%,4.95% 71.69%,7.05% 65.03%,1.25% 61.13%,4.79% 55.09%,0.00% 50.00%,4.79% 44.91%,1.25% 38.87%,7.05% 34.97%,4.95% 28.31%,11.47% 25.79%,10.91% 18.83%,17.83% 17.83%,18.83% 10.91%,25.79% 11.47%,28.31% 4.95%,34.97% 7.05%,38.87% 1.25%,44.91% 4.79%,50.00% 0.00%,55.09% 4.79%,61.13% 1.25%,65.03% 7.05%,71.69% 4.95%,74.21% 11.47%,81.17% 10.91%,82.17% 17.83%,89.09% 18.83%,88.53% 25.79%,95.05% 28.31%,92.95% 34.97%,98.75% 38.87%,95.21% 44.91%);background:radial-gradient(circle at 34% 28%,#F6E7B6 0%,#D9B867 42%,#B48C3E 72%,#93702C 100%);display:grid;place-items:center;color:#0B1F37}}
-.stamp-b::before{{content:"";position:absolute;inset:9%;border-radius:50%;border:2px dashed rgba(11,31,55,.6)}}
-.stamp-b::after{{content:"";position:absolute;inset:15%;border-radius:50%;border:1.5px solid rgba(11,31,55,.35)}}
-.stamp-t{{position:relative;display:grid;justify-items:center;line-height:1.02;text-align:center;font-family:Cairo;font-weight:900;font-size:calc(var(--s,64px) * .17)}}
-.stamp-t small{{font-size:.72em;font-weight:800}}
-.stamp-t i{{display:block;width:60%;height:1.5px;background:rgba(11,31,55,.5);margin:3px 0}}
+.stamp{{position:absolute;z-index:5;transform:rotate(-10deg);filter:drop-shadow(0 3px 6px rgba(11,31,55,.2))}}
+.stamp svg{{width:100%;height:100%;display:block}}
 """
 
 
@@ -52,9 +47,12 @@ def page(w, h, body, extra=""):
 FILES = {}
 
 
-def stamp(size, left, top):
-    return (f'<span class="stamp" style="--s:{size}px;left:{left}px;top:{top}px"><span class="stamp-b"><span class="stamp-t">'
-            '<small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span>')
+STAMP_SVG = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">  <defs>    <path id="wfTop" d="M 15 50 A 35 35 0 0 1 85 50"/>    <path id="wfBot" d="M 12.5 50 A 37.5 37.5 0 0 0 87.5 50"/>  </defs>  <circle cx="50" cy="50" r="48" style="fill:var(--stamp-fill,#fff)" stroke="currentColor" stroke-width="2.6"/>  <circle cx="50" cy="50" r="44.5" fill="none" stroke="currentColor" stroke-width=".7"/>  <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" stroke-width=".7"/>  <text font-family="Cairo,sans-serif" font-weight="800" font-size="8.2" fill="currentColor" direction="rtl"><textPath href="#wfTop" startOffset="50%" text-anchor="middle">عرض لفترة محدودة</textPath></text>  <text font-family="Cairo,sans-serif" font-weight="800" font-size="6.6" letter-spacing="1.6" fill="currentColor"><textPath href="#wfBot" startOffset="50%" text-anchor="middle">WHITE FRIDAY</textPath></text>  <g fill="currentColor"><path d="M10.5 50l1.6-1.6 1.6 1.6-1.6 1.6z"/><path d="M86.3 50l1.6-1.6 1.6 1.6-1.6 1.6z"/></g>  <text x="50" y="47.5" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-size="12.5" fill="currentColor" direction="rtl">الجمعة</text>  <text x="50" y="61" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-size="12.5" fill="currentColor" direction="rtl">البيضاء</text>  <path d="M39 66.5h22" stroke="currentColor" stroke-width=".7"/></svg>'
+
+
+def stamp(size, left, top, navy=False):
+    col = "color:#D8C49A;--stamp-fill:#0B1F37" if navy else "color:#0B1F37;--stamp-fill:rgba(255,255,255,.93)"
+    return f'<span class="stamp" style="width:{size}px;height:{size}px;left:{left}px;top:{top}px;{col}">{STAMP_SVG}</span>'
 
 
 # ---------------- Product images 1000x1250 (4:5 like Zyros cards) ----------------

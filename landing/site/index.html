@@ -54,19 +54,20 @@ button{cursor:pointer}
 /* Hero */
 .hero{position:relative;background:radial-gradient(120% 90% at 50% 0%,var(--navy-2) 0%,var(--navy) 60%);color:var(--white);overflow:hidden}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);opacity:.6}
-.hero-in{max-width:620px;margin-inline:auto;padding-block:22px 24px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:grid;justify-items:center;gap:12px;text-align:center}
-.hero-t{margin:0;font-size:clamp(20px,5.4vw,30px);font-weight:900;line-height:1.4;text-wrap:balance}
-.deal{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;border:1px solid rgba(216,196,154,.45);background:rgba(255,255,255,.04);border-radius:var(--radius);padding:12px 8px}
-.deal-a{display:flex;align-items:baseline;justify-content:center;gap:8px}
-.deal-a .n{font-size:clamp(46px,13vw,68px);font-weight:900;line-height:1;letter-spacing:-.02em;direction:ltr}
-.deal-a .w{font-size:clamp(20px,5.4vw,28px);font-weight:900}
-.deal-sep{width:1px;align-self:stretch;background:rgba(216,196,154,.45)}
-.deal-b{display:grid;justify-items:center;line-height:1.2}
-.deal-b .lbl{font-size:15px;font-weight:700;opacity:.9}
-.deal-b .p{font-size:clamp(32px,9vw,44px);font-weight:900;color:var(--pink)}
-.deal-b .p small{font-size:16px;font-weight:700;color:var(--white)}
-.deal-b s{font-size:15px;opacity:.7}
-.hero .btn{width:100%;min-height:54px}
+.hero-in{max-width:880px;margin-inline:auto;padding-block:18px 20px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:12px 8px}
+.hero-txt{display:grid;gap:8px;justify-items:start;min-width:0}
+.hero-t{margin:0;font-size:clamp(19px,5.2vw,32px);font-weight:900;line-height:1.35;text-wrap:balance}
+.deal-a{display:flex;align-items:baseline;gap:8px}
+.deal-a .n{font-size:clamp(52px,15vw,96px);font-weight:900;line-height:.95;letter-spacing:-.02em;direction:ltr}
+.deal-a .w{font-size:clamp(22px,6vw,38px);font-weight:900}
+.deal-p{font-size:clamp(15px,4.2vw,20px);font-weight:700}
+.deal-p .big{font-size:1.45em}
+.deal-p s{opacity:.7;margin-inline-start:4px}
+.hero-pic{position:relative;align-self:stretch;display:grid;place-items:end center}
+.hero-pic::before{content:"";position:absolute;inset:12% 6% 4%;border-radius:50%;background:radial-gradient(closest-side,rgba(216,196,154,.28),rgba(216,196,154,0))}
+.hero-pic img{position:relative;width:100%;max-height:250px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 14px 18px rgba(0,0,0,.35))}
+.hero-cta{grid-column:1/-1;width:100%;min-height:54px}
+@media (min-width:900px){.hero-in{padding-block:30px 32px;gap:16px 40px}.hero-pic img{max-height:380px}.hero-pic .stamp{--s:96px!important}.hero-cta{grid-column:1;justify-self:start;width:auto;min-width:300px}}
 .perks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:var(--wrap);margin:16px auto 0;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
 .perk{display:grid;justify-items:center;align-content:center;gap:4px;min-height:74px;padding:8px 4px;border:1px solid var(--line);background:var(--white);text-align:center;font-weight:800;font-size:13px;line-height:1.3;color:var(--navy)}
 .perk svg{width:22px;height:22px;color:var(--gold)}
@@ -94,14 +95,9 @@ button{cursor:pointer}
 @media (hover:hover){.card-media:hover img.alt,.card-media:focus-visible img.alt{opacity:1}}
 .tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--navy);color:var(--white);font-weight:900;font-size:15px;padding:3px 10px;border-radius:var(--radius);unicode-bidi:plaintext}
 .tag.sale{background:var(--sale)}
-/* White Friday stamp */
-.stamp{position:absolute;z-index:3;width:var(--s,64px);aspect-ratio:1;transform:rotate(-14deg);filter:drop-shadow(0 4px 6px rgba(70,48,12,.35));pointer-events:none}
-.stamp-b{position:absolute;inset:0;clip-path:polygon(100.00% 50.00%,95.21% 55.09%,98.75% 61.13%,92.95% 65.03%,95.05% 71.69%,88.53% 74.21%,89.09% 81.17%,82.17% 82.17%,81.17% 89.09%,74.21% 88.53%,71.69% 95.05%,65.03% 92.95%,61.13% 98.75%,55.09% 95.21%,50.00% 100.00%,44.91% 95.21%,38.87% 98.75%,34.97% 92.95%,28.31% 95.05%,25.79% 88.53%,18.83% 89.09%,17.83% 82.17%,10.91% 81.17%,11.47% 74.21%,4.95% 71.69%,7.05% 65.03%,1.25% 61.13%,4.79% 55.09%,0.00% 50.00%,4.79% 44.91%,1.25% 38.87%,7.05% 34.97%,4.95% 28.31%,11.47% 25.79%,10.91% 18.83%,17.83% 17.83%,18.83% 10.91%,25.79% 11.47%,28.31% 4.95%,34.97% 7.05%,38.87% 1.25%,44.91% 4.79%,50.00% 0.00%,55.09% 4.79%,61.13% 1.25%,65.03% 7.05%,71.69% 4.95%,74.21% 11.47%,81.17% 10.91%,82.17% 17.83%,89.09% 18.83%,88.53% 25.79%,95.05% 28.31%,92.95% 34.97%,98.75% 38.87%,95.21% 44.91%);background:radial-gradient(circle at 34% 28%,#F6E7B6 0%,#D9B867 42%,#B48C3E 72%,#93702C 100%);display:grid;place-items:center;color:#0B1F37}
-.stamp-b::before{content:"";position:absolute;inset:9%;border-radius:50%;border:1.5px dashed rgba(11,31,55,.6)}
-.stamp-b::after{content:"";position:absolute;inset:15%;border-radius:50%;border:1px solid rgba(11,31,55,.35)}
-.stamp-t{position:relative;display:grid;justify-items:center;line-height:1.02;text-align:center;font-weight:900;font-size:calc(var(--s,64px) * .17)}
-.stamp-t small{font-size:.72em;font-weight:800;letter-spacing:.02em}
-.stamp-t i{display:block;width:60%;height:1px;background:rgba(11,31,55,.5);margin:2px 0}
+/* White Friday stamp (one-colour line emblem) */
+.stamp{position:absolute;z-index:3;width:var(--s,64px);height:var(--s,64px);color:var(--navy);--stamp-fill:rgba(255,255,255,.92);transform:rotate(-10deg);pointer-events:none;filter:drop-shadow(0 2px 4px rgba(11,31,55,.18))}
+.stamp.on-navy{color:var(--gold-soft);--stamp-fill:var(--navy)}
 .card-body{display:grid;gap:4px;padding-top:12px;flex:1}
 .card-name{margin:0;font-size:17px;font-weight:800;line-height:1.4;color:var(--ink)}
 .card-sub{font-size:15px;color:var(--muted)}
@@ -220,6 +216,19 @@ button{cursor:pointer}
 .back{border:0;background:none;color:var(--navy);font-weight:800;min-height:44px;text-decoration:underline}
 </style>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wf-stamp" viewBox="0 0 100 100"><defs>
+    <path id="wfTop" d="M 15 50 A 35 35 0 0 1 85 50"/>
+    <path id="wfBot" d="M 12.5 50 A 37.5 37.5 0 0 0 87.5 50"/>
+  </defs>
+  <circle cx="50" cy="50" r="48" style="fill:var(--stamp-fill,#fff)" stroke="currentColor" stroke-width="2.6"/>
+  <circle cx="50" cy="50" r="44.5" fill="none" stroke="currentColor" stroke-width=".7"/>
+  <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" stroke-width=".7"/>
+  <text font-family="Cairo,sans-serif" font-weight="800" font-size="8.2" fill="currentColor" direction="rtl"><textPath href="#wfTop" startOffset="50%" text-anchor="middle">عرض لفترة محدودة</textPath></text>
+  <text font-family="Cairo,sans-serif" font-weight="800" font-size="6.6" letter-spacing="1.6" fill="currentColor"><textPath href="#wfBot" startOffset="50%" text-anchor="middle">WHITE FRIDAY</textPath></text>
+  <g fill="currentColor"><path d="M10.5 50l1.6-1.6 1.6 1.6-1.6 1.6z"/><path d="M86.3 50l1.6-1.6 1.6 1.6-1.6 1.6z"/></g>
+  <text x="50" y="47.5" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-size="12.5" fill="currentColor" direction="rtl">الجمعة</text>
+  <text x="50" y="61" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-size="12.5" fill="currentColor" direction="rtl">البيضاء</text>
+  <path d="M39 66.5h22" stroke="currentColor" stroke-width=".7"/></symbol></svg>
 <div class="topbar" role="region" aria-label="العرض">
   <div class="wrap">
     <span>عرض <span class="hl" dir="ltr">1+1</span> لفترة محدودة</span>
@@ -245,13 +254,16 @@ button{cursor:pointer}
 <main id="top">
   <section class="hero" aria-label="العرض الرئيسي">
     <div class="hero-in">
-      <h1 class="hero-t">شرابات مصممة خصيصًا <span class="hl">لمرضى السكري</span></h1>
-      <div class="deal"><span class="stamp" style="--s:62px;left:-10px;top:-34px" aria-label="عرض الجمعة البيضاء"><span class="stamp-b"><span class="stamp-t"><small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span>
+      <div class="hero-txt">
+        <h1 class="hero-t">شرابات مصممة خصيصًا <span class="hl">لمرضى السكري</span></h1>
         <div class="deal-a"><span class="n">1+1</span><span class="w hl">مجانًا</span></div>
-        <div class="deal-sep" aria-hidden="true"></div>
-        <div class="deal-b"><span class="lbl">10 أزواج بـ</span><span class="p">149 <small>ر.س</small></span><s>298 ر.س</s></div>
+        <div class="deal-p"><b class="hl">10 أزواج</b> بـ <b class="hl big">149</b> ر.س <s>298</s></div>
       </div>
-      <a class="btn btn-white" href="#products">تسوّق الآن</a>
+      <div class="hero-pic">
+        <img src="img/hero-sock.webp" alt="شراب دودليزا الأسود" width="491" height="600">
+        <svg class="stamp on-navy" style="--s:70px;left:-6px;top:6px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg>
+      </div>
+      <a class="btn btn-white hero-cta" href="#products">تسوّق الآن</a>
     </div>
   </section>
   <div class="perks" aria-label="مميزات الشراء">
@@ -263,8 +275,8 @@ button{cursor:pointer}
 
   <div class="wrap">
     <div class="tiles">
-      <a href="#products" aria-label="عرض 1+1 مجانًا — تسوّق الآن"><span class="stamp" style="--s:60px;left:8px;top:8px" aria-label="عرض الجمعة البيضاء"><span class="stamp-b"><span class="stamp-t"><small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span><img src="img/offer-1plus1.webp" alt="1+1 مجانًا: اشترِ علبة والثانية علينا" width="1200" height="500" loading="lazy"></a>
-      <a href="#products" aria-label="خصم يصل إلى 50% — اطلب الحين"><span class="stamp" style="--s:60px;left:8px;top:8px" aria-label="عرض الجمعة البيضاء"><span class="stamp-b"><span class="stamp-t"><small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span><img src="img/offer-50off.webp" alt="خصم يصل إلى 50%" width="1200" height="500" loading="lazy"></a>
+      <a href="#products" aria-label="عرض 1+1 مجانًا — تسوّق الآن"><svg class="stamp" style="--s:60px;left:8px;top:8px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg><img src="img/offer-1plus1.webp" alt="1+1 مجانًا: اشترِ علبة والثانية علينا" width="1200" height="500" loading="lazy"></a>
+      <a href="#products" aria-label="خصم يصل إلى 50% — اطلب الحين"><svg class="stamp" style="--s:60px;left:8px;top:8px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg><img src="img/offer-50off.webp" alt="خصم يصل إلى 50%" width="1200" height="500" loading="lazy"></a>
     </div>
 
     <section class="sec" id="products" aria-labelledby="p-h">
@@ -273,7 +285,7 @@ button{cursor:pointer}
     </section>
 
     <section class="bundle" aria-labelledby="b-h">
-      <div class="bundle-img"><span class="stamp" style="--s:76px;left:12px;top:12px" aria-label="عرض الجمعة البيضاء"><span class="stamp-b"><span class="stamp-t"><small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span>
+      <div class="bundle-img"><svg class="stamp" style="--s:76px;left:12px;top:12px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg>
         <img src="img/box-white.webp" alt="" style="right:6%;top:10%;width:48%">
         <img src="img/box-white.webp" alt="" style="left:6%;top:16%;width:48%">
         <img src="img/box-open.webp" alt="علب شراب دودليزا" style="left:50%;bottom:6%;width:68%;transform:translateX(-50%)">
@@ -318,7 +330,7 @@ button{cursor:pointer}
     <div class="qv-top"><span class="kicker" style="color:var(--gold)">عرض سريع</span><button class="x" data-close aria-label="إغلاق"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
     <div class="qv-grid">
       <div>
-        <div class="gal-main"><span class="tag" id="qv-tag"></span><span class="stamp" style="left:8px;top:8px" aria-label="عرض الجمعة البيضاء"><span class="stamp-b"><span class="stamp-t"><small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span><img id="qv-img" src="" alt=""></div>
+        <div class="gal-main"><span class="tag" id="qv-tag"></span><svg class="stamp" style="left:8px;top:8px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg><img id="qv-img" src="" alt=""></div>
         <div class="thumbs" id="qv-thumbs"></div>
       </div>
       <div class="qv-info">
@@ -426,7 +438,7 @@ $("#grid").innerHTML = PRODUCTS.map(p => `
   <article class="card">
     <button class="card-media" data-qv="${p.id}" aria-label="عرض سريع: ${esc(p.name)}">
       <span class="tag ${p.tag==="sale"?"sale":""}">${p.tag==="sale" ? "خصم " + pct(p) + "٪" : p.tag}</span>
-      <span class="stamp" style="left:8px;top:8px" aria-label="عرض الجمعة البيضاء"><span class="stamp-b"><span class="stamp-t"><small>عرض</small><i></i>الجمعة<br>البيضاء</span></span></span>
+      <svg class="stamp" style="left:8px;top:8px" role="img" aria-label="عرض الجمعة البيضاء"><use href="#wf-stamp"/></svg>
       <img src="${img(p.imgs[0])}" alt="${esc(p.name)}" width="800" height="1000" loading="lazy">
       <img class="alt" src="${img(p.imgs[1])}" alt="" width="800" height="1000" loading="lazy">
     </button>
