@@ -505,6 +505,16 @@ dialog#dlg .dg-cd small{flex-basis:100%;text-align:center;font-weight:600;font-s
   .hs:hover .pop,.oc:hover .pop,dialog#dlg .dopt:hover .pop{color:#fff}
 }
 
+
+/* ===== V22: soft price colours (old = rose, new = green→gold) ===== */
+.price b,.price b small{background:linear-gradient(100deg,#285429 20%,#4E7A3A 70%,#9C7A2E 120%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.price s,.oc-p s,.dopt-p s,.hs s{color:#C4727E;text-decoration-color:#DF526A;text-decoration-thickness:1.5px}
+.oc-p strong,.dopt-p strong{color:var(--green)}
+.hs[aria-pressed="false"] strong{background:#EEF3E8}
+@media (hover:hover){
+  .hs:hover s,.oc:hover s,dialog#dlg .dopt:hover s{color:#F3C3CA;text-decoration-color:#F3C3CA}
+}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
