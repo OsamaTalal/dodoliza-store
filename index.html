@@ -1,0 +1,760 @@
+<title>شراب دودوليزا</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --cream:#F8F4EC; --cream-2:#F3ECE1; --ink:#1E2A1F; --muted:#5F6B60;
+  --green:#285429; --green-d:#1F4220; --sage:#AEC095; --sage-t:#EEF2E8;
+  --gold:#9C7A2E; --gold-t:#7B5F22; --line:#E6E0D3; --danger:#A12A2A;
+  --r:12px; --gut:max(20px, env(safe-area-inset-left, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*:not(.mq-t){transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,"Segoe UI",Tahoma,sans-serif;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer}
+a{color:var(--green)}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.w{max-width:1080px;margin-inline:auto;padding-inline:max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.top{padding:18px 0 14px;text-align:center;border-bottom:1px solid var(--line)}
+.top img{height:34px;width:auto;margin-inline:auto}
+
+/* hero */
+.hero{display:grid;gap:0}
+.hero>*{min-width:0}
+.gal{position:relative}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;background:var(--cream)}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;scroll-snap-align:center;width:100%;aspect-ratio:1/1;object-fit:cover}
+.thumbs{display:flex;gap:10px;overflow-x:auto;padding:14px max(20px, env(safe-area-inset-right, 0px)) 4px max(20px, env(safe-area-inset-left, 0px));scrollbar-width:none;justify-content:flex-start}
+.thumbs::-webkit-scrollbar{display:none}
+.thumbs button{flex:none;width:58px;height:58px;border-radius:10px;border:1.5px solid transparent;padding:0;background:var(--cream);overflow:hidden;opacity:.65;transition:opacity .2s,border-color .2s}
+.thumbs button[aria-current="true"]{border-color:var(--green);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+@media (max-width:899px){.slides img{aspect-ratio:5/4}.ann{padding-block:8px}.cdb span{min-width:38px;padding:2px 5px}.cdb b{font-size:16px}.info{padding-top:20px}.price{margin-top:16px}.hsel{margin-top:18px}.cta{margin-top:18px}}
+@media (min-width:900px){.thumbs{padding-inline:0}}
+.info{padding:28px max(20px, env(safe-area-inset-right, 0px)) 56px max(20px, env(safe-area-inset-left, 0px));text-align:center}
+.eyebrow{font-size:14px;font-weight:700;color:var(--gold-t);letter-spacing:.04em}
+h1{font-size:34px;line-height:1.25;margin:6px 0 4px;font-weight:800;color:var(--ink)}
+.sub{margin:6px 0 0;color:var(--muted);font-size:19px}
+.price{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:22px 0 4px}
+.price b{font-size:44px;font-weight:800;color:var(--ink);line-height:1}
+.price b small{font-size:20px;font-weight:700;margin-inline-start:4px}
+.price s{color:var(--muted);font-size:20px}
+.ppair{margin:0;color:var(--muted);font-size:15px}
+.feats{list-style:none;margin:30px auto 0;padding:0;max-width:340px;text-align:start}
+.feats li{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-weight:600}
+.feats li:last-child{border-bottom:1px solid var(--line)}
+.feats svg{flex:none;width:26px;height:26px;color:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 36px;border-radius:99px;border:1.5px solid var(--green);background:var(--green);color:#fff;font-weight:700;font-size:18px;transition:background .2s}
+.btn:hover{background:var(--green-d)}
+.btn{gap:10px;position:relative;overflow:hidden;isolation:isolate;box-shadow:0 10px 24px -14px rgba(40,84,41,.7);transition:background-color .3s ease,box-shadow .3s ease,transform .3s cubic-bezier(.2,.7,.2,1)}
+.btn>*{position:relative;z-index:1}
+.btn::after{content:"";position:absolute;z-index:2;top:-20%;bottom:-20%;left:0;width:36%;pointer-events:none;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.18) 30%,rgba(255,255,255,.55) 50%,rgba(255,255,255,.18) 70%,rgba(255,255,255,0) 100%);transform:translateX(-130%) skewX(-22deg)}
+.btn .ar{width:20px;height:20px;flex:none;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(40,84,41,.25),0 16px 30px -12px rgba(40,84,41,.7)}
+.btn:hover::after,.btn:focus-visible::after{transform:translateX(340%) skewX(-22deg);transition:transform .8s ease}
+.btn:hover .ar,.btn:focus-visible .ar{transform:translateX(-5px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.ghost{box-shadow:none}.btn.ghost::after{display:none}
+.btn.block{width:100%}
+.btn.ghost{background:transparent;color:var(--green)}
+.btn.ghost:hover{background:var(--sage-t)}
+.cta{margin-top:24px}
+.trust{margin:14px 0 0;color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.trust span{display:inline-flex;align-items:center;gap:6px}
+.trust svg{width:19px;height:19px;color:var(--green);flex:none}
+.hl{background:var(--green);color:#fff;padding:1px 14px;border-radius:9px;font-weight:800;white-space:nowrap;display:inline-block;line-height:1.5}
+.gift,.fs{background:var(--green);color:#fff;padding:0 11px;border-radius:9px;font-weight:800;white-space:nowrap;display:inline-block;line-height:1.5}
+.ann .gift{background:#fff;color:var(--green)}
+.assure{margin:26px auto 0;max-width:400px;text-align:start;border:1px solid var(--line);border-radius:var(--r);background:var(--cream)}
+.as{display:flex;gap:14px;padding:16px 18px;align-items:flex-start}
+.as+.as{border-top:1px solid var(--line)}
+.as .ic{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--green)}
+.as .ic svg{width:22px;height:22px}
+.as b{display:block;font-weight:800;line-height:1.45}
+.as span{display:block;color:var(--muted);font-size:14.5px;line-height:1.65;margin-top:2px}
+.as b .fs{display:inline-block;color:#fff;font-size:inherit;line-height:1.5;margin:0}
+
+@media (min-width:900px){
+  .hero{max-width:1080px;margin-inline:auto;padding:40px 20px;grid-template-columns:1fr 1fr;align-items:center;gap:56px}
+  .slides img{aspect-ratio:1/1;border-radius:var(--r)}
+  .slides{border-radius:var(--r)}
+  .info{padding:0;text-align:start}
+  .price,.cta{justify-content:flex-start}
+  .feats{margin-inline:0}
+  h1{font-size:44px}
+}
+
+/* motion */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.js .info>*{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+.js .info>*:nth-child(2){animation-delay:.06s}.js .info>*:nth-child(3){animation-delay:.12s}.js .info>*:nth-child(4){animation-delay:.18s}.js .info>*:nth-child(5){animation-delay:.24s}.js .info>*:nth-child(n+6){animation-delay:.3s}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.js .info>*{animation:none}.btn::after{display:none}}
+
+/* rating + numbers */
+.rate{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:-8px 0 26px;color:var(--muted);font-size:15px}
+.rate b{font-size:30px;color:var(--ink);font-weight:800;line-height:1}
+.nums .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;max-width:760px;margin:0 auto}
+.nums .n{padding:26px 10px;text-align:center;border-bottom:1px solid var(--line)}
+.nums .n:nth-child(odd){border-inline-end:1px solid var(--line)}
+.nums .n:nth-last-child(-n+2){border-bottom:0}
+.nums .n b{display:block;font-size:46px;line-height:1.1;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums}
+.nums .n b small{font-size:18px;color:var(--muted);font-weight:700;margin-inline-start:4px}
+.nums .n>span{color:var(--muted);font-size:15px}
+@media (min-width:760px){.nums .grid{grid-template-columns:repeat(4,1fr)}.nums .n{border-bottom:0!important}.nums .n:not(:last-child){border-inline-end:1px solid var(--line)}}
+
+/* timeline */
+.tl{position:relative;max-width:520px;margin:0 auto;padding-inline-start:64px}
+.tl-line{position:absolute;top:22px;bottom:22px;inset-inline-start:21px;width:2px;background:var(--line)}
+.tl-fill{position:absolute;top:0;inset-inline:0;height:0;background:var(--green);transition:height .15s linear}
+.st{position:relative;padding:0 0 38px}
+.st:last-child{padding-bottom:0}
+.st i{position:absolute;inset-inline-start:-64px;top:0;width:44px;height:44px;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:grid;place-items:center;font-style:normal;font-weight:800;color:var(--muted);transition:background .3s,color .3s,border-color .3s}
+.st.on i{background:var(--green);border-color:var(--green);color:#fff}
+.st b{display:block;font-size:19px;font-weight:800;line-height:1.5;padding-top:6px}
+.st span{display:block;color:var(--muted);font-size:15.5px}
+
+
+/* announcement + countdown + offer timeline */
+.ann{background:var(--green);color:#fff;text-align:center;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+.ann .row{display:flex;align-items:center;justify-content:center;gap:10px 14px;flex-wrap:wrap;font-weight:700;font-size:15px}
+.cdb{display:inline-flex;gap:6px;direction:ltr;font-variant-numeric:tabular-nums}
+.cdb span{display:inline-grid;min-width:42px;padding:3px 6px;border-radius:8px;background:rgba(255,255,255,.14);line-height:1.15;text-align:center}
+.cdb b{font-size:18px;font-weight:800;display:block}
+.cdb small{font-size:11px;opacity:.85;font-weight:600;display:block}
+.otl{display:flex;align-items:center;justify-content:center;gap:0;margin:10px auto 0;max-width:560px;font-size:13.5px;font-weight:700}
+.otl>span{white-space:nowrap}
+.otl i{flex:1;min-width:14px;height:2px;background:rgba(255,255,255,.35);margin:0 8px;position:relative;overflow:hidden}
+.otl i::after{content:"";position:absolute;inset:0;width:40%;background:#fff;animation:tlrun 2.6s ease-in-out infinite}
+@keyframes tlrun{0%{transform:translateX(-120%)}100%{transform:translateX(320%)}}
+
+@media (prefers-reduced-motion:reduce){.otl i::after{animation:none;width:100%}}
+@media (max-width:560px){.otl{flex-wrap:wrap;gap:2px 12px;font-size:13px}.otl i{display:none}.otl{flex-wrap:nowrap;gap:0 10px;font-size:12.5px}.otl>span{white-space:nowrap;unicode-bidi:isolate}}
+
+/* hero rating, desc, selector, pay */
+.hrate{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:10px 0 0;font-size:15px;color:var(--muted)}
+.hrate b{color:var(--ink);font-size:17px}
+.desc{margin:18px auto 0;max-width:430px;color:var(--ink);font-size:16.5px;line-height:1.85;text-wrap:balance}
+.hsel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:430px;margin:24px auto 0}
+.hsel .t{display:block;text-align:start;margin:0 auto -6px;max-width:430px;font-weight:700;font-size:15px}
+.hs{position:relative;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:14px 6px 12px;text-align:center;color:var(--ink);line-height:1.35;transition:border-color .2s,background .2s,transform .2s}
+.hs:hover{transform:translateY(-2px)}
+.hs[aria-pressed="true"]{border-color:var(--green);background:var(--sage-t);box-shadow:0 0 0 2px var(--sage-t)}
+.hs b{display:block;font-weight:800;font-size:18px}
+.hs em{display:block;font-style:normal;color:var(--muted);font-size:13px;margin:2px 0 6px}
+.hs s{display:block;color:var(--muted);font-size:13px;line-height:1.2}
+.hs strong{display:block;font-weight:800;font-size:17px;color:var(--green)}
+.hs .pop{position:absolute;top:-11px;inset-inline:0;margin-inline:auto;width:max-content;background:var(--gold);color:#fff;font-size:11.5px;font-weight:800;padding:0 10px;border-radius:99px;line-height:1.9}
+.hsave{display:flex;justify-content:center;gap:6px 12px;flex-wrap:wrap;max-width:430px;margin:12px auto 0;padding:9px 12px;background:var(--cream);border-radius:10px;font-size:14px;color:var(--muted)}
+.hsave b{color:var(--ink)}
+.pay{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin:18px 0 0}
+.pay>span{height:32px;display:inline-flex;align-items:center;gap:6px;padding:0 11px;border:1px solid var(--line);border-radius:8px;background:#fff;font-weight:800;font-size:13px;color:var(--ink);white-space:nowrap}
+.pay svg{width:18px;height:18px;color:var(--green)}
+.pay .visa{font-style:italic;color:#1A3E91;font-size:15px;letter-spacing:.02em;font-family:Arial,Helvetica,sans-serif}
+.pay .mc{padding:0 9px;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#444}
+.pay .mc i{display:inline-block;width:15px;height:15px;border-radius:50%;background:#E3342F;opacity:.92}
+.pay .mc i+i{background:#F5A623;margin-inline-start:-7px;opacity:.9}
+.pay .ap svg{color:#111;width:17px;height:17px;margin-inline-end:-2px}
+.pay .ap{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:14px}
+.feats li{font-weight:600;line-height:1.6}
+.feats li small{display:block;font-weight:500;color:var(--muted);font-size:14px;line-height:1.5}
+.feats{max-width:430px}
+
+/* versus */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:780px;margin:0 auto}
+.vs>*{min-width:0}
+.vc{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.vc.us{border-color:var(--green);box-shadow:0 12px 30px -22px rgba(40,84,41,.6)}
+.vc .im{aspect-ratio:1/1;overflow:hidden;background:var(--cream-2)}
+.vc .im img{width:100%;height:100%;object-fit:cover}
+.vc.them .im img{filter:blur(10px) grayscale(.7) brightness(1.05);transform:scale(1.18)}
+.vc .hd{padding:11px 8px;text-align:center;font-weight:800;color:#fff;background:#5B655C;font-size:17px}
+.vc.us .hd{background:var(--green)}
+.vc dl{margin:0}
+.vc .rw{padding:11px 14px;border-top:1px solid var(--line)}
+.vc dt{font-size:13px;color:var(--muted);line-height:1.4}
+.vc dd{margin:1px 0 0;display:flex;align-items:center;gap:7px;font-weight:700;line-height:1.5;font-size:15.5px}
+.vc.them dd{color:var(--muted);font-weight:600}
+.vc dd svg{flex:none;width:18px;height:18px}
+.vc.us dd svg{color:var(--green)}.vc.them dd svg{color:#9AA39B}
+@media (min-width:700px){.vc dd{font-size:16.5px}.vc .rw{padding:13px 18px}}
+
+
+/* premium compact review cards */
+.mq .rev{flex:0 0 min(70vw,250px);margin-right:12px;padding:16px 16px 14px;border-radius:14px;box-shadow:0 12px 28px -22px rgba(30,42,31,.55);position:relative;background:linear-gradient(180deg,#fff,#FCFAF5)}
+.mq .rev::before{content:"\201D";position:absolute;top:4px;inset-inline-end:14px;font-size:48px;line-height:1;color:var(--sage);font-family:Georgia,serif}
+.mq .rev p{font-size:14.5px;line-height:1.7;margin:6px 0 10px}
+.mq .stars{font-size:14px;letter-spacing:2px}
+.mq .by{font-size:13px;border-top:1px solid var(--line);padding-top:9px}
+.mq-t{animation-duration:48s}
+/* section CTA + FOMO */
+.scta{margin:38px auto 0;text-align:center}
+.scta .fomo{margin:0 0 12px;font-size:14.5px;color:var(--gold-t);font-weight:700}
+.scta .fomo b{font-variant-numeric:tabular-nums;color:var(--ink);direction:ltr;display:inline-block}
+.scta .btn{min-height:48px;padding:0 30px}
+/* before/after photo */
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .bf{filter:grayscale(.95) blur(5px) contrast(.9) brightness(1.04);transform:scale(1.12)}
+.ba{aspect-ratio:1/1;max-width:440px}
+.ba-cap{max-width:440px}
+/* timeline glow */
+.tl-fill{box-shadow:0 0 14px 2px rgba(40,84,41,.45);border-radius:2px}
+.st.on i{box-shadow:0 0 0 6px rgba(174,192,149,.35),0 0 18px rgba(40,84,41,.45);animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 11px rgba(174,192,149,.14),0 0 28px rgba(40,84,41,.6)}}
+.st .btn{margin-top:14px;min-height:46px;padding:0 26px;font-size:16.5px}
+.st .fomo{margin:10px 0 0;font-size:14px;color:var(--gold-t);font-weight:700}
+.st .fomo b{direction:ltr;display:inline-block;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* closing */
+.close-cta{text-align:center;padding:72px 0 84px}
+.close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
+.close-cta p{margin:0 0 26px;color:var(--muted)}
+
+/* sections */
+.sec{padding:84px 0}
+.sec.alt{background:var(--cream)}
+.sec h2{font-size:30px;line-height:1.3;margin:0 0 8px;text-align:center;font-weight:800}
+.sec .lead{margin:0 auto 44px;text-align:center;color:var(--muted);max-width:460px;text-wrap:balance}
+
+/* videos */
+.vids{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 8px;scrollbar-width:none}
+.vids::-webkit-scrollbar{display:none}
+.vid{flex:0 0 min(64vw,260px);aspect-ratio:9/16;border-radius:var(--r);background:var(--cream-2);scroll-snap-align:center;display:grid;place-items:center;position:relative;border:1px dashed var(--sage)}
+.vid .p{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--green);box-shadow:0 2px 10px rgba(30,42,31,.08)}
+.vid span.l{position:absolute;bottom:14px;inset-inline:14px;font-size:14px;color:var(--muted);text-align:center}
+
+/* reviews */
+.feat-rev{max-width:640px;margin:0 auto 40px;text-align:center}
+.feat-rev q{display:block;font-size:24px;line-height:1.7;font-weight:600;quotes:none}
+.stars{color:var(--gold);letter-spacing:3px;font-size:18px}
+.by{margin-top:10px;font-size:15px;color:var(--muted)}
+.revs{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}
+.revs::-webkit-scrollbar{display:none}
+.rev{flex:0 0 min(78vw,300px);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.rev p{margin:8px 0 12px;color:var(--muted)}
+.ph{color:#8a948b}
+
+/* reviews marquee */
+.mq{overflow:hidden;direction:ltr;padding:6px 0 10px}
+.mq-t{display:flex;width:max-content;animation:mq 55s linear infinite;will-change:transform}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq .rev{direction:rtl;flex:0 0 min(78vw,310px);margin-right:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;text-align:start}
+.mq .rev p{margin:10px 0 14px;color:var(--ink);font-size:16px;line-height:1.75}
+.mq .by{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0;font-size:14px;color:var(--muted)}
+.mq .by b{color:var(--ink);font-weight:700}
+.mq .by span{color:var(--green);font-weight:700;font-size:13px}
+
+
+/* before / after */
+.ba{--p:50%;position:relative;max-width:520px;margin:0 auto;border-radius:var(--r);overflow:hidden;background:var(--cream-2);direction:ltr;aspect-ratio:400/420;user-select:none;touch-action:pan-y}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .knob{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
+.ba .knob i{position:absolute;top:50%;left:50%;width:44px;height:44px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);box-shadow:0 2px 12px rgba(30,42,31,.18);display:grid;place-items:center;color:var(--green);font-style:normal;font-size:18px;font-weight:800}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.ba:focus-within{outline:3px solid var(--green);outline-offset:3px}
+.ba .tg{position:absolute;top:14px;padding:3px 14px;border-radius:99px;font-size:14px;font-weight:800;background:#fff;color:var(--ink);direction:rtl}
+.ba .tg.b{right:14px}.ba .tg.a{left:14px;background:var(--green);color:#fff}
+.ba-cap{max-width:520px;margin:16px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:center;font-size:15px}
+.ba-cap div{padding:10px 6px;border-top:2px solid var(--line)}
+.ba-cap{direction:ltr}.ba-cap div{direction:rtl}.ba-cap div:first-child{border-top-color:var(--green)}.ba-cap div:last-child{border-top-color:var(--line)}
+.ba-cap b{display:block;font-weight:800}
+.ba-cap span{color:var(--muted);font-size:14px}
+.ba-note{text-align:center;color:var(--muted);font-size:13px;margin:10px 0 36px}
+
+/* compare */
+.cmp{max-width:640px;margin:0 auto;border-collapse:collapse;width:100%}
+.cmp th,.cmp td{padding:16px 10px;text-align:center;border-bottom:1px solid var(--line);font-size:16px}
+.cmp thead th{font-weight:800;font-size:17px;border-bottom:1.5px solid var(--ink)}
+.cmp thead th:nth-child(2){color:var(--green)}
+.cmp tbody th{font-weight:600;color:var(--muted);text-align:start;width:26%}
+.cmp td:nth-child(2){font-weight:700;color:var(--ink)}
+.cmp td:nth-child(3){color:var(--muted)}
+
+/* offers */
+.offer-main{display:block;position:relative;border:1.5px solid var(--green);border-radius:var(--r);background:#fff;padding:26px 22px;text-align:center;cursor:pointer;max-width:520px;margin:0 auto}
+.offer-main.sel{box-shadow:0 0 0 3px var(--sage-t)}
+.tag{display:inline-block;font-size:13px;font-weight:800;color:var(--green);background:var(--sage-t);padding:2px 14px;border-radius:99px;margin-bottom:10px}
+.offer-main img{margin:6px auto 12px}
+.offer-main h3{margin:0;font-size:22px;font-weight:800}
+.offer-main .pp{margin:10px 0 2px;font-size:38px;font-weight:800;line-height:1.1;display:flex;align-items:baseline;justify-content:center;gap:14px}
+.offer-main .pp small{font-size:18px}
+.offer-main .pp s{font-size:18px;color:var(--muted);font-weight:600}
+.cd{margin:16px 0 0;font-size:15px;color:var(--gold-t);font-weight:700;font-variant-numeric:tabular-nums}
+.quiet{max-width:520px;margin:14px auto 0;display:grid;gap:0}
+.qrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 4px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-inline:0;border-top:0;width:100%;text-align:start;color:var(--ink)}
+.qrow:first-child{border-top:1px solid var(--line)}
+.qrow b{font-weight:700}.qrow span{color:var(--muted);font-size:15px}
+.qrow.sel{color:var(--green)}.qrow.sel b::before{content:"✓ "}
+.qrow b .gift{margin-inline-start:2px}
+.offer-cta{max-width:520px;margin:30px auto 0;text-align:center}
+
+/* faq */
+.faq{max-width:640px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 4px;font-weight:700;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:26px;line-height:1;color:var(--green);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:0 0 20px;color:var(--muted);padding-inline:4px}
+.note{max-width:640px;margin:28px auto 0;text-align:center;color:var(--muted);font-size:15px}
+
+footer{padding:44px 0 110px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer img{height:28px;margin:0 auto 12px}
+
+/* sticky bar */
+.bar{position:fixed;inset-inline:0;bottom:0;z-index:20;background:rgba(255,255,255,.96);border-top:1px solid var(--line);padding:10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));display:flex;align-items:center;justify-content:space-between;gap:14px;transform:translateY(110%);transition:transform .25s}
+.bar.on{transform:none}
+.bar .bp{font-weight:800;font-size:22px;line-height:1.2}
+.bar .bp small{display:block;font-size:13px;font-weight:600;color:var(--muted)}
+.bar .btn{min-height:48px;padding:0 28px}
+
+/* dialog */
+dialog{border:0;padding:0;background:var(--bg);color:var(--ink);width:min(520px,100%);max-height:92vh;border-radius:20px 20px 0 0;margin:auto auto 0;overflow:auto}
+@media (min-width:700px){dialog{margin:auto;border-radius:20px}}
+dialog::backdrop{background:rgba(30,42,31,.45)}
+.dg{padding:22px max(20px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px))}
+.dg-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.dg-h h2{margin:0;font-size:22px;font-weight:800}
+.x{width:44px;height:44px;border:0;background:none;color:var(--ink);font-size:28px;line-height:1;border-radius:50%}
+.x:hover{background:var(--cream)}
+.lbl{display:block;font-weight:700;font-size:15px;margin:18px 0 8px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg.four{grid-template-columns:repeat(4,1fr)}
+.seg.four button{padding:0 4px}
+.seg button{min-height:48px;border:1px solid var(--line);background:#fff;border-radius:10px;color:var(--ink);font-weight:600}
+.seg button[aria-pressed="true"]{border-color:var(--green);background:var(--sage-t);color:var(--green);font-weight:800}
+.seg.two{grid-template-columns:repeat(2,1fr)}
+.field{margin-top:14px}
+.field label{display:block;font-weight:700;font-size:15px;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;min-height:50px;border:1px solid #CFC8B8;border-radius:10px;padding:10px 14px;font:inherit;background:#fff;color:var(--ink)}
+.field textarea{min-height:84px}
+.field [aria-invalid="true"]{border-color:var(--danger)}
+.msg{color:var(--danger);font-size:14px;margin:4px 0 0}
+.sum{margin:20px 0 4px;border-top:1px solid var(--line)}
+.sum div{display:flex;justify-content:space-between;padding:9px 0;color:var(--muted);font-size:15px}
+.sum .t{color:var(--ink);font-weight:800;font-size:19px;border-top:1px solid var(--line);margin-top:4px;padding-top:14px}
+.ok{text-align:center;padding:28px 0 8px}
+.ok .c{width:64px;height:64px;border-radius:50%;background:var(--sage-t);display:grid;place-items:center;margin:0 auto 14px;color:var(--green)}
+</style>
+
+<div class="ann" id="ann">
+  <div class="row"><span>عرض الجمعة البيضاء ينتهي خلال</span>
+    <div class="cdb" id="cdb" aria-live="off"><span><b id="cd-d">00</b><small>يوم</small></span><span><b id="cd-h">00</b><small>ساعة</small></span><span><b id="cd-m">00</b><small>دقيقة</small></span><span><b id="cd-s">00</b><small>ثانية</small></span></div></div>
+</div>
+<header class="top"><img src="img/logo-green.webp" alt="DODOLIZA" width="106" height="34"></header>
+
+<main>
+<!-- الشاشة 1: أقنع العميل بالمنتج -->
+<section class="hero" aria-label="المنتج">
+  <div class="gal">
+    <div class="slides" id="slides" tabindex="0" aria-label="صور المنتج"></div>
+    <div class="thumbs" id="thumbs" role="group" aria-label="اختيار الصورة"></div>
+  </div>
+  <div class="info">
+    <div class="eyebrow">عروض الجمعة البيضاء</div>
+    <h1>شراب دودوليزا بامبو</h1>
+    <p class="sub">مصمم خصيصًا <span class="hl">لأصحاب السكري</span></p>
+    <div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227) تقييم العملاء</span></div>
+    <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
+    <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
+    <div class="hsel" id="hsel" role="group" aria-label="اختر العرض">
+      <button class="hs" type="button" data-offer="1" aria-pressed="false"><b>علبة</b><em>5 أزواج</em><strong>99 ر.س</strong></button>
+      <button class="hs" type="button" data-offer="1+1" aria-pressed="true"><span class="pop">الأكثر طلبًا</span><b>1 + 1</b><em>10 أزواج</em><s>بدل 298</s><strong>149 ر.س</strong></button>
+      <button class="hs" type="button" data-offer="2+2" aria-pressed="false"><b>2 + 2</b><em>20 زوج</em><s>بدل 596</s><strong>298 ر.س</strong></button>
+    </div>
+    <div class="hsave"><span>كل علبة 5 أزواج</span><span>·</span><span>شحن <span class="fs">مجاني</span></span></div>
+    <div class="cta"><button class="btn" id="hero-cta" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+    <p class="desc">لأن قدم صاحب السكري تحتاج عناية زيادة، صممنا الشراب يعطيك راحة طول اليوم بدون ضغط أو احتكاك.</p>
+    <ul class="feats">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v8l1.5 6.5A3 3 0 0 1 14.6 21H10a3 3 0 0 1-2.9-2.3L8 11z"/><path d="M8 6.5h8"/></svg><span>حافة واسعة بدون أستك ضاغط<small>ما تشد على الساق ولا تترك علامات.</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12c3-5 13-5 16 0-3 5-13 5-16 0Z"/><path d="M12 9.5v5"/></svg><span>خياطة ناعمة بدون حواف<small>ما فيه درزات بارزة عند الأصابع تحتك بالجلد.</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.3 6 10.5a6 6 0 0 1-12 0C6 9.3 12 3 12 3Z"/></svg><span>يمتص العرق ويتنفس<small>يحافظ على جفاف القدم وتهوية طول اليوم.</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg><span>نانو الفضة لتقليل الروائح<small>انتعاش أكثر للقدم حتى آخر اليوم.</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg><span>مرن ومريح للقدم الحساسة<small>مقاس موحّد (Free Size) يناسب أغلب الأقدام.</small></span></li>
+    </ul>
+    <div class="pay" aria-label="طرق الدفع">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span>
+      <span class="mc" aria-label="Mastercard"><i></i><i></i></span>
+      <span class="visa" aria-label="Visa">VISA</span>
+      <span class="ap" aria-label="Apple Pay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.9zM14.2 5.8c.6-.8 1.1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></svg>Pay</span>
+    </div>
+    <div class="assure">
+      <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg></div><div><b>الدفع عند الاستلام</b><span>ما تدفع شي مقدمًا. تدفع للمندوب لما يوصلك طلبك. (تُضاف رسوم 10 ر.س للدفع عند الاستلام)</span></div></div>
+      <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></div><div><b>شحن <span class="fs">مجاني</span></b><span>لجميع مدن المملكة، بدون أي رسوم شحن إضافية على طلبك.</span></div></div>
+      <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div><div><b>تأكيد قبل الشحن</b><span>بنتواصل معك على جوالك لتأكيد الطلب والعنوان قبل ما نشحنه.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- تجارب العملاء: سلايدر يتحرك -->
+<section class="sec alt" aria-labelledby="r-h" style="padding:44px 0 36px">
+  <div class="w"><h2 id="r-h">تجارب عملائنا</h2><p class="lead" style="margin-bottom:14px">آراء عملاء استلموا طلباتهم.</p><div class="rate"><b>4.9</b><span class="stars" aria-label="4.9 من 5">★★★★★</span><span>من 227 تقييم</span></div></div>
+  <div class="mq" aria-label="آراء العملاء"><div class="mq-t" id="mq"></div></div>
+  <div class="w"><div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div></div>
+</section>
+
+<section class="sec nums" aria-labelledby="n-h">
+  <div class="w">
+    <h2 id="n-h">بالأرقام</h2>
+    <p class="lead">أرقام حقيقية من صفحة المتجر وعروضه.</p>
+    <div class="grid">
+      <div class="n"><b><span class="js-count" data-to="4.9" data-dec="1">4.9</span></b><span>تقييم العملاء</span></div>
+      <div class="n"><b><span class="js-count" data-to="227">227</span></b><span>تقييم من العملاء</span></div>
+      <div class="n"><b><span class="js-count" data-to="5">5</span></b><span>أزواج في كل علبة</span></div>
+      <div class="n"><b><span class="js-count" data-to="14.9" data-dec="1">14.9</span><small>ر.س</small></b><span>سعر الزوج مع العرض</span></div>
+    </div>
+    <div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </div>
+</section>
+
+<!-- الشاشة 2: أثبت جودة التصميم -->
+<section class="sec alt" aria-labelledby="v-h">
+  <div class="w">
+    <h2 id="v-h">تجارب عملائنا</h2>
+    <p class="lead">فيديوهات قصيرة من عملاء استخدموا الشراب.</p>
+    <div class="vids" tabindex="0" aria-label="فيديوهات العملاء">
+      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
+      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
+      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
+    </div>
+    <div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="c-h">
+  <div class="w">
+    <h2 id="c-h">قبل وبعد</h2>
+    <p class="lead">اسحب الخط (أو اتركه يتحرك) لتشوف الفرق بين الشراب العادي وحافة دودوليزا.</p>
+    <div class="ba" id="ba">
+      <img class="bf" src="img/g-black-stand.webp" alt="" width="440" height="440">
+      <div class="after"><img src="img/g-grey-stretch.webp" alt="حافة دودوليزا الواسعة وهي تتمدد بسهولة" width="440" height="440"></div>
+      <span class="tg b">قبل</span><span class="tg a">بعد</span>
+      <div class="knob"><i aria-hidden="true">⇆</i></div>
+      <input type="range" id="ba-r" min="5" max="95" value="50" aria-label="اسحب لمقارنة قبل وبعد">
+    </div>
+    <div class="ba-cap">
+      <div><b>بعد: دودوليزا</b><span>حافة واسعة وما تضغط</span></div>
+      <div><b>قبل: شراب عادي</b><span>أستك يشد على الساق ويعلّم</span></div>
+    </div>
+    <p class="ba-note">الصورة اليمين للتوضيح فقط</p>
+    <h2 style="margin-top:20px">دودوليزا مقابل الشراب القطن العادي</h2>
+    <p class="lead">الفرق اللي تحسّه من أول لبسة.</p>
+    <div class="vs"><div class="vc us"><div class="im"><img src="img/g-grey-stretch.webp" alt="شراب دودوليزا والحافة الواسعة" loading="lazy" width="500" height="500"></div><div class="hd">دودوليزا</div><dl><div class="rw"><dt>الخامة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>بامبو + نانو الفضة</span></dd></div><div class="rw"><dt>الحافة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>واسعة وما تضغط</span></dd></div><div class="rw"><dt>الرائحة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>أقل طول اليوم</span></dd></div><div class="rw"><dt>التهوية</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>يتنفس</span></dd></div><div class="rw"><dt>الخياطة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>ناعمة بدون حواف</span></dd></div></dl></div><div class="vc them"><div class="im"><img src="img/g-black-stand.webp" alt="شراب قطن عادي (صورة توضيحية)" loading="lazy" width="500" height="500"></div><div class="hd">قطن عادي</div><dl><div class="rw"><dt>الخامة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>قطن عادي</span></dd></div><div class="rw"><dt>الحافة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>أستك يشد ويعلّم</span></dd></div><div class="rw"><dt>الرائحة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>تبان مع العرق</span></dd></div><div class="rw"><dt>التهوية</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>يحبس الحرارة</span></dd></div><div class="rw"><dt>الخياطة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>بارزة عند الأصابع</span></dd></div></dl></div></div>
+    <div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </div>
+</section>
+
+<section class="sec alt" aria-labelledby="t-h">
+  <div class="w">
+    <h2 id="t-h">كيف تطلب؟</h2>
+    <p class="lead">ثلاث خطوات بسيطة، وما تدفع إلا لما يوصلك طلبك.</p>
+    <div class="tl" id="tl">
+      <div class="tl-line"><div class="tl-fill" id="tl-fill"></div></div>
+      <div class="st"><i>1</i><b>اختر عرضك</b><span>علبة بـ 99 ر.س، أو علبة + علبة مجانًا بـ 149 ر.س، أو 2 + 2 بـ 298 ر.س، مع اللون اللي يناسبك.</span></div>
+      <div class="st"><i>2</i><b>نتواصل معك</b><span>بنكلمك على جوالك لتأكيد الطلب والعنوان قبل الشحن.</span></div>
+      <div class="st"><i>3</i><b>يوصلك وتدفع عند الاستلام</b><span>الشحن مجاني، وتدفع للمندوب لما يوصلك طلبك.</span><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- الشاشة 3: سهّل قرار الشراء -->
+<section class="sec" id="offers" aria-labelledby="o-h">
+  <div class="w">
+    <h2 id="o-h">اختر عرضك</h2>
+    <p class="lead">3 عروض، والأوفر لك علبة + علبة <span class="gift">مجانًا</span>: الزوج بـ 14.9 ر.س بدل 19.8 ر.س</p>
+    <div id="offer-wrap">
+      <div class="offer-main sel" id="om" role="button" tabindex="0" data-offer="1+1" aria-pressed="true">
+        <span class="tag">الأكثر طلبًا</span>
+        <img src="img/g-gift-box.webp" alt="" width="200" height="200" loading="lazy" style="height:170px;width:170px;border-radius:12px;object-fit:cover">
+        <h3>علبة + علبة <span class="gift">مجانًا</span></h3>
+        <div class="pp"><span>149 <small>ر.س</small></span><s>298 ر.س</s></div>
+        <div style="color:var(--muted);font-size:15px">10 أزواج</div>
+        <div class="cd" id="cd" hidden></div>
+      </div>
+      <div class="quiet" role="group" aria-label="عروض أخرى">
+        <button class="qrow" type="button" data-offer="1" aria-pressed="false"><b>علبة واحدة</b><span>5 أزواج · 99 ر.س</span></button>
+        <button class="qrow" type="button" data-offer="2+2" aria-pressed="false"><b>2 + 2 <span class="gift">مجانًا</span></b><span>20 زوج · 298 ر.س</span></button>
+      </div>
+    </div>
+    <div class="offer-cta"><button class="btn block" id="offer-cta" data-open><span id="offer-cta-t">اطلب الآن — 149 ر.س</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p></div>
+  </div>
+</section>
+
+<section class="sec alt" aria-labelledby="f-h">
+  <div class="w">
+    <h2 id="f-h">أسئلة شائعة</h2>
+    <p class="lead">&nbsp;</p>
+    <div class="faq">
+      <details><summary>كيف أستلم طلبي؟</summary><p>نوصل لمدن المملكة، وبنتواصل معك على جوالك لتأكيد الطلب قبل الشحن.</p></details>
+      <details><summary>كيف أدفع؟</summary><p>الدفع عند الاستلام: تدفع للمندوب لما يوصلك طلبك، وتُضاف رسوم 10 ر.س للدفع عند الاستلام. الشحن مجاني لجميع مدن المملكة.</p></details>
+      <details><summary>إيش المقاس؟</summary><p>مقاس موحّد (Free Size) يناسب أغلب الأقدام.</p></details>
+      <details><summary>إيش خامة الشراب؟</summary><p>ألياف بامبو بتقنية نانو الفضة، بحافة واسعة لا تضغط وخياطة ناعمة بدون حواف بارزة.</p></details>
+      <details><summary>إذا واجهتني مشكلة في الطلب؟</summary><p>تواصل معنا وبنساعدك.</p></details>
+    </div>
+    <p class="note">لأي حالة صحية خاصة، استشر طبيبك.</p>
+    <div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </div>
+</section>
+<section class="close-cta">
+  <div class="w">
+    <h2>جاهز تجرب الراحة؟</h2>
+    <p>علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج بـ 149 ر.س</p>
+    <button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+  </div>
+</section>
+</main>
+
+<footer><img src="img/logo-green.webp" alt="DODOLIZA" width="86" height="28"><div>© 2026 دودوليزا · الدفع عند الاستلام</div></footer>
+
+<div class="bar" id="bar" aria-hidden="true"><div class="bp" id="bar-p">149 ر.س<small>علبة + علبة مجانًا</small></div><button class="btn" data-open tabindex="-1"><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <div class="dg">
+    <div class="dg-h"><h2 id="dlg-t">إتمام الطلب</h2><button class="x" id="dlg-x" aria-label="إغلاق">×</button></div>
+    <div id="v-form">
+      <span class="lbl" id="lb-o" style="margin-top:6px">العرض</span>
+      <div class="seg" id="seg-o" role="group" aria-labelledby="lb-o">
+        <button type="button" data-offer="1">علبة · 99</button><button type="button" data-offer="1+1">1 + 1 · 149</button><button type="button" data-offer="2+2">2 + 2 · 298</button>
+      </div>
+      <span class="lbl" id="lb-c">اللون</span>
+      <div class="seg" id="seg-c" role="group" aria-labelledby="lb-c">
+        <button type="button" data-color="black">أسود</button><button type="button" data-color="white">أبيض</button><button type="button" data-color="mix">مشكّل</button>
+      </div>
+      <form id="co" novalidate>
+        <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required><p class="msg" hidden></p></div>
+        <div class="field"><label for="f-phone">رقم الجوال</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right" required><p class="msg" hidden></p></div>
+        <div class="field"><label for="f-city">المدينة</label><select id="f-city" name="city" required><option value="">اختر المدينة</option></select><p class="msg" hidden></p></div>
+        <div class="field"><label for="f-addr">العنوان</label><textarea id="f-addr" name="address" rows="2" autocomplete="street-address" placeholder="الحي، الشارع" required></textarea><p class="msg" hidden></p></div>
+        <div class="sum" id="sum"></div>
+        <p class="msg" id="co-err" hidden></p>
+        <button class="btn block" type="submit" id="confirm" style="margin-top:14px">تأكيد الطلب</button>
+        <p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p>
+      </form>
+    </div>
+    <div class="ok" id="v-ok" hidden>
+      <div class="c"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2 style="margin:0 0 6px;font-size:22px">وصلنا طلبك</h2>
+      <p style="margin:0;color:var(--muted)">رقم الطلب <b id="ok-id"></b>. بنتواصل معك على جوالك لتأكيد التوصيل.</p>
+      <button class="btn ghost" id="ok-close" style="margin-top:22px">رجوع</button>
+    </div>
+  </div>
+</dialog>
+
+<script>document.documentElement.classList.add("js");</script>
+<script>
+/* ===== قيم قابلة للتعديل ===== */
+const CONFIG = {
+  currency: "ر.س",
+  codFee: 10,                       // رسوم الدفع عند الاستلام (إيراد للمتجر)
+  offerEnd: "2026-11-30T23:59:59+03:00", // نهاية عرض الجمعة البيضاء (عدّلها لو التاريخ مختلف)
+  orderEndpoint: "",                // رابط API لاستقبال الطلبات. فاضي = الطلب لا يُرسل لأي مكان
+  cities: ["الرياض","جدة","مكة المكرمة","المدينة المنورة","الدمام","الخبر","الطائف","تبوك","بريدة","أبها","خميس مشيط","حائل","جازان","نجران","أخرى"]
+};
+const OFFERS = { "1":{pairs:5,price:99,was:0,label:"علبة واحدة",line:"علبة واحدة · 5 أزواج · سعر الزوج 19.8 ر.س"}, "1+1":{pairs:10,price:149,was:298,label:"علبة + علبة مجانًا",line:"علبة + علبة <span class=\"gift\">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س"}, "2+2":{pairs:20,price:298,was:596,label:"2 + 2 مجانًا",line:"2 + 2 <span class=\"gift\">مجانًا</span> · 20 زوج · سعر الزوج 14.9 ر.س"} };
+const COLOR_NAME = { black:"أسود", white:"أبيض", mix:"مشكّل" };
+const st = { offer:"1+1", color:"black" };
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const money = n => `${n} ${CONFIG.currency}`;
+const num = n => String(n).replace(/\d/g, d => d);
+
+/* gallery: غيّر الصور من هنا (الأولى تظهر أول) */
+const GALLERY = [
+  { src:"img/g-grey-stretch.webp", alt:"الحافة الواسعة لشراب دودوليزا الرمادي وهي تتمدد بسهولة" },
+  { src:"img/g-colors.webp",       alt:"ألوان شراب دودوليزا: أسود، كحلي، رمادي، أبيض" },
+  { src:"img/g-gift-box.webp",     alt:"علبة دودوليزا الهدية فيها 5 أزواج" },
+  { src:"img/g-navy-sofa.webp",    alt:"شراب دودوليزا الكحلي في الجلسة" },
+  { src:"img/g-black-bench.webp",  alt:"لبس شراب دودوليزا الأسود" },
+  { src:"img/g-black-stand.webp",  alt:"شراب دودوليزا الأسود بخياطة ناعمة" }
+];
+const slides = $("#slides"), thumbs = $("#thumbs");
+slides.innerHTML = GALLERY.map((g, i) => `<img src="${g.src}" alt="${g.alt}" width="800" height="1000"${i ? ' loading="lazy"' : ""}>`).join("");
+thumbs.innerHTML = GALLERY.map((g, i) => `<button type="button" aria-label="الصورة ${i + 1}" ${i ? "" : 'aria-current="true"'}><img src="${g.src}" alt="" loading="lazy"></button>`).join("");
+const tb = [...thumbs.children];
+tb.forEach((b, i) => b.addEventListener("click", () => slides.children[i].scrollIntoView({behavior:"smooth", inline:"center", block:"nearest"})));
+slides.addEventListener("scroll", () => {
+  const i = Math.round(Math.abs(slides.scrollLeft) / slides.clientWidth);
+  tb.forEach((b, k) => { if (k === i) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
+}, {passive:true});
+
+/* آراء العملاء (من صفحة المتجر الحالية) */
+const REVIEWS = [
+  { n:"Yaser Alharby", t:"والله أكون من الظالمين لو قلت سيء، بالله إنها ممتازة جدًا وراح أكرر عملية الشراء بإذن الله." },
+  { n:"عميل موثّق", t:"خامة روعة راقية، شكرًا لكم على مصداقيتكم وخدمة العملاء الممتازة." },
+  { n:"عميل موثّق", t:"الحمدلله المنتجات ولا غلطة، روعة ماشاء الله، والخامة قوية جدًا وتتمدد بشكل جيد." },
+  { n:"Carolyne Muchahi", t:"توصيل سريع وجودة ممتازة، شكرًا دودوليزا، استمروا على هذا المستوى." },
+  { n:"عميل موثّق", t:"مشكورين جدًا، والمسؤول كان راقي كمان، الله يسعدكم." },
+  { n:"عميل موثّق", t:"وصلت الطلبية، أعجبتني المنتجات جدًا جدًا، شكرًا لتعاملكم الراقي." },
+  { n:"Khadega Abdullah", t:"استلمت الأوردر ماشاء الله تحفة، خامة رائعة وسرعة وسهولة في التوصيل." },
+  { n:"عميل موثّق", t:"الجوارب كويسة وجودة ممتازة." }
+];
+const esc = x => String(x).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const rv = REVIEWS.map(r => `<figure class="rev" style="margin-block:0"><div class="stars" aria-label="5 من 5">★★★★★</div><p>${esc(r.t)}</p><figcaption class="by"><b>${esc(r.n)}</b><span>✓ تم الشراء</span></figcaption></figure>`).join("");
+$("#mq").innerHTML = rv + rv.replace(/<figure /g, '<figure aria-hidden="true" ');
+
+
+/* before / after: يتحرك لوحده لحد ما العميل يمسكه */
+(function(){
+  const ba = $("#ba"), r = $("#ba-r"); let user = false, vis = false, t0 = 0;
+  const set = v => { ba.style.setProperty("--p", v + "%"); r.value = v; };
+  r.addEventListener("input", () => { user = true; ba.style.setProperty("--p", r.value + "%"); });
+  if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => { vis = e.isIntersecting; }).observe(ba); else vis = true;
+  const f = t => { if (!user && vis) { if (!t0) t0 = t; set((50 + 36 * Math.sin((t - t0) / 1300)).toFixed(1)); } requestAnimationFrame(f); };
+  requestAnimationFrame(f);
+})();
+
+/* offer selection */
+function setOffer(id){
+  st.offer = id;
+  const o = OFFERS[id];
+  $("#om").classList.toggle("sel", id === "1+1");
+  $("#om").setAttribute("aria-pressed", id === "1+1");
+  $$(".qrow").forEach(b => { const on = b.dataset.offer === id; b.classList.toggle("sel", on); b.setAttribute("aria-pressed", on); });
+  $("#offer-cta-t").textContent = `اطلب الآن — ${money(o.price)}`;
+  $("#hp-p").innerHTML = `${o.price}<small>ر.س</small>`;
+  $("#hp-w").textContent = o.was ? `${o.was} ر.س` : ""; $("#hp-w").hidden = !o.was;
+  $("#hp-l").innerHTML = o.line;
+  $$("#hsel button").forEach(b => b.setAttribute("aria-pressed", b.dataset.offer === id));
+  $("#bar-p").innerHTML = `${money(o.price)}<small>${o.label}</small>`;
+  $$("#seg-o button").forEach(b => b.setAttribute("aria-pressed", b.dataset.offer === id));
+  renderSum();
+}
+$$("#offer-wrap [data-offer]").forEach(b => { b.addEventListener("click", () => setOffer(b.dataset.offer)); b.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOffer(b.dataset.offer); } }); });
+$$("#seg-o button, #hsel button").forEach(b => b.addEventListener("click", () => setOffer(b.dataset.offer)));
+$$("#seg-c button").forEach(b => b.addEventListener("click", () => { st.color = b.dataset.color; paintColor(); }));
+function paintColor(){ $$("#seg-c button").forEach(b => b.setAttribute("aria-pressed", b.dataset.color === st.color)); }
+
+/* summary */
+function renderSum(){
+  const o = OFFERS[st.offer];
+  $("#sum").innerHTML = `
+    <div><span>${o.label} · ${o.pairs} زوج · ${COLOR_NAME[st.color]}</span><span>${money(o.price)}</span></div>
+    <div><span>الشحن</span><span>مجاني</span></div>
+    <div><span>رسوم الدفع عند الاستلام</span><span>${money(CONFIG.codFee)}</span></div>
+    <div class="t"><span>الإجمالي</span><span>${money(o.price + CONFIG.codFee)}</span></div>`;
+}
+$$("#seg-c button").forEach(b => b.addEventListener("click", renderSum));
+
+/* dialog */
+const dlg = $("#dlg");
+$("#f-city").innerHTML += CONFIG.cities.map(c => `<option>${c}</option>`).join("");
+function openDlg(){
+  $("#v-form").hidden = false; $("#v-ok").hidden = true; $("#dlg-t").textContent = "إتمام الطلب";
+  paintColor(); setOffer(st.offer);
+  if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+}
+function closeDlg(){ if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
+$$("[data-open]").forEach(b => b.addEventListener("click", openDlg));
+$("#dlg-x").addEventListener("click", closeDlg);
+$("#ok-close").addEventListener("click", closeDlg);
+dlg.addEventListener("click", e => { if (e.target === dlg) closeDlg(); });
+
+/* validation + submit */
+const fields = [
+  ["#f-name", v => v.trim().length >= 3, "اكتب الاسم"],
+  ["#f-phone", v => /^(?:\+?966|00966|0)?5\d{8}$/.test(v.replace(/[\s-]/g, "")), "اكتب رقم جوال سعودي صحيح يبدأ بـ 05"],
+  ["#f-city", v => !!v, "اختر المدينة"],
+  ["#f-addr", v => v.trim().length >= 6, "اكتب الحي والشارع"]
+];
+$("#co").addEventListener("submit", async e => {
+  e.preventDefault();
+  let first = null;
+  fields.forEach(([sel, ok, m]) => {
+    const el = $(sel), msg = el.parentElement.querySelector(".msg"), bad = !ok(el.value);
+    el.setAttribute("aria-invalid", bad); msg.hidden = !bad; msg.textContent = bad ? m : "";
+    if (bad && !first) first = el;
+  });
+  if (first) { first.focus(); return; }
+  const o = OFFERS[st.offer];
+  const order = { offer:st.offer, pairs:o.pairs, color:st.color, price:o.price, codFee:CONFIG.codFee, total:o.price + CONFIG.codFee,
+    name:$("#f-name").value.trim(), phone:$("#f-phone").value.trim(), city:$("#f-city").value, address:$("#f-addr").value.trim(), createdAt:new Date().toISOString() };
+  const btn = $("#confirm"), err = $("#co-err");
+  btn.disabled = true; btn.textContent = "جاري الإرسال…"; err.hidden = true;
+  try {
+    if (CONFIG.orderEndpoint) {
+      const r = await fetch(CONFIG.orderEndpoint, { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(order) });
+      if (!r.ok) throw new Error("bad status");
+    } else {
+      console.warn("orderEndpoint فاضي: الطلب لم يُرسل لأي مكان (نسخة تجريبية)", order);
+    }
+    $("#ok-id").textContent = "DD-" + Date.now().toString(36).toUpperCase().slice(-6);
+    $("#v-form").hidden = true; $("#v-ok").hidden = false; $("#dlg-t").textContent = "تم";
+    $("#co").reset();
+  } catch (_) {
+    err.hidden = false; err.textContent = "ما قدرنا نرسل الطلب، جرّب مرة ثانية.";
+  } finally { btn.disabled = false; btn.textContent = "تأكيد الطلب"; }
+});
+
+/* countdown: الشريط العلوي + بطاقة العرض */
+(function(){
+  const el = $("#cd"), end = new Date(CONFIG.offerEnd).getTime(), ann = $("#ann");
+  if (!end || isNaN(end)) { ann.hidden = true; return; }
+  const p = n => String(n).padStart(2, "0");
+  function tick(){
+    const ms = end - Date.now();
+    if (ms <= 0) { el.hidden = true; ann.hidden = true; return; }
+    const s = Math.floor(ms / 1000), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), sc = s % 60;
+    $("#cd-d").textContent = p(d); $("#cd-h").textContent = p(h); $("#cd-m").textContent = p(m); $("#cd-s").textContent = p(sc);
+    $$(".cdt").forEach(x => x.textContent = `${p(d*24+h)}:${p(m)}:${p(sc)}`);
+    el.hidden = false;
+    el.textContent = `ينتهي العرض خلال ${p(d*24+h)}:${p(m)}:${p(sc)} ساعة`;
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* sticky bar: يظهر بعد الهيرو ويختفي عند قسم العروض */
+(function(){
+  const bar = $("#bar"), cta = $("#hero-cta"), offers = $("#offers");
+  let heroOut = false, offersIn = false;
+  const mob = matchMedia("(max-width:899px)"); const upd = () => { const on = (heroOut || mob.matches) && !offersIn; bar.classList.toggle("on", on); bar.setAttribute("aria-hidden", !on); bar.querySelector(".btn").tabIndex = on ? 0 : -1; };
+  if (!("IntersectionObserver" in window)) return;
+  new IntersectionObserver(([e]) => { heroOut = !e.isIntersecting && e.boundingClientRect.top < 0; upd(); }).observe(cta);
+  new IntersectionObserver(([e]) => { offersIn = e.isIntersecting; upd(); }, {threshold:.25}).observe(offers);
+})();
+
+/* ===== حركة: ظهور مع السكرول + عدّاد أرقام + خط زمني ===== */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const rvEls = $$(".sec .w > *, .offer-main, .qrow, .close-cta .w > h2, .close-cta .w > p, .mq");
+rvEls.forEach(el => el.classList.add("rv"));
+if ("IntersectionObserver" in window && !reduce) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+  rvEls.forEach(el => io.observe(el));
+} else rvEls.forEach(el => el.classList.add("in"));
+
+function countUp(el){
+  const to = +el.dataset.to, dec = +(el.dataset.dec || 0), dur = 1700; let t0 = null;
+  const step = t => { if (!t0) t0 = t; const p = Math.min(1, (t - t0) / dur), v = to * (1 - Math.pow(1 - p, 3)); el.textContent = v.toFixed(dec); if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+if ("IntersectionObserver" in window && !reduce) {
+  const cio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); } }), {threshold:.6});
+  $$(".js-count").forEach(el => { el.textContent = (0).toFixed(+(el.dataset.dec || 0)); cio.observe(el); });
+}
+
+(function(){
+  const tl = $("#tl"), fill = $("#tl-fill"), steps = $$("#tl .st"), line = $(".tl-line");
+  let raf = 0;
+  const upd = () => {
+    raf = 0;
+    const r = line.getBoundingClientRect(), vh = innerHeight;
+    const pr = reduce ? 1 : Math.max(0, Math.min(1, (vh * .62 - r.top) / r.height));
+    fill.style.height = (pr * 100) + "%";
+    const y = r.top + pr * r.height;
+    steps.forEach(st => st.classList.toggle("on", reduce || st.getBoundingClientRect().top + 22 <= y + 2));
+  };
+  const req = () => { if (!raf) raf = requestAnimationFrame(upd); };
+  addEventListener("scroll", req, {passive:true}); addEventListener("resize", req); upd();
+})();
+
+setOffer("1+1"); paintColor();
+</script>
