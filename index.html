@@ -412,6 +412,54 @@ dialog#dlg .sum .dsc{color:#2c7a3a;font-weight:700}
   .ppair{text-align:start;font-size:14.5px;line-height:1.7}
 }
 
+
+/* ===== V14: mobile title above gallery ===== */
+@media (max-width:899px){
+  .hero{display:flex;flex-direction:column}
+  .hero .info{display:contents}
+  .hero .info>*{order:2;margin-inline:max(20px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-left,0px))}
+  .hero .info>.eyebrow{order:-3;margin-top:16px}
+  .hero .info>.th{order:-2}
+  .hero .info>.sub{order:-1;margin-bottom:14px}
+  .hero .gal{order:0}
+  .hero .info>.desc{margin-top:18px}
+  .hero .info>.assure{padding-bottom:56px}
+}
+
+
+/* ===== V15: rating beside the diabetic line ===== */
+.sbar{display:flex;align-items:center;justify-content:space-between;gap:6px 12px;flex-wrap:wrap}
+.sbar .sub{margin:0}
+.sbar .hrate{margin:0}
+@media (max-width:899px){
+  .th{justify-content:flex-start}
+  .th h1{font-size:28px}
+  .hero .info>.sub{order:0}
+  .hero .info>.sbar{order:-1;margin-top:6px;margin-bottom:14px;flex-wrap:nowrap}
+  .sbar .sub{font-size:15px;gap:6px}
+  .sbar .sub .hl{font-size:15px;padding:5px 12px}
+  .info .sbar .hrate{font-size:12px;gap:4px;white-space:nowrap}
+  .info .sbar .hrate b{font-size:13.5px}.sbar .hrate .stars{font-size:12px;letter-spacing:0}
+}
+
+/* V15b */
+@media (max-width:899px){
+  .sbar .hrate{flex-wrap:nowrap;display:flex;flex:none}
+  .sbar .sub{font-size:14px;gap:5px;min-width:0}
+  .sbar .sub .hl{font-size:14px;padding:4px 10px;box-shadow:0 0 0 3px rgba(40,84,41,.1),0 0 14px rgba(40,84,41,.18)}
+  .info .sbar .hrate{font-size:11.5px;gap:3px}.sbar .hrate .stars{font-size:11px}.info .sbar .hrate b{font-size:13px}
+}
+
+/* ===== V16: sticky CTA shows selected offer; end date in checkout ===== */
+dialog#dlg .dg-cd{flex-wrap:wrap;row-gap:2px}
+dialog#dlg .dg-cd small{flex-basis:100%;text-align:center;font-weight:600;font-size:12.5px;opacity:.85;margin-top:-2px}
+@media (max-width:899px){
+  .bar{gap:12px}
+  .bar .bp{display:block;flex:none;font-size:21px;line-height:1.15;padding-inline-end:4px;border-inline-end:1.5px solid rgba(30,42,31,.12);padding-inline-end:14px;white-space:nowrap}
+  .bar .bp small{font-size:12px;font-weight:700;color:var(--green)}
+  .bar .btn .ar{order:0;width:20px;height:20px}
+}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -565,9 +613,9 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     <div class="eyebrow">عروض الجمعة البيضاء</div>
     <div class="th">
       <h1>شراب دودوليزا بامبو</h1>
-      <div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227)</span></div>
+      
     </div>
-    <p class="sub">مصمم خصيصًا <span class="hl">لأصحاب السكري</span></p>
+    <div class="sbar"><p class="sub">مصمم خصيصًا <span class="hl">لأصحاب السكري</span></p><div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227)</span></div></div>
     <p class="desc">لأن قدم صاحب السكري تحتاج عناية زيادة، صممنا الشراب يعطيك راحة طول اليوم بدون ضغط أو احتكاك.</p>
     <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
     <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
@@ -721,7 +769,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
 
 <footer><img src="data:image/webp;base64,UklGRuAKAABXRUJQVlA4WAoAAAAQAAAAjwEAgQAAQUxQSBkKAAAB8H/+///0//+d/s4xYtyIESPGGCMixogxRkRERMSIiIiIiIiIGCNijBjj+MP1fD5fLtddd3+sx5fn8xYRE6C/yP3ZPDtXb8DbSW2jtG4+36/3tiQ2TY/oXp7e5cOkv7NGzSWpw22HTfNA/CrDO+71ehyuyHu+zbTga6P8kPqUMiF8Ud4rwaeu1Ln3YLG9AGySGcVdSfsWp7Epie8lHRLsyK15cLOlPBZWm6MPMJQ5tghhnjYbjxaLUgi2FG570N1GepgPGwPgS67zFlgW7mVavOSbEFRyALYQ3JsNMS/I/7Lw3gAO5VqMcz0RVMYI28aM6GYA2A2cOJfWOcCx/CeLTC8ElTXCVnFC4vkGoKhgw8FoAkwUdcZZiCpzhO3hgYznG0HhBIrKQYZDwvNMjxG2Bt1kaFXtDnjPM5B0XlC85RymAdy9AtInLPMoxNYg/UnoqfIAyvMkCeAtQQ5JgIpwKS2Bb+A4SSG2B+k5cKUNWALSU0HrcQGXDpKecJPeQmwRenK0CUfAZT6AfrY/CcCuMTSk99PRFCBFsfMtQheGNuIXoGwfBSV/OdcxgLohxy6JbUKF3c1AGXWAftqVMw29Agt5zVJaMXLAv2oCtPFmBaVfOETqAAqc6vYhnxL2t4udzbHMVrzOcJIDeFHxhFPBRLBrAG9JJzG2iV20GevAZynKOMywZCF7Bgt4ELQLFA9TlNDcIrQp/gBUDuT3cCV1gMMl83LYJm43RK2sPzkuvFoWOYvOHfAlwXnSfUJ9w9QvPrnar97xw/K+W4GNWZZynnl1Z+DV9jszOFMfe6BCM0kJq5J6pL4MS7kl+FmLkfpxXSvjnODiKEa0mTQj+GGQPwW/uT6XWW69HQc41TnuhaQGzA5VvAKVxPpMF7gHmTAPpfoPxVqer2/ci0w3FIeSRhSHmfbK+CrpKds09AC08ynrd5bwjiRBRybcl9YqR/JUnBmQY0xxKLNZ4CWgc0fFgQGDHJiyCxCQPOX0ZHtPbZlzR8mfDqEWwHrhy+4YnzLhxoKBpYw3Ce9rJc0NHpNeKHblFyAwikljA5LqFJfyDSqkKPZjGllUmOTqrce80JYJsK8GZrbXVgJrpo4BCW8UnxVsGXiDFMmiHmtjKmqQtlqTJ0VnjkoYh4YAi0xaD4A9mW8Fe3FfyzWjYpJF6AZT4W+DfLI4jNQxFe4aVONYYeyXtDZz5yekd8yzDKs1kr3icddZyoR6yhncptyuXccisIvZiMn6ySeLcQBzHpNFJRR+c5S+ZM8hJgvSGutxWbiyJB0XjvZg4dykkHPtdGHhYSvx2eDAOM4hi6GDrVTra/2msxj2cwbQpbMf03usGVDegfdjPReg6XxzBGgMM2svgY0gBwu7mSKLEt4srKG1ysT6JS4c5ZHzkKC9b2Bhqawf78LC7xpQ3wdpCIzbQC2GuarcvtOLKddxPjkLA7uXNLKoFvZHhgNOA6RIqnVl17yrTPj7SQwt2TuYTwqvrHnl5FBYZTuxKGFqUeg4St8EP44ygkoJNr16WUojQRp9QkdhuCvMptVrOjeSsA/S5HQkDfLIQRKlvVQJ+yHbyOmV0PKUd7Q+NdVgpDCcUew/V08O0tBRvjdJ/UzfGZ4zXFtUCFcZm9xJkvNZQrck/HmOXuQQU2E4+aDDPbrdALPAqjwkDTO1nKtAN0N3YzzmeEchSjhyfsrq57gJXGEqDId33IpHdLEBmk5TlPARGWSSgwaOcjonlVk5yon1Vt7AOS5LOTjTqVHHVBhqDZC0QvcbQM6H18lxEumXNluD58pgP5bRcCb5pk4vz3lJ5lQC/qjPRQQk0IwGN3raIHhUjDX4rAqucnYZGHLI9xWoH0zel+9n7RB+P9sB5rEkCIAEBzf0Qfr4hzh19kt4X6efir1mAa0LeXtpyiYVjiVpBc4VY30xbjOt8ypN/2GOSrheJyqCq3ImTi8X+fuSLrxV4CtN2pG5A/cWr4KmQCCJf4iR80ca5Fqt01e17rLsceHIecqzS3B89Z4AO8JvBiY5fMAAQUOgHwYb5nMtJB3nYp1eqoGrrM8oiSw1ojLrt5GwguOSPiVd0AUJdMNSGVaVGpVyFxmVdrsGZ5V6yENkXgbRD0vS7irDQURlrABJABJoBsrRrsS1o1JWkWFJP6o59RJalcBVplWg55xneA9dBiRNkrQm58BE98ChQICyqBIEJiUQOc40cmqSc51h6KgKf5z7PAOOAnJIawE8OkcxKaEfe0pohXYABMzF6z4gs7lBXiU5tXxXkvqZcBX4ybCsEq7ygtaBohwl34UU30n4CKlwBYi9e0D2R8J1Je6cWmSa1nAk6TBP3xlJurHIgH1Spek6fDuNlEZB+bQM7CYogTRACEAuiaoE9qckXVqkzaxpCbgqZms6qgKu8u7xs1rO5/Pv76/F9wJ3kgIwLWMVUOqitAbHwKk2yNKRmQ1bxaMsA2ffuLa+kn6sQWy5JgfOVaY5mXNIWhiPaW2CHymdhFboyzAVbCe8VKGPPbD2rEXKgfVm9LNgv8q2SMJWOb2DVhZchQ96HvQUznTsHBiNNML9BCU8hs68gaLLBFUB+1TulUEKtvK9OXJ71iDhxlICSY+0c7Sc1xgEFoqPnUHsCTiRpBHQVTKJKaMYoZb1rjjxRRWwpwpad7E/luxBhltsBR8MEjAHZcEwB67CtcARnQQ5xJZAs5D3KuU7QflkKDVBFcAeK2zQCmH28r1iLhVeGRchzHOVRJ4j5z7UJgBahxWg7BckHyYcx27LeorNK4C9r0SDCGZX7jgJ+16JqwLtwKVxo3IeAfoZcBX9ppSR0wjNgUauazImKEbaKIG41u4WW+kG3qvRkj9KGGDvKXlZoOv0KZ6rjAn2KK3rvDi9Z2yrSzNJznPoARhmIqgzb5Iwie0mvcRO1u3Yuz04uJxh/ijrRYG2QfFTwX38wdHoEXtXOQ8L3Bq3FBVs4PfHkw/i46n3aOFeju8+iRfarzBPunYgcgyQh6AkjwTFSPqJEVd5bdIXf5T9gvBUYTIeKXubuMKs6azQ9jIW+gBfCT2yqNDJMMB/k6SGR4Ji+17LINSIaQ3W/t3ZU6UnzrX+8a8AkmoEuzJ/vNsEhfDujXmI8NUG2joLJHwSlO9xmDAMXTqYD5GDmH4/OgX2vQOiPQWvPRI0jZAwihDWL4iOC/Ay6p28EB4pHiBBN5GVsbDqgWlIvyLqG8l9pe4FSNBRgHNJdWz5ZwQf9Wua9tlQxggJageQRNI+wUv9oja/I7e7yhyhHpMCHOKunEOCI/22NrqDfkdl1iNMEhQIyt4n2NDv80UEujF1kt6tT/yJfqW/Q1ALScsEFR8J6rc6ARg5tf1XEj9fCQ/1e520nk/63X5at6F+vw/XYCbVOt0d/Z6Xdqzf95L0O/+Rr61f+8cs81396g8eE97q+vfg/tl4fDLWX///9f9f///1/3/EAwBWUDggoAAAAHAPAJ0BKpABggA+KRSJQ6GhIRAUABgChLS3cLtYj24AAAnsA99snIe+2TkPfbJyHvtk5D32ych77ZOQ99snIe+2TkPfbJyHvtk5D32ych77ZOQ99snIe+2TkPfbJyHvtk5D32ych77ZOQ99snIe+2TkPfbJyHvtk5D32ych77ZOQ99YAAD+/998D/90GWcOD3//2LOWwLEAAAAAAAAAAAA=" alt="DODOLIZA" width="86" height="28"><div>© 2026 دودوليزا · الدفع عند الاستلام</div></footer>
 
-<div class="bar" id="bar" aria-hidden="true"><div class="bp" id="bar-p">149 ر.س<small>علبة + علبة</small></div><button class="btn" data-open tabindex="-1"><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button></div>
+<div class="bar" id="bar" aria-hidden="true"><div class="bp" id="bar-p">149 ر.س<small>علبة + علبة</small></div><button class="btn" data-open tabindex="-1"><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
 
 <dialog id="dlg" aria-labelledby="dlg-t">
   <div class="dg">
@@ -729,7 +777,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
       <div><span class="dg-eb">عروض الجمعة البيضاء</span><h2 id="dlg-t">إتمام الطلب</h2><p class="dg-sub">الدفع عند الاستلام · شحن مجاني · تأكيد قبل الشحن</p></div>
       <button class="x" id="dlg-x" aria-label="إغلاق">×</button>
     </div>
-    <div class="dg-cd" aria-hidden="true"><span>ينتهي العرض خلال</span><b class="cdt" dir="ltr">00:00:00</b></div>
+    <div class="dg-cd" aria-hidden="true"><span>ينتهي العرض خلال</span><b class="cdt" dir="ltr">00:00:00</b><small>حتى 30 نوفمبر</small></div>
     <div id="v-form">
       <span class="lbl" id="lb-o">اختر عرضك</span>
       <div class="dopts" id="seg-o" role="group" aria-labelledby="lb-o">
