@@ -41,7 +41,7 @@ a{color:var(--green)}
 .sl{flex:0 0 100%;scroll-snap-align:center;position:relative;overflow:hidden}
 .sl img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .sl .in{position:relative;transform-origin:50% 60%}
-.sl.act .in{animation:kb 9s ease-out both}
+.sl.act .in{animation:kb 6s ease-out both}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09) translate(-1.2%,-1%)}}
 .thumbs{display:flex;gap:10px;overflow-x:auto;padding:14px max(20px, env(safe-area-inset-right, 0px)) 4px max(20px, env(safe-area-inset-left, 0px));scrollbar-width:none;justify-content:flex-start}
 .thumbs::-webkit-scrollbar{display:none}
@@ -463,6 +463,15 @@ dialog#dlg .dg-cd small{flex-basis:100%;text-align:center;font-weight:600;font-s
 /* V17 */
 .sub{font-weight:700;color:#4A554B}
 .sbar .sub{font-weight:700;color:#4A554B}
+/* V18: compact one-row countdown on mobile */
+@media (max-width:899px){
+  .ann{padding-block:6px}
+  .ann .row{flex-wrap:nowrap;gap:8px;font-size:13px;justify-content:center}
+  .ann .row>*:first-child{white-space:nowrap}
+  .cdb{gap:4px;flex:none}
+  .cdb span{min-width:33px;padding:1px 3px;border-radius:7px}
+  .cdb b{font-size:14.5px}.cdb small{font-size:9.5px}
+}
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -879,8 +888,18 @@ function layoutCallouts(){
 }
 function show(i, smooth = true){
   cur = (i + SL.length) % SL.length;
-  slides.scrollTo({ left: dirSign() * cur * slides.clientWidth, behavior: smooth ? "smooth" : "auto" });
+  const to = dirSign() * cur * slides.clientWidth;
+  if (!smooth) { slides.scrollTo({ left: to, behavior: "auto" }); return; }
+  const from = slides.scrollLeft, t0 = performance.now(), D = 380, id = ++showId;
+  slides.style.scrollSnapType = "none"; slides.style.scrollBehavior = "auto";
+  (function step(t){
+    if (id !== showId) return;
+    const k = Math.min(1, (t - t0) / D), e = 1 - Math.pow(1 - k, 3);
+    slides.scrollLeft = from + (to - from) * e;
+    if (k < 1) requestAnimationFrame(step); else { slides.scrollLeft = to; slides.style.scrollSnapType = ""; slides.style.scrollBehavior = ""; }
+  })(t0);
 }
+let showId = 0;
 function mark(i){
   SL.forEach((sl, k) => sl.classList.toggle("act", k === i));
   tb.forEach((b, k) => { if (k === i) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
@@ -896,7 +915,7 @@ slides.querySelector("img").addEventListener("load", layoutCallouts);
 layoutCallouts(); mark(0);
 /* تقليب تلقائي */
 let auto = null, resumeT = 0, galVisible = true;
-function startAuto(){ stopAuto(); auto = setInterval(() => { if (galVisible && !document.hidden) show(cur + 1); }, 4800); }
+function startAuto(){ stopAuto(); auto = setInterval(() => { if (galVisible && !document.hidden) show(cur + 1); }, 3200); }
 function stopAuto(){ if (auto) clearInterval(auto); auto = null; }
 function pauseAuto(){ stopAuto(); clearTimeout(resumeT); resumeT = setTimeout(startAuto, 9000); }
 ["pointerdown","touchstart","wheel","keydown"].forEach(ev => slides.addEventListener(ev, pauseAuto, {passive:true}));
