@@ -35,7 +35,7 @@ a{color:var(--green)}
 .sl{flex:0 0 100%;scroll-snap-align:center;position:relative;overflow:hidden}
 .sl img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .sl .in{position:relative;transform-origin:50% 60%}
-.sl.act .in{animation:kb 6s ease-out both}
+.sl.act .in{animation:kb 4.5s ease-out both}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09) translate(-1.2%,-1%)}}
 .thumbs{display:flex;gap:10px;overflow-x:auto;padding:14px max(20px, env(safe-area-inset-right, 0px)) 4px max(20px, env(safe-area-inset-left, 0px));scrollbar-width:none;justify-content:flex-start}
 .thumbs::-webkit-scrollbar{display:none}
@@ -466,6 +466,28 @@ dialog#dlg .dg-cd small{flex-basis:100%;text-align:center;font-weight:600;font-s
   .cdb span{min-width:33px;padding:1px 3px;border-radius:7px}
   .cdb b{font-size:14.5px}.cdb small{font-size:9.5px}
 }
+/* V19 */
+.sbar{justify-content:flex-start}
+@media (max-width:899px){
+  .th{flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:8px}
+  .th h1{font-size:25px}
+  .info .th .hrate{margin:2px 0 0;gap:5px;font-size:15px;white-space:nowrap}
+  .info .th .hrate b{font-size:25px;font-weight:800;line-height:1}
+  .th .hrate .stars{font-size:14px}
+  .info .th .hrate span:last-child{font-size:13px}
+  .sbar .sub{font-size:19px;font-weight:800;gap:8px}
+  .sbar .sub .hl{font-size:19px;padding:5px 14px}
+}
+/* V19b: scale with viewport so the row never overflows */
+@media (max-width:899px){
+  .th{gap:6px}
+  .th h1{font-size:min(25px,6.2vw)}
+  .info .th .hrate{gap:3px}
+  .info .th .hrate b{font-size:min(24px,5.9vw)}
+  .th .hrate .stars{font-size:min(13px,3.3vw);letter-spacing:0}
+  .info .th .hrate span:last-child{font-size:min(12.5px,3.1vw)}
+  .sbar .sub,.sbar .sub .hl{font-size:min(19px,4.9vw)}
+}
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -616,9 +638,9 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     <div class="eyebrow">عروض الجمعة البيضاء</div>
     <div class="th">
       <h1>شراب دودوليزا بامبو</h1>
-      
+      <div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227)</span></div>
     </div>
-    <div class="sbar"><p class="sub">مصمم خصيصًا <span class="hl">لأصحاب السكري</span></p><div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227)</span></div></div>
+    <div class="sbar"><p class="sub">مصمم خصيصًا <span class="hl">لمرضى السكري</span></p></div>
     <p class="desc">لأن قدم صاحب السكري تحتاج عناية زيادة، صممنا الشراب يعطيك راحة طول اليوم بدون ضغط أو احتكاك.</p>
     <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
     <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
@@ -629,7 +651,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     </div>
     <div class="hsave"><span>كل علبة 5 أزواج</span><span>·</span><span>شحن <span class="fs">مجاني</span></span></div>
     <div class="cta"><button class="btn" id="hero-cta" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
-    <ul class="feats" aria-label="مميزات لأصحاب السكري">
+    <ul class="feats" aria-label="مميزات لمرضى السكري">
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v8l1.5 6.5A3 3 0 0 1 14.6 21H10a3 3 0 0 1-2.9-2.3L8 11z"/><path d="M8 6.5h8"/></svg><span>حافة واسعة<small>بدون أستك ضاغط</small></span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12c3-5 13-5 16 0-3 5-13 5-16 0Z"/><path d="M12 9.5v5"/></svg><span>خياطة ناعمة<small>بدون حواف</small></span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.3 6 10.5a6 6 0 0 1-12 0C6 9.3 12 3 12 3Z"/></svg><span>يمتص العرق<small>ويتنفس</small></span></li>
@@ -881,7 +903,7 @@ function show(i, smooth = true){
   cur = (i + SL.length) % SL.length;
   const to = dirSign() * cur * slides.clientWidth;
   if (!smooth) { slides.scrollTo({ left: to, behavior: "auto" }); return; }
-  const from = slides.scrollLeft, t0 = performance.now(), D = 380, id = ++showId;
+  const from = slides.scrollLeft, t0 = performance.now(), D = 260, id = ++showId;
   slides.style.scrollSnapType = "none"; slides.style.scrollBehavior = "auto";
   (function step(t){
     if (id !== showId) return;
@@ -906,7 +928,7 @@ slides.querySelector("img").addEventListener("load", layoutCallouts);
 layoutCallouts(); mark(0);
 /* تقليب تلقائي */
 let auto = null, resumeT = 0, galVisible = true;
-function startAuto(){ stopAuto(); auto = setInterval(() => { if (galVisible && !document.hidden) show(cur + 1); }, 3200); }
+function startAuto(){ stopAuto(); auto = setInterval(() => { if (galVisible && !document.hidden) show(cur + 1); }, 2400); }
 function stopAuto(){ if (auto) clearInterval(auto); auto = null; }
 function pauseAuto(){ stopAuto(); clearTimeout(resumeT); resumeT = setTimeout(startAuto, 9000); }
 ["pointerdown","touchstart","wheel","keydown"].forEach(ev => slides.addEventListener(ev, pauseAuto, {passive:true}));
