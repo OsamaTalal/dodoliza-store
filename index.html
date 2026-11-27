@@ -41,7 +41,7 @@ a{color:var(--green)}
 .sl{flex:0 0 100%;scroll-snap-align:center;position:relative;overflow:hidden}
 .sl img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .sl .in{position:relative;transform-origin:50% 60%}
-.sl.act .in{animation:kb 4.5s ease-out both}
+.sl.act .in{animation:kb 5.5s ease-out both}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09) translate(-1.2%,-1%)}}
 .thumbs{display:flex;gap:10px;overflow-x:auto;padding:14px max(20px, env(safe-area-inset-right, 0px)) 4px max(20px, env(safe-area-inset-left, 0px));scrollbar-width:none;justify-content:flex-start}
 .thumbs::-webkit-scrollbar{display:none}
@@ -494,6 +494,12 @@ dialog#dlg .dg-cd small{flex-basis:100%;text-align:center;font-weight:600;font-s
   .info .th .hrate span:last-child{font-size:min(12.5px,3.1vw)}
   .sbar .sub,.sbar .sub .hl{font-size:min(19px,4.9vw)}
 }
+/* V20: smaller rating */
+@media (max-width:899px){
+  .info .th .hrate b{font-size:min(17px,4.4vw)}
+  .th .hrate .stars{font-size:min(12px,3vw)}
+  .info .th .hrate span:last-child{font-size:min(11.5px,2.9vw)}
+}
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -912,7 +918,7 @@ function show(i, smooth = true){
   cur = (i + SL.length) % SL.length;
   const to = dirSign() * cur * slides.clientWidth;
   if (!smooth) { slides.scrollTo({ left: to, behavior: "auto" }); return; }
-  const from = slides.scrollLeft, t0 = performance.now(), D = 260, id = ++showId;
+  const from = slides.scrollLeft, t0 = performance.now(), D = 330, id = ++showId;
   slides.style.scrollSnapType = "none"; slides.style.scrollBehavior = "auto";
   (function step(t){
     if (id !== showId) return;
@@ -937,7 +943,7 @@ slides.querySelector("img").addEventListener("load", layoutCallouts);
 layoutCallouts(); mark(0);
 /* تقليب تلقائي */
 let auto = null, resumeT = 0, galVisible = true;
-function startAuto(){ stopAuto(); auto = setInterval(() => { if (galVisible && !document.hidden) show(cur + 1); }, 2400); }
+function startAuto(){ stopAuto(); auto = setInterval(() => { if (galVisible && !document.hidden) show(cur + 1); }, 2900); }
 function stopAuto(){ if (auto) clearInterval(auto); auto = null; }
 function pauseAuto(){ stopAuto(); clearTimeout(resumeT); resumeT = setTimeout(startAuto, 9000); }
 ["pointerdown","touchstart","wheel","keydown"].forEach(ev => slides.addEventListener(ev, pauseAuto, {passive:true}));
