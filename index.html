@@ -39,13 +39,16 @@ a{color:var(--green)}
 .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;background:var(--cream)}
 .slides::-webkit-scrollbar{display:none}
 .sl{flex:0 0 100%;scroll-snap-align:center;position:relative;overflow:hidden}
-.sl>img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+.sl img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+.sl .in{position:relative;transform-origin:50% 60%}
+.sl.act .in{animation:kb 9s ease-out both}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09) translate(-1.2%,-1%)}}
 .thumbs{display:flex;gap:10px;overflow-x:auto;padding:14px max(20px, env(safe-area-inset-right, 0px)) 4px max(20px, env(safe-area-inset-left, 0px));scrollbar-width:none;justify-content:flex-start}
 .thumbs::-webkit-scrollbar{display:none}
 .thumbs button{flex:none;width:58px;height:58px;border-radius:10px;border:1.5px solid transparent;padding:0;background:var(--cream);overflow:hidden;opacity:.65;transition:opacity .2s,border-color .2s}
 .thumbs button[aria-current="true"]{border-color:var(--green);opacity:1}
 .thumbs img{width:100%;height:100%;object-fit:cover}
-@media (max-width:899px){.sl>img{aspect-ratio:4/3}.thumbs{padding-top:10px}.thumbs button{width:48px;height:48px}.ann{padding-block:8px}.cdb span{min-width:38px;padding:2px 5px}.cdb b{font-size:16px}.info{padding-top:20px}.price{margin-top:16px}.hsel{margin-top:18px}.cta{margin-top:18px}}
+@media (max-width:899px){.thumbs{padding-top:10px}.thumbs button{width:48px;height:48px}.ann{padding-block:8px}.cdb span{min-width:38px;padding:2px 5px}.cdb b{font-size:16px}.info{padding-top:20px}.price{margin-top:16px}.hsel{margin-top:18px}.cta{margin-top:18px}}
 @media (min-width:900px){.thumbs{padding-inline:0}}
 .info{padding:28px max(20px, env(safe-area-inset-right, 0px)) 56px max(20px, env(safe-area-inset-left, 0px));text-align:center}
 .eyebrow{font-size:14px;font-weight:700;color:var(--gold-t);letter-spacing:.04em}
@@ -80,11 +83,20 @@ h1{font-size:34px;line-height:1.25;margin:6px 0 4px;font-weight:800;color:var(--
 
 
 @media (min-width:900px){
-  .hero{max-width:680px;margin-inline:auto;padding:28px 20px 48px}
-  .slides{border-radius:var(--r)}
-  .info{padding:30px 0 0;text-align:center}
-  .thumbs{justify-content:center}
-  h1{font-size:44px}
+  .hero{max-width:1180px;margin-inline:auto;padding:44px 28px 64px;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .gal{order:2;position:sticky;top:24px}
+  .info{order:1;padding:0;text-align:start}
+  .slides{border-radius:18px;box-shadow:0 30px 60px -36px rgba(30,42,31,.55)}
+  .sl img{aspect-ratio:1/1}
+  .thumbs{justify-content:center;padding-inline:0}
+  .hrate,.price{justify-content:flex-start}
+  .cta{text-align:start}
+  .pay{justify-content:flex-start}
+  .assure{margin-inline:0;max-width:none}
+  .hsel,.feats,.hsave,.desc{max-width:none;margin-inline:0}
+  .hs{padding:18px 8px 16px}
+  h1{font-size:46px}
+}
 }
 }
 
@@ -273,6 +285,17 @@ main .sec h2::after,main .close-cta h2::after{content:"";position:absolute;z-ind
 @keyframes hlglow{50%{box-shadow:0 0 0 5px rgba(174,192,149,.18),0 0 24px rgba(40,84,41,.55)}}
 .sec .lead{margin-top:6px}
 @media (min-width:700px){main .sec h2,main .close-cta h2{font-size:28px;padding:6px 34px 7px}}
+
+
+@media (min-width:900px){
+  .mq .rev{flex:0 0 310px}
+  .hs b{font-size:20px}.hs strong{font-size:19px}
+  body .bar{inset-inline:auto;left:50%;right:auto;width:min(600px,92vw);border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0;transform:translate(-50%,110%);box-shadow:0 -10px 30px -18px rgba(30,42,31,.4)}
+  body .bar.on{transform:translate(-50%,0)}
+  .sec{padding:96px 0}
+  .vs{max-width:820px}
+  .ocards{max-width:620px}
+}
 
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
@@ -650,14 +673,14 @@ const HOT = [
   [{x:.62,y:.52,t:"سهل اللبس بدون شد"},{x:.50,y:.82,t:"خياطة ناعمة بدون حواف"}],
   [{x:.40,y:.55,t:"نانو الفضة لتقليل الروائح"},{x:.30,y:.86,t:"خياطة ناعمة عند الأصابع"}]
 ];
-slides.innerHTML = GALLERY.map((g, i) => `<div class="sl"><img src="${g.src}" alt="${g.alt}" width="800" height="800"${i ? ' loading="lazy"' : ""}><div class="co" aria-hidden="true"></div></div>`).join("");
+slides.innerHTML = GALLERY.map((g, i) => `<div class="sl"><div class="in"><img src="${g.src}" alt="${g.alt}" width="800" height="800"${i ? ' loading="lazy"' : ""}><div class="co" aria-hidden="true"></div></div></div>`).join("");
 thumbs.innerHTML = GALLERY.map((g, i) => `<button type="button" aria-label="الصورة ${i + 1}" ${i ? "" : 'aria-current="true"'}><img src="${g.src}" alt="" loading="lazy"></button>`).join("");
 const tb = [...thumbs.children], SL = [...slides.children];
 const dirSign = () => getComputedStyle(slides).direction === "rtl" ? -1 : 1;
 let cur = 0;
 function layoutCallouts(){
   SL.forEach((sl, i) => {
-    const w = sl.clientWidth, h = sl.clientHeight; if (!w || !h) return;
+    const w = sl.clientWidth, h = sl.querySelector('img').clientHeight || sl.clientHeight; if (!w || !h) return;
     const r = h / w, co = sl.querySelector(".co");
     co.innerHTML = (HOT[i] || []).map((p, k) => {
       const y = r < 1 ? (p.y - (1 - r) / 2) / r : p.y, x = p.x;
