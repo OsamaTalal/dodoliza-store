@@ -515,6 +515,33 @@ dialog#dlg .dg-cd small{flex-basis:100%;text-align:center;font-weight:600;font-s
   .hs:hover s,.oc:hover s,dialog#dlg .dopt:hover s{color:#F3C3CA;text-decoration-color:#F3C3CA}
 }
 
+
+/* ===== V23: checkout - green underlines, discount box, sticky confirm ===== */
+.ul{text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2.5px;text-underline-offset:6px;font-weight:700;color:var(--ink)}
+dialog#dlg .dg-sub{font-size:min(14px,3.5vw);white-space:nowrap}
+dialog#dlg .trust .ul{font-size:14px}
+dialog#dlg .discbox{display:flex;flex-direction:column;gap:2px;margin:0 0 14px;padding:12px 16px;border-radius:14px;background:linear-gradient(135deg,#EAF2E3,#F6F1E2);border:1.5px solid #B9CCA6}
+dialog#dlg .discbox b{color:var(--green);font-size:17px}
+dialog#dlg .discbox span{font-size:13.5px;color:var(--ink)}
+dialog#dlg .discbox.off{background:#fff;border-style:dashed;border-color:#D6E0D0}
+dialog#dlg .discbox.off b{color:var(--muted)}
+dialog#dlg .dsticky{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:14px;margin:14px -22px 0;padding:12px 22px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+dialog#dlg .dtot{display:flex;flex-direction:column;line-height:1.15;flex:none}
+dialog#dlg .dtot small{font-size:12px;color:var(--muted);font-weight:700}
+dialog#dlg .dtot b{font-size:22px;font-weight:800;color:var(--green);white-space:nowrap}
+dialog#dlg .dsticky .btn{flex:1;min-height:54px;font-size:18px;margin:0}
+dialog#dlg .dg{padding-bottom:0}
+dialog#dlg .trust{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+
+
+/* ===== V24: readable "was" price ===== */
+.was{display:inline-flex;align-items:baseline;gap:6px;padding:4px 12px;border-radius:99px;background:#FBEDEF;color:#8F4C57}
+.was small{font-size:13px;font-weight:700;color:#8F4C57}
+.was s{font-size:22px;font-weight:800;color:#8F4C57;text-decoration-thickness:2px;text-decoration-color:#DF526A}
+.hs s,.oc-p s,.dopt-p s{color:#8F4C57;font-weight:700;text-decoration-thickness:1.8px;text-decoration-color:#DF526A}
+.price{gap:14px}
+@media (max-width:899px){.price s,.was s{font-size:21px}}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -669,7 +696,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     </div>
     <div class="sbar"><p class="sub">مصمم خصيصًا <span class="hl">لمرضى السكري</span></p></div>
     <p class="desc">لأن قدم صاحب السكري تحتاج عناية زيادة، صممنا الشراب يعطيك راحة طول اليوم بدون ضغط أو احتكاك.</p>
-    <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
+    <div class="price"><b id="hp-p">149<small>ر.س</small></b><span class="was" id="hp-wrap"><small>كان</small><s id="hp-w">298</s><small>ر.س</small></span></div>
     <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
     <div class="hsel" id="hsel" role="group" aria-label="اختر العرض">
       <button class="hs" type="button" data-offer="1" aria-pressed="false"><span class="pop">للتجربة</span><b>علبة</b><em>5 أزواج</em><strong>99 ر.س</strong></button>
@@ -686,7 +713,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg><span>مرن ومريح<small>للقدم الحساسة</small></span></li>
     </ul>
     <div class="pay" aria-label="طرق الدفع">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg><span class="ul">الدفع عند الاستلام</span></span>
       <span class="mc" aria-label="Mastercard"><i></i><i></i></span>
       <span class="visa" aria-label="Visa">VISA</span>
       <span class="ap" aria-label="Apple Pay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.9zM14.2 5.8c.6-.8 1.1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></svg>Pay</span>
@@ -793,7 +820,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
       </button>
       <p class="cd" id="cd" hidden></p>
     </div>
-    <div class="offer-cta"><button class="btn block" id="offer-cta" data-open><span id="offer-cta-t">اطلب الآن — 149 ر.س</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p></div>
+    <div class="offer-cta"><button class="btn block" id="offer-cta" data-open><span id="offer-cta-t">اطلب الآن — 149 ر.س</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg><span class="ul">شحن مجاني</span></span></p></div>
   </div>
 </section>
 
@@ -828,7 +855,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
 <dialog id="dlg" aria-labelledby="dlg-t">
   <div class="dg">
     <div class="dg-h">
-      <div><span class="dg-eb">عروض الجمعة البيضاء</span><h2 id="dlg-t">إتمام الطلب</h2><p class="dg-sub">الدفع عند الاستلام · شحن مجاني · تأكيد قبل الشحن</p></div>
+      <div><span class="dg-eb">عروض الجمعة البيضاء</span><h2 id="dlg-t">إتمام الطلب</h2><p class="dg-sub"><span class="ul">الدفع عند الاستلام</span> · <span class="ul">شحن مجاني</span> · تأكيد قبل الشحن</p></div>
       <button class="x" id="dlg-x" aria-label="إغلاق">×</button>
     </div>
     <div class="dg-cd" aria-hidden="true"><span>ينتهي العرض خلال</span><b class="cdt" dir="ltr">00:00:00</b><small>حتى 30 نوفمبر</small></div>
@@ -855,6 +882,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
           <button type="button" class="dp" data-pay="cod" aria-pressed="true"><b>عند الاستلام</b><small>رسوم 10 ر.س</small></button>
           <button type="button" class="dp" data-pay="online" aria-pressed="false"><span class="pop">خصم 10%</span><b>دفع أونلاين</b><small>بدون رسوم</small></button>
         </div>
+        <div class="discbox" id="discbox" hidden><b>خصم خاص 10%</b><span id="discbox-t"></span></div>
         <div class="coupon">
           <label for="f-code">كود الخصم</label>
           <div class="crow"><input id="f-code" autocomplete="off" autocapitalize="characters" dir="ltr" placeholder="ONLINE10"><button type="button" id="code-ok">تطبيق</button></div>
@@ -862,7 +890,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
         </div>
         <div class="sum" id="sum"></div>
         <p class="msg" id="co-err" hidden></p>
-        <button class="btn block" type="submit" id="confirm" style="margin-top:14px">تأكيد الطلب</button>
+        <div class="dsticky"><div class="dtot"><small>الإجمالي</small><b id="sticky-total">149 ر.س</b></div><button class="btn" type="submit" id="confirm">تأكيد الطلب</button></div>
         <p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p>
       </form>
     </div>
@@ -997,7 +1025,7 @@ function setOffer(id){
   $$(".oc").forEach(b => b.setAttribute("aria-pressed", b.dataset.offer === id));
   $("#offer-cta-t").textContent = `اطلب الآن — ${money(o.price)}`;
   $("#hp-p").innerHTML = `${o.price}<small>ر.س</small>`;
-  $("#hp-w").textContent = o.was ? `${o.was} ر.س` : ""; $("#hp-w").hidden = !o.was;
+  $("#hp-w").textContent = o.was ? o.was : ""; $("#hp-wrap").hidden = !o.was;
   $("#hp-l").innerHTML = o.line;
   $$("#hsel button").forEach(b => b.setAttribute("aria-pressed", b.dataset.offer === id));
   $("#bar-p").innerHTML = `${money(o.price)}<small>${o.label}</small>`;
@@ -1035,6 +1063,10 @@ function renderSum(){
   m.textContent = st.code ? r.msg : "الكود يعمل مع الدفع الأونلاين على الطلبات فوق 100 ر.س";
   m.className = "cmsg" + (st.code ? (r.ok ? " ok" : " bad") : "");
   $$("#seg-p button").forEach(b => b.setAttribute("aria-pressed", b.dataset.pay === st.pay));
+  $("#sticky-total").textContent = money(r.total);
+  const db = $("#discbox");
+  db.hidden = !r.online;
+  if (r.online) { db.classList.toggle("off", !r.ok); $("#discbox-t").textContent = r.ok ? `وفّرت ${money(r.disc)} + بدون رسوم دفع` : "على الطلبات فوق 100 ر.س (اختر علبة + علبة أو أكثر)"; }
 }
 $$("#seg-p button").forEach(b => b.addEventListener("click", () => {
   st.pay = b.dataset.pay;
