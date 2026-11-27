@@ -342,6 +342,53 @@ dialog#dlg .sum .t{margin-top:0;font-size:21px;color:var(--green);border-top:1.5
 dialog#dlg #confirm{min-height:58px;font-size:19px;margin-top:16px;box-shadow:0 16px 30px -16px rgba(40,84,41,.8)}
 dialog#dlg .trust{margin-top:16px;font-size:13.5px}
 
+
+/* ===== V11: hero order + site-style offer cards + mobile CTA ===== */
+.th{display:flex;align-items:center;justify-content:space-between;gap:6px 14px;flex-wrap:wrap}
+.th h1{margin:4px 0 0}
+.info .th .hrate{margin:6px 0 0;font-size:14px;gap:6px;flex:none}
+.info .th .hrate b{font-size:16px}
+.hrate .stars{font-size:15px;letter-spacing:1px}
+@media (max-width:899px){.th{justify-content:center;text-align:center}.th h1{font-size:30px}}
+.hsel{gap:10px}
+.hs{padding:16px 6px 14px;border-radius:16px;border:1.5px solid #D6E0D0;background:#fff}
+.hs b{font-size:28px;font-weight:800;letter-spacing:.01em;line-height:1.1;color:var(--ink)}
+.hs em{font-size:14px;margin:4px 0 8px}
+.hs s{font-size:14px;margin-bottom:6px;color:#6B756C}
+.hs strong{display:inline-block;white-space:nowrap;background:#E8F0E3;color:var(--green);font-size:15.5px;padding:4px 10px;border-radius:99px;margin-top:2px}
+.hs[aria-pressed="true"]{background:#fff;border-color:var(--green);box-shadow:0 0 0 2px var(--green),0 14px 26px -18px rgba(40,84,41,.7)}
+.hs[aria-pressed="true"] strong{background:var(--green);color:#fff}
+.hs:hover{border-color:var(--green)}
+.hs:hover strong{background:var(--green);color:#fff}
+.desc{margin-top:14px}
+.feats{margin-top:26px}
+@media (max-width:899px){
+  .bar{padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(255,255,255,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .bar .bp{display:none}
+  .bar .btn{flex:1;min-height:56px;font-size:19px;border-radius:99px}
+  .bar .btn .ar{width:22px;height:22px;order:2}
+  footer{padding-bottom:120px}
+}
+
+
+/* ===== V12: checkout countdown + payment + coupon ===== */
+dialog#dlg .dg-cd{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 16px;padding:10px 14px;border-radius:14px;background:var(--green);color:#fff;font-weight:700;font-size:15px}
+dialog#dlg .dg-cd b{font-variant-numeric:tabular-nums;color:#E6C77A;font-size:19px;letter-spacing:.04em;unicode-bidi:isolate}
+dialog#dlg .dpay{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+dialog#dlg .dp{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 8px 12px;border:1.5px solid #D6E0D0;border-radius:14px;background:#fff;cursor:pointer;font:inherit;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+dialog#dlg .dp b{font-size:16px}dialog#dlg .dp small{color:var(--muted);font-size:13px}
+dialog#dlg .dp:hover{border-color:var(--green)}
+dialog#dlg .dp[aria-pressed="true"]{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+dialog#dlg .dp .pop{position:absolute;top:-10px;inset-inline-start:50%;transform:translateX(50%);background:#9C7A2E;color:#fff;font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:99px;white-space:nowrap}
+dialog#dlg .coupon{margin:0 0 4px}
+dialog#dlg .coupon label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+dialog#dlg .crow{display:flex;gap:8px}
+dialog#dlg .crow input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:.08em;text-align:center}
+dialog#dlg .crow button{padding:0 18px;border:0;border-radius:12px;background:var(--green);color:#fff;font:inherit;font-weight:700;cursor:pointer;min-height:48px}
+dialog#dlg .cmsg{margin:6px 2px 0;font-size:13px;color:var(--muted)}
+dialog#dlg .cmsg.ok{color:#2c7a3a;font-weight:700}dialog#dlg .cmsg.bad{color:#B3394B}
+dialog#dlg .sum .dsc{color:#2c7a3a;font-weight:700}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -490,16 +537,11 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
   </div>
   <div class="info">
     <div class="eyebrow">عروض الجمعة البيضاء</div>
-    <h1>شراب دودوليزا بامبو</h1>
+    <div class="th">
+      <h1>شراب دودوليزا بامبو</h1>
+      <div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227)</span></div>
+    </div>
     <p class="sub">مصمم خصيصًا <span class="hl">لأصحاب السكري</span></p>
-    <div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227) تقييم العملاء</span></div>
-    <ul class="feats" aria-label="مميزات لأصحاب السكري">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v8l1.5 6.5A3 3 0 0 1 14.6 21H10a3 3 0 0 1-2.9-2.3L8 11z"/><path d="M8 6.5h8"/></svg><span>حافة واسعة<small>بدون أستك ضاغط</small></span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12c3-5 13-5 16 0-3 5-13 5-16 0Z"/><path d="M12 9.5v5"/></svg><span>خياطة ناعمة<small>بدون حواف</small></span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.3 6 10.5a6 6 0 0 1-12 0C6 9.3 12 3 12 3Z"/></svg><span>يمتص العرق<small>ويتنفس</small></span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg><span>نانو الفضة<small>لتقليل الروائح</small></span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg><span>مرن ومريح<small>للقدم الحساسة</small></span></li>
-    </ul>
     <p class="desc">لأن قدم صاحب السكري تحتاج عناية زيادة، صممنا الشراب يعطيك راحة طول اليوم بدون ضغط أو احتكاك.</p>
     <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
     <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
@@ -510,6 +552,13 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     </div>
     <div class="hsave"><span>كل علبة 5 أزواج</span><span>·</span><span>شحن <span class="fs">مجاني</span></span></div>
     <div class="cta"><button class="btn" id="hero-cta" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+    <ul class="feats" aria-label="مميزات لأصحاب السكري">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v8l1.5 6.5A3 3 0 0 1 14.6 21H10a3 3 0 0 1-2.9-2.3L8 11z"/><path d="M8 6.5h8"/></svg><span>حافة واسعة<small>بدون أستك ضاغط</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12c3-5 13-5 16 0-3 5-13 5-16 0Z"/><path d="M12 9.5v5"/></svg><span>خياطة ناعمة<small>بدون حواف</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.3 6 10.5a6 6 0 0 1-12 0C6 9.3 12 3 12 3Z"/></svg><span>يمتص العرق<small>ويتنفس</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg><span>نانو الفضة<small>لتقليل الروائح</small></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg><span>مرن ومريح<small>للقدم الحساسة</small></span></li>
+    </ul>
     <div class="pay" aria-label="طرق الدفع">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span>
       <span class="mc" aria-label="Mastercard"><i></i><i></i></span>
@@ -646,7 +695,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
 
 <footer><img src="img/logo-green.webp" alt="DODOLIZA" width="86" height="28"><div>© 2026 دودوليزا · الدفع عند الاستلام</div></footer>
 
-<div class="bar" id="bar" aria-hidden="true"><div class="bp" id="bar-p">149 ر.س<small>علبة + علبة مجانًا</small></div><button class="btn" data-open tabindex="-1"><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+<div class="bar" id="bar" aria-hidden="true"><div class="bp" id="bar-p">149 ر.س<small>علبة + علبة</small></div><button class="btn" data-open tabindex="-1"><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button></div>
 
 <dialog id="dlg" aria-labelledby="dlg-t">
   <div class="dg">
@@ -654,6 +703,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
       <div><span class="dg-eb">عروض الجمعة البيضاء</span><h2 id="dlg-t">إتمام الطلب</h2><p class="dg-sub">الدفع عند الاستلام · شحن مجاني · تأكيد قبل الشحن</p></div>
       <button class="x" id="dlg-x" aria-label="إغلاق">×</button>
     </div>
+    <div class="dg-cd" aria-hidden="true"><span>ينتهي العرض خلال</span><b class="cdt" dir="ltr">00:00:00</b></div>
     <div id="v-form">
       <span class="lbl" id="lb-o">اختر عرضك</span>
       <div class="dopts" id="seg-o" role="group" aria-labelledby="lb-o">
@@ -672,6 +722,16 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
         <div class="field"><label for="f-phone">رقم الجوال</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right" required><p class="msg" hidden></p></div>
         <div class="field"><label for="f-city">المدينة</label><select id="f-city" name="city" required><option value="">اختر المدينة</option></select><p class="msg" hidden></p></div>
         <div class="field"><label for="f-addr">العنوان</label><textarea id="f-addr" name="address" rows="2" autocomplete="street-address" placeholder="الحي، الشارع" required></textarea><p class="msg" hidden></p></div>
+        <span class="lbl" id="lb-p">طريقة الدفع</span>
+        <div class="dpay" id="seg-p" role="group" aria-labelledby="lb-p">
+          <button type="button" class="dp" data-pay="cod" aria-pressed="true"><b>عند الاستلام</b><small>رسوم 10 ر.س</small></button>
+          <button type="button" class="dp" data-pay="online" aria-pressed="false"><span class="pop">خصم 10%</span><b>دفع أونلاين</b><small>بدون رسوم</small></button>
+        </div>
+        <div class="coupon">
+          <label for="f-code">كود الخصم</label>
+          <div class="crow"><input id="f-code" autocomplete="off" autocapitalize="characters" dir="ltr" placeholder="ONLINE10"><button type="button" id="code-ok">تطبيق</button></div>
+          <p class="cmsg" id="code-msg" role="status">الكود يعمل مع الدفع الأونلاين على الطلبات فوق 100 ر.س</p>
+        </div>
         <div class="sum" id="sum"></div>
         <p class="msg" id="co-err" hidden></p>
         <button class="btn block" type="submit" id="confirm" style="margin-top:14px">تأكيد الطلب</button>
@@ -681,7 +741,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     <div class="ok" id="v-ok" hidden>
       <div class="c"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
       <h2 style="margin:0 0 6px;font-size:22px">وصلنا طلبك</h2>
-      <p style="margin:0;color:var(--muted)">رقم الطلب <b id="ok-id"></b>. بنتواصل معك على جوالك لتأكيد التوصيل.</p>
+      <p style="margin:0;color:var(--muted)">رقم الطلب <b id="ok-id"></b>. بنتواصل معك على جوالك لتأكيد التوصيل<span id="ok-pay"></span>.</p>
       <button class="btn ghost" id="ok-close" style="margin-top:22px">رجوع</button>
     </div>
   </div>
@@ -692,6 +752,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
 /* ===== قيم قابلة للتعديل ===== */
 const CONFIG = {
   currency: "ر.س",
+  coupon: { code:"ONLINE10", pct:10, minSubtotal:100, onlineOnly:true }, // كود الخصم: غيّره من هنا
   codFee: 10,                       // رسوم الدفع عند الاستلام (إيراد للمتجر)
   offerEnd: "2026-11-30T23:59:59+03:00", // نهاية عرض الجمعة البيضاء (عدّلها لو التاريخ مختلف)
   orderEndpoint: "",                // رابط API لاستقبال الطلبات. فاضي = الطلب لا يُرسل لأي مكان
@@ -699,7 +760,7 @@ const CONFIG = {
 };
 const OFFERS = { "1":{pairs:5,price:99,was:0,label:"علبة واحدة",line:"علبة واحدة · 5 أزواج · سعر الزوج 19.8 ر.س"}, "1+1":{pairs:10,price:149,was:298,label:"علبة + علبة",line:"علبة + علبة <span class=\"gift\">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س"}, "2+2":{pairs:20,price:298,was:596,label:"علبتين + علبتين",line:"2 + 2 <span class=\"gift\">مجانًا</span> · 20 زوج · سعر الزوج 14.9 ر.س"} };
 const COLOR_NAME = { black:"أسود", white:"أبيض", mix:"مشكّل" };
-const st = { offer:"1+1", color:"black" };
+const st = { offer:"1+1", color:"black", pay:"cod", code:"" };
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const money = n => `${n} ${CONFIG.currency}`;
 const num = n => String(n).replace(/\d/g, d => d);
@@ -811,14 +872,41 @@ $$("#seg-c button").forEach(b => b.addEventListener("click", () => { st.color = 
 function paintColor(){ $$("#seg-c button").forEach(b => b.setAttribute("aria-pressed", b.dataset.color === st.color)); }
 
 /* summary */
+function calc(){
+  const o = OFFERS[st.offer], c = CONFIG.coupon, online = st.pay === "online";
+  const fee = online ? 0 : CONFIG.codFee;
+  let msg = "", ok = false;
+  if (st.code){
+    if (st.code !== c.code) msg = "الكود غير صحيح";
+    else if (o.price <= c.minSubtotal) msg = "الكود للطلبات فوق " + c.minSubtotal + " ر.س (اختر علبة + علبة أو أكثر)";
+    else if (c.onlineOnly && !online) msg = "الكود يعمل مع الدفع الأونلاين فقط";
+    else { ok = true; msg = "تم تطبيق الكود · خصم " + c.pct + "%"; }
+  }
+  const disc = ok ? Math.round(o.price * c.pct) / 100 : 0;
+  return { o, fee, disc, ok, msg, total: +(o.price - disc + fee).toFixed(2), online };
+}
 function renderSum(){
-  const o = OFFERS[st.offer];
+  const r = calc(), o = r.o;
   $("#sum").innerHTML = `
     <div><span>${o.label} · ${o.pairs} زوج · ${COLOR_NAME[st.color]}</span><span>${money(o.price)}</span></div>
+    ${r.disc ? `<div class="dsc"><span>خصم الكود (${CONFIG.coupon.pct}%)</span><span>-${money(r.disc)}</span></div>` : ""}
     <div><span>الشحن</span><span>مجاني</span></div>
-    <div><span>رسوم الدفع عند الاستلام</span><span>${money(CONFIG.codFee)}</span></div>
-    <div class="t"><span>الإجمالي</span><span>${money(o.price + CONFIG.codFee)}</span></div>`;
+    <div><span>${r.online ? "رسوم الدفع" : "رسوم الدفع عند الاستلام"}</span><span>${r.fee ? money(r.fee) : "بدون رسوم"}</span></div>
+    <div class="t"><span>الإجمالي</span><span>${money(r.total)}</span></div>`;
+  const m = $("#code-msg");
+  m.textContent = st.code ? r.msg : "الكود يعمل مع الدفع الأونلاين على الطلبات فوق 100 ر.س";
+  m.className = "cmsg" + (st.code ? (r.ok ? " ok" : " bad") : "");
+  $$("#seg-p button").forEach(b => b.setAttribute("aria-pressed", b.dataset.pay === st.pay));
 }
+$$("#seg-p button").forEach(b => b.addEventListener("click", () => {
+  st.pay = b.dataset.pay;
+  if (st.pay === "online" && !st.code){ st.code = CONFIG.coupon.code; $("#f-code").value = st.code; } // الأونلاين يطبّق الكود تلقائيًا
+  renderSum();
+}));
+function applyCode(){ st.code = $("#f-code").value.trim().toUpperCase(); renderSum(); }
+$("#code-ok").addEventListener("click", applyCode);
+$("#f-code").addEventListener("input", applyCode);
+$("#f-code").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); applyCode(); } });
 $$("#seg-c button").forEach(b => b.addEventListener("click", renderSum));
 
 /* dialog */
@@ -852,7 +940,8 @@ $("#co").addEventListener("submit", async e => {
   });
   if (first) { first.focus(); return; }
   const o = OFFERS[st.offer];
-  const order = { offer:st.offer, pairs:o.pairs, color:st.color, price:o.price, codFee:CONFIG.codFee, total:o.price + CONFIG.codFee,
+  const r = calc();
+  const order = { offer:st.offer, pairs:o.pairs, color:st.color, price:o.price, payment:st.pay, coupon:r.ok ? st.code : "", discount:r.disc, codFee:r.fee, total:r.total,
     name:$("#f-name").value.trim(), phone:$("#f-phone").value.trim(), city:$("#f-city").value, address:$("#f-addr").value.trim(), createdAt:new Date().toISOString() };
   const btn = $("#confirm"), err = $("#co-err");
   btn.disabled = true; btn.textContent = "جاري الإرسال…"; err.hidden = true;
@@ -864,8 +953,8 @@ $("#co").addEventListener("submit", async e => {
       console.warn("orderEndpoint فاضي: الطلب لم يُرسل لأي مكان (نسخة تجريبية)", order);
     }
     $("#ok-id").textContent = "DD-" + Date.now().toString(36).toUpperCase().slice(-6);
-    $("#v-form").hidden = true; $("#v-ok").hidden = false; $("#dlg-t").textContent = "تم";
-    $("#co").reset();
+    $("#ok-pay").textContent = order.payment === "online" ? " وإرسال رابط الدفع" : ""; $("#v-form").hidden = true; $("#v-ok").hidden = false; $("#dlg-t").textContent = "تم";
+    $("#co").reset(); st.code = ""; st.pay = "cod"; renderSum();
   } catch (_) {
     err.hidden = false; err.textContent = "ما قدرنا نرسل الطلب، جرّب مرة ثانية.";
   } finally { btn.disabled = false; btn.textContent = "تأكيد الطلب"; }
@@ -892,7 +981,7 @@ $("#co").addEventListener("submit", async e => {
 (function(){
   const bar = $("#bar"), cta = $("#hero-cta"), offers = $("#offers");
   let heroOut = false, offersIn = false;
-  const mob = matchMedia("(max-width:899px)"); const upd = () => { const on = (heroOut || mob.matches) && !offersIn; bar.classList.toggle("on", on); bar.setAttribute("aria-hidden", !on); bar.querySelector(".btn").tabIndex = on ? 0 : -1; };
+  const mob = matchMedia("(max-width:899px)"); const upd = () => { const on = mob.matches ? true : (heroOut && !offersIn); bar.classList.toggle("on", on); bar.setAttribute("aria-hidden", !on); bar.querySelector(".btn").tabIndex = on ? 0 : -1; };
   if (!("IntersectionObserver" in window)) return;
   new IntersectionObserver(([e]) => { heroOut = !e.isIntersecting && e.boundingClientRect.top < 0; upd(); }).observe(cta);
   new IntersectionObserver(([e]) => { offersIn = e.isIntersecting; upd(); }, {threshold:.25}).observe(offers);
