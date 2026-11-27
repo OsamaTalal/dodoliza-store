@@ -500,6 +500,17 @@ dialog#dlg .dg-cd small{flex-basis:100%;text-align:center;font-weight:600;font-s
   .th .hrate .stars{font-size:min(12px,3vw)}
   .info .th .hrate span:last-child{font-size:min(11.5px,2.9vw)}
 }
+
+/* ===== V21: hover = green card (only on hover, never by default) ===== */
+@media (hover:hover){
+  .hs,.oc,.dopt{transition:background .22s,color .22s,border-color .22s,box-shadow .22s,transform .22s}
+  .hs:hover,.oc:hover,dialog#dlg .dopt:hover{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 16px 30px -18px rgba(40,84,41,.8)}
+  .hs:hover *,.oc:hover *,dialog#dlg .dopt:hover *{color:#fff}
+  .hs:hover s,.oc:hover s,dialog#dlg .dopt:hover s{color:rgba(255,255,255,.7)}
+  .hs:hover strong{background:#fff;color:var(--green)}
+  .hs:hover .pop,.oc:hover .pop,dialog#dlg .dopt:hover .pop{color:#fff}
+}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -660,9 +671,9 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
     <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
     <div class="hsel" id="hsel" role="group" aria-label="اختر العرض">
-      <button class="hs" type="button" data-offer="1" aria-pressed="false"><b>علبة</b><em>5 أزواج</em><strong>99 ر.س</strong></button>
+      <button class="hs" type="button" data-offer="1" aria-pressed="false"><span class="pop">للتجربة</span><b>علبة</b><em>5 أزواج</em><strong>99 ر.س</strong></button>
       <button class="hs" type="button" data-offer="1+1" aria-pressed="true"><span class="pop">الأكثر طلبًا</span><b>1 + 1</b><em>10 أزواج</em><s>بدل 298</s><strong>149 ر.س</strong></button>
-      <button class="hs" type="button" data-offer="2+2" aria-pressed="false"><b>2 + 2</b><em>20 زوج</em><s>بدل 596</s><strong>298 ر.س</strong></button>
+      <button class="hs" type="button" data-offer="2+2" aria-pressed="false"><span class="pop">الأوفر</span><b>2 + 2</b><em>20 زوج</em><s>بدل 596</s><strong>298 ر.س</strong></button>
     </div>
     <div class="hsave"><span>كل علبة 5 أزواج</span><span>·</span><span>شحن <span class="fs">مجاني</span></span></div>
     <div class="cta"><button class="btn" id="hero-cta" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
@@ -765,6 +776,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     <p class="lead">3 عروض، والأوفر لك علبة + علبة: الزوج بـ 14.9 ر.س بدل 19.8 ر.س</p>
     <div id="offer-wrap" class="ocards" role="group" aria-label="اختر العرض">
       <button class="oc" type="button" data-offer="1" aria-pressed="false">
+        <span class="pop">للتجربة</span>
         <span class="oc-t"><b>علبة واحدة</b><em>5 أزواج · سعر الزوج 19.8 ر.س</em></span>
         <span class="oc-p"><strong>99 <small>ر.س</small></strong></span>
       </button>
@@ -774,6 +786,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
         <span class="oc-p"><s>298 ر.س</s><strong>149 <small>ر.س</small></strong></span>
       </button>
       <button class="oc" type="button" data-offer="2+2" aria-pressed="false">
+        <span class="pop">الأوفر</span>
         <span class="oc-t"><b>علبتين + علبتين</b><em>20 زوج · سعر الزوج 14.9 ر.س</em></span>
         <span class="oc-p"><s>596 ر.س</s><strong>298 <small>ر.س</small></strong></span>
       </button>
@@ -821,9 +834,9 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
     <div id="v-form">
       <span class="lbl" id="lb-o">اختر عرضك</span>
       <div class="dopts" id="seg-o" role="group" aria-labelledby="lb-o">
-        <button type="button" class="dopt" data-offer="1" aria-pressed="false"><span class="dopt-t"><b>علبة واحدة</b><em>5 أزواج · الزوج 19.8 ر.س</em></span><span class="dopt-p"><strong>99 <small>ر.س</small></strong></span></button>
+        <button type="button" class="dopt" data-offer="1" aria-pressed="false"><span class="pop">للتجربة</span><span class="dopt-t"><b>علبة واحدة</b><em>5 أزواج · الزوج 19.8 ر.س</em></span><span class="dopt-p"><strong>99 <small>ر.س</small></strong></span></button>
         <button type="button" class="dopt" data-offer="1+1" aria-pressed="true"><span class="pop">الأكثر طلبًا</span><span class="dopt-t"><b>علبة + علبة</b><em>10 أزواج · الزوج 14.9 ر.س</em></span><span class="dopt-p"><s>298 ر.س</s><strong>149 <small>ر.س</small></strong></span></button>
-        <button type="button" class="dopt" data-offer="2+2" aria-pressed="false"><span class="dopt-t"><b>علبتين + علبتين</b><em>20 زوج · الزوج 14.9 ر.س</em></span><span class="dopt-p"><s>596 ر.س</s><strong>298 <small>ر.س</small></strong></span></button>
+        <button type="button" class="dopt" data-offer="2+2" aria-pressed="false"><span class="pop">الأوفر</span><span class="dopt-t"><b>علبتين + علبتين</b><em>20 زوج · الزوج 14.9 ر.س</em></span><span class="dopt-p"><s>596 ر.س</s><strong>298 <small>ر.س</small></strong></span></button>
       </div>
       <span class="lbl" id="lb-c">اللون</span>
       <div class="dcols" id="seg-c" role="group" aria-labelledby="lb-c">
