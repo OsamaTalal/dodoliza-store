@@ -395,6 +395,23 @@ dialog#dlg .cmsg{margin:6px 2px 0;font-size:13px;color:var(--muted)}
 dialog#dlg .cmsg.ok{color:#2c7a3a;font-weight:700}dialog#dlg .cmsg.bad{color:#B3394B}
 dialog#dlg .sum .dsc{color:#2c7a3a;font-weight:700}
 
+
+/* ===== V13: mobile hero alignment ===== */
+@media (max-width:899px){
+  .info{text-align:start}
+  .eyebrow{text-align:start}
+  .th{justify-content:space-between;flex-wrap:nowrap;text-align:start}
+  .th h1{font-size:25px;white-space:nowrap;margin:2px 0 0}
+  .info .th .hrate{font-size:12.5px;gap:4px;margin:4px 0 0;white-space:nowrap}
+  .info .th .hrate b{font-size:14px}.hrate .stars{font-size:12px;letter-spacing:0}
+  .info .sub{margin:8px 0 0;font-size:17px;white-space:nowrap;display:flex;align-items:center;gap:8px;justify-content:flex-start}
+  .desc{text-align:start;margin-inline:0;max-width:none;text-wrap:pretty;font-size:16px}
+  .price{justify-content:flex-start;align-items:center;gap:12px;margin-top:18px}
+  .price b{font-size:46px;white-space:nowrap}.price b small{font-size:19px}
+  .price s{font-size:19px;white-space:nowrap}
+  .ppair{text-align:start;font-size:14.5px;line-height:1.7}
+}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
