@@ -291,6 +291,57 @@ main .sec h2::after,main .close-cta h2::after{content:"";position:absolute;z-ind
   .ocards{max-width:620px}
 }
 
+
+/* ===== luxury checkout ===== */
+dialog#dlg{padding:0;border:0;width:min(560px,calc(100vw - 24px));max-width:none;max-height:min(92vh,900px);margin:auto;border-radius:26px;overflow:hidden;background:var(--bg);box-shadow:0 40px 90px -30px rgba(20,34,21,.6);animation:dgin .4s cubic-bezier(.2,.8,.2,1)}
+dialog#dlg::backdrop{background:rgba(24,36,25,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@keyframes dgin{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+@media (max-width:600px){dialog#dlg{width:100vw;max-width:100vw;margin:auto 0 0;border-radius:26px 26px 0 0;max-height:94vh}}
+dialog#dlg .dg{max-height:min(92vh,900px);overflow:auto;padding:0 max(22px,env(safe-area-inset-right,0px)) calc(26px + env(safe-area-inset-bottom,0px)) max(22px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,var(--cream) 0,#fff 150px)}
+@media (max-width:600px){dialog#dlg .dg{max-height:94vh}}
+dialog#dlg .dg-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:24px 0 14px;margin:0;position:sticky;top:0;background:linear-gradient(180deg,var(--cream) 78%,rgba(248,244,236,0));z-index:2}
+.dg-eb{display:block;font-size:13px;font-weight:800;color:var(--gold-t);letter-spacing:.03em}
+dialog#dlg .dg-h h2{margin:2px 0 4px;font-size:27px;font-weight:800;line-height:1.3}
+.dg-sub{margin:0;font-size:13.5px;color:var(--muted)}
+dialog#dlg .x{flex:none;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:24px;display:grid;place-items:center;transition:background .2s,transform .2s}
+dialog#dlg .x:hover{background:var(--sage-t);transform:rotate(90deg)}
+dialog#dlg .lbl{margin:20px 0 10px;font-size:15px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
+dialog#dlg .lbl::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--gold)}
+.dopts{display:grid;gap:10px}
+.dopt{position:relative;display:flex;align-items:center;gap:12px;width:100%;text-align:start;padding:16px 16px 16px 14px;border:1.5px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);transition:border-color .2s,background .2s,box-shadow .25s,transform .25s}
+.dopt::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #CFC8B8;background:#fff;transition:all .2s;background-position:center;background-repeat:no-repeat}
+.dopt-t{flex:1;min-width:0}
+.dopt-t b{display:block;font-size:17.5px;font-weight:800;line-height:1.4}
+.dopt-t em{display:block;font-style:normal;color:var(--muted);font-size:13.5px}
+.dopt-p{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2}
+.dopt-p s{color:var(--muted);font-size:13px}
+.dopt-p strong{font-size:23px;font-weight:800;color:var(--ink);transition:color .2s}
+.dopt-p small{font-size:13px;font-weight:700}
+.dopt .pop{position:absolute;top:-10px;inset-inline-end:16px;background:var(--gold);color:#fff;font-size:11.5px;font-weight:800;padding:0 11px;border-radius:99px;line-height:1.9}
+.dopt:hover{border-color:var(--green);background:#F6F9F2;transform:translateY(-2px);box-shadow:0 14px 26px -20px rgba(40,84,41,.7)}
+.dopt:hover::before{border-color:var(--green)}
+.dopt[aria-pressed="true"]{border-color:var(--green);background:linear-gradient(180deg,#F1F6EA,#E8F0DF);box-shadow:0 0 0 3px rgba(174,192,149,.4),0 16px 28px -22px rgba(40,84,41,.8)}
+.dopt[aria-pressed="true"]::before{border-color:var(--green);background-color:var(--green);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.5 4.5 8.5-9'/%3E%3C/svg%3E")}
+.dopt[aria-pressed="true"] .dopt-p strong{color:var(--green)}
+.dcols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.dcol{display:flex;flex-direction:column;align-items:center;gap:9px;padding:16px 6px 13px;border:1.5px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);font-weight:700;font-size:15px;transition:border-color .2s,background .2s,box-shadow .25s,transform .25s}
+.sw{width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 1px rgba(30,42,31,.18),inset 0 -6px 10px rgba(0,0,0,.12);transition:transform .25s}
+.sw-black{background:#1d211d}.sw-white{background:#fff}
+.sw-mix{background:conic-gradient(#1d211d 0 25%,#27345B 0 50%,#B9BCB9 0 75%,#fff 0)}
+.dcol:hover{border-color:var(--green);background:#F6F9F2;transform:translateY(-2px);box-shadow:0 14px 26px -20px rgba(40,84,41,.7)}
+.dcol:hover .sw{transform:scale(1.1)}
+.dcol[aria-pressed="true"]{border-color:var(--green);background:linear-gradient(180deg,#F1F6EA,#E8F0DF);box-shadow:0 0 0 3px rgba(174,192,149,.4);color:var(--green);font-weight:800}
+dialog#dlg .field{margin-top:14px}
+dialog#dlg .field label{font-size:14px;font-weight:700;margin-bottom:7px;color:var(--ink)}
+dialog#dlg .field input,dialog#dlg .field select,dialog#dlg .field textarea{min-height:54px;border:1.5px solid #E1DACB;border-radius:14px;background:#fff;padding:12px 16px;font-size:16px;transition:border-color .2s,box-shadow .2s}
+dialog#dlg .field input:focus,dialog#dlg .field select:focus,dialog#dlg .field textarea:focus{outline:0;border-color:var(--green);box-shadow:0 0 0 4px rgba(174,192,149,.35)}
+dialog#dlg .sum{margin:22px 0 6px;padding:6px 18px 4px;background:var(--cream);border:1px solid var(--line);border-radius:16px}
+dialog#dlg .sum div{padding:11px 0;border-top:1px solid rgba(30,42,31,.07)}
+dialog#dlg .sum div:first-child{border-top:0}
+dialog#dlg .sum .t{margin-top:0;font-size:21px;color:var(--green);border-top:1.5px solid rgba(30,42,31,.12);padding:14px 0 12px}
+dialog#dlg #confirm{min-height:58px;font-size:19px;margin-top:16px;box-shadow:0 16px 30px -16px rgba(40,84,41,.8)}
+dialog#dlg .trust{margin-top:16px;font-size:13.5px}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -599,15 +650,22 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
 
 <dialog id="dlg" aria-labelledby="dlg-t">
   <div class="dg">
-    <div class="dg-h"><h2 id="dlg-t">إتمام الطلب</h2><button class="x" id="dlg-x" aria-label="إغلاق">×</button></div>
+    <div class="dg-h">
+      <div><span class="dg-eb">عروض الجمعة البيضاء</span><h2 id="dlg-t">إتمام الطلب</h2><p class="dg-sub">الدفع عند الاستلام · شحن مجاني · تأكيد قبل الشحن</p></div>
+      <button class="x" id="dlg-x" aria-label="إغلاق">×</button>
+    </div>
     <div id="v-form">
-      <span class="lbl" id="lb-o" style="margin-top:6px">العرض</span>
-      <div class="seg" id="seg-o" role="group" aria-labelledby="lb-o">
-        <button type="button" data-offer="1">علبة · 99</button><button type="button" data-offer="1+1">1 + 1 · 149</button><button type="button" data-offer="2+2">2 + 2 · 298</button>
+      <span class="lbl" id="lb-o">اختر عرضك</span>
+      <div class="dopts" id="seg-o" role="group" aria-labelledby="lb-o">
+        <button type="button" class="dopt" data-offer="1" aria-pressed="false"><span class="dopt-t"><b>علبة واحدة</b><em>5 أزواج · الزوج 19.8 ر.س</em></span><span class="dopt-p"><strong>99 <small>ر.س</small></strong></span></button>
+        <button type="button" class="dopt" data-offer="1+1" aria-pressed="true"><span class="pop">الأكثر طلبًا</span><span class="dopt-t"><b>علبة + علبة</b><em>10 أزواج · الزوج 14.9 ر.س</em></span><span class="dopt-p"><s>298 ر.س</s><strong>149 <small>ر.س</small></strong></span></button>
+        <button type="button" class="dopt" data-offer="2+2" aria-pressed="false"><span class="dopt-t"><b>علبتين + علبتين</b><em>20 زوج · الزوج 14.9 ر.س</em></span><span class="dopt-p"><s>596 ر.س</s><strong>298 <small>ر.س</small></strong></span></button>
       </div>
       <span class="lbl" id="lb-c">اللون</span>
-      <div class="seg" id="seg-c" role="group" aria-labelledby="lb-c">
-        <button type="button" data-color="black">أسود</button><button type="button" data-color="white">أبيض</button><button type="button" data-color="mix">مشكّل</button>
+      <div class="dcols" id="seg-c" role="group" aria-labelledby="lb-c">
+        <button type="button" class="dcol" data-color="black"><i class="sw sw-black"></i><span>أسود</span></button>
+        <button type="button" class="dcol" data-color="white"><i class="sw sw-white"></i><span>أبيض</span></button>
+        <button type="button" class="dcol" data-color="mix"><i class="sw sw-mix"></i><span>مشكّل</span></button>
       </div>
       <form id="co" novalidate>
         <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required><p class="msg" hidden></p></div>
