@@ -38,6 +38,7 @@ a{color:var(--green)}
 .thumbs button{flex:none;width:58px;height:58px;border-radius:10px;border:1.5px solid transparent;padding:0;background:var(--cream);overflow:hidden;opacity:.65;transition:opacity .2s,border-color .2s}
 .thumbs button[aria-current="true"]{border-color:var(--green);opacity:1}
 .thumbs img{width:100%;height:100%;object-fit:cover}
+@media (max-width:899px){.slides img{aspect-ratio:5/4}.ann{padding-block:8px}.cdb span{min-width:38px;padding:2px 5px}.cdb b{font-size:16px}.info{padding-top:20px}.price{margin-top:16px}.hsel{margin-top:18px}.cta{margin-top:18px}}
 @media (min-width:900px){.thumbs{padding-inline:0}}
 .info{padding:28px max(20px, env(safe-area-inset-right, 0px)) 56px max(20px, env(safe-area-inset-left, 0px));text-align:center}
 .eyebrow{font-size:14px;font-weight:700;color:var(--gold-t);letter-spacing:.04em}
@@ -66,12 +67,13 @@ h1{font-size:34px;line-height:1.25;margin:6px 0 4px;font-weight:800;color:var(--
 .btn.block{width:100%}
 .btn.ghost{background:transparent;color:var(--green)}
 .btn.ghost:hover{background:var(--sage-t)}
-.cta{margin-top:30px}
+.cta{margin-top:24px}
 .trust{margin:14px 0 0;color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
 .trust span{display:inline-flex;align-items:center;gap:6px}
 .trust svg{width:19px;height:19px;color:var(--green);flex:none}
 .hl{background:var(--green);color:#fff;padding:1px 14px;border-radius:9px;font-weight:800;white-space:nowrap;display:inline-block;line-height:1.5}
-.gift{background:#F4EAD0;color:#5E4915;padding:0 8px;border-radius:6px;font-weight:800;white-space:nowrap}
+.gift,.fs{background:var(--green);color:#fff;padding:0 11px;border-radius:9px;font-weight:800;white-space:nowrap;display:inline-block;line-height:1.5}
+.ann .gift{background:#fff;color:var(--green)}
 .assure{margin:26px auto 0;max-width:400px;text-align:start;border:1px solid var(--line);border-radius:var(--r);background:var(--cream)}
 .as{display:flex;gap:14px;padding:16px 18px;align-items:flex-start}
 .as+.as{border-top:1px solid var(--line)}
@@ -79,6 +81,7 @@ h1{font-size:34px;line-height:1.25;margin:6px 0 4px;font-weight:800;color:var(--
 .as .ic svg{width:22px;height:22px}
 .as b{display:block;font-weight:800;line-height:1.45}
 .as span{display:block;color:var(--muted);font-size:14.5px;line-height:1.65;margin-top:2px}
+.as b .fs{display:inline-block;color:#fff;font-size:inherit;line-height:1.5;margin:0}
 
 @media (min-width:900px){
   .hero{max-width:1080px;margin-inline:auto;padding:40px 20px;grid-template-columns:1fr 1fr;align-items:center;gap:56px}
@@ -134,7 +137,7 @@ h1{font-size:34px;line-height:1.25;margin:6px 0 4px;font-weight:800;color:var(--
 .otl i{flex:1;min-width:14px;height:2px;background:rgba(255,255,255,.35);margin:0 8px;position:relative;overflow:hidden}
 .otl i::after{content:"";position:absolute;inset:0;width:40%;background:#fff;animation:tlrun 2.6s ease-in-out infinite}
 @keyframes tlrun{0%{transform:translateX(-120%)}100%{transform:translateX(320%)}}
-.otl .gift{background:#F4EAD0;color:#5E4915}
+
 @media (prefers-reduced-motion:reduce){.otl i::after{animation:none;width:100%}}
 @media (max-width:560px){.otl{flex-wrap:wrap;gap:2px 12px;font-size:13px}.otl i{display:none}.otl{flex-wrap:nowrap;gap:0 10px;font-size:12.5px}.otl>span{white-space:nowrap;unicode-bidi:isolate}}
 
@@ -161,6 +164,7 @@ h1{font-size:34px;line-height:1.25;margin:6px 0 4px;font-weight:800;color:var(--
 .pay .mc{padding:0 9px;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#444}
 .pay .mc i{display:inline-block;width:15px;height:15px;border-radius:50%;background:#E3342F;opacity:.92}
 .pay .mc i+i{background:#F5A623;margin-inline-start:-7px;opacity:.9}
+.pay .ap svg{color:#111;width:17px;height:17px;margin-inline-end:-2px}
 .pay .ap{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:14px}
 .feats li{font-weight:600;line-height:1.6}
 .feats li small{display:block;font-weight:500;color:var(--muted);font-size:14px;line-height:1.5}
@@ -347,7 +351,6 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
 <div class="ann" id="ann">
   <div class="row"><span>عرض الجمعة البيضاء ينتهي خلال</span>
     <div class="cdb" id="cdb" aria-live="off"><span><b id="cd-d">00</b><small>يوم</small></span><span><b id="cd-h">00</b><small>ساعة</small></span><span><b id="cd-m">00</b><small>دقيقة</small></span><span><b id="cd-s">00</b><small>ثانية</small></span></div></div>
-  <div class="otl" aria-label="العروض المتاحة"><span>علبة 99 ر.س</span><i></i><span>علبة + علبة <span class="gift">مجانًا</span> 149 ر.س</span><i></i><span>4 علب 298 ر.س</span></div>
 </div>
 <header class="top"><img src="img/logo-green.webp" alt="DODOLIZA" width="106" height="34"></header>
 
@@ -361,8 +364,17 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
   <div class="info">
     <div class="eyebrow">عروض الجمعة البيضاء</div>
     <h1>شراب دودوليزا بامبو</h1>
-    <p class="sub">مصمم <span class="hl">لأصحاب السكري</span></p>
+    <p class="sub">مصمم خصيصًا <span class="hl">لأصحاب السكري</span></p>
     <div class="hrate"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>(227) تقييم العملاء</span></div>
+    <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
+    <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
+    <div class="hsel" id="hsel" role="group" aria-label="اختر العرض">
+      <button class="hs" type="button" data-offer="1" aria-pressed="false"><b>علبة</b><em>5 أزواج</em><strong>99 ر.س</strong></button>
+      <button class="hs" type="button" data-offer="1+1" aria-pressed="true"><span class="pop">الأكثر طلبًا</span><b>1 + 1</b><em>10 أزواج</em><s>بدل 298</s><strong>149 ر.س</strong></button>
+      <button class="hs" type="button" data-offer="2+2" aria-pressed="false"><b>2 + 2</b><em>20 زوج</em><s>بدل 596</s><strong>298 ر.س</strong></button>
+    </div>
+    <div class="hsave"><span>كل علبة 5 أزواج</span><span>·</span><span>شحن <span class="fs">مجاني</span></span></div>
+    <div class="cta"><button class="btn" id="hero-cta" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
     <p class="desc">لأن قدم صاحب السكري تحتاج عناية زيادة، صممنا الشراب يعطيك راحة طول اليوم بدون ضغط أو احتكاك.</p>
     <ul class="feats">
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v8l1.5 6.5A3 3 0 0 1 14.6 21H10a3 3 0 0 1-2.9-2.3L8 11z"/><path d="M8 6.5h8"/></svg><span>حافة واسعة بدون أستك ضاغط<small>ما تشد على الساق ولا تترك علامات.</small></span></li>
@@ -371,24 +383,15 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg><span>نانو الفضة لتقليل الروائح<small>انتعاش أكثر للقدم حتى آخر اليوم.</small></span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg><span>مرن ومريح للقدم الحساسة<small>مقاس موحّد (Free Size) يناسب أغلب الأقدام.</small></span></li>
     </ul>
-    <div class="price"><b id="hp-p">149<small>ر.س</small></b><s id="hp-w">298 ر.س</s></div>
-    <p class="ppair" id="hp-l">علبة + علبة <span class="gift">مجانًا</span> · 10 أزواج · سعر الزوج 14.9 ر.س</p>
-    <div class="hsel" id="hsel" role="group" aria-label="اختر العرض">
-      <button class="hs" type="button" data-offer="1" aria-pressed="false"><b>علبة</b><em>5 أزواج</em><strong>99 ر.س</strong></button>
-      <button class="hs" type="button" data-offer="1+1" aria-pressed="true"><span class="pop">الأكثر طلبًا</span><b>1 + 1</b><em>10 أزواج</em><s>بدل 298</s><strong>149 ر.س</strong></button>
-      <button class="hs" type="button" data-offer="2+2" aria-pressed="false"><b>2 + 2</b><em>20 زوج</em><s>بدل 596</s><strong>298 ر.س</strong></button>
-    </div>
-    <div class="hsave"><span>كل علبة 5 أزواج</span><span>·</span><span>شحن <b>مجاني</b></span></div>
-    <div class="cta"><button class="btn" id="hero-cta" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
     <div class="pay" aria-label="طرق الدفع">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/></svg>الدفع عند الاستلام</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span>
       <span class="mc" aria-label="Mastercard"><i></i><i></i></span>
       <span class="visa" aria-label="Visa">VISA</span>
-      <span class="ap" aria-label="Apple Pay">Apple Pay</span>
+      <span class="ap" aria-label="Apple Pay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.9zM14.2 5.8c.6-.8 1.1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></svg>Pay</span>
     </div>
     <div class="assure">
-      <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg></div><div><b>الدفع عند الاستلام</b><span>ما تدفع شي مقدمًا. تدفع للمندوب لما يوصلك طلبك. (تُضاف رسوم 10 ر.س للدفع عند الاستلام)</span></div></div>
-      <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></div><div><b>شحن مجاني</b><span>لجميع مدن المملكة، بدون أي رسوم شحن إضافية على طلبك.</span></div></div>
+      <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg></div><div><b>الدفع عند الاستلام</b><span>ما تدفع شي مقدمًا. تدفع للمندوب لما يوصلك طلبك. (تُضاف رسوم 10 ر.س للدفع عند الاستلام)</span></div></div>
+      <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></div><div><b>شحن <span class="fs">مجاني</span></b><span>لجميع مدن المملكة، بدون أي رسوم شحن إضافية على طلبك.</span></div></div>
       <div class="as"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div><div><b>تأكيد قبل الشحن</b><span>بنتواصل معك على جوالك لتأكيد الطلب والعنوان قبل ما نشحنه.</span></div></div>
     </div>
   </div>
@@ -484,7 +487,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
         <button class="qrow" type="button" data-offer="2+2" aria-pressed="false"><b>2 + 2 <span class="gift">مجانًا</span></b><span>20 زوج · 298 ر.س</span></button>
       </div>
     </div>
-    <div class="offer-cta"><button class="btn block" id="offer-cta" data-open><span id="offer-cta-t">اطلب الآن — 149 ر.س</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p></div>
+    <div class="offer-cta"><button class="btn block" id="offer-cta" data-open><span id="offer-cta-t">اطلب الآن — 149 ر.س</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p></div>
   </div>
 </section>
 
@@ -536,7 +539,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
         <div class="sum" id="sum"></div>
         <p class="msg" id="co-err" hidden></p>
         <button class="btn block" type="submit" id="confirm" style="margin-top:14px">تأكيد الطلب</button>
-        <p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p>
+        <p class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="16.5" height="11" rx="2.2"/><path d="M5.5 4.8h14a2 2 0 0 1 2 2V15" opacity=".45"/><circle cx="10.8" cy="13" r="2.8" stroke="#9C7A2E"/><path d="M10.8 11.8v2.4M10 13h1.6" stroke="#9C7A2E"/><path d="M5.6 10.6v.01M16 15.4v.01"/></svg>الدفع عند الاستلام</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9.5H8.3M4.7 15.5H2V6M13 9h4.4l3.1 3.2v3.3h-1.2M15.7 15.5H13"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>شحن مجاني</span></p>
       </form>
     </div>
     <div class="ok" id="v-ok" hidden>
@@ -713,7 +716,7 @@ $("#co").addEventListener("submit", async e => {
 (function(){
   const bar = $("#bar"), cta = $("#hero-cta"), offers = $("#offers");
   let heroOut = false, offersIn = false;
-  const upd = () => { const on = heroOut && !offersIn; bar.classList.toggle("on", on); bar.setAttribute("aria-hidden", !on); bar.querySelector(".btn").tabIndex = on ? 0 : -1; };
+  const mob = matchMedia("(max-width:899px)"); const upd = () => { const on = (heroOut || mob.matches) && !offersIn; bar.classList.toggle("on", on); bar.setAttribute("aria-hidden", !on); bar.querySelector(".btn").tabIndex = on ? 0 : -1; };
   if (!("IntersectionObserver" in window)) return;
   new IntersectionObserver(([e]) => { heroOut = !e.isIntersecting && e.boundingClientRect.top < 0; upd(); }).observe(cta);
   new IntersectionObserver(([e]) => { offersIn = e.isIntersecting; upd(); }, {threshold:.25}).observe(offers);
