@@ -559,6 +559,10 @@ dialog#dlg .mixnote span{font-size:13.5px;color:var(--muted)}
 .mq .rev.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--cream-2)}
 .mq .rev.ph .by{padding:12px 16px 14px}
 
+/* V28: features timeline */
+.st i svg{display:block}
+.st b{font-size:18px}
+.st span{font-size:16px;color:var(--ink);font-weight:600;opacity:.8}
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -743,13 +747,6 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
   </div>
 </section>
 
-<!-- تجارب العملاء: سلايدر يتحرك -->
-<section class="sec alt" aria-labelledby="r-h" style="padding:44px 0 36px">
-  <div class="w"><h2 id="r-h">تجارب عملائنا</h2><p class="lead" style="margin-bottom:14px">آراء عملاء استلموا طلباتهم.</p><div class="rate"><b>4.9</b><span class="stars" aria-label="4.9 من 5">★★★★★</span><span>من 227 تقييم</span></div></div>
-  <div class="mq" aria-label="آراء العملاء"><div class="mq-t" id="mq"></div></div>
-  <div class="w"><div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div></div>
-</section>
-
 <section class="sec nums" aria-labelledby="n-h">
   <div class="w">
     <h2 id="n-h">بالأرقام</h2>
@@ -764,19 +761,26 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
   </div>
 </section>
 
-<!-- الشاشة 2: أثبت جودة التصميم -->
-<section class="sec alt" aria-labelledby="v-h">
+<section class="sec alt" aria-labelledby="t-h">
   <div class="w">
-    <h2 id="v-h">تجارب عملائنا</h2>
-    <p class="lead">فيديوهات قصيرة من عملاء استخدموا الشراب.</p>
-    <div class="vids" tabindex="0" aria-label="فيديوهات العملاء">
-      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
-      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
-      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
+    <h2 id="t-h">مميزات دودوليزا</h2>
+    <p class="lead">اللي يهم قدمك، من الخامة للراحة.</p>
+    <div class="tl" id="tl">
+      <div class="tl-line"><div class="tl-fill" id="tl-fill"></div></div>
+      <div class="st"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><b>الخامة</b><span>بامبو + نانو الفضة</span></div>
+      <div class="st"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><b>الخياطة</b><span>ناعمة بدون حواف</span></div>
+      <div class="st"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><b>الرطوبة</b><span>يمتص العرق ويجف أسرع</span></div>
+      <div class="st"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><b>الرائحة</b><span>أقل طول اليوم</span></div>
+      <div class="st"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><b>التهوية</b><span>يتنفس</span></div>
+      <div class="st"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><b>الراحة</b><span>ناعم على القدم طول اليوم</span></div>
     </div>
     <div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
   </div>
 </section>
+
+
+
+
 
 <section class="sec" aria-labelledby="c-h">
   <div class="w">
@@ -794,28 +798,34 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
       <div><b>قبل: شراب عادي</b><span>أستك يشد على الساق ويعلّم</span></div>
     </div>
     <p class="ba-note">الصورة اليمين للتوضيح فقط</p>
-    <h2 style="margin-top:34px">دودوليزا مقابل الشراب القطن العادي</h2>
-    <p class="lead">مميزات تهم القدم الحساسة، من الخامة للخياطة للراحة.</p>
-    <div class="vs"><div class="vc us"><div class="im"><img src="img/g-grey-stretch.webp" alt="شراب دودوليزا والحافة الواسعة" loading="lazy" width="500" height="500"></div><div class="hd">دودوليزا</div><dl><div class="rw"><dt>الخامة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>بامبو + نانو الفضة</span></dd></div><div class="rw"><dt>الخياطة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>ناعمة بدون حواف</span></dd></div><div class="rw"><dt>الرطوبة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>يمتص العرق ويجف أسرع</span></dd></div><div class="rw"><dt>الرائحة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>أقل طول اليوم</span></dd></div><div class="rw"><dt>التهوية</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>يتنفس</span></dd></div><div class="rw"><dt>الراحة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg><span>ناعم على القدم طول اليوم</span></dd></div></dl></div><div class="vc them"><div class="im"><img src="img/g-black-stand.webp" alt="شراب قطن عادي (صورة توضيحية)" loading="lazy" width="500" height="500"></div><div class="hd">قطن عادي</div><dl><div class="rw"><dt>الخامة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>قطن عادي</span></dd></div><div class="rw"><dt>الخياطة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>بارزة عند الأصابع</span></dd></div><div class="rw"><dt>الرطوبة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>يحتفظ بالعرق</span></dd></div><div class="rw"><dt>الرائحة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>تبان مع العرق</span></dd></div><div class="rw"><dt>التهوية</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>يحبس الحرارة</span></dd></div><div class="rw"><dt>الراحة</dt><dd><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor" fill-opacity=".12"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>يخشّن ويتعب مع الوقت</span></dd></div></dl></div></div>
     <div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
   </div>
 </section>
 
-<section class="sec alt" aria-labelledby="t-h">
+
+<!-- تجارب العملاء: سلايدر يتحرك -->
+<section class="sec alt" aria-labelledby="r-h" style="padding:44px 0 36px">
+  <div class="w"><h2 id="r-h">تجارب عملائنا</h2><p class="lead" style="margin-bottom:14px">آراء عملاء استلموا طلباتهم.</p><div class="rate"><b>4.9</b><span class="stars" aria-label="4.9 من 5">★★★★★</span><span>من 227 تقييم</span></div></div>
+  <div class="mq" aria-label="آراء العملاء"><div class="mq-t" id="mq"></div></div>
+  <div class="w"><div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div></div>
+</section>
+
+<!-- الشاشة 2: أثبت جودة التصميم -->
+<section class="sec" aria-labelledby="v-h">
   <div class="w">
-    <h2 id="t-h">كيف تطلب؟</h2>
-    <p class="lead">ثلاث خطوات بسيطة وطلبك يوصل لباب بيتك.</p>
-    <div class="tl" id="tl">
-      <div class="tl-line"><div class="tl-fill" id="tl-fill"></div></div>
-      <div class="st"><i>1</i><b>اختر عرضك</b><span>علبة بـ 99 ر.س، أو علبة + علبة مجانًا بـ 149 ر.س، أو 2 + 2 بـ 298 ر.س، مع اللون اللي يناسبك.</span></div>
-      <div class="st"><i>2</i><b>أكمل بياناتك</b><span>اكتب اسمك وعنوانك واختر طريقة الدفع اللي تناسبك.</span></div>
-      <div class="st"><i>3</i><b>استلم طلبك</b><span>الشحن مجاني لحد باب بيتك.</span><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+    <h2 id="v-h">تجارب عملائنا</h2>
+    <p class="lead">فيديوهات قصيرة من عملاء استخدموا الشراب.</p>
+    <div class="vids" tabindex="0" aria-label="فيديوهات العملاء">
+      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
+      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
+      <div class="vid"><div class="p"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><span class="l">مكان فيديو العميل</span></div>
     </div>
+    <div class="scta"><p class="fomo">اطلب قبل انتهاء العرض · <b class="cdt">--:--:--</b></p><button class="btn" data-open><span>اطلب الآن</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
   </div>
 </section>
 
 <!-- الشاشة 3: سهّل قرار الشراء -->
-<section class="sec" id="offers" aria-labelledby="o-h">
+<section class="sec alt" id="offers" aria-labelledby="o-h">
   <div class="w">
     <h2 id="o-h">اختر عرضك</h2>
     <p class="lead">3 عروض، والأوفر لك علبة + علبة: الزوج بـ 14.9 ر.س بدل 19.8 ر.س</p>
@@ -841,7 +851,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
   </div>
 </section>
 
-<section class="sec alt" aria-labelledby="f-h">
+<section class="sec" aria-labelledby="f-h">
   <div class="w">
     <h2 id="f-h">أسئلة شائعة</h2>
     <p class="lead">&nbsp;</p>
