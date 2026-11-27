@@ -5,7 +5,7 @@ head='<!doctype html>\n<html lang="ar" dir="rtl">\n<head>\n<meta charset="utf-8"
 body_open=s  # title/meta/link/style stay in head; rest follows
 # close head before first body element (<div class="ann")
 i=s.index('<div class="ann"')
-out=head+s[:i]+'</head>\n<body>\n'+s[i:]+'\n</body>\n</html>\n'
+out=head+s[:i]+'<script>(function(){var d=document,m=d.createElement("meta");m.name="viewport";m.content="width=device-width,initial-scale=1,viewport-fit=cover";d.head.appendChild(m);d.documentElement.dir="rtl";d.documentElement.lang="ar";})();</script>\n</head>\n<body>\n'+s[i:]+'\n</body>\n</html>\n'
 if len(sys.argv)>1 and sys.argv[1]=="inline":
     out=re.sub(r'(?<=["\(])(img/[a-z0-9-]+\.webp)',lambda m:"data:image/webp;base64,"+base64.b64encode(open(src+m.group(1),"rb").read()).decode(),out)
     open("/tmp/ghp/index.html","w",encoding="utf8").write(out)
