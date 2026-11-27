@@ -542,6 +542,16 @@ dialog#dlg .trust{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
 .price{gap:14px}
 @media (max-width:899px){.price s,.was s{font-size:21px}}
 
+
+/* ===== V25: mixed-colour note ===== */
+dialog#dlg .mixnote{display:flex;align-items:center;gap:12px;margin:12px 0 4px;padding:12px 14px;border-radius:14px;background:#F6F1E2;border:1.5px solid #E3D6AE;animation:mixin .35s cubic-bezier(.2,.8,.2,1)}
+dialog#dlg .mixnote[hidden]{display:none}
+dialog#dlg .mixnote b{display:block;font-size:15px;color:var(--ink)}
+dialog#dlg .mixnote span{font-size:13.5px;color:var(--muted)}
+.mdots{display:grid;grid-template-columns:repeat(2,16px);gap:4px;flex:none;font-style:normal}
+.mdots u{width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 1px rgba(30,42,31,.2)}
+@keyframes mixin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
 /* closing */
 .close-cta{text-align:center;padding:72px 0 84px}
 .close-cta h2{font-size:30px;margin:0 0 8px;font-weight:800}
@@ -872,6 +882,7 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
         <button type="button" class="dcol" data-color="white"><i class="sw sw-white"></i><span>أبيض</span></button>
         <button type="button" class="dcol" data-color="mix"><i class="sw sw-mix"></i><span>مشكّل</span></button>
       </div>
+      <div class="mixnote" id="mixnote" role="status" aria-live="polite" hidden><i class="mdots" aria-hidden="true"><u style="background:#1d1f1d"></u><u style="background:#8f9391"></u><u style="background:#23304f"></u><u style="background:#fff"></u></i><div><b>المشكّل: تشكيلة ألوان في كل علبة</b><span id="mixnote-t"></span></div></div>
       <form id="co" novalidate>
         <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required><p class="msg" hidden></p></div>
         <div class="field"><label for="f-phone">رقم الجوال</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right" required><p class="msg" hidden></p></div>
@@ -909,6 +920,8 @@ dialog::backdrop{background:rgba(30,42,31,.45)}
 const CONFIG = {
   currency: "ر.س",
   coupon: { code:"ONLINE10", pct:10, minSubtotal:100, onlineOnly:true }, // كود الخصم: غيّره من هنا
+  // وصف "المشكّل" (عدّل الألوان/الكلام لو التشكيلة الفعلية مختلفة)
+  mixNote: { "1":"علبة واحدة = 5 أزواج بألوان مختلفة", "1+1":"علبتين = 10 أزواج، وكل علبة فيها تشكيلة ألوان", "2+2":"4 علب = 20 زوج، وكل علبة فيها تشكيلة ألوان" },
   codFee: 10,                       // رسوم الدفع عند الاستلام (إيراد للمتجر)
   offerEnd: "2026-11-30T23:59:59+03:00", // نهاية عرض الجمعة البيضاء (عدّلها لو التاريخ مختلف)
   orderEndpoint: "",                // رابط API لاستقبال الطلبات. فاضي = الطلب لا يُرسل لأي مكان
@@ -1059,6 +1072,7 @@ function renderSum(){
     <div><span>الشحن</span><span>مجاني</span></div>
     <div><span>${r.online ? "رسوم الدفع" : "رسوم الدفع عند الاستلام"}</span><span>${r.fee ? money(r.fee) : "بدون رسوم"}</span></div>
     <div class="t"><span>الإجمالي</span><span>${money(r.total)}</span></div>`;
+  const mn = $("#mixnote"); mn.hidden = st.color !== "mix"; if (st.color === "mix") $("#mixnote-t").textContent = CONFIG.mixNote[st.offer];
   const m = $("#code-msg");
   m.textContent = st.code ? r.msg : "الكود يعمل مع الدفع الأونلاين على الطلبات فوق 100 ر.س";
   m.className = "cmsg" + (st.code ? (r.ok ? " ok" : " bad") : "");
